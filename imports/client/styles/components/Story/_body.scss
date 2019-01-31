@@ -1,0 +1,505 @@
+.mainStoryText {
+font-weight:200;
+line-height:1.65; /* 1.55 */
+word-spacing:0.015em;
+font-size:1.2em;
+width:800px;
+margin-left:13%;
+
+color:rgba(0,0,0,.84);
+/*@import url('https://fonts.googleapis.com/css?family=Archivo');
+font-family: 'Archivo', sans-serif; */
+/*
+font-family:jaf-bernina-sans, sans-serif; */
+
+   /* "San Francisco"
+    "Roboto", "Segoe UI";*/
+
+}
+.storyTags {
+height:37.5px;
+background-color:#f2f2f2;
+border-radius:4px;
+float:left;
+margin-right:10px;
+padding-right:12px;
+padding-left:12px;
+cursor:pointer;
+font-size:0.84em;
+/* 0.98em *; */
+}
+.fullBleedImage {
+  content:url("https://static1.squarespace.com/static/59fb854ccd39c36469316a33/t/5af5ad3d0e2e72299b8d9319/1526050109823/2015OceanAcidification_CO2Graph_web.jpg");
+  height: 150%;
+  width:173.7%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left:-280px;
+  z-index:9500;
+}
+  .fullBleedImage1 {
+  content:url("  https://static1.squarespace.com/static/59fb854ccd39c36469316a33/t/5af5acee8a922d6fd719c5d1/1526050032828/distant-land-ocean-hd-wallpaper.jpg");
+  height: 150%;
+  width:173.7%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left:-280px;
+  z-index:9500;
+}
+bold {
+font-weight:550;
+}
+.aLink {
+/* color:#198658; */
+transition:0.4s;
+border-bottom: 0.9px solid rgba(0, 0, 0, 0.56); /* rgba(25, 134, 88, 0.4); */
+opacity:0.8px;
+cursor:pointer;
+/* text-decoration:underline; */
+}
+.aLink:hover {
+ opacity:0.5;
+}
+inquote {
+-webkit-box-decoration-break: clone;
+box-decoration-break: clone;
+/* padding-left:60px; Padding will be added when needed */
+color:#6e6e6e;
+letter-spacing:0.05em;
+line-height:1.7em;
+font-size:1.08em;
+}
+ul {
+padding: 0;
+list-style-type: none;
+}
+ol {
+padding: 0;
+}
+hightlight {
+background-color:rgba(101, 235, 172, 0.18);
+padding:1.5px;
+transition:0.4s;
+}
+hightlight:hover {
+background-color:rgba(61, 195, 132, 0.18);
+}
+.staffPicksHov {
+transition:0.4s;
+}
+.staffPickHov:hover {
+cursor:pointer;
+color:#000;
+}
+
+/* STAFF PICK TOOLTIP */
+.staffTooltip {
+  padding-bottom:-8px;
+  margin-bottom:-8px;
+}
+
+.staffTooltip .staffTooltiptext {
+  visibility: hidden;
+  width: 350px;
+  height:214px; /* 349px */
+  background-color: #ffffff;
+  color:#000000;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute; /*ab*/
+  margin-top:-19px;
+  top: 99.5px; /* 104px */
+  top:75%;
+  left: 9.2%;
+border: 1px solid #dcdcdc;
+  transition-delay: 0.8s; /* 0.55 */
+  z-index:10005;
+
+ -webkit-box-shadow: 0px 2px 1px -1px #d2d2d2;
+ -moz-box-shadow:    0px 2px 1px -1px #d2d2d2;
+ box-shadow:         0px 2px 1px -1px #d2d2d2;
+}
+.staffTooltip .staffTooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -0px;
+  z-index:10004;
+
+}
+.staffBelowTooltipborder {
+  visibility:hidden;
+  content: "";
+  position: absolute;
+  margin-top:69px;
+  top: 300px; /* 64.8% */ /* 77% 30/04/18 */
+  left: 30.5%;
+  margin-left: 6px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+  transition-delay: 0.8s; /* 0.55 */
+  z-index:10006;
+}
+.staffTooltipborder {
+  visibility:hidden;
+  content: "";
+  position: absolute;
+  margin-top:60px;
+  top: 308px; /* 64.8% */ /* 76.5 (30/04/18) */
+  left:30%;    /* 30%; */
+  margin-left: 7px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #dcdcdc transparent transparent transparent; /* dcdcdc */
+  transition-delay: 0.8s; /* 0.55 */
+  z-index:10004;
+}
+.staffTooltip:hover .staffTooltipborder {
+visibility: visible;
+  transition-delay: 0.9s;
+}
+.staffTooltip:hover .staffBelowTooltipborder {
+visibility: visible;
+  transition-delay: 0.9s;
+}
+.staffTooltip:hover .staffTooltiptext {
+  visibility: visible;
+  transition-delay: 0.9s;
+}
+.staffTooltiptext:hover  {
+  visibility: visible;
+  transition-delay: 0s;
+}
+.staffTooltiptext:hover .staffTooltipborder  {
+  visibility: visible;
+  transition-delay: 0s;
+}
+.staffTooltiptext:hover .staffBelowTooltipborder  {
+  visibility: visible;
+  transition-delay: 0s;
+}
+/* ------ */
+
+
+.innerStoryTag {
+color:#555555;
+font-weight:100;
+margin-bottom:-12px;
+margin-left:10px;
+}
+.storyTags:hover {
+background-color:#ebebeb;
+}
+.mainStorySubtitle {
+font-size:2.36em;
+margin-bottom:5px;
+letter-spacing:0.011em;
+/* font-family:Libre Franklin; */
+/* font-weight:bold; */
+font-weight:500;
+}
+smallSubtitle {
+color:#000;
+font-size:1.83em;
+letter-spacing:0.014em;
+font-weight:550;
+}
+.floatLeftImage {
+margin-top:7px;
+position:relative;
+margin-left:-80px;
+margin-right:50px;
+margin-bottom:18px;
+}
+/*jaf-bernina-sans, sans-serif;*/
+
+.storyImageSubtitle {
+font-size:1.14em;
+color:#828282;
+text-align:center;
+font-weight:400;
+}
+.quoteBorder {
+border-left:3px solid #cdcdcd;
+margin-top:-14px;
+height:138px;
+position:absolute;
+}
+
+.shareNumSide {
+color:#bfbfbf;
+user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  font-size:0.82em; float:left; margin-top:-4px; margin-left:13px;
+}
+.shareImageSide {
+color:#e2e2e2;
+width:21px; height:21px; float:left; margin-left:12px; margin-top:-6px; font-size:1.25em;
+}
+.sideSharesHov {
+  transition:0.25s;
+}
+.sideSharesHov:hover .shareNumSide  {
+color:#15a05c;
+}
+.sideSharesHov:hover .shareImageSide  {
+color:#15a05c;
+}
+.sideSharesHov {
+  margin-bottom:58px; cursor:pointer;
+}
+
+.commentNumSide {
+color:#bfbfbf;
+user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+font-size:0.82em; float:left; margin-top:10px; margin-left:13px;
+}
+.commentImageSide {
+color:#e2e2e2; font-size:1.25em; clear:both;
+width:22px; height:20px; float:left; margin-left:9px; margin-top:8px;
+}
+.sideCommentsHov {
+  cursor:pointer;
+  clear:both;
+  transition:0.25s;
+}
+.sideCommentsHov:hover .commentNumSide  {
+color:#15a05c;
+}
+.sideCommentsHov:hover .commentImageSide  {
+color:#15a05c;
+}
+.divSocialHovtt {
+display:flex;
+justify-content:center;
+font-size:50px;
+transition:1s ease;
+}
+.divSocialHovtt:hover svg * {
+fill: url(#rgyt);
+}
+
+.divSocialHovtts {
+display:flex;
+justify-content:center;
+font-size:50px;
+transition:1s ease;
+}
+.divSocialHovtts:hover svg * {
+fill: url(#rgys);
+}
+.divSocialHovttk {
+display:flex;
+justify-content:center;
+font-size:50px;
+transition:1s ease;
+}
+.divSocialHovttk:hover svg * {
+fill: url(#rgyl);
+}
+.divSocialHovttrw {
+display:flex;
+justify-content:center;
+font-size:50px;
+transition:1s ease;
+}
+.divSocialHovttrw:hover svg * {
+fill: url(#rgysy);
+}
+
+.divSocialHovttrww {
+display:flex;
+justify-content:center;
+font-size:50px;
+transition:1s ease;
+}
+.divSocialHovttrww:hover svg * {
+fill: url(#rgysrr);
+}
+
+.divSocialHovttrwwt {
+display:flex;
+justify-content:center;
+font-size:50px;
+transition:1s ease;
+}
+.divSocialHovttrwwt:hover svg * {
+fill: url(#wrq);
+}
+
+.divSocialHovun {
+display:flex;
+justify-content:center;
+font-size:50px;
+transition-delay: 2s;
+}
+.divSocialHovun:hover svg * {
+fill: url(#yrq);
+opacity:0.8;
+transition-delay: 2s;
+}
+.divSocialHov {
+display:flex;
+justify-content:center;
+font-size:50px;
+color:black;
+}
+.gradient3 {
+color:red;
+}
+
+.divSocialHov:hover svg * {
+fill: url(#rg);
+}
+.divSocialHovjs {
+display:flex;
+justify-content:center;
+font-size:1em;
+color:black;
+}
+.divSocialHovjs:hover .hovTwitterTitleL {
+ background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0.05, #2aa3f0), color-stop(0.15, #399ceb), color-stop(1, #c4d6f1) );
+
+background-image: gradient( linear, left bottom, right top, color-stop(0.05, #2aa3f0), color-stop(0.15, #399ceb), color-stop(1, #c4d6f1) );
+
+color:transparent;
+-webkit-background-clip: text;
+background-clip: text;
+}
+.divSocialHovjsetsr:hover .hovFacebookTitleL2 {
+
+  background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0, #7797d4), color-stop(0.4, #81a1de), color-stop(0.5, #8babe8), color-stop(0.75, #8bb5f2), color-stop(0.85, #8bb5f2), color-stop(1, #b9e2ff), color-stop(1, #c3ecf5), color-stop(1, #cdf6ff) );
+background-image: gradient( linear, left bottom, right top, color-stop(0, #7797d4), color-stop(0.4, #81a1de), color-stop(0.5, #8babe8), color-stop(0.75, #8bb5f2), color-stop(0.85, #8bb5f2), color-stop(1, #b9e2ff), color-stop(1, #c3ecf5), color-stop(1, #cdf6ff) );
+color:transparent;
+-webkit-background-clip: text;
+background-clip: text;
+}
+.divSocialHovjsetsrt2:hover .hovRedditTitleL22 {
+
+background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0.1, #E24135), color-stop(0.3, #EA4B35), color-stop(0.4, #ef4b49), color-stop(0.5, #F95549), color-stop(0.6, #FF693F), color-stop(0.81, #FF7D57), color-stop(0.84, #FF875D), color-stop(0.89, #FF9162), color-stop(0.91, #FF9B6C), color-stop(0.98, #FFA57B) );
+
+background-image: gradient( linear, left bottom, right top, color-stop(0.1, #E24135), color-stop(0.3, #EA4B35), color-stop(0.4, #ef4b49), color-stop(0.5, #F95549), color-stop(0.6, #FF693F), color-stop(0.81, #FF7D57), color-stop(0.84, #FF875D), color-stop(0.89, #FF9162), color-stop(0.91, #FF9B6C), color-stop(0.98, #FFA57B) );
+
+color:transparent;
+-webkit-background-clip: text;
+background-clip: text;
+}
+
+.divSocialHovTumblr:hover .hovTumblrTitleL {
+
+  background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0.1, #415266), color-stop(0.5, #697a8e), color-stop(0.65, #647589), color-stop(0.74, #78899D), color-stop(0.83, #8C9DB1), color-stop(0.86, #96A7BB), color-stop(0.89, #A0B1C5), color-stop(0.92, #B4C5D9), color-stop(0.93, #BECFE3), color-stop(0.95, #C8D9ED) );
+
+background-image: gradient( linear, left bottom, right top, color-stop(0.1, #415266), color-stop(0.5, #697a8e), color-stop(0.65, #647589), color-stop(0.74, #78899D), color-stop(0.83, #8C9DB1), color-stop(0.86, #96A7BB), color-stop(0.89, #A0B1C5), color-stop(0.92, #B4C5D9), color-stop(0.93, #BECFE3), color-stop(0.95, #C8D9ED) );
+color:transparent;
+-webkit-background-clip: text;
+background-clip: text;
+}
+.divSocialHovMail:hover .hovMailTitleLL {
+
+  background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0.1, #2588d7), color-stop(0.25, #399be1), color-stop(0.3, #2588d7), color-stop(0.75, #4daff5) );
+
+background-image: gradient( linear, left bottom, right top, color-stop(0.1, #2588d7), color-stop(0.25, #399be1), color-stop(0.3, #2588d7), color-stop(0.75, #4daff5) );
+
+color:transparent;
+-webkit-background-clip: text;
+background-clip: text;
+}
+.divSocialHovReddit:hover .hovRedditTitleL4 {
+
+background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0.4, #ff6f46), color-stop(0.6, #ff8364), color-stop(0.75, #ff9778), color-stop(0.87,	#ffab8c), color-stop(0.94, #ffd3b4), color-stop(0.97, 	#ffe7d2) );
+
+background-image: gradient( linear, left bottom, right top, color-stop(0.4, #ff6f46), color-stop(0.6, #ff8364), color-stop(0.75, #ff9778), color-stop(0.87,	#ffab8c), color-stop(0.94, #ffd3b4), color-stop(0.97, 	#ffe7d2) );
+
+color:transparent;
+-webkit-background-clip: text;
+background-clip: text;
+}
+.staffPickText:hover {
+
+}
+.storyBody__margins {
+  margin-top:-75px; display:inline-block;
+    display:-moz-inline-block; margin-left:15px; margin-right:-85px;
+}
+.storyBody__tagsTopDiv {
+  color:#555555; font-weight:500; margin-top:2px; letter-spacing:0.013em;
+}
+.storyBody__tagsInnerDiv {
+  height:8px;
+}
+.storyBody__topSpacing {
+  height:0px; margin-top:-150px; clear:both;
+}
+.storyBody__topDiv {
+ margin-left:75px; position:absolute; left:50px;
+}
+.storyBody__topDivFixed {
+ margin-left:75px; top:25%; position:fixed;
+}
+.storyBody__facebookHover {
+  width:27.5px; height:27.5px; color:#e1e1e1; cursor:pointer;
+}
+.storyBody__twitterHover {
+  width:27.5px; height:27.5px;  color:#e1e1e1; margin-top:-26px; cursor:pointer;
+}
+.storyBody__redditIconSide {
+  cursor:pointer; width:27.5px; height:27.5px; color:#e1e1e1; margin-top:-31px; cursor:pointer;
+}
+.storyBody__pinterestIcon {
+  width:27.5px; height:27.5px; color:#e1e1e1; margin-top:-29px; cursor:pointer;
+}
+.storyBody__tumblrIcon {
+  width:27px; height:27px; color:#e1e1e1; margin-top:-28px; cursor:pointer;
+}
+.storyBody__googlePlusIcon {
+  width:31.5px; height:31.5px; color:#e1e1e1; margin-top:-29px; cursor:pointer; margin-left:6px;
+}
+.storyBody__mailIcon {
+  width:26.5px; height:26.5px; color:#d7d7d7; margin-top:-29px; cursor:pointer;
+}
+.storyBody__socialSidebarHr {
+  color:#dcdcdc; background-color:#dcdcdc; height:2px; margin-left:5px; border:none; margin-bottom:21px; width:58px; margin-top:-9px;
+}
+.storyBody__socialSidebarHrTop {
+  color:#dcdcdc; background-color:#dcdcdc; height:2px; margin-left:5px; border:none; margin-bottom:-2px; width:58px; margin-top:10px;
+}
+.storyBody__topLikeButton {
+  font-size:1.75em; color:#e1e1e1; cursor:pointer; margin-left:20px; transition:0.25s;
+}
+.storyBody__topLikeButtonLiked {
+  font-size:1.75em; color:#15a05c; cursor:pointer; margin-left:20px; transition:0.25s;
+}
+.storyBody__topLikeButtonStatic {
+  font-size:1.75em; color:#e1e1e1; cursor:pointer; margin-left:16px; transition:0.25s;
+}
+.storyBody__topLikeButtonStaticLiked {
+  font-size:1.75em; color:#15a05c; cursor:pointer; margin-left:16px; transition:0.25s;
+}
+.storyBody__topLikeButton:hover {
+
+}
+.storyBody__topLikeButtonLiked:hover {
+
+}
+.story__veryBottomSpacing {
+  margin-top:200px; height:100px;
+}
+.storyBody__socialIconsStatic {
+position:relative; left:-142px;
+}
+.marginLeftTags {
+  position:relative;
+  left: 21.2vw;
+  margin-top:13px;
+}

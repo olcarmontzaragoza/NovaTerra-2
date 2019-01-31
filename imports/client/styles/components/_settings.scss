@@ -1,0 +1,614 @@
+.settings__boxButton {
+  border:1px solid #e1e1e1;
+  height:40px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  font-weight:550;
+  line-height:1.2;
+  margin-top:-1px;
+
+  margin-bottom:0px;
+  transition:0.1s;
+
+  @media screen and (min-width: 705px) {
+    float:left;
+    width:200px;
+    height:80px;
+    padding:16px;
+    font-size:1em;
+    margin-right:-1px;
+
+  }
+  @media screen and (max-width: 705px) {
+    float:left;
+    width:160px;
+    height:70px;
+    font-size:0.95em;
+    padding:4px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 680px) {
+    float:left;
+    width:140px;
+    height:62px;
+    font-size:0.9em;
+    padding:0px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 595px) {
+    float:left;
+    width:120px;
+    height:58px;
+    font-size:0.85em;
+    padding:0px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 518px) {
+    float:left;
+    width:110px;
+    height:54px;
+    font-size:0.8em;
+    padding:0px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 465px) {
+    float:left;
+    width:95px;
+    height:51px;
+    font-size:0.7em;
+    padding:0px;
+    margin-right:-1px;
+  }
+}
+.settings__boxButtonSelected {
+  background-color:#e1e1e1;
+  transition:0.1s;
+}
+.settings__boxText {
+  color:#7d7d7d;
+  float:left;
+
+  -webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+
+@media screen and (max-width: 680px) {
+  margin-top:1px;
+}
+@media screen and (max-width: 595px) {
+margin-top:2px;
+}
+@media screen and (max-width: 519px) {
+margin-top:2px;
+}
+@media screen and (max-width: 465px) {
+margin-top:2px;
+}
+}
+.settings__centeringTopDiv {
+position:relative;
+
+@media screen and (max-width: 1090px) {
+  left:11vw;
+}
+@media screen and (max-width: 1000px) {
+  left:9vw;
+}
+@media screen and (max-width: 970px) {
+  left:7vw;
+}
+@media screen and (max-width: 925px) {
+  left:5vw;
+}
+@media screen and (max-width: 880px) {
+  left:3vw;
+}
+@media screen and (max-width: 805px) {
+  left:2vw;
+}
+}
+.settings__leftBox {
+  float:left;
+
+  @media screen and (min-width: 1090px) {
+    margin-left:160px;
+  }
+  @media screen and (max-width: 1090px) {
+    margin-left:0px;
+  }
+  @media screen and (max-width: 705px) {
+    margin-left:0px;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 680px) {
+    position:relative;
+    left:5vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 650px) {
+    position:relative;
+    left:3vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 635px) {
+    position:relative;
+    left:1.5vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 610px) {
+    position:relative;
+    left:0vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 595px) {
+    position:relative;
+    left:5.3vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 560px) {
+    position:relative;
+    left:3.3vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 545px) {
+    position:relative;
+    left:1.5vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 530px) {
+    position:relative;
+    left:0.5vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 518px) {
+    position:relative;
+    left:5px;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 480px) {
+    position:relative;
+    left:-5px;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 465px) {
+    position:relative;
+    left:5.4vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 455px) {
+    position:relative;
+    left:3.9vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 440px) {
+    position:relative;
+    left:2.3vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 430px) {
+    position:relative;
+    left:1vw;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+  @media screen and (max-width: 419px) {
+    position:relative;
+    left:-1px;
+    clear:both;
+    flex-direction: row;
+    display:flex;
+    margin-top:-70px;
+    margin-bottom:140px;
+  }
+}
+.settings__boxclearBoth {
+  @media screen and (min-width: 705px) {
+    clear:both;
+  }
+}
+.settings__rightBox {
+  float:left;
+  margin-top:-73px;
+
+  @media screen and (min-width: 705px) {
+    margin-left:50px;
+  }
+  @media screen and (max-width: 705px) {
+    position:relative;
+    left:9.4vw;
+  }
+  @media screen and (max-width: 680px) {
+    position:relative;
+    left:10.3vw;
+  }
+  @media screen and (max-width: 650px) {
+    position:relative;
+    left:8.3vw;
+  }
+  @media screen and (max-width: 460px) {
+    position:relative;
+    left:9vw;
+  }
+  @media screen and (max-width: 420px) {
+    position:relative;
+    left:8.4vw;
+  }
+}
+button:focus {
+  outline:0;
+}
+input:focus {
+  outline:0;
+}
+textarea:focus {
+  outline:0;
+}
+.settings__sideIcon {
+  float:left;
+  color:#7d7d7d;
+  cursor:pointer;
+  transition:0.45s;
+
+  @media screen and (min-width: 680px) {
+    margin-right:8px;
+    margin-left:38px;
+    margin-top:0px;
+    font-size:1.45em;
+  }
+  @media screen and (max-width: 680px) {
+    margin-right:8px;
+    margin-left:33px;
+    margin-top:0px;
+    font-size:1.45em;
+  }
+  @media screen and (max-width: 595px) {
+    margin-right:8px;
+    margin-left:26px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+  @media screen and (max-width: 519px) {
+    margin-right:8px;
+    margin-left:22px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+  @media screen and (max-width: 465px) {
+    margin-right:7px;
+    margin-left:18px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+}
+.settings__sideIconHelp {
+  float:left;
+  color:#7d7d7d;
+  cursor:pointer;
+  transition:0.45s;
+
+  @media screen and (min-width: 680px) {
+    margin-right:8px;
+    margin-left:38px;
+    margin-top:0px;
+    font-size:1.45em;
+  }
+  @media screen and (max-width: 680px) {
+    margin-right:8px;
+    margin-left:39px;
+    margin-top:0px;
+    font-size:1.45em;
+  }
+  @media screen and (max-width: 595px) {
+    margin-right:8px;
+    margin-left:31px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+  @media screen and (max-width: 519px) {
+    margin-right:8px;
+    margin-left:27px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+  @media screen and (max-width: 465px) {
+    margin-right:7px;
+    margin-left:23px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+}
+.settings__sideIconLogout {
+  float:left;
+  font-size:1.45em;
+  color:#7d7d7d;
+  cursor:pointer;
+  transition:0.45s;
+
+  @media screen and (min-width: 680px) {
+    margin-right:8px;
+    margin-left:38px;
+    margin-top:0px;
+    font-size:1.45em;
+  }
+  @media screen and (max-width: 680px) {
+    margin-right:8px;
+    margin-left:30px;
+    margin-top:0px;
+    font-size:1.45em;
+  }
+  @media screen and (max-width: 595px) {
+    margin-right:8px;
+    margin-left:22px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+  @media screen and (max-width: 519px) {
+    margin-right:8px;
+    margin-left:19px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+  @media screen and (max-width: 465px) {
+    margin-right:7px;
+    margin-left:16px;
+    margin-top:1px;
+    font-size:1.35em;
+  }
+}
+.settings__mainMargins {
+  margin-top:130px
+}
+.settings__mainTitle {
+  color:#7d7d7d;
+
+  @media screen and (min-width: 465px) {
+  font-size:1.5em;
+  }
+  @media screen and (max-width: 519px) {
+  font-size:1.46em;
+  }
+}
+.settings__mainHr {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-bottom:34px;
+
+  @media screen and (min-width: 880px) {
+    width:520px;
+  }
+  @media screen and (max-width: 880px) {
+    width:398px;
+  }
+  @media screen and (max-width: 705px) {
+    width:72vw;
+    margin-left:0px;
+  }
+  @media screen and (max-width: 395px) {
+    width:397px;
+  }
+}
+.settings__rightSubtitle {
+  color:#7d7d7d;
+  font-size:0.97em;
+  margin-top:15px;
+  margin-bottom:-8px;
+}
+.settings__mainAuthorTextArea {
+  height:41px;
+  width:300px;
+  font-size:1.05em;
+  padding-left:10px;
+  border-radius:2px;
+  border:0.5px solid #dedede;
+  cursor:default;
+  margin-bottom:8px;
+  margin-top:14px;
+  -webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+.settings__marginBottomAboveSave {
+  height:20px;
+}
+.settings__saveButton {
+  border:none;
+  color:#15a05c;
+  cursor:pointer;
+  font-size:1em;
+  padding:16px;
+  font-weight:550;
+  line-height:1.2;
+  margin-top:3px;
+  margin-bottom:3px;
+  transition:0.25s;
+  -webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+.settings__verifyButton {
+  border-radius:5px;
+  border: 1px solid #15a05c;
+  color:#15a05c;
+  width:70px;
+  font-size:0.855em;
+  cursor:pointer;
+  opacity:0.8;
+  height:33px;
+  -webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+transition:0.2s;
+
+@media screen and (min-width: 512px) {
+  margin-top:46px;
+  margin-left:-6px;
+}
+@media screen and (max-width: 512px) {
+  margin-top:10px;
+  margin-left:0px;
+}
+}
+.settings__floatLeftVerify {
+  @media screen and (min-width: 512px) {
+    float:left;
+  }
+  @media screen and (max-width: 512px) {
+    clear:both;
+  }
+}
+.settings__verifyButton:hover {
+transition:0.2s;
+color:#000;
+border-color:#000;
+}
+.settings__privacyParagraph {
+  color:#7d7d7d;
+
+  @media screen and (min-width: 880px) {
+    width:520px;
+  }
+  @media screen and (max-width: 880px) {
+    width:398px;
+  }
+  @media screen and (max-width: 570px) {
+    width:72vw;
+    font-size:0.98em;
+  }
+}
+.profileUpdatingError {
+  color:#000;
+  margin-top:-5px;
+  margin-bottom:20px;
+}
+.settings__positioningErrorBox {
+  margin-top:-9px;
+  margin-bottom:23px;
+}
+.login__successBox {
+  opacity:0.8;
+  color:#fff;
+  background-color:#15a05c;
+  height:40px;
+  width:313px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:3px;
+  font-size:0.83em;
+  margin-top:2px;
+  margin-bottom:5px;
+}
+.settings__editProfile {
+  color:#15a05c;
+  cursor:pointer;
+  margin-bottom:30px;
+  transition:0.17s;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  font-size:1em;
+}
+.settings__editProfile:hover {
+  color:#000;
+  transition:0.17s;
+}
+.settings__cancelProfile {
+  color:#C92828;
+  cursor:pointer;
+  margin-bottom:30px;
+  transition:0.17s;
+
+  -webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+font-size:1em;
+}
+.settings__cancelProfile:hover {
+  color:#000;
+  transition:0.17s;
+}
+.settings__slashSaveCancel {
+  color:#7d7d7d;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  font-size:1em;
+}

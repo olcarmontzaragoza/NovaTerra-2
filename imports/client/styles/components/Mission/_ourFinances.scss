@@ -1,0 +1,219 @@
+.mission__ourFinancesBox {
+width:85vw;
+height:1355px;
+margin-top:60px;
+border-radius:5px;
+background: #F2994A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F2C94C, #F2994A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F2C94C, #F2994A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+@media screen and (min-width: 960px) {
+margin-left:7.1vw;
+}
+@media screen and (max-width: 960px) {
+margin-left:6.9vw;
+}
+@media screen and (max-width: 900px) {
+margin-left:-8px;
+width:100vw;
+}
+@media screen and (max-width: 610px) {
+  margin-left:-8px;
+  width:100vw;
+  height:1665px;
+}
+// @media screen and (max-width: 650px) {
+// margin-left:6.3vw;
+// }
+// @media screen and (max-width: 440px) {
+// margin-left:6vw;
+// }
+
+}
+.mission__revenueModelImage {
+  width:200px;
+
+    float:left;
+
+  @media screen and (max-width: 1050px) {
+  width:175px;
+  }
+  @media screen and (max-width: 780px) {
+  width:165px;
+  }
+  @media screen and (max-width: 610px) {
+  margin-left:72px;
+  clear:both;
+  margin-bottom:-19px;
+  }
+}
+.mission__revenueModelImageRight {
+  width:200px;
+  margin-left:21px;
+    float:left;
+
+  @media screen and (max-width: 1050px) {
+  width:175px;
+  margin-left:19px;
+  }
+  @media screen and (max-width: 780px) {
+  width:165px;
+  margin-left:19px;
+  }
+  @media screen and (max-width: 610px) {
+  display:none;
+  }
+}
+.mission__revenueModelImageRightAbove {
+  width:165px;
+  margin-left:21px;
+    float:left;
+
+  @media screen and (min-width: 611px) {
+  display:none;
+  }
+  @media screen and (max-width: 610px) {
+  margin-left:72px;
+  clear:both;
+margin-bottom:-21px;
+  }
+}
+.mission__sustainableAds {
+  margin-top:10px;
+  position:relative;
+  left:11vw;
+
+  @media screen and (max-width: 1175px) {
+  left:9vw;
+  }
+  @media screen and (max-width: 1070px) {
+  left:6.9vw;
+  }
+  @media screen and (max-width: 900px) {
+  left:13vw;
+  }
+  @media screen and (max-width: 850px) {
+  left:12vw;
+  }
+  @media screen and (max-width: 825px) {
+  left:10.9vw;
+  }
+  @media screen and (max-width: 790px) {
+  left:9.7vw;
+  }
+  @media screen and (max-width: 780px) {
+  left:8.7vw;
+  }
+  @media screen and (max-width: 720px) {
+  left:7.5vw;
+  }
+  @media screen and (max-width: 680px) {
+  left:6.5vw;
+  }
+  @media screen and (max-width: 670px) {
+  left:7.3vw;
+  }
+  @media screen and (max-width: 635px) {
+  left:5.3vw;
+  }
+  @media screen and (max-width: 620px) {
+  left:4vw;
+  }
+  @media screen and (max-width: 610px) {
+  left:18.5vw;
+  }
+  @media screen and (max-width: 590px) {
+  left:16.5vw;
+  }
+  @media screen and (max-width: 555px) {
+  left:14vw;
+  }
+  @media screen and (max-width: 490px) {
+  left:11.2vw;
+  }
+  @media screen and (max-width: 455px) {
+  left:9.2vw;
+  }
+  @media screen and (max-width: 440px) {
+  left:7.2vw;
+  }
+}
+.mission__ourFinancesTextRight {
+  float:left;
+  margin-left:25px;
+  margin-top:39px;
+
+  @media screen and (max-width: 1050px) {
+  margin-top:30px;
+  }
+  @media screen and (max-width: 780px) {
+  margin-left:20px;
+  }
+  @media screen and (max-width: 610px) {
+  clear:both;
+  }
+}
+.mission__ourFinancesTitle {
+  font-size:1.3em;
+  margin-bottom:6px;
+  color:#15a05c;
+
+  @media screen and (max-width: 975px) {
+  font-size:1.25em;
+  }
+}
+.mission__ourFinancesDescription {
+  font-size:0.95em;
+  width:350px;
+
+  @media screen and (max-width: 975px) {
+  width:280px;
+  font-size:0.92em;
+  line-height:1.33;
+  }
+}
+.mission__ourFinancesMainHeader {
+margin-top:5px;
+margin-bottom:35px;
+// margin-left:105px;
+display:flex;
+justify-content:center;
+font-size:2.25em;
+
+@media screen and (max-width: 650px) {
+font-size:1.9em;
+}
+}
+.mission__ourFinancesBackground {
+  margin-top:20px;
+  background-color:#fff;
+  width:880px;
+  height:930px;
+  border-radius:5px;
+
+  @media screen and (min-width: 900px) {
+  width:68.8vw;
+  }
+  @media screen and (max-width: 900px) {
+  width:83.5vw;
+  }
+  @media screen and (max-width: 670px) {
+  width:87vw;
+  }
+  @media screen and (max-width: 533px) {
+  width:87vw;
+  }
+  @media screen and (max-width: 500px) {
+  width:89vw;
+  }
+  @media screen and (max-width: 610px) {
+  width:89vw;
+  height:1230px;
+  }
+}
+.mission__ourSpendingModelSpacing {
+  height:50px;
+}
+.mission__ourSpendingModelInnerSpacing {
+  height:40px;
+}

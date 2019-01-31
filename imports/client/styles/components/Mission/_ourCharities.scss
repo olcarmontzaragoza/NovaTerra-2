@@ -1,0 +1,430 @@
+.mission__ourCharitiesBox {
+width:85vw;
+height:1692px;
+margin-top:60px;
+border-radius:5px;
+background: #c94b4b;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4b134f, #c94b4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+@media screen and (min-width: 960px) {
+margin-left:7.1vw;
+}
+@media screen and (max-width: 960px) {
+margin-left:6.9vw;
+}
+@media screen and (max-width: 900px) {
+margin-left:-8px;
+width:100vw;
+}
+// @media screen and (max-width: 650px) {
+// margin-left:6.3vw;
+// }
+// @media screen and (max-width: 440px) {
+// margin-left:6vw;
+// }
+}
+.mission__graphWidths {
+  float:left;
+  margin-left:-22px;
+  // margin-top:30px;
+
+  @media screen and (min-width: 1252px) {
+    width:42vw;
+    margin-right:-50px;
+    margin-top:48px;
+  }
+  @media screen and (max-width: 1252px) {
+    width:40vw;
+  }
+  @media screen and (max-width: 1080px) {
+    width:44vw;
+    margin-right:-25px;
+    margin-left:-82px;
+  }
+  @media screen and (max-width: 1030px) {
+    width:41vw;
+    margin-right:-25px;
+    margin-left:-82px;
+  }
+  @media screen and (max-width: 965px) {
+    width:41vw;
+    margin-right:-25px;
+    margin-left:-99px;
+  }
+  @media screen and (max-width: 900px) {
+    width:54vw;
+    margin-right:-25px;
+    margin-left:-97px;
+  }
+  @media screen and (max-width: 825px) {
+    width:51vw;
+    margin-right:-25px;
+    margin-left:-97px;
+  }
+  @media screen and (max-width: 775px) {
+    width:78vw;
+    margin-right:-25px;
+    margin-left:23px;
+  }
+  @media screen and (max-width: 670px) {
+    width:81.5vw;
+    margin-right:-25px;
+    margin-left:20px;
+  }
+  @media screen and (max-width: 547px) {
+    width:81.5vw;
+    margin-right:-25px;
+    margin-left:15px;
+  }
+}
+.mission__charityColours {
+  float:left;
+  width:300px;
+  margin-left:30px;
+  margin-top:100px;
+
+  @media screen and (max-width: 775px) {
+  display:none;
+  }
+}
+.mission__charityColoursMobile {
+  position:relative;
+  left:7vw;
+  margin-top:30px;
+
+  @media screen and (min-width: 775px) {
+  display:none;
+  }
+  @media screen and (max-width: 720px) {
+  left:16px;
+  }
+}
+.ourCharitiesMobileBox {
+width:200px;
+margin-bottom:20px;
+margin-right:1px;
+float:left;
+}
+.ourCharitiesMobileBox2 {
+width:125px;
+margin-bottom:20px;
+margin-right:1px;
+float:left;
+}
+.mission__justDiggitBox {
+  background-color:#A18871;
+  margin-right:15px;
+  margin-top:1px;
+  height:16px;
+  width:16px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+
+  }
+}
+.mission__theSolutionsProjectBox {
+  height:16px;
+  width:16px;
+  background-color:#8FB030;
+  margin-right:15px;
+  margin-top:1px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+
+  }
+}
+.mission__solarAidBox {
+  height:16px;
+  width:16px;
+  background-color:#736697;
+  margin-right:15px;
+  margin-top:1px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+
+  }
+}
+.mission__standForTreesBox {
+  height:16px;
+  width:16px;
+  background-color:#68819E;
+  margin-right:15px;
+  margin-top:1px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+
+  }
+}
+.mission__350DotOrgBox {
+  height:16px;
+  width:16px;
+  background-color:#f19b1c;
+  margin-right:15px;
+  margin-top:1px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+
+  }
+}
+.mission__newHarvestBox {
+  height:16px;
+  width:16px;
+  background-color:#FDEF6B;
+  margin-right:15px;
+  margin-top:1px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+
+  }
+}
+.mission__theGoodFoodInsituteBox {
+  height:16px;
+  width:16px;
+  background-color:#FF6384;
+  margin-right:15px;
+  margin-top:1px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+
+  }
+}
+.mission__cotapBox {
+  height:16px;
+  width:16px;
+  background-color:#FF6384;
+  margin-right:15px;
+  margin-top:1px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    clear:both;
+  }
+}
+.mission__nrdcBox {
+  height:16px;
+  width:16px;
+  background-color:#A18871;
+  margin-right:15px;
+  margin-top:1px;
+  float:left;
+
+  @media screen and (max-width: 1080px) {
+    height:14px;
+    width:14px;
+    float:left;
+  }
+  @media screen and (max-width: 965px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+    float:left;
+  }
+  @media screen and (max-width: 775px) {
+    height:12px;
+    width:12px;
+    margin-right:12px;
+
+  }
+}
+.mission__charityColourText {
+margin-bottom:15px;
+font-size:0.95em;
+
+@media screen and (max-width: 1080px) {
+  margin-top:-1px;
+  font-size:0.92em;
+  margin-bottom:17px;
+}
+@media screen and (max-width: 1080px) {
+  margin-top:-1px;
+  font-size:0.89em;
+  margin-bottom:17px;
+}
+@media screen and (max-width: 775px) {
+  margin-top:-1px;
+  font-size:0.87em;
+  margin-bottom:17px;
+}
+}
+.mission__firstCharityGraph {
+  margin-top:20px;
+  background-color:#fff;
+  width:880px;
+  height:1260px;
+  border-radius:5px;
+
+  @media screen and (min-width: 900px) {
+  width:68.8vw;
+  }
+  @media screen and (max-width: 900px) {
+  width:83.5vw;
+  }
+  @media screen and (max-width: 670px) {
+  width:87vw;
+  }
+  @media screen and (max-width: 533px) {
+  width:87vw;
+  }
+  @media screen and (max-width: 500px) {
+  width:89vw;
+  }
+}
+// .mission__secondCharityGraph {
+//   margin-top:20px;
+//   background-color:#fff;
+//   width:880px;
+//   height:490px;
+//   border-radius:5px;
+// }
+.mission__shareOfEarningsHeader {
+margin-top:50px;
+margin-bottom:35px;
+display:flex;
+justify-content:center;
+
+@media screen and (min-width: 530px) {
+font-size:2.1em;
+}
+@media screen and (max-width: 530px) {
+font-size:1.9em;
+}
+}
+.mission__ourProgressHeader {
+margin-top:15px;
+margin-bottom:35px;
+display:flex;
+justify-content:center;
+
+@media screen and (min-width: 530px) {
+font-size:2.1em;
+}
+@media screen and (max-width: 530px) {
+font-size:1.9em;
+}
+}
+.missionWidths {
+  height:300px;
+}
+.mission__firstCharityGraphSpacing {
+  height:40px;
+}

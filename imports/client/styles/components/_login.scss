@@ -1,0 +1,190 @@
+.login__rightSubtitle {
+  color:#000;
+  font-size:0.97em;
+  margin-top:15px;
+  margin-bottom:-8px;
+}
+.login__mainAuthorTextArea {
+  height:38px;
+  font-size:1.05em;
+  padding-left:10px;
+  border-radius:2px;
+  border:0.5px solid #dedede;
+  cursor:default;
+  margin-bottom:8px;
+  margin-top:14px;
+  -webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+.login__topTitleLogin {
+font-weight:600;
+font-size:1.65em;
+margin-bottom:4px;
+}
+.login__topTitleSignup {
+color:#acacac;
+}
+.login__loginButton {
+  display:block;
+  color:#fff;
+  letter-spacing:0.025em;
+  background-color:#15a05c;
+  border:1px solid #15a05c;
+  align-items:center;
+  opacity:0.8;
+  width:85px;
+  height:35px;
+  font-size:0.8em;
+  border-radius:4px;
+  cursor:pointer;
+  margin-top:-4px;
+  margin-bottom:3px;
+}
+.login__hrTop {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-top:14px; width:313px; margin-left:0px;
+}
+.login__hrBottom {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-top:20px; margin-bottom:-18px; width:313px; margin-left:0px;
+}
+.login__forgotPasword {
+  display:inline-block;
+  color:#15a05c;
+}
+.login__errorBox {
+  opacity:0.8;
+  color:#fff;
+  background-color:#c9332c;
+  height:40px;
+  width:313px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:3px;
+  font-size:0.83em;
+  margin-top:2px;
+  margin-bottom:5px;
+}
+.login__veryBottomSpacing {
+  height:22px;
+}
+.login__leftContainer {
+  margin-top:35px;
+  margin-left:42px;
+  margin-right:30px;
+}
+.login__mobileView {
+ display:block;
+ border-radius:5px;
+ margin-top:8vw;
+ margin-bottom:8vw;
+ background-color:#fff;
+
+
+}
+.login__background {
+  display:flex;
+  margin-left:-8px;
+  right:-5px;
+   justify-content: center;
+
+  margin-top:25px;
+  width:100vw;
+  background: #348F50;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #56B4D3, #348F50);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #56B4D3, #348F50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  margin-bottom:-50px;
+}
+.cursorDefault {
+  cursor:default;
+  -webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+.signupTermsLink {
+  color:#15a05c;
+  cursor:pointer;
+}
+.inputSignupPage {
+  margin-top:0px; margin-right:5px;
+}
+.signUpPageMarginRight {
+  margin-left:7px;
+  margin-top:-4px;
+  border:1px solid #dddddd;
+  background-color:#fff;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.checkmark_container {
+  display: block;
+  position: relative;
+  margin-bottom: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.checkmark_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  margin-left:8px;
+  margin-top:1px;
+  background-color: #fff;
+  border:1px solid #15a05c;
+  opacity:0.8;
+  border-radius:3px;
+}
+.checkmark_container input:checked ~ .checkmark {
+  background-color: #15a05c;
+  border-color: #15a05c;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.checkmark_container input:checked ~ .checkmark:after {
+  display: block;
+}
+.checkmark_container .checkmark:after {
+  width: 2.5px;
+  height: 7px;
+  margin-left:36%;
+  margin-top:2px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.signup__errorMarginTop {
+  margin-top:18px;
+}
+.signup__passwordRed {
+  border-color:#c9332c;
+  opacity:0.8;
+}
+.signup__checkboxRed {
+  border-color:#c9332c;
+}
+.signup__redLabel {
+  color:#c9332c;
+}
+.signup__belowSubmitButtonMarginBottom {
+ margin-bottom:-1px;
+}

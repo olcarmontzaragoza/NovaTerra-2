@@ -1,0 +1,197 @@
+.mission__ourTeamBox {
+width:85vw;
+height:915px;
+margin-top:60px;
+border-radius:5px;
+background: #159957;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+@media screen and (min-width: 960px) {
+margin-left:7.1vw;
+}
+@media screen and (max-width: 960px) {
+margin-left:6.9vw;
+}
+@media screen and (max-width: 900px) {
+margin-left:-8px;
+width:100vw;
+}
+@media screen and (max-width: 575px) {
+  margin-left:-8px;
+  width:100vw;
+  height:1092px;
+}
+// @media screen and (max-width: 650px) {
+// margin-left:6.3vw;
+// }
+// @media screen and (max-width: 440px) {
+// margin-left:6vw;
+// }
+
+}
+.mission__ourTeamTopSpacing {
+  height:50px;
+}
+.mission__ourTeamMember {
+margin-left:140px;
+
+@media screen and (max-width: 1095px) {
+margin-left:0px;
+position:relative;
+left:11.2vw;
+}
+@media screen and (max-width: 1050px) {
+margin-left:0px;
+position:relative;
+left:9.5vw;
+}
+@media screen and (max-width: 900px) {
+margin-left:0px;
+position:relative;
+left:16vw;
+}
+@media screen and (max-width: 840px) {
+margin-left:0px;
+position:relative;
+left:14vw;
+}
+@media screen and (max-width: 800px) {
+margin-left:0px;
+position:relative;
+left:12vw;
+}
+@media screen and (max-width: 650px) {
+margin-left:0px;
+position:relative;
+left:9vw;
+}
+@media screen and (max-width: 590px) {
+margin-left:0px;
+position:relative;
+left:7vw;
+}
+
+}
+.mission__ourTeamImageLeft  {
+float:left;
+@media screen and (max-width: 575px) {
+position:relative;
+left:22.2vw;
+margin-bottom:-12px;
+}
+}
+.mission__ourTeamBiggerCircle {
+  border-radius:50%;
+  height:168px;
+  width:168px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color: #378b29;
+background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
+  // background: #15a05c;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(#4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(#4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  @media screen and (max-width: 725px) {
+  width:147px;
+  height:147px;
+  margin-top:12px;
+  }
+}
+.mission__ourTeamImageCircle {
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  position:absolute;
+  margin-top:-164px;
+  margin-left:4px;
+
+  @media screen and (max-width: 725px) {
+  width:140px;
+  height:140px;
+  margin-top:-143px;
+  }
+}
+.mission__ourTeamTextRight {
+float:left;
+margin-left:45px;
+margin-top:37px;
+
+@media screen and (max-width: 1000px) {
+margin-top:32px;
+margin-left:35px;
+}
+@media screen and (max-width: 725px) {
+margin-top:32px;
+margin-left:32px;
+}
+}
+.mission__ourTeamMemberName {
+font-size:1.3em;
+margin-bottom:6px;
+color:#15a05c;
+
+@media screen and (max-width: 725px) {
+font-size:1.2em;
+}
+
+}
+.mission__ourTeamMemberTitle {
+color:#8d8d8d;
+margin-bottom:6px;
+font-size:0.98em;
+
+@media screen and (max-width: 725px) {
+font-size:0.94em;
+}
+}
+.mission__ourTeamMemberDescription {
+font-size:0.95em;
+width:350px;
+
+@media screen and (max-width: 1000px) {
+width:280px;
+}
+@media screen and (max-width: 725px) {
+font-size:0.92em;
+width:250px;
+}
+@media screen and (max-width: 575px) {
+font-size:0.92em;
+width:62vw;
+}
+
+}
+.mission__ourTeamBackground {
+  margin-top:20px;
+  background-color:#fff;
+  width:880px;
+  height:490px;
+  border-radius:5px;
+
+  @media screen and (min-width: 900px) {
+  width:68.8vw;
+  }
+  @media screen and (max-width: 900px) {
+  width:83.5vw;
+  }
+  @media screen and (max-width: 670px) {
+  width:87vw;
+  }
+  @media screen and (max-width: 533px) {
+  width:87vw;
+  }
+  @media screen and (max-width: 500px) {
+  width:89vw;
+  }
+  @media screen and (max-width: 575px) {
+  width:89vw;
+  height:680px;
+  }
+
+}
+.mission__betweenMemberSpacing {
+  height:45px;
+}
