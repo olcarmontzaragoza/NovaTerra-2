@@ -858,8 +858,11 @@ color:#15a05c;
   color:#15a05c;
   width:90px;
   height:37px;
-  font-size:0.72em;
-  letter-spacing:0.03em;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size:0.73em;
+  letter-spacing:0.045em;
   opacity:0.8;
   border-radius:3px;
   transition:0.2s;
@@ -1040,6 +1043,9 @@ display:none;
 }
 .header__setMarginTop {
   margin-top:72px;
+}
+.header__setMarginTopNoNav {
+  margin-top:-6px;
 }
 .header__setMarginTopLogin {
   margin-top:-7px;

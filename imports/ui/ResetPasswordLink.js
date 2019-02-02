@@ -13,6 +13,9 @@ export class ResetPasswordLink extends React.Component {
   //
   // });
   // }
+componentDidMount() {
+  document.title = `NovaTerra - Reset Password`;
+}
   render() {
     return (
       <div>

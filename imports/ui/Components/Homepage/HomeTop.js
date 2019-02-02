@@ -101,7 +101,7 @@ render() {
     </a>
     {this.getStories()[0] ?
     <div>
-    <Link to={this.getStories()[0].link} id="topFeaturedHome"><div className={`greenHov topFeaturedHome ${this.userHasSeenStory(this.getStories()[0]) ? 'title__grey' : ''}`}>{this.getStories()[0].title.length > 56 ? this.getStories()[0].title.slice(0, 56) + '...' : this.getStories()[0].title}</div></Link>
+    <Link to={this.getStories()[0].link}><div className={`greenHov topFeaturedHome ${this.userHasSeenStory(this.getStories()[0]) ? 'title__grey' : ''}`}>{this.getStories()[0].title.length > 56 ? this.getStories()[0].title.slice(0, 56) + '...' : this.getStories()[0].title}</div></Link>
 
     <div className="homeTop__firstAuthorTooltip">
     <AuthorTooltipHomeLeft route='' ref='homeTop1' userId={this.getStories()[0].userId} users={this.props.users} outsideClassName='homeTop__firstAuthorToolTipStyles' />
@@ -118,7 +118,6 @@ render() {
     <div>
     <Link to={this.getStories()[1].link} className={`middleSectionTopTitle1 greenHov ${this.userHasSeenStory(this.getStories()[1]) ? 'title__grey' : ''}`}>{this.getStories()[1].title.length > 56 ? this.getStories()[1].title.slice(0, 56) + '...' : this.getStories()[1].title}
     </Link>
-    // {this.getStories()[1].title.length > 56 ? this.getStories()[1].title.slice(0, 56) + '...' : this.getStories()[1].title}
 
     <div className="homeTop__readTimeAndDate">
     <div className="homeTop__authorToolTipPositioning">
@@ -153,6 +152,10 @@ render() {
     : undefined }
 
     </div>
+
+    <div className="clearSpacingTopHome"></div>
+
+    <div className="clearBoth"></div>
 
     {this.getStories()[3] ?
     <div>

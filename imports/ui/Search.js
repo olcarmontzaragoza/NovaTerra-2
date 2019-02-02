@@ -915,6 +915,7 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
       });
     });
+    document.title = `NovaTerra - Search`;
 }
 componentWillUnmount() {
 // document.removeEventListener('focusout', this.handleFocusOut);
@@ -1118,6 +1119,7 @@ render() {
 
     return (
       <div>
+        <meta name="viewport" content="initial-scale=1"></meta>
           {this.state.users ?
             <div>
             <Navbar onSearch={true} route={''} users={this.state.users} />

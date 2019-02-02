@@ -182,7 +182,7 @@ if (isTagPage) {
 render() {
     return (
       <div>
-        <div className={`${'header__setMarginTop'} setWidth`}>
+        <div className={`${this.state.currentPage === 'signup' || this.state.currentPage === 'login' || this.state.currentPage.slice(0, 5) === 'draft' ? 'header__setMarginTopNoNav' : 'header__setMarginTop'} setWidth`}>
         <div className="clearBoth"></div>
         <div className="nav__headerLogoTopDiv"><Link to="/" className="nav__headerLogo">Novaterra</Link></div>
 

@@ -73,8 +73,10 @@ renderNormalContent() {
 
 
   if (this.state.users.findOne({ profileUrl: `/` + this.state.currentPage })) {
+    document.title = `NovaTerra - ${this.state.users.findOne({ profileUrl: `/` + this.state.currentPage }).username}`;
     return <MainProfileLayout route={'../'} users={this.state.users} published={this.returnUserStories('popular')} popular={this.returnUserStories('popular')} latest={this.returnUserStories('latest')} oldest={this.returnUserStories('oldest')} user={this.state.users.findOne({ profileUrl: `/` + this.state.currentPage })}  />;
   } else {
+    document.title = `NovaTerra - Profile Not Found`;
     return (
     <UserNotFound user={this.state.users} />
     )
@@ -84,6 +86,7 @@ renderNormalContent() {
 render() {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
       {this.state.users ?
       <div>
       <Navbar route={'../'} users={this.state.users} />

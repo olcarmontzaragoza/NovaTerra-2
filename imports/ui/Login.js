@@ -45,6 +45,7 @@ componentDidMount() {
       });
     });
     this.setScrollTop();
+    document.title = `NovaTerra - Login`;
 }
 setScrollTop() {
   window.scrollTo(0, 530);
@@ -55,6 +56,7 @@ this.setState({ error: '' });
 render() {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
           {this.state.users ?
       <div>
         <Navbar route={''} users={this.state.users} />

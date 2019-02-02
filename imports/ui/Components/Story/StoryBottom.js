@@ -30,13 +30,6 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 library.add(far);
 library.add(fas);
 
-let disqusShortname = 'novaterra';
-let disqusConfig: {
-  url: this.props.story.link,
-  identifier: this.props.story.id,
-  title: this.props.story.title,
-}
-
 let popIndex = 1;
 let animationOnGoing = false;
 
@@ -64,6 +57,21 @@ containerTwoMarginLeft: 'ab__1195',
 containerThreeMarginLeft: 'ab__1195',
 containerFourMarginLeft: 'ab__1195',
 };
+}
+initialiseDisqus() {
+
+  let disqusConfig = {
+    url: this.props.story.link,
+    identifier: this.props.story.id,
+    title: this.props.story.title,
+  }
+
+  this.setState({ disqusShortname: 'novaterra' });
+  this.setState({ disqusConfig });
+
+}
+componentDidMount() {
+  this.initialiseDisqus();
 }
 setGreen(green) {
   if (green === 1) {
@@ -490,9 +498,15 @@ Popular
 
 <div id="disqus_thread"></div>
 
-<Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
+<Disqus.CommentCount shortname={'novaterra'} config={{ url: this.props.story.link,
+identifier: this.props.story.id,
+title: this.props.story.title }}>
   Comments
 </Disqus.CommentCount>
+
+<Disqus.DiscussionEmbed shortname={'novaterra'} config={{ url: this.props.story.link,
+identifier: this.props.story.id,
+title: this.props.story.title }} />
 
 <LatestOnNovaTerra story={this.props.story} users={this.props.users} />
 

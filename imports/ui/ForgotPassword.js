@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
+
 export class ForgotPassword extends React.Component {
 constructor(props) {
 super(props);
@@ -13,10 +16,25 @@ error: '',
 success: ''
 };
 }
-onSubmit(e) {
-e.preventDefault();
+onSubmit() {
 
-// let email = this.refs.email.value.trim();
+let email = this.refs.email.value.trim();
+
+if (email) {
+
+let user = Meteor.users.findOne({ email });
+
+if (!user) {
+this.setState({ error: 'Email Not Found' });
+}
+
+process.env.MAIL_URL = 'smtp://postmaster@www.novaterra.earth:cb9f81ffffb7ee1610a7a5c49b69832b-c8c889c9-bbf6cbca@smtp.mailgun.org:587';
+
+Accounts.forgotPassword(email, () => {
+  this.setState({ success: 'The Email Has Been Sent.' });
+});
+
+
 //
 // if (Meteor.isServer) {
 //   Meteor.startup(function() {
@@ -26,34 +44,57 @@ e.preventDefault();
 //       sendVerificationEmail:true
 //     });
 //   });
-
+}
+}
+componentDidMount() {
+    Meteor.subscribe('allUsers', () => {
+      Tracker.autorun(() => {
+        let findUser = Meteor.users;
+        this.setState({ users: Meteor.users });
+        });
+      });
+      document.title = `NovaTerra - Forgot Password`;
+}
+resetError() {
+this.setState({ error: '' });
 }
   render() {
     return (
       <div>
-        <div className="floatLeft" width="350">
-        <h2>Pasword Reset</h2>
-        <hr className="flex"/>
-        <br className="clearBoth"/>
+      <meta name="viewport" content="initial-scale=1"></meta>
+      {this.state.users ?
+      <div>
+      <Navbar route={''} users={this.state.users} />
 
+      <div className="login__background">
+      <div className="login__mobileView">
 
-        {this.state.error ? <p>{this.state.error}</p>: undefined} {this.state.success ? <p>{this.state.success}</p> : undefined}
-        {!this.state.error && !this.state.success ? <p> Please enter your account's email to recover your password </p> : undefined}
+      <div className="floatLeft feedback__leftContainer">
+      <div className="contact__topTitleLogin">Forgot Password</div>
+      <hr className="flex feedback__hrTopFP"/>
+      <br className="clearBoth"/>
 
-        {/* {this.renderMessage()} */}
+      {this.state.error ? <div className="fp__positioningErrorBox"><div className="login__errorBox"><p>{this.state.error}</p></div></div> : undefined} {this.state.success ? <div className="contact__successBox"><div className="contact__successBoxInnerMargins">{this.state.success}</div></div> : undefined}
+      {!this.state.error && !this.state.success ? <p className="forgotPasswordTopMessage"> Please enter your account's email to recover your password. </p> : undefined}
 
-        <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
-        <p>Email</p>
-        <input type="email" ref="email" name="email"/>
+      {/* {this.renderMessage()} */}
 
-        <br className="clearBoth"/>
-        <button className="button">Send</button>
-        </form>
+      <div className={`login__rightSubtitle ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__redLabel' : ''}`}>Email</div>
+      <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`settings__mainAuthorTextArea floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__passwordRed' : ''}`} />
+      <br className="clearBoth"/>
 
-        <hr className="flex"/>
-        <br className="clearBoth"/>
-        <p>Remember Your Password? <Link to="/login">Login</Link></p>
-        </div>
+      <div className="fp__send" onClick={() => this.onSubmit()}>Send</div>
+
+      <hr className="flex login__hrBottomFP"/>
+      <br className="clearBoth"/>
+      <p>Remember Your Password? <Link className="link" to="/login">Login</Link></p>
+      <div className="forgotPasswordBottomSpacing"></div>
+      </div></div></div>
+
+      <Footer/>
+          </div>
+          : undefined }
+
       </div>
     );
   }

@@ -84,6 +84,7 @@ Tracker.autorun(() => {
   this.setState({ users: Meteor.users });
 });
 });
+document.title = `NovaTerra - Economy`;
 }
 render() {
     return (

@@ -201,6 +201,9 @@ userHasSeenStory(story) {
 }
 return false;
 }
+redirectToStory(url) {
+  window.location = `${url}`;
+}
 render() {
     return (
       <div>
@@ -215,11 +218,13 @@ render() {
   <div className="ab__mobileAdAbove">
   <div className="storyBottomMobile__adBanner"><div className="storyTop__adText">Ad</div></div>
 
+  <div className="ad__mobileAbBottomBit">
   <div className="ab__sttre">
    Ad
  </div>
  <div className="sttrr" className="ab__advertisementBottomText">
    This is a NovaTerra Affiliate ad. 100% of all profit generated from this ad goes directly to charity. <Link to={'/mission'} className="eser">Click here</Link> to learn more.
+   </div>
    </div>
    </div>
 
@@ -296,7 +301,7 @@ render() {
       {this.returnFindLatest()[6] ?
       <div className="firstReadMore">
       <div className="ab__readMoreTitle">
-      <Link to={this.returnFindLatest()[6].link} className={`kjs ${this.userHasSeenStory(this.returnFindLatest()[6]) ? 'title__grey' : ''}`}>{this.returnFindLatest()[6].title.length > 58 ? this.returnFindLatest()[6].title.slice(0, 58) + '...' : this.returnFindLatest()[6].title}</Link>
+      <a onClick={() => this.redirectToStory(this.returnFindLatest()[6].link)} className={`kjs ${this.userHasSeenStory(this.returnFindLatest()[6]) ? 'title__grey' : ''}`}>{this.returnFindLatest()[6].title.length > 58 ? this.returnFindLatest()[6].title.slice(0, 58) + '...' : this.returnFindLatest()[6].title}</a>
       </div>
         <Link to={`/${this.returnFindLatest()[6].category}`} className="ab__qqra">
         {this.returnFindLatest()[6].category}
@@ -310,7 +315,7 @@ render() {
       {this.returnFindLatest()[7] ?
       <div className="secondReadMore">
       <div className="ab__readMoreTitle">
-      <Link to={this.returnFindLatest()[7].link} className={`kjs ${this.userHasSeenStory(this.returnFindLatest()[7]) ? 'title__grey' : ''}`}>{this.returnFindLatest()[7].title.length > 58 ? this.returnFindLatest()[7].title.slice(0, 58) + '...' : this.returnFindLatest()[7].title}</Link>
+      <a onClick={() => this.redirectToStory(this.returnFindLatest()[7].link)} className={`kjs ${this.userHasSeenStory(this.returnFindLatest()[7]) ? 'title__grey' : ''}`}>{this.returnFindLatest()[7].title.length > 58 ? this.returnFindLatest()[7].title.slice(0, 58) + '...' : this.returnFindLatest()[7].title}</a>
       </div>
       <Link to={`/${this.returnFindLatest()[7].category}`} className="ab__qqra">
         {this.returnFindLatest()[7].category}
@@ -324,7 +329,7 @@ render() {
       {this.returnFindLatest()[8] ?
       <div className="thirdReadMore">
       <div className="ab__readMoreTitle">
-      <Link to={this.returnFindLatest()[8].link} className={`kjs ${this.userHasSeenStory(this.returnFindLatest()[8]) ? 'title__grey' : ''}`}>{this.returnFindLatest()[8].title.length > 58 ? this.returnFindLatest()[8].title.slice(0, 58) + '...' : this.returnFindLatest()[8].title}</Link>
+      <a onClick={() => this.redirectToStory(this.returnFindLatest()[8].link)} className={`kjs ${this.userHasSeenStory(this.returnFindLatest()[8]) ? 'title__grey' : ''}`}>{this.returnFindLatest()[8].title.length > 58 ? this.returnFindLatest()[8].title.slice(0, 58) + '...' : this.returnFindLatest()[8].title}</a>
       </div>
       <Link to={`/${this.returnFindLatest()[8].category}`} className="ab__qqra">
         {this.returnFindLatest()[8].category}
@@ -338,7 +343,7 @@ render() {
       {this.returnFindLatest()[9] ?
       <div className="fourthReadMore">
       <div className="ab__readMoreTitle">
-      <Link to={this.returnFindLatest()[9].link} className={`kjs ${this.userHasSeenStory(this.returnFindLatest()[9]) ? 'title__grey' : ''}`}>{this.returnFindLatest()[9].title.length > 58 ? this.returnFindLatest()[9].title.slice(0, 58) + '...' : this.returnFindLatest()[9].title}</Link>
+      <a onClick={() => this.redirectToStory(this.returnFindLatest()[9].link)} className={`kjs ${this.userHasSeenStory(this.returnFindLatest()[9]) ? 'title__grey' : ''}`}>{this.returnFindLatest()[9].title.length > 58 ? this.returnFindLatest()[9].title.slice(0, 58) + '...' : this.returnFindLatest()[9].title}</a>
       </div>
       <Link to={`/${this.returnFindLatest()[9].category}`} className="ab__qqra">
         {this.returnFindLatest()[9].category}

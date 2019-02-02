@@ -2,6 +2,7 @@ import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import CreateStoryLayout from './CreateStoryLayout';
 import { Stories } from '../../api/stories';
+import { Session } from 'meteor/session';
 
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
@@ -17,7 +18,7 @@ export class CreateStory extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
-
+currentPage: Session.get('currentPage')
 };
 }
 componentDidMount() {
@@ -29,8 +30,10 @@ Meteor.subscribe('allUsers', () => {
 });
 }
 testStory() {
-let id = browserHistory.location.pathname.slice(7, browserHistory.location.pathname.length);
-let story = Stories.findOne({ _id: id, storyType: 'drafted' });
+let story = Stories.findOne({ link: this.state.currentPage, storyType: 'drafted' });
+
+console.log('currentPage', this.state.currentPage)
+console.log('story', story);
 
 if (!story) {
   return '404';
@@ -39,12 +42,12 @@ if (!story) {
 }
 }
 getStoryId() {
-  let id = browserHistory.location.pathname.slice(7, browserHistory.location.pathname.length);
-  console.log('id', id);
-  let story = Stories.findOne({ _id: id });
+  let preUrl = this.state.currentPage; // .slice(7, browserHistory.location.pathname.length);
+  preUrl = preUrl.trim();
+  let story = Stories.findOne({ link: preUrl });
   console.log('story', story);
   if (story.storyType === 'drafted') {
-  return id;
+  return story._id;
 } else {
   return false;
 }
@@ -52,6 +55,7 @@ getStoryId() {
 renderNormalContent() {
 
   if (this.testStory() === '404') {
+    document.title = `NovaTerra - Draft Not Found`;
     return (
       <div>
       <Navbar route={'../'} users={this.state.users} storyId='404' />
@@ -60,6 +64,7 @@ renderNormalContent() {
      </div>
    )
   } else if (this.testStory() === '401') {
+    document.title = `NovaTerra - Not Authorised`;
       return (
       <div>
       <Navbar route={'../'} users={this.state.users} storyId='401' />
@@ -68,6 +73,7 @@ renderNormalContent() {
       </div>
     )
   } else {
+    document.title = `NovaTerra - ${Stories.findOne({ link: this.state.currentPage }).title ? Stories.findOne({ link: this.state.currentPage }).title : 'Untitled Draft'}`;
     return (
       <div>
       <Navbar route={'../'} users={this.state.users} storyId={this.getStoryId()} />
@@ -80,7 +86,8 @@ renderNormalContent() {
 render() {
     return (
       <div>
-          {this.state.users ?
+      <meta name="viewport" content="initial-scale=1"></meta>
+          {this.state.users && Session.get('currentPage') ?
           <div>
             {this.renderNormalContent()}
           </div>

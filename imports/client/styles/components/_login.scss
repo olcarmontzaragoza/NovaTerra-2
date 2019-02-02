@@ -49,9 +49,39 @@ color:#acacac;
 .login__hrBottom {
   height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-top:20px; margin-bottom:-18px; width:313px; margin-left:0px;
 }
+.login__hrBottomFP {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-top:30px; margin-bottom:-18px; width:313px; margin-left:0px;
+}
+.forgotPasswordBottomSpacing {
+  height:10px;
+}
+.forgotPasswordTopMessage {
+  margin-top:-5px;
+  margin-bottom:23px;
+  width:313px;
+}
 .login__forgotPasword {
   display:inline-block;
   color:#15a05c;
+}
+.feedback__hrTopFP {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-top:14px; width:313px; margin-left:0px; margin-right:12px;
+}
+.fp__send {
+  background-color:#15a05c;
+  opacity:0.8;
+  color:#fff;
+  border-radius:3px;
+  font-size:0.83em;
+  letter-spacing:0.033em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:35px;
+  width:70px;
+  margin-top:8px;
+  margin-bottom:-4px;
+  cursor:pointer;
 }
 .login__errorBox {
   opacity:0.8;
@@ -81,7 +111,7 @@ color:#acacac;
  margin-top:8vw;
  margin-bottom:8vw;
  background-color:#fff;
-
+  width:90%;
 
 }
 .login__background {
@@ -89,6 +119,7 @@ color:#acacac;
   margin-left:-8px;
   right:-5px;
    justify-content: center;
+
 
   margin-top:25px;
   width:100vw;
@@ -187,4 +218,12 @@ user-select: none;
 }
 .signup__belowSubmitButtonMarginBottom {
  margin-bottom:-1px;
+}
+.fp__positioningErrorBox {
+  clear:both;
+  display:flex;
+  justify-content:center;
+  margin-top:-6px;
+  margin-left:-9px;
+  margin-bottom:-1px;
 }

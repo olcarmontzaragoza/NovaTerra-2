@@ -22,6 +22,22 @@ export class LatestStory extends React.Component {
   this.state = {
 
   };
+  this.setTopContainerBottomLatest1 = this.setTopContainerBottomLatest1.bind(this);
+  this.setCategoryBottomLatest1 = this.setCategoryBottomLatest1.bind(this);
+  this.setAuthorNameBottomLatest1 = this.setAuthorNameBottomLatest1.bind(this);
+  this.setAuthorImageBottomLatest1 = this.setAuthorImageBottomLatest1.bind(this);
+}
+setTopContainerBottomLatest1(node) {
+    this.bottomContainerLatest1 = node;
+}
+setCategoryBottomLatest1(node) {
+    this.bottomCategoryLatest1 = node;
+}
+setAuthorNameBottomLatest1(node) {
+    this.bottomAuthorNameLatest1 = node;
+}
+setAuthorImageBottomLatest1(node) {
+    this.bottomAuthorImageLatest1 = node;
 }
 findUser(userId) {
     const user = this.props.users.findOne({ _id: userId });
@@ -38,6 +54,11 @@ userHasSeenStory(story) {
 }
 return false;
 }
+handleClickOutside(e) {
+  if (this.bottomContainerLatest1 && this.bottomCategoryLatest1 && this.bottomAuthorNameLatest1 && this.bottomAuthorImageLatest1 && this.bottomContainerLatest1.contains(e.target) && !this.bottomCategoryLatest1.contains(e.target) && !this.bottomAuthorNameLatest1.contains(e.target) && !this.bottomAuthorImageLatest1.contains(e.target)) {
+  window.location = `${this.props.story.link}`;
+  }
+}
 render() {
     return (
       <div>
@@ -47,7 +68,7 @@ render() {
         </Link></div>
 
         <a className={`db__latestMoreArContainerTitle ${this.userHasSeenStory(this.props.story) ? 'title__grey' : ''}`}>{this.props.story.title.length > 59 ? this.props.story.title.slice(0, 59) + '...' : this.props.story.title}</a>
-        <Link to={this.props.story.link}><Image cloud_name='novaterra' className="db__bottomMoreStoryImages" publicId={this.props.story.mainImage}><Transformation crop="thumb" /></Image></Link>
+        <a><Image cloud_name='novaterra' className="db__bottomMoreStoryImages" publicId={this.props.story.mainImage}><Transformation crop="thumb" /></Image></a>
 
         <div className="db__bottomLatestElimateSpacing"></div>
 

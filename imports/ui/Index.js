@@ -132,10 +132,12 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
       });
     });
+  document.title = `NovaTerra - Home`;
 }
   render() {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
       {this.state.users ?
           <div>
           <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=nse1whm3t8e17mkpjs3qjw32oezqwhmmxp13sx6tlukjjflx"></script>

@@ -79,6 +79,7 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
   });
   });
+document.title = `NovaTerra - Energy`;
 }
 render() {
     return (

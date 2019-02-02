@@ -78,6 +78,7 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
   });
   });
+document.title = `NovaTerra - Personal Finance`;
 }
 render() {
     return (

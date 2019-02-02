@@ -28,6 +28,7 @@ componentDidMount() {
         this.setState({ users: Meteor.users });
         });
       });
+document.title = `NovaTerra - Explore`;
 }
 returnCreators(type) {
 
@@ -75,6 +76,7 @@ returnCreators(type) {
 render() {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
         {this.state.users ?
           <div>
           <Navbar route={''} users={this.state.users} />

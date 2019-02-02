@@ -45,6 +45,7 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
       });
     });
+document.title = `NovaTerra - Settings`;
 }
 findUsersWithUrl(url) {
   console.log('count', this.state.users.find({ profileUrl: url }).count());
@@ -202,7 +203,7 @@ returnNormalRender() {
 
     <div className="floatLeft">
     <div className={`settings__rightSubtitle ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email Address</div>
-    <input ref='userEmail' onChange={() => { this.resetSucessAndError()}} defaultValue={this.state.user.emails[0].address} maxLength="50" className={`settings__mainAuthorTextArea floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__passwordRed' : ''}`} />
+    <input ref='userEmail' onChange={() => { this.resetSucessAndError()}} readOnly defaultValue={this.state.user.emails[0].address} maxLength="50" className={`settings__mainAuthorTextArea floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__passwordRed' : ''}`} />
     </div>
     { this.checkIfVerified() ?
     <div className="settings__floatLeftVerify">

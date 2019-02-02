@@ -83,6 +83,7 @@ Tracker.autorun(() => {
     this.setState({ users: Meteor.users });
 });
 });
+document.title = `NovaTerra - Food`;
 }
 render() {
     return (

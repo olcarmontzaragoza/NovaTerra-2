@@ -116,6 +116,7 @@ toggleIsFollowing() {
 render() {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
         <Navbar route={''} users={this.props.users} />
           <div className={`${this.props.isEnvironment ? 'topHeaderCategoryPageEnvironment' : 'topHeaderCategoryPage'}`}>{this.props.category}</div>{this.state.profileFollow ? <div className="categoryAndTag__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className="categoryAndTag__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}
           <div className="clearBoth"></div>

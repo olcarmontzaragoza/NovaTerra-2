@@ -24,6 +24,7 @@ constructor(props) {
 super(props);
 this.state = {
 percentage: 0,
+check: '1',
 currentPage: Session.get('currentPage'),
 };
 this.handleStoryScroll = this.handleStoryScroll.bind(this);
@@ -55,11 +56,22 @@ componentDidMount() {
       if (this.state.users) {
       if (this.findStory()) {
       console.log('added to viewed');
+      if (Meteor.userId()) {
       this.addStoryToUserViewed();
+      }
+      document.title = `NovaTerra - ${this.findStory().title}`;
       }
       }
       });
     });
+
+    Tracker.autorun(() => {
+      let page = this.state.currentPage;
+      console.log('CURRRRRRRRRRRENT PAGE', this.state.currentPage);
+      this.findStory();
+      });
+
+      document.addEventListener('mousedown', this.handleClickOutside);
     document.addEventListener('scroll', this.handleStoryScroll);
 }
 handleStoryScroll() {
@@ -82,7 +94,11 @@ handleStoryScroll() {
      this.setState({ percentage: newValue });
 }
 componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
     document.removeEventListener('scroll', this.handleStoryScroll);
+}
+handleClickOutside(e) {
+this.setState({ check: this.state.check.length + '1' });
 }
 renderNormalContent() {
   if (this.findStory()) {
@@ -104,12 +120,11 @@ renderNormalContent() {
 render() {
     return (
       <div>
-      {console.log("tried rendering ---")}
-      {console.log('users defined', !!this.state.users)}
+      <meta name="viewport" content="initial-scale=1"></meta>
           {this.state.users ?
             <div>
             <Navbar route={'../'} users={this.state.users} />
-            {this.renderNormalContent()}
+            {this.state.check ? this.renderNormalContent() : undefined}
             <Footer/>
             </div>
           : undefined }

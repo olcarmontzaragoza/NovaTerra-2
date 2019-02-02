@@ -80,6 +80,7 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
   });
   });
+document.title = `NovaTerra - Biodiversity`;
 }
 render() {
     return (

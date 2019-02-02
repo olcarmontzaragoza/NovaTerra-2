@@ -82,12 +82,14 @@ componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
 }
 handleClickOutside(e) {
+  console.log('IS HANDLING CLICK');
   if (this.bottomTopContainer1 && this.bottomCategory1 && this.bottomAuthorName1 && this.bottomAuthorImage1 && this.bottomTopContainer1.contains(e.target) && !this.bottomCategory1.contains(e.target) && !this.bottomAuthorName1.contains(e.target) && !this.bottomAuthorImage1.contains(e.target)) {
-    funcReplace(this.props.stories[0].link);
+  window.location = `${this.props.stories[0].link}`;
+    console.log('CLICKED THE FIIIIIIRST');
   } else if (this.bottomTopContainer2 && this.bottomCategory2 && this.bottomAuthorName2 && this.bottomAuthorImage2 && this.bottomTopContainer2.contains(e.target) && !this.bottomCategory2.contains(e.target) && !this.bottomAuthorName2.contains(e.target) && !this.bottomAuthorImage2.contains(e.target)) {
-    funcReplace(this.props.stories[1].link);
+    window.location = `${this.props.stories[1].link}`;      // funcReplace(this.props.stories[1].link);
   } else if (this.bottomTopContainer3 && this.bottomCategory3 && this.bottomAuthorName3 && this.bottomAuthorImage3 && this.bottomTopContainer3.contains(e.target) && !this.bottomCategory3.contains(e.target) && !this.bottomAuthorName3.contains(e.target) && !this.bottomAuthorImage3.contains(e.target)) {
-    funcReplace(this.props.stories[2].link);
+    window.location = `${this.props.stories[2].link}`;        // funcReplace(this.props.stories[2].link);
 }
 }
 findUser(userId) {
@@ -119,7 +121,7 @@ render() {
 
               <div className="floatLeft positionAbAuthorContainer">
               <div className="popContainerReadingText positionReadTextStory1">
-              <div className="storyBottom__authorBelowStory">
+              <div className="storyBottom__authorBelowStory" ref={this.setAuthorNameBottom1Ref}>
                   <AuthorTooltip route='../' userId={this.props.stories[0].userId} users={this.props.users} />
               </div></div>
             <div className="popContainerReadingText positionReadTextStory1">
@@ -165,7 +167,7 @@ render() {
 
           <div className="floatLeft positionAbAuthorContainer">
           <div className="popContainerReadingText positionReadTextStory1">
-          <div className="storyBottom__authorBelowStory">
+          <div className="storyBottom__authorBelowStory" ref={this.setAuthorNameBottom2Ref}>
               <AuthorTooltip route='../' userId={this.props.stories[1].userId} users={this.props.users} />
           </div></div>
         <div className="popContainerReadingText positionReadTextStory1">
@@ -213,7 +215,7 @@ render() {
 
           <div className="floatLeft positionAbAuthorContainer">
           <div className="popContainerReadingText positionReadTextStory1">
-          <div className="storyBottom__authorBelowStory">
+          <div className="storyBottom__authorBelowStory" ref={this.setAuthorNameBottom3Ref}>
               <AuthorTooltip route='../' userId={this.props.stories[2].userId} users={this.props.users} />
           </div></div>
         <div className="popContainerReadingText positionReadTextStory1">

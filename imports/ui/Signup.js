@@ -5,9 +5,14 @@ import { Accounts } from 'meteor/accounts-base';
 import Blaze from 'meteor/gadicc:blaze-react-component';
 import OAuthLoginButtons from '../ui/Components/OAuthLoginButtons';
 import moment from 'moment';
+import { funcReplace } from '../routes/routes.js';
+
+import FacebookLogin from 'react-facebook-login';
 
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+
+var Recaptcha = require('react-recaptcha');
 
 Meteor.subscribe('allUsers');
 
@@ -145,6 +150,7 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
       });
     });
+    document.title = `NovaTerra - Signup`;
 }
 setPageScrollTop() {
   console.log('ran window scroll');
@@ -156,9 +162,13 @@ setErrorScrollTop() {
 resetError() {
 this.setState({ error: '' });
 }
+continueWithFacebook() {
+
+}
 render() {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
       {this.state.users ?
       <div>
       <Navbar route={''} users={this.state.users}/>
@@ -171,10 +181,24 @@ render() {
       <hr className="flex login__hrTop"/>
       <br className="clearBoth"/>
 
+     <FacebookLogin
+   appId="1593752047396482"
+   autoLoad={true}
+   fields="name,email,picture"
+   callback={this.continueWithFacebook()}
+ />
+
+ {/*
+   cssClass=""
+   icon="fa-facebook"
+ */}
+
+      {/*
       <span><img src="images/loginButtons/facebook.svg" className="floatLeft" height="18" width="18"/><p>Signup With Facebook</p></span>
       <span><img src="images/loginButtons/google.svg" className="floatLeft" height="18" width="18"/><p>Signup With Google</p></span>
 
       <Blaze template="loginButtons" />
+      */}
 
       {this.state.error ? <div className="login__errorBox signup__errorMarginTop"><p>{this.state.error}</p></div> : undefined}
 
@@ -195,7 +219,9 @@ render() {
          <div className={`login__rightSubtitle ${this.state.error === 'Make sure your passwords match' ? 'signup__redLabel' : ''}`}>Password Confirmation</div>
          <input type="password" ref="passwordConfirmation" name="password" onChange={() => { this.resetError()}} className={`settings__mainAuthorTextArea floatLeft ${this.state.error === 'Make sure your passwords match' ? 'signup__passwordRed' : ''}`} />
 
-        <p> (Re-captcha) </p>
+         <Recaptcha
+         sitekey="6LfIf44UAAAAAOHPXFxXTzyZ0yGBahrl22AFqArk"
+         />
 
       {/* <div className="checkmark_container"><div onClick={() => { this.setState({ termsOfUse: !this.state.termsOfUse })}} className="floatLeft inputSignupPage cursorDefault">I accept NovaTerra's <Link className="signupTermsLink" to="/terms-of-use">Terms of Use</Link><input onClick={() => { this.setState({ termsOfUse: !this.state.termsOfUse })}} checked={this.state.termsOfUse} className="signUpPageMarginRight" ref="termsAccepted" type="checkbox" name="acceptedTerms"/><span className={`checkmark ${this.state.error === "Make sure you accept our Terms of Use" ? 'signup__checkboxRed' : ''}`}></span></div></div> */}
 

@@ -124,6 +124,7 @@ toggleIsFollowing() {
 render() {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
         <Navbar route={''} users={this.props.users} />
           <div className="topHeaderCategoryPage"><FontAwesomeIcon icon={['fas', 'hashtag']} className='categoryAndTag__tagHashtag' />{this.props.tag}{this.state.profileFollow ? <div className="categoryAndTag__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className="categoryAndTag__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}</div>
           <div className="category__description topHeaderSubtitleAbout">{this.props.tagDescription}</div>

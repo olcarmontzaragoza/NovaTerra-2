@@ -364,7 +364,7 @@ returnTime(time) {
 
   } else {
     console.log('session', Session.get('loginStatus'));
-    return <div className="nav__loginAndSignup"><Link className="nav__loginButton" to="/login">Log in</Link><Link to="/signup" className="nav__getStartededButton"><button className="getStartedButton">Get started</button></Link></div>;
+    return <div className="nav__loginAndSignup"><Link className="nav__loginButton" to="/login">Log in</Link><Link to="/signup" className="nav__getStartededButton"><div className="getStartedButton">Get Started</div></Link></div>;
     }
   }
   handleSearchInput(e) {

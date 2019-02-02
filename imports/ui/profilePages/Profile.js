@@ -23,6 +23,7 @@ componentDidMount() {
        this.setState({ users: Meteor.users });       // Meteor.users.find().fetch();
       });
     });
+  document.title = `NovaTerra - Profile`;
 }
 returnUserArticles(type) {
 
@@ -66,6 +67,7 @@ returnUserArticles(type) {
 render() {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
           {this.state.users ?
 
           <div>

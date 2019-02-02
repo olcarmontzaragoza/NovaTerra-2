@@ -44,10 +44,13 @@ componentDidMount() {
 if (!!Meteor.userId()) {
 this.renderFollowingButton();
 }
+
+if (Meteor.userId()) {
 Tracker.autorun(() => {
    let userFollowing = Meteor.users.findOne({ _id: Meteor.userId() }).following;
    this.renderFollowingButton();
 });
+}
 window.addEventListener("scroll", this.handleScroll);
 }
 handleScroll(e) {

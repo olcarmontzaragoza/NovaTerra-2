@@ -65,7 +65,7 @@ publishStory(id) {
     }
 
   let link = secondReplaced.toLowerCase();
-  link = link.replace(/-/g, '');
+  link = link.replace(/\s/g , "-");
 
   let details = {
   description: "Your story has been published:",
@@ -123,6 +123,7 @@ renderAdminContent() {
   if (user.emails[0].address === 'olcarmontzaragoza@gmail.com') {
     return (
       <div>
+      <meta name="viewport" content="initial-scale=1"></meta>
         <h1>Waiting Stories</h1>
         {this.returnWaitingStories().map((story) => {
           return (<div key={story._id}>

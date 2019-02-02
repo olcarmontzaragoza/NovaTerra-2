@@ -86,6 +86,7 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
   });
   });
+document.title = `NovaTerra - Self`;
 }
 render() {
     return (

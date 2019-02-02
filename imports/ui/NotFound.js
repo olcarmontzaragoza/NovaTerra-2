@@ -34,6 +34,8 @@ componentDidMount() {
 
     Session.set({ searchValue: '' });
 
+    document.title = `NovaTerra - Not Found`;
+
     document.addEventListener('keyup', this.handleKeyUp);
 }
 componentWillUnmount() {
@@ -51,6 +53,7 @@ handleKeyUp(e) {
 render() {
     return (
       <div>
+        <meta name="viewport" content="initial-scale=1"></meta>
           {this.state.users ?
             <div>
             <Navbar route={''} users={this.state.users} />
