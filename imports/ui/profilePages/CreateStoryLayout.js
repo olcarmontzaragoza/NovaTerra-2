@@ -166,6 +166,19 @@ bodyConfig: {
   toolbarButtonsMD: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', '|', '-', 'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
   toolbarButtonsSM: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript','insertHR', 'quote', 'insertFile', 'html', '|', 'getPDF', 'spellChecker', 'help', '-', 'undo', 'redo', '|', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', '|', 'formatOL', 'formatUL'],
   toolbarButtonsXS: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'insertFile', 'html', '|', 'help', '-', 'undo', 'redo', '|', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'formatOL', 'formatUL'],
+  imageUploadURL: 'https://api.cloudinary.com/v1_1/novaterra/image/upload',
+  imageUploadParams: {
+      'api_key': '464976181148953',
+      'upload_preset': 'r4xf9yat'
+  },
+  imageUploadMethod: 'POST',
+  events: {
+      'froalaEditor.image.uploaded': (e, editor, response) => {
+          response = JSON.parse(response);
+          editor.image.insert(response.secure_url, true, null, editor.image.get(), null)
+          return false
+      }
+  }
 },
 bodyFullConfig: {
   // pluginsEnabled: ['quickInsert'],

@@ -76,28 +76,28 @@ render() {
 
         <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
         <div className="login__rightSubtitle">Email</div>
-        <input type="email" ref="email" name="email" onChange={() => { this.resetError()}}className="settings__mainAuthorTextArea floatLeft" />
+        <input type="email" ref="email" name="email" onChange={() => { this.resetError()}}className="login__mainAuthorTextArea floatLeft" />
 
         <div className="login__rightSubtitle">Password</div>
-        <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className="settings__mainAuthorTextArea floatLeft" />
+        <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className="login__mainAuthorTextArea floatLeft" />
 
         <br className="clearBoth"/>
         <button className="login__loginButton">Login</button>
         </form>
 
         <br/>
-        <Link to="/forgot-password" className="link login__forgotPasword">Forgot Your Password?</Link>
+        <Link to="/forgot-password" className="link login__forgotPasword login__smalllBelowThings">Forgot Your Password?</Link>
 
         <hr className="flex login__hrBottom"/>
         <br className="clearBoth"/>
-        <p>Don't Have an Account? <Link className="link" to="/signup">Sign up</Link></p>
+        <p className="login__smalllBelowThings">Don't Have an Account? <Link className="link" to="/signup">Sign up</Link></p>
         </div>
 
         <div className="clearBoth"></div>
         <div className="login__veryBottomSpacing"></div>
         </div></div>
 
-        <Footer/>
+        <Footer route='' />
         </div>
         : undefined }
 

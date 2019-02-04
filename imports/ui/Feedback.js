@@ -198,7 +198,7 @@ returnDescriptionCharactersLeft(e) {
 
         </div></div></div></div>
 
-      <Footer/>
+      <Footer route='' />
           </div>
           : undefined }
         </div>

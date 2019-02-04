@@ -98,7 +98,7 @@ render() {
 
           <div className="explore__aboveFooterSpacing"></div>
 
-          <Footer/>
+          <Footer route='' />
           </div>
        : undefined }
       </div>

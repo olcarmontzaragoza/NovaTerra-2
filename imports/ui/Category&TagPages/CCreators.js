@@ -95,6 +95,7 @@ this.setState({ showMoreCreators });
         <a className="mainTitleCatSubTitle floatLeft">
         Popular Creators
         </a>
+
         <div className="floatRight sort__marginLeft">
           <div className="dropdown">
             <div ref={this.setWrapperRef} onClick={this.toggleDropDown.bind(this)} className="sort__sortByButton dropbtn"><FontAwesomeIcon icon={['fas', 'sort-amount-up']} className="sort__mainIcon"/><div className="sort__mainText">Sort by</div></div>

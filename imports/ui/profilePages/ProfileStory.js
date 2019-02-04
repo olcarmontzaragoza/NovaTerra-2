@@ -57,6 +57,24 @@ deleteDraft() {
 console.log('should delete story');
 Meteor.call('stories.remove', this.props.story._id);
 }
+getSliceNum() {
+  let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  console.log("deeeed width", width);
+  if (width > 450) {
+    console.log('REEEETURNED', 36);
+    return 72;
+  } else {
+    console.log('REEEETURNED', 25);
+    return 57;
+  }
+}
+returnTitle() {
+  if (this.props.story.title.length > this.getSliceNum()) {
+    return this.props.story.title.slice(0, this.getSliceNum()) + '...';
+  } else {
+    return this.props.story.title;
+  }
+}
 render() {
     return (
         <div>
@@ -110,7 +128,7 @@ render() {
 
        : undefined }
 
-      <div className="profile__moreArContainerTitle" onClick={() => this.titleClick()}>{this.props.story.title ? this.props.story.title : "Untitled Draft"}</div>
+      <div className="profile__moreArContainerTitle" onClick={() => this.titleClick()}>{this.props.story.title ? this.returnTitle() : "Untitled Draft"}</div>
 
         </div>
        </div>

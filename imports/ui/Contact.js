@@ -128,7 +128,7 @@ setPage() {
       <Navbar route={''} users={this.state.users} />
 
       <div className="login__background">
-      <div className="login__mobileView">
+      <div className="contact__mobileView">
 
       <div className="floatLeft feedback__leftContainer">
       <div className="contact__topTitleLogin">Contact</div>
@@ -174,7 +174,7 @@ setPage() {
       <div>
       <form onSubmit={this.submitContactForm.bind(this)} noValidate>
 
-      { Meteor.userId() ? <div><div className="floatLeft contactPageWidth2 contactPageSwitchBack"> Want to switch back?</div><div className="link floatLeft" onClick={() => { this.setPage() }}>Click here</div></div> : <div className="floatLeft contactPageWidth3 contactPageSwitchBack">Please fill in the form below to reach out to us. Take into account we will use the email you provide below to respond back to you. Note, that if you like, you can also contact us directly at contact@novaterra.earth.</div>}
+      { Meteor.userId() ? <div><div className="floatLeft contactPageWidth2 contactPageSwitchBack login__smalllBelowThings"> Want to switch back?</div><div className="link floatLeft" onClick={() => { this.setPage() }}>Click here</div></div> : <div className="floatLeft contactPageWidth3 contactPageSwitchBack">Please fill in the form below to reach out to us. Take into account we will use the email you provide below to respond back to you. Note, that if you like, you can also contact us directly at contact@novaterra.earth.</div>}
 
      {this.state.error ? <div className="contact__positioningErrorBox"><div className="login__errorBox"><p>{this.state.error}</p></div></div> : undefined}
 
@@ -229,12 +229,12 @@ setPage() {
       </div>
       }
       <hr className="flex contact__hrBottom" />
-        <div className="contactPage__lastDiv floatLeft">Have a burning question?</div><Link to="/faq" className="floatLeft contactPage__firstDiv link">Search our FAQ!</Link>
+        <div className="contactPage__lastDiv floatLeft login__smalllBelowThings">Have a burning question?</div><Link to="/faq" className="floatLeft contactPage__firstDiv link">Search our FAQ!</Link>
       <br className="clearBoth"/>
 
       </div></div></div>
 
-      <Footer/>
+      <Footer route='' />
 
           </div>
           : undefined }

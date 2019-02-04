@@ -116,63 +116,71 @@ render() {
 
     {this.getStories()[1] ?
     <div>
-    <Link to={this.getStories()[1].link} className={`middleSectionTopTitle1 greenHov ${this.userHasSeenStory(this.getStories()[1]) ? 'title__grey' : ''}`}>{this.getStories()[1].title.length > 56 ? this.getStories()[1].title.slice(0, 56) + '...' : this.getStories()[1].title}
+
+    <Link to={this.getStories()[1].link}><Image cloud_name='novaterra' className="middleTopImagePositioning" publicId={this.getStories()[2].mainImage}><Transformation crop="thumb" /></Image></Link>
+
+    <div className="floatLeft">
+
+    <Link to={this.getStories()[1].link} className={`middleSectionTopTitle1 greenHov ${this.userHasSeenStory(this.getStories()[1]) ? 'title__grey' : ''}`}>{this.getStories()[1].title.length > 52 ? this.getStories()[1].title.slice(0, 52) + '...' : this.getStories()[1].title}
     </Link>
 
     <div className="homeTop__readTimeAndDate">
     <div className="homeTop__authorToolTipPositioning">
     <AuthorTooltip route='' ref='homeTop2' userId={this.getStories()[1].userId} users={this.props.users} />
     </div>
-    <div>{moment(this.getStories()[1].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[1].minRead} min read</div>
+    <div className="homeTop__readTimeBelowMargin">{moment(this.getStories()[1].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[1].minRead} min read</div>
     </div>
 
-    <Link to={this.getStories()[1].link}><Image cloud_name='novaterra' className="middleTopImagePositioning floatLeft" publicId={this.getStories()[2].mainImage}><Transformation crop="thumb" /></Image></Link>
+    </div>
 
     </div>
     : undefined }
 
     <div className="clearSpacingTopHome"></div>
-    <div>
 
     {this.getStories()[2] ?
     <div>
 
-    <Link to={this.getStories()[2].link} className={`middleSectionTopTitle2 greenHov ${this.userHasSeenStory(this.getStories()[2]) ? 'title__grey' : ''}`}>
-    {this.getStories()[2].title.length > 56 ? this.getStories()[2].title.slice(0, 56) + '...' : this.getStories()[2].title}
+    <Link to={this.getStories()[2].link}><Image cloud_name='novaterra' className="middleTopImagePositioning" publicId={this.getStories()[1].mainImage}><Transformation crop="thumb" /></Image></Link>
+
+    <div className="floatLeft">
+
+    <Link to={this.getStories()[2].link} className={`middleSectionTopTitle1 greenHov ${this.userHasSeenStory(this.getStories()[2]) ? 'title__grey' : ''}`}>
+    {this.getStories()[2].title.length > 52 ? this.getStories()[2].title.slice(0, 52) + '...' : this.getStories()[2].title}
     </Link>
 
     <div className="homeTop__readTimeAndDate">
     <div className="homeTop__authorToolTipPositioning">
     <AuthorTooltip route='' ref='homeTop3' userId={this.getStories()[2].userId} users={this.props.users} />
     </div>
-    <div>{moment(this.getStories()[2].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[2].minRead} min read</div>
+    <div className="homeTop__readTimeBelowMargin">{moment(this.getStories()[2].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[2].minRead} min read</div>
+    </div>
     </div>
     </div>
 
     : undefined }
 
-    </div>
-
     <div className="clearSpacingTopHome"></div>
-
-    <div className="clearBoth"></div>
 
     {this.getStories()[3] ?
     <div>
-    <Link to={this.getStories()[3].link}><Image cloud_name='novaterra' className="middleTopImagePositioning topThirdStoryPhoto" publicId={this.getStories()[1].mainImage}><Transformation crop="thumb" /></Image></Link>
 
-    <Link to={this.getStories()[3].link} className={`middleSectionTopTitle2 greenHov ${this.userHasSeenStory(this.getStories()[3]) ? 'title__grey' : ''}`}>
-    {this.getStories()[3].title.length > 56 ? this.getStories()[3].title.slice(0, 56) + '...' : this.getStories()[3].title}
+    <Link to={this.getStories()[3].link}><Image cloud_name='novaterra' className="middleTopImagePositioning" publicId={this.getStories()[3].mainImage}><Transformation crop="thumb" /></Image></Link>
+
+    <div className="floatLeft">
+
+    <Link to={this.getStories()[3].link} className={`middleSectionTopTitle1 greenHov ${this.userHasSeenStory(this.getStories()[3]) ? 'title__grey' : ''}`}>
+    {this.getStories()[3].title.length > 52 ? this.getStories()[3].title.slice(0, 52) + '...' : this.getStories()[3].title}
     </Link>
 
     <div className="homeTop__readTimeAndDate">
     <div className="homeTop__authorToolTipPositioning">
     <AuthorTooltip route='' ref='homeTop4' userId={this.getStories()[3].userId} users={this.props.users} />
     </div>
-    <div>{moment(this.getStories()[3].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[3].minRead} min read</div>
+    <div className="homeTop__readTimeBelowMargin">{moment(this.getStories()[3].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[3].minRead} min read</div>
+    </div>
     </div>
 
-    <Link to={this.getStories()[3].link}><Image cloud_name='novaterra' className="middleTopImagePositioning3 topThirdStoryPhoto" publicId={this.getStories()[3].mainImage}><Transformation crop="thumb" /></Image></Link>
     </div>
     : undefined }
 
@@ -194,7 +202,7 @@ render() {
     <div className="homeTop__authorToolTipPositioningRight">
     <AuthorTooltip route='' ref='homeTop5' userId={this.getStories()[4].userId} users={this.props.users} />
     </div>
-    <div> {moment(this.getStories()[4].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[4].minRead} min read</div>
+    <div className="homeTop__readTimeBelowMarginRight"> {moment(this.getStories()[4].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[4].minRead} min read</div>
     </div>
     </div>
     : undefined }
@@ -215,7 +223,7 @@ render() {
     <div className="homeTop__authorToolTipPositioningRight">
     <AuthorTooltip route='' ref='homeTop6' userId={this.getStories()[5].userId} users={this.props.users} />
     </div>
-    <div> {moment(this.getStories()[5].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[5].minRead} min read</div>
+    <div className="homeTop__readTimeBelowMarginRight"> {moment(this.getStories()[5].lastUpdated).format('DD MMM YYYY')} · {this.getStories()[5].minRead} min read</div>
     </div>
     </div>
     : undefined }

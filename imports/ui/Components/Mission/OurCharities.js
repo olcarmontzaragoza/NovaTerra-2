@@ -100,7 +100,7 @@ this.state = {
           <div className="mission__topContainerInnerMargins">
 
           <div className="mission__topContainerTopMargins"></div>
-          <div className="mission__topContainerTitle">Our Charities <span role="img">🙏</span></div>
+          <div className="mission__topContainerTitleCharities">Our Charities <span role="img">🙏</span></div>
           <div className="mission__topContainerFirstSubHeader">We are raising funding for charities around the world.</div>
           <div className="mission__topContainerSecondSubHeader">Here are a list of charities that we are doanting or will donate in the near future.</div>
 

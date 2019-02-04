@@ -88,7 +88,7 @@ render() {
 
         <div className="clearBoth veryBottomMarginsGetInvolved"></div>
 
-        <Footer/>
+        <Footer route='' />
         </div>
         : undefined }
       </div>

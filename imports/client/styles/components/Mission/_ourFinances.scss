@@ -22,6 +22,11 @@ width:100vw;
   width:100vw;
   height:1665px;
 }
+@media screen and (max-width: 445px) {
+  margin-left:-8px;
+  width:100vw;
+  height:1545px;
+}
 // @media screen and (max-width: 650px) {
 // margin-left:6.3vw;
 // }
@@ -45,6 +50,18 @@ width:100vw;
   margin-left:72px;
   clear:both;
   margin-bottom:-19px;
+  }
+  @media screen and (max-width: 415px) {
+  margin-left:62px;
+  clear:both;
+  margin-bottom:-21px;
+  width:155px;
+  }
+  @media screen and (max-width: 365px) {
+  margin-left:53px;
+  clear:both;
+  margin-bottom:-21px;
+  width:155px;
   }
 }
 .mission__revenueModelImageRight {
@@ -75,7 +92,19 @@ width:100vw;
   @media screen and (max-width: 610px) {
   margin-left:72px;
   clear:both;
-margin-bottom:-21px;
+  margin-bottom:-21px;
+  }
+  @media screen and (max-width: 415px) {
+  margin-left:62px;
+  clear:both;
+  margin-bottom:-21px;
+  width:155px;
+  }
+  @media screen and (max-width: 365px) {
+  margin-left:53px;
+  clear:both;
+  margin-bottom:-21px;
+  width:155px;
   }
 }
 .mission__sustainableAds {
@@ -161,6 +190,12 @@ margin-bottom:-21px;
   @media screen and (max-width: 975px) {
   font-size:1.25em;
   }
+  @media screen and (max-width: 415px) {
+  font-size:1.2em;
+  }
+  @media screen and (max-width: 345px) {
+  font-size:1.12em;
+  }
 }
 .mission__ourFinancesDescription {
   font-size:0.95em;
@@ -169,6 +204,16 @@ margin-bottom:-21px;
   @media screen and (max-width: 975px) {
   width:280px;
   font-size:0.92em;
+  line-height:1.33;
+  }
+  @media screen and (max-width: 415px) {
+  width:250px;
+  font-size:0.89em;
+  line-height:1.33;
+  }
+  @media screen and (max-width: 345px) {
+  width:230px;
+  font-size:0.89em;
   line-height:1.33;
   }
 }
@@ -182,6 +227,12 @@ font-size:2.25em;
 
 @media screen and (max-width: 650px) {
 font-size:1.9em;
+}
+@media screen and (max-width: 420px) {
+font-size:1.7em;
+}
+@media screen and (max-width: 395px) {
+font-size:1.5em;
 }
 }
 .mission__ourFinancesBackground {

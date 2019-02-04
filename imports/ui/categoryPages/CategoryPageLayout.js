@@ -146,7 +146,7 @@ render() {
           <Link to={this.props.tagLinks[2]} className="relatedTagTopCat">{this.props.relatedTags[2]}</Link>
           <div className="categoryAndTag__relatedTagsMarginBottom"></div>
           </div>
-          <Footer/>
+          <Footer route='' />
       </div>
     );
   }

@@ -144,7 +144,7 @@ componentDidMount() {
           <Navbar route={''} users={this.state.users} />
           <HomeTop users={this.state.users} />
           <HomeMiddle users={this.state.users} /> { /* middleStories={this.state.middleContainers} showMoreContainers={this.state.showMoreContainers} */}
-          <Footer/>
+          <Footer route='' />
           </div>
           : undefined }
       </div>

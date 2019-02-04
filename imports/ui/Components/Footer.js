@@ -2,6 +2,8 @@ import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 
+import { Stories } from '../../api/stories';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -12,14 +14,52 @@ library.add(fab);
 // import { googlePlus } from '@fortawesome/free-solid-svg-icons';
 
 export class Footer extends React.Component {
-  render() {
+constructor(props) {
+super(props);
+this.state = {
+
+};
+}
+createNewStory() {
+if (Meteor.userId()) {
+let numStories = Stories.find().count();
+let newId = `${numStories + 1}`;
+console.log('newId', newId);
+
+let details = {
+  title: "",
+  unCapTitle: "",
+  category: '',
+  description: '',
+  tags: [],
+  mainImage: '',
+  userId: Meteor.userId(),
+  lastUpdated: moment().valueOf(),
+  minRead: 0,
+  likes: [],
+  comments: '',
+  shares: 0,
+  storyType: 'drafted',
+  _id: `${newId}`,
+  link: `draft/${newId}`,
+  references: [],
+  type: 'story',
+}
+
+  Meteor.call('stories.insert', newId, details);
+  funcReplace(`draft/${newId}`);
+} else {
+  funcReplace(`/login`);
+}
+}
+render() {
     return (
       <div className="footer_width">
         <div className="topFooter">
 <div className="positioningTopFooter">
 
 
-<img src='images/organizationImages/whiteLogo.png' className="imageBottomFooter" />
+<img src={`${this.props.route}images/organizationImages/whiteLogo.png`} className="imageBottomFooter" />
 <div className="footerTitle">
   Novaterra
 </div>
@@ -75,7 +115,7 @@ export class Footer extends React.Component {
  </div>
   <Link to="/get-involved" className="footerLink">Get Involved</Link>
 <div className="clearBoth footerLinkSpacing"></div>
-  <Link to="/create-story" className="footerLink">Create a Story</Link>
+  <a onClick={() => this.createNewStory()} className="footerLink">Create a Story</a>
 <div className="clearBoth footerLinkSpacing"></div>
   <Link to="/feedback" className="footerLink">Tell us Your Thoughts</Link>
 <div className="clearBoth footerLinkSpacing"></div>

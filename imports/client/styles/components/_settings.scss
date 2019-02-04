@@ -7,6 +7,7 @@
   font-weight:550;
   line-height:1.2;
   margin-top:-1px;
+  background-color: #fff;
 
   margin-bottom:0px;
   transition:0.1s;
@@ -54,6 +55,89 @@
   }
   @media screen and (max-width: 465px) {
     float:left;
+    width:95px;
+    height:51px;
+    font-size:0.7em;
+    padding:0px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 395px) {
+    float:left;
+    width:105px;
+    height:53px;
+    font-size:0.73em;
+    padding:0px;
+    margin-right:-1px;
+  }
+}
+
+
+
+.settings__boxButton3 {
+  border:1px solid #e1e1e1;
+  height:40px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  font-weight:550;
+  line-height:1.2;
+  margin-top:-1px;
+  background-color: #fff;
+
+  margin-bottom:0px;
+  transition:0.1s;
+
+  @media screen and (min-width: 705px) {
+    float:left;
+    width:200px;
+    height:80px;
+    padding:16px;
+    font-size:1em;
+    margin-right:-1px;
+
+  }
+  @media screen and (max-width: 705px) {
+    float:left;
+    width:160px;
+    height:70px;
+    font-size:0.95em;
+    padding:4px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 680px) {
+    float:left;
+    width:140px;
+    height:62px;
+    font-size:0.9em;
+    padding:0px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 595px) {
+    float:left;
+    width:120px;
+    height:58px;
+    font-size:0.85em;
+    padding:0px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 518px) {
+    float:left;
+    width:110px;
+    height:54px;
+    font-size:0.8em;
+    padding:0px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 465px) {
+    float:left;
+    width:95px;
+    height:51px;
+    font-size:0.7em;
+    padding:0px;
+    margin-right:-1px;
+  }
+  @media screen and (max-width: 395px) {
+    clear:both;
     width:95px;
     height:51px;
     font-size:0.7em;
@@ -263,9 +347,52 @@ position:relative;
     margin-top:-70px;
     margin-bottom:140px;
   }
+  @media screen and (max-width: 395px) {
+    display:none;
+  }
+}
+
+
+
+
+
+
+
+
+.settings__leftMobileBox {
+
+  @media screen and (min-width: 396px) {
+    display:none;
+  }
+  @media screen and (max-width: 396px) {
+    position:relative;
+    left:77px;
+    clear:both;
+    margin-top:-90px;
+    margin-bottom:170px;
+  }
+  @media screen and (max-width: 370px) {
+    left:67px;
+  }
+  @media screen and (max-width: 350px) {
+    left:57px;
+  }
+  @media screen and (max-width: 332px) {
+    left:52px;
+  }
 }
 .settings__boxclearBoth {
   @media screen and (min-width: 705px) {
+    clear:both;
+  }
+}
+.settings__boxclearBothMobile {
+  @media screen and (max-width: 395px) {
+    clear:both;
+  }
+}
+.settings__boxclearLeft {
+  @media screen and (max-width: 395px) {
     clear:both;
   }
 }
@@ -445,7 +572,7 @@ textarea:focus {
     margin-left:0px;
   }
   @media screen and (max-width: 395px) {
-    width:397px;
+    width:81vw;
   }
 }
 .settings__rightSubtitle {
@@ -469,6 +596,10 @@ textarea:focus {
 -ms-user-select: none;
 -o-user-select: none;
 user-select: none;
+
+@media screen and (max-width: 395px) {
+  width:77.8vw;
+}
 }
 .settings__marginBottomAboveSave {
   height:20px;
@@ -505,13 +636,16 @@ user-select: none;
 -o-user-select: none;
 user-select: none;
 transition:0.2s;
+display:flex;
+justify-content: center;
+align-items:center;
 
 @media screen and (min-width: 512px) {
   margin-top:46px;
   margin-left:-6px;
 }
 @media screen and (max-width: 512px) {
-  margin-top:10px;
+  margin-top:16px;
   margin-left:0px;
 }
 }
@@ -540,6 +674,10 @@ border-color:#000;
   @media screen and (max-width: 570px) {
     width:72vw;
     font-size:0.98em;
+  }
+  @media screen and (max-width: 395px) {
+    width:72vw;
+    font-size:0.95em;
   }
 }
 .profileUpdatingError {

@@ -70,7 +70,7 @@ render() {
           </div>
           </div>
           : undefined }
-          <Footer/>
+          <Footer route='' />
       </div>
     );
   }

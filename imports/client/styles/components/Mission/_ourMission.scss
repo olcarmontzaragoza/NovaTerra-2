@@ -201,9 +201,22 @@ height:3395px;
   height:260px;
   line-height:1.3;
   }
+  @media screen and (max-width: 445px) {
+  width:89vw;
+  height:203px;
+  line-height:1.3;
+  margin-bottom:15px;
+  }
 }
 .mission__topContainerMarginTop {
 height:70px;
+
+@media screen and (max-width: 485px) {
+height:40px;
+}
+@media screen and (max-width: 445px) {
+height:35px;
+}
 }
 .mission__topContainerInnerMargins {
 padding-left:40px;
@@ -212,6 +225,9 @@ padding-left:30px;
 }
 @media screen and (max-width: 485px) {
 padding-left:27px;
+}
+@media screen and (max-width: 340px) {
+padding-left:22px;
 }
 }
 .mission__topContainerTitle {
@@ -229,6 +245,39 @@ padding-left:27px;
   font-size:2.39em;
   margin-bottom:28px;
   }
+  @media screen and (max-width: 355px) {
+  font-size:2.29em;
+  margin-bottom:28px;
+  }
+  @media screen and (max-width: 330px) {
+  font-size:2.19em;
+  margin-bottom:28px;
+  }
+
+}
+.mission__topContainerTitleCharities {
+  display:block;
+
+  @media screen and (min-width: 675px) {
+  font-size:2.59em;
+  margin-bottom:35px;
+  }
+  @media screen and (max-width: 675px) {
+  font-size:2.49em;
+  margin-bottom:35px;
+  }
+  @media screen and (max-width: 595px) {
+  font-size:2.39em;
+  margin-bottom:28px;
+  }
+  @media screen and (max-width: 355px) {
+  font-size:2.29em;
+  margin-bottom:28px;
+  }
+  @media screen and (max-width: 330px) {
+  font-size:2.14em;
+  margin-bottom:28px;
+  }
 
 }
 .mission__topContainerTopMargins {
@@ -242,6 +291,10 @@ font-size:0.98em;
 }
 @media screen and (max-width: 440px) {
 font-size:0.98em;
+width:77vw;
+}
+@media screen and (max-width: 400px) {
+font-size:0.95em;
 width:77vw;
 }
 }
@@ -259,6 +312,9 @@ width:77vw;
   @media screen and (max-width: 900px) {
   width:74.8vw;
   font-size:0.93em;
+  }
+  @media screen and (max-width: 445px) {
+  display:none;
   }
 
 }
@@ -286,6 +342,11 @@ width:77vw;
   @media screen and (max-width: 500px) {
   width:89vw;
   line-height:1.32;
+  }
+  @media screen and (max-width: 445px) {
+  width:89vw;
+  line-height:1.35;
+  font-size:1.6em;
   }
 }
 .mission__ourVisionSpacingTop {
@@ -377,6 +438,10 @@ height:165px;
 @media screen and (max-width: 419px) {
 width:87.3vw;
 height:185px;
+}
+@media screen and (max-width: 350px) {
+width:87.3vw;
+height:215px;
 }
 }
 .mission__sidePrinciple1 {

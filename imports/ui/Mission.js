@@ -47,7 +47,7 @@ render() {
             <OurCharities/>
             <OurFinances/>
             <OurTeam/>
-            <Footer/>
+            <Footer route='' />
             </div>
           : undefined }
       </div>

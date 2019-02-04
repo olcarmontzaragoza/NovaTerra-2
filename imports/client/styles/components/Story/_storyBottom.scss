@@ -1643,7 +1643,7 @@ margin-top:-59px;
   margin-top:-2px;
 }
 .ab__novaterraAdsMobileBottom {
-  @media screen and (min-width: 1095px) {
+  @media screen and (min-width: 1020px) {
     display:none;
   }
   margin-top:80px;
@@ -1664,7 +1664,7 @@ margin-top:-59px;
   border-radius:6px;
 }
 .ab__mobileAdAbove {
-margin-top:47px;
+margin-top:40px;
 margin-bottom:70px;
 margin-left:148px;
 
@@ -1701,9 +1701,5 @@ margin-left:148px;
 @media screen and (max-width: 432px) {
   margin-left:21px;
 }
-
-}
-.ab__mobileAdAbove {
-  margin-top:40px;
 
 }

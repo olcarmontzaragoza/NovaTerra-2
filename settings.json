@@ -1,0 +1,8 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+       "MONGO_URL": "http://novaterra.earth",
+       "MONGO_URL": "mongodb://olivercarmont:Thuglife.79@ds161901.mlab.com:61901/novaterra"
+     }
+   }
+}

@@ -30,7 +30,7 @@ export class DraftedStory extends React.Component {
             }}
             onChange={this.handleEditorChange}
           />
-          <Footer/>
+          <Footer route='' />
       </div>
     );
   }

@@ -13,43 +13,43 @@ import { Faq } from '../../../api/faq';
 Meteor.subscribe('allUsers');
 Meteor.subscribe('stories');
 
-let popularStories = [];
-
-let findPopularStories = Stories.find({ storyType: 'published' }, {
-    sort: {
-      likes: -1
-    }
-}).fetch().map((story) => {
-  if (moment(story.lastUpdated).isAfter(oneMonthAgo)) {
-    popularStories.push(story);
-  }
-});
-
-let popularCategories = Categories.find({}, {
-    sort: {
-      followers: -1
-    }
-}).fetch();
-
-let popularTags = Tags.find({}, {
-    sort: {
-      followers: -1
-    }
-}).fetch();
-
-
-let popularFaq = Faq.find({}, {
-    sort: {
-      views: -1
-    }
-}).fetch();
-
 export class PopularResults extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
 
 };
+}
+returnPopStories() {
+  let popularStories = [];
+  let findPopularStories = Stories.find({ storyType: 'published' }, {
+      sort: {
+        likes: -1
+      }
+  }).fetch().map((story) => {
+    if (moment(story.lastUpdated).isAfter(oneMonthAgo)) {
+      popularStories.push(story);
+    }
+  });
+  console.log('it fg mean this', Stories.find().fetch());
+  console.log('it fg mean this', popularStories);
+  return popularStories;
+}
+returnPopTags() {
+  let popularTags = Tags.find({}, {
+      sort: {
+        followers: -1
+      }
+  }).fetch();
+  return popularTags;
+}
+returnPopCategories() {
+  let popularCategories = Categories.find({}, {
+      sort: {
+        followers: -1
+      }
+  }).fetch();
+  return popularCategories;
 }
 returnCreators() {
   let creatorsArray = [];
@@ -73,21 +73,24 @@ returnCreators() {
 
   return popularCreators;
 }
+componentDidMount() {
+
+}
 render() {
     return (
       <div>
-
+      {Tags.find().count() > 0 ?
         <div className="search__popularResultsDiv">
 
         <div className="floatLeft search__popularResultsIndividual">
         <div className="search__popularResultsHeader">Stories</div>
         <hr className="search__popularResultsHr"/>
         <div className="search__popularResultsWidth">
-        {popularStories.length > 0 ? <Link to={popularStories[0].link} className="search_popularResultsResult">{popularStories[0].title.length > 55 ? popularStories[0].title.slice(0, 55) + '...' : popularStories[0].title}</Link> : undefined }
+        {this.returnPopStories().length > 0 ? <Link to={this.returnPopStories()[0].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[1].title.slice(0, 55) + '...' : this.returnPopStories()[1].title}</Link> : undefined }
         <div className="clearBoth search__popularResultsSpacing"></div>
-        {popularStories.length > 1 ? <Link to={popularStories[1].link} className="search_popularResultsResult">{popularStories[1].title.length > 55 ? popularStories[1].title.slice(0, 55) + '...' : popularStories[1].title}</Link> : undefined }
+        {this.returnPopStories().length > 1 ? <Link to={this.returnPopStories()[0].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[1].title.slice(0, 55) + '...' : this.returnPopStories()[1].title}</Link> : undefined }
         <div className="clearBoth search__popularResultsSpacing"></div>
-        {popularStories.length > 2 ? <Link to={popularStories[2].link} className="search_popularResultsResult">{popularStories[2].title.length > 55 ? popularStories[2].title.slice(0, 55) + '...' : popularStories[2].title}</Link> : undefined }
+        {this.returnPopStories().length > 2 ? <Link to={this.returnPopStories()[0].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[1].title.slice(0, 55) + '...' : this.returnPopStories()[1].title}</Link> : undefined }
         </div>
         </div>
 
@@ -106,11 +109,11 @@ render() {
         <div className="floatLeft search__popularResultsIndividual">
         <div className="search__popularResultsHeader">Categories</div>
         <hr className="search__popularResultsHr"/>
-        {popularCategories.length > 0 ? <Link to={popularCategories[0].link} className="search_popularResultsResult">{popularCategories[0].name}</Link> : undefined }
+        {this.returnPopCategories().length > 0 ? <Link to={this.returnPopCategories()[0].link} className="search_popularResultsResult">{this.returnPopCategories()[0].name}</Link> : undefined }
         <div className="clearBoth search__popularResultsSpacing"></div>
-        {popularCategories.length > 1 ? <Link to={popularCategories[1].link} className="search_popularResultsResult">{popularCategories[1].name}</Link> : undefined }
+        {this.returnPopCategories().length > 1 ? <Link to={this.returnPopCategories()[1].link} className="search_popularResultsResult">{this.returnPopCategories()[1].name}</Link> : undefined }
         <div className="clearBoth search__popularResultsSpacing"></div>
-        {popularCategories.length > 2 ? <Link to={popularCategories[2].link} className="search_popularResultsResult">{popularCategories[2].name}</Link> : undefined }
+        {this.returnPopCategories().length > 2 ? <Link to={this.returnPopCategories()[2].link} className="search_popularResultsResult">{this.returnPopCategories()[2].name}</Link> : undefined }
         </div>
 
         <div className="clearBoth search__popularResultsMiddleSpacing"></div>
@@ -118,11 +121,11 @@ render() {
         <div className="floatLeft search__popularResultsIndividual">
         <div className="search__popularResultsHeader">Tags</div>
         <hr className="search__popularResultsHr"/>
-        {popularTags.length > 0 ? <Link to={popularTags[0].link} className="search_popularResultsResult">{popularTags[0].name}</Link> : undefined }
+        {this.returnPopTags().length > 0 ? <Link to={this.returnPopTags()[0].link} className="search_popularResultsResult">{this.returnPopTags()[0].name}</Link> : undefined }
         <div className="clearBoth search__popularResultsSpacing"></div>
-        {popularTags.length > 1 ? <Link to={popularTags[1].link} className="search_popularResultsResult">{popularTags[1].name}</Link> : undefined }
+        {this.returnPopTags().length > 1 ? <Link to={this.returnPopTags()[1].link} className="search_popularResultsResult">{this.returnPopTags()[1].name}</Link> : undefined }
         <div className="clearBoth search__popularResultsSpacing"></div>
-        {popularTags.length > 2 ? <Link to={popularTags[2].link} className="search_popularResultsResult">{popularTags[2].name}</Link> : undefined }
+        {this.returnPopTags().length > 2 ? <Link to={this.returnPopTags()[2].link} className="search_popularResultsResult">{this.returnPopTags()[2].name}</Link> : undefined }
         </div>
 
 
@@ -141,6 +144,7 @@ render() {
         <div className="clearBoth search__popularResultsBottomSpacing"></div>
 
       </div>
+      : undefined}
       </div>
             );
           }

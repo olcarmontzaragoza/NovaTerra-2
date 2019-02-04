@@ -1119,9 +1119,9 @@ render() {
 
     return (
       <div>
-        <meta name="viewport" content="initial-scale=1"></meta>
           {this.state.users ?
             <div>
+            <meta name="viewport" content="initial-scale=1"></meta>
             <Navbar onSearch={true} route={''} users={this.state.users} />
             <div className="search__mainInputDiv"><input type="text" defaultValue={Session.get('searchValue')} ref="searchInput" onFocus={() => { this.handleFocus() }} onBlur={() => { this.handleFocusOut() }} className="search__mainInput" id="onlyId" placeholder="Search" onChange={this.searchUpdated} />{this.state.searchTerm ? <FontAwesomeIcon icon={['far', 'times-circle']} onClick={() => { this.clearSearchInput() }} className="search__xIcon" /> : undefined}
 
@@ -1147,7 +1147,7 @@ render() {
             <div className="search__results1"><PopularResults users={this.state.users} /></div> }
         </div>
             <div className="searchPageBottomHeight"></div>
-            <Footer/>
+            <Footer route='' />
             </div>
           : undefined }
       </div>

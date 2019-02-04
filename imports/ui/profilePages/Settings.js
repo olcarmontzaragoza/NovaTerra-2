@@ -164,6 +164,7 @@ checkIfVerified() {
 returnNormalRender() {
   return (
     <div>
+    <meta name="viewport" content="initial-scale=1"></meta>
     <Navbar route={''} users={this.state.users} />
 
     <div className="settings__mainMargins"></div>
@@ -176,6 +177,16 @@ returnNormalRender() {
     <button onClick={() => { this.setState({ selected: 2 }) }} className={`settings__boxButton ${this.state.selected === 2 ? `settings__boxButtonSelected` : ''}`}><FontAwesomeIcon icon={['fas', 'user-secret']} className="settings__sideIcon" aria-hidden="true" /><div className="settings__boxText">Privacy</div></button>
     <div className="settings__boxclearBoth"></div>
     <button onClick={() => { this.setState({ selected: 3 }) }} className={`settings__boxButton ${this.state.selected === 3 ? `settings__boxButtonSelected` : ''}`}><FontAwesomeIcon icon={['fas', 'question-circle']} className="settings__sideIconHelp" aria-hidden="true" /><div className="settings__boxText">Help</div></button>
+    <div className="settings__boxclearBoth"></div>
+    <button onClick={() => { this.handleLogout() }} className={`settings__boxButton ${this.state.selected === 4 ? `settings__boxButtonSelected` : ''}`}><FontAwesomeIcon icon={['fas', 'sign-out-alt']} className="settings__sideIconLogout" aria-hidden="true" /><div className="settings__boxText">Log out</div></button>
+    </div>
+
+    <div className="settings__leftMobileBox">
+    <button onClick={() => { this.setState({ selected: 1 }) }} className={`settings__boxButton ${this.state.selected === 1 ? `settings__boxButtonSelected` : ''}`}><FontAwesomeIcon icon={['fas', 'user-circle']} className="settings__sideIcon" aria-hidden="true" /><div className="settings__boxText">Profile</div></button>
+    <div className="settings__boxclearBoth"></div>
+    <button onClick={() => { this.setState({ selected: 2 }) }} className={`settings__boxButton ${this.state.selected === 2 ? `settings__boxButtonSelected` : ''}`}><FontAwesomeIcon icon={['fas', 'user-secret']} className="settings__sideIcon" aria-hidden="true" /><div className="settings__boxText">Privacy</div></button>
+    <div className="settings__boxclearBoth"></div><div className="settings__boxclearBothMobile"></div>
+    <button onClick={() => { this.setState({ selected: 3 }) }} className={`settings__boxButton settings__boxclearLeft ${this.state.selected === 3 ? `settings__boxButtonSelected` : ''}`}><FontAwesomeIcon icon={['fas', 'question-circle']} className="settings__sideIconHelp" aria-hidden="true" /><div className="settings__boxText">Help</div></button>
     <div className="settings__boxclearBoth"></div>
     <button onClick={() => { this.handleLogout() }} className={`settings__boxButton ${this.state.selected === 4 ? `settings__boxButtonSelected` : ''}`}><FontAwesomeIcon icon={['fas', 'sign-out-alt']} className="settings__sideIconLogout" aria-hidden="true" /><div className="settings__boxText">Log out</div></button>
     </div>
@@ -207,7 +218,7 @@ returnNormalRender() {
     </div>
     { this.checkIfVerified() ?
     <div className="settings__floatLeftVerify">
-    <button className="settings__verifyButton">Verify</button>
+    <div className="settings__verifyButton">Verify</div>
     </div>
     : undefined }
     <div className="clearBoth"></div>
@@ -241,7 +252,7 @@ returnNormalRender() {
 
     <div className="clearBoth"></div>
     <div className="settings__mainMargins"></div>
-    <Footer/>
+    <Footer route='' />
     </div>
   );
 }

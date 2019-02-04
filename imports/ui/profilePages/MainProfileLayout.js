@@ -660,7 +660,7 @@ render() {
     return (
       <div>
         {/* {Session.get('active') ? */}
-
+        <meta name="viewport" content="initial-scale=1"></meta>
         {!this.state.profileEditable ?
         <div className="mpl__topMargins">
 

@@ -60,7 +60,7 @@ renderNormalContent() {
       <div>
       <Navbar route={'../'} users={this.state.users} storyId='404' />
       <DraftNotFound/>
-      <Footer/>
+      <Footer route='' />
      </div>
    )
   } else if (this.testStory() === '401') {
@@ -69,7 +69,7 @@ renderNormalContent() {
       <div>
       <Navbar route={'../'} users={this.state.users} storyId='401' />
       <DraftNotAuthorised/>
-      <Footer/>
+      <Footer route='' />
       </div>
     )
   } else {
@@ -78,7 +78,7 @@ renderNormalContent() {
       <div>
       <Navbar route={'../'} users={this.state.users} storyId={this.getStoryId()} />
       <CreateStoryLayout storyId={this.getStoryId()} />
-      <Footer/>
+      <Footer route='../' />
       </div>
     )
   }

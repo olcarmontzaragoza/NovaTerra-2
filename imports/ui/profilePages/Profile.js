@@ -77,7 +77,7 @@ render() {
           {console.log('published', this.returnUserArticles('published'))}
           <MainProfileLayout route={''} user={this.state.users.findOne({ _id: Meteor.userId() })} users={this.state.users} drafted={this.returnUserArticles('drafted')} waiting={this.returnUserArticles('waiting')} published={this.returnUserArticles('published')} />
           <div className="faqPageBottomHeight"></div>
-          <Footer/>
+          <Footer route='' />
           </div>
           : undefined }
 

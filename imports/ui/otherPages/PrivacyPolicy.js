@@ -29,9 +29,9 @@ render() {
       <Navbar route={''} users={this.state.users} />
 
       <div className="login__background">
-      <div className="login__mobileView">
+      <div className="privacyP__mobileView">
 
-      <div className="floatLeft login__leftContainer">
+      <div className="floatLeft privacyP__leftContainer">
       <div className="contact__topTitleLogin">Privacy Policy</div>
       <hr className="flex privacyPolicy__hrTop"/>
       <br className="clearBoth"/>
@@ -154,7 +154,7 @@ render() {
 
     </div></div>      </div>
 
-      <Footer/>
+      <Footer route='' />
 
           </div>
           : undefined }

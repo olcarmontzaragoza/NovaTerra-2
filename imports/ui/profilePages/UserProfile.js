@@ -67,9 +67,9 @@ returnUserStories(type) {
   }
 }
 renderNormalContent() {
-  console.log('USSSSSSSERS', this.state.users);
-  console.log('USSSSSSSSERS', this.state.users.findOne({ profileUrl: `/` + this.state.currentPage }));
-  console.log('browserHistory', `/` + this.state.currentPage);
+  // console.log('USSSSSSSERS', this.state.users);
+  // console.log('USSSSSSSSERS', this.state.users.findOne({ profileUrl: `/` + this.state.currentPage }));
+  // console.log('browserHistory', `/` + this.state.currentPage);
 
 
   if (this.state.users.findOne({ profileUrl: `/` + this.state.currentPage })) {
@@ -91,7 +91,7 @@ render() {
       <div>
       <Navbar route={'../'} users={this.state.users} />
       {this.renderNormalContent()}
-      <Footer/>
+      <Footer route='../' />
       </div>
       : undefined }
       </div>

@@ -125,7 +125,7 @@ render() {
             <div>
             <Navbar route={'../'} users={this.state.users} />
             {this.state.check ? this.renderNormalContent() : undefined}
-            <Footer/>
+            <Footer route='../' />
             </div>
           : undefined }
       </div>

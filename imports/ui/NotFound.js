@@ -73,7 +73,7 @@ render() {
 
           </div>
           <div className="notFound__marginBottom"></div>
-          <Footer/>
+          <Footer route=''/>
           </div>
         : undefined }
       </div>

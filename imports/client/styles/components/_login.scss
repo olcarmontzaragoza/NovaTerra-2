@@ -23,6 +23,15 @@ user-select: none;
 font-weight:600;
 font-size:1.65em;
 margin-bottom:4px;
+
+@media screen and (max-width:405px) {
+font-size:1.53em;
+}
+}
+.login__smalllBelowThings {
+  @media screen and (max-width:405px) {
+  font-size:0.97em;
+  }
 }
 .login__topTitleSignup {
 color:#acacac;
@@ -45,9 +54,17 @@ color:#acacac;
 }
 .login__hrTop {
   height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-top:14px; width:313px; margin-left:0px;
+
+  @media screen and (max-width:405px) {
+  width:76.3vw;
+  }
 }
 .login__hrBottom {
   height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-top:20px; margin-bottom:-18px; width:313px; margin-left:0px;
+
+  @media screen and (max-width:405px) {
+  width:76.3vw;
+  }
 }
 .login__hrBottomFP {
   height:1px;border:none;color:#dddddd;background-color:#dddddd; margin-top:30px; margin-bottom:-18px; width:313px; margin-left:0px;
@@ -104,6 +121,10 @@ color:#acacac;
   margin-top:35px;
   margin-left:42px;
   margin-right:30px;
+
+  @media screen and (max-width:435px) {
+    margin-left:28px;
+  }
 }
 .login__mobileView {
  display:block;
@@ -111,7 +132,22 @@ color:#acacac;
  margin-top:8vw;
  margin-bottom:8vw;
  background-color:#fff;
-  width:90%;
+
+  @media screen and (max-width:390px) {
+     width:91%;
+  }
+
+}
+.contact__mobileView {
+ display:block;
+ border-radius:5px;
+ margin-top:8vw;
+ margin-bottom:8vw;
+ background-color:#fff;
+
+  @media screen and (max-width:605px) {
+     width:91%;
+  }
 
 }
 .login__background {
@@ -226,4 +262,24 @@ user-select: none;
   margin-top:-6px;
   margin-left:-9px;
   margin-bottom:-1px;
+}
+.login__mainAuthorTextArea {
+  height:41px;
+  width:300px;
+  font-size:1.05em;
+  padding-left:10px;
+  border-radius:2px;
+  border:0.5px solid #dedede;
+  cursor:default;
+  margin-bottom:8px;
+  margin-top:14px;
+  -webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+@media screen and (max-width:405px) {
+width:73.3vw;
+}
 }

@@ -126,7 +126,8 @@ render() {
       <div>
       <meta name="viewport" content="initial-scale=1"></meta>
         <Navbar route={''} users={this.props.users} />
-          <div className="topHeaderCategoryPage"><FontAwesomeIcon icon={['fas', 'hashtag']} className='categoryAndTag__tagHashtag' />{this.props.tag}{this.state.profileFollow ? <div className="categoryAndTag__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className="categoryAndTag__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}</div>
+          <div className={`${this.props.tag === 'Personal Finance' ? 'topHeaderCategoryPageTagPF' : 'topHeaderCategoryPageTag'}`}><FontAwesomeIcon icon={['fas', 'hashtag']} className={`${this.props.tag === 'Personal Finance' ? 'categoryAndTag__tagHashtagPF' : 'categoryAndTag__tagHashtag'} `} />{this.props.tag}</div>{this.state.profileFollow ? <div className={`${this.props.tag === 'Personal Finance' ? 'categoryAndTag__followingButtonLargePF' : 'categoryAndTag__followingButtonLarge'} floatLeft`} onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className={`${this.props.tag === 'Personal Finance' ? 'categoryAndTag__followButtonLargePF' : 'categoryAndTag__followButtonLarge'} floatLeft`} onClick={() => { this.toggleIsFollowing() }}>Follow</div>}
+          <div className="clearBoth"></div>
           <div className="category__description topHeaderSubtitleAbout">{this.props.tagDescription}</div>
 
           <hr className="categoryAndTag__topHr" />
@@ -159,7 +160,7 @@ render() {
           <Link to={this.props.categoryLinks[2]} className="relatedTagTopCat">{this.props.relatedCategories[2]}</Link>
           <div className="categoryAndTag__relatedTagsMarginBottom"></div>
           </div>
-          <Footer/>
+          <Footer route='' />
       </div>
     );
   }

@@ -68,7 +68,8 @@ render() {
       <div>
         <div ref={this.setTopContainer1Ref} className="search__moreIndividualContainers" >
 
-        <Image cloud_name='novaterra' className="categoryAndTags__bottomContainerImage" publicId={this.props.story.mainImage}><Transformation crop="thumb" /></Image>
+        <Image cloud_name='novaterra' className="mainImagesSearchPage" publicId={this.props.story.mainImage}><Transformation crop="thumb" /></Image>
+
         <div className="profile__categoryMarginTop"></div>
         <div className="search__authorLargerDiv2" ref={this.setCategory1Ref}><div className="search_a search__topMoreCat">
           Story

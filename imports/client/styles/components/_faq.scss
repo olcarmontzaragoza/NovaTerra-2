@@ -31,7 +31,11 @@ margin-left:25px;
 .faq__positoningButtonBottom {
 position:absolute;
 margin-top:520px;
-margin-left:22.3vw;
+margin-left:0.3vw;
+
+// @media screen and (max-width: 5px) {
+//
+// }
 }
 .faqAddQuestion {
 border:1px solid #15a05c;
@@ -53,6 +57,10 @@ cursor:pointer;
 }
 .faq__veryMarginBottom {
   height:95px;
+
+  @media screen and (max-width: 510px) {
+      height:240px;
+  }
 }
 .faq__positionNoQuestionsMessage {
 position:relative;
@@ -91,7 +99,6 @@ margin-left:195px;
 @media screen and (max-width: 930px) {
 margin-left:0px;
 position:relative;
-left:21vw;
 }
 @media screen and (max-width: 650px) {
 margin-left:0px;
@@ -101,7 +108,17 @@ left:16vw;
 @media screen and (max-width: 440px) {
 margin-left:0px;
 position:relative;
-left:9.5vw;
+left:7.5vw;
+}
+@media screen and (max-width: 360px) {
+margin-left:0px;
+position:relative;
+left:4.5vw;
+}
+@media screen and (max-width: 335px) {
+margin-left:0px;
+position:relative;
+left:2.5vw;
 }
 }
 .faq__mainTopicLabel {
@@ -465,11 +482,11 @@ margin-left:23px;
   margin-top:60px;
   margin-bottom:90px;
 
-
-  @media screen and (max-width: 1183px) and (min-width: 810px) {
+  @media screen and (min-width: 810px) {
     position:relative;
     left:-22px;
     width:840px;
+    margin-right:-300px;
   }
   @media screen and (max-width: 810px) and (min-width: 539px) {
     position:relative;
@@ -502,6 +519,7 @@ margin-left:23px;
 
   @media screen and (min-width: 811px) {
   float:left;
+  margin-right:-500px;
   }
   @media screen and (max-width: 811px) and (min-width: 510px) {
   margin-top:48px;

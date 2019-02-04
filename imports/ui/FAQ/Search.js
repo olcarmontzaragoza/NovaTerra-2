@@ -10,47 +10,12 @@ import FAQTooltipClick from '../Components/Tooltips/FAQTooltipClick';
 import moment from 'moment';
 import FAQAnswer from './FAQAnswer';
 import { Link } from 'react-router-dom';
+import { Faq } from '../../api/faq';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-
-let popularGeneral = [];
-let popularStories = [];
-let popularContact = [];
-let popularDonate = [];
-let popularAdvertising = [];
-let popularCopyright = [];
-let popularWebsiteBugs = [];
-let popularOther = [];
-
-let findPopularQuestions = Faq.find({}, {
-    sort: {
-      views: -1
-    }
-}).fetch().map((question) => {
-
-  if (question.topic === 'General') {
-    popularGeneral.push(question);
-  } else if (question.topic === 'Stories') {
-    popularStories.push(question);
-  } else if (question.topic === 'Contact') {
-    popularContact.push(question);
-  } else if (question.topic === 'Donate') {
-    popularDonate.push(question);
-  } else if (question.topic === 'Advertising') {
-    popularAdvertising.push(question);
-  } else if (question.topic === 'Website Bugs') {
-    popularWebsiteBugs.push(question);
-  } else if (question.topic === 'Copyright') {
-    popularCopyright.push(question);
-  } else if (question.topic === 'Other') {
-    popularOther.push(question);
-  }
-
-});
-
 
 import FAQElement from './FAQElement';
 import PopularFAQResults from './PopularFAQResults';
@@ -60,10 +25,6 @@ import createBrowserHistory from 'history/createBrowserHistory';
 browserHistory = createBrowserHistory();
 
 Meteor.subscribe('faq');
-
-import { Faq } from '../../api/faq';
-
-const KEYS_TO_FILTERS = ['name',  'username', 'title', 'description', 'body', 'category', 'tags'];
 
 // let preUrlTop = browserHistory.location.pathname.slice(5, browserHistory.location.pathname.length)
 // let unCapTitleTop = preUrlTop.replace(/-/g, ' ');
@@ -95,9 +56,51 @@ this.searchUpdated = this.searchUpdated.bind(this);
 this.handleFocusOut = this.handleFocusOut.bind(this);
 this.handleFocus = this.handleFocus.bind(this);
 }
+renderOnRender() {
+
+  let popularGeneral = [];
+  let popularStories = [];
+  let popularContact = [];
+  let popularDonate = [];
+  let popularAdvertising = [];
+  let popularCopyright = [];
+  let popularWebsiteBugs = [];
+  let popularOther = [];
+
+  Faq.find({}, {
+      sort: {
+        views: -1
+      }
+  }).fetch().map((question) => {
+
+    if (question.topic === 'General') {
+      popularGeneral.push(question);
+    } else if (question.topic === 'Stories') {
+      popularStories.push(question);
+    } else if (question.topic === 'Contact') {
+      popularContact.push(question);
+    } else if (question.topic === 'Donate') {
+      popularDonate.push(question);
+    } else if (question.topic === 'Advertising') {
+      popularAdvertising.push(question);
+    } else if (question.topic === 'Website Bugs') {
+      popularWebsiteBugs.push(question);
+    } else if (question.topic === 'Copyright') {
+      popularCopyright.push(question);
+    } else if (question.topic === 'Other') {
+      popularOther.push(question);
+    }
+
+  });
+
+  this.setState({ popularGeneral, popularStories, popularContact, popularDonate, popularAdvertising, popularWebsiteBugs, popularCopyright, popularOther });
+
+
+}
 setFaqAnswerInput(title) {
   this.refs.searchInputFaq.value = title;
 }
+
 // isAnswer() {
 // let preUrl = browserHistory.location.pathname.slice(5, browserHistory.location.pathname.length)
 // let unCapTitle = preUrl.replace(/-/g, ' ');
@@ -270,12 +273,6 @@ document.getElementById('onlyId').focus();
 // this.setState({ searching: true });
 this.searchUpdated();
 }
-componentDidMount() {
-document.title = `NovaTerra - FAQ`;
-}
-componentWillUnmount() {
-// document.removeEventListener('focusout', this.handleFocusOut);
-}
 checkChange() {
   const searchValue = Session.get('searchValue');
 
@@ -441,16 +438,20 @@ componentDidMount() {
     Tracker.autorun(() => {
       let findUser = Meteor.users;
       this.setState({ users: Meteor.users });
+      document.title = `NovaTerra - FAQ`;
+      this.renderOnRender();
       });
     });
+    this.renderOnRender();
 }
 render() {
 
     return (
       <div>
       <meta name="viewport" content="initial-scale=1"></meta>
-          {this.state.users ?
+          {this.state.users && Faq.find().count() > 0 ?
           <div>
+          <meta name="viewport" content="initial-scale=1"></meta>
           <Navbar route={''} users={this.state.users} />
           <div className="search__mainInputDiv"><input type="text" ref="searchInputFaq" onFocus={() => { this.handleFocus() }} onBlur={() => { this.handleFocusOut() }} className="search__mainInput" id="onlyId" placeholder="Search" onChange={this.searchUpdated} />{this.state.searchTerm ? <FontAwesomeIcon icon={['far', 'times-circle']} onClick={() => { this.clearSearchInput() }} className="search__xIcon" /> : undefined}
 
@@ -489,11 +490,11 @@ render() {
             <div className="search__popularResultsHeader">General</div>
             <hr className="search__popularResultsHr"/>
             <div className="faq__popularResultsWidth">
-            {popularGeneral.length > 0 ? <a onClick={() => this.setFaqAnswer(popularGeneral[0])} className="search_popularResultsResult">{popularGeneral[0].title.length > 46 ? popularGeneral[0].title.slice(0, 46) + '...' : popularGeneral[0].title}</a> : undefined }
+            {this.state.popularGeneral.length > 0 ? <a onClick={() => this.setFaqAnswer(this.state.popularGeneral[0])} className="search_popularResultsResult">{this.state.popularGeneral[0].title.length > 46 ? this.state.popularGeneral[0].title.slice(0, 46) + '...' : this.state.popularGeneral[0].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularGeneral.length > 1 ? <a onClick={() => this.setFaqAnswer(popularGeneral[1])} className="search_popularResultsResult">{popularGeneral[1].title.length > 46 ? popularGeneral[1].title.slice(0, 46) + '...' : popularGeneral[1].title}</a> : undefined }
+            {this.state.popularGeneral.length > 1 ? <a onClick={() => this.setFaqAnswer(this.state.popularGeneral[1])} className="search_popularResultsResult">{this.state.popularGeneral[1].title.length > 46 ? this.state.popularGeneral[1].title.slice(0, 46) + '...' : this.state.popularGeneral[1].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularGeneral.length > 2 ? <a onClick={() => this.setFaqAnswer(popularGeneral[2])} className="search_popularResultsResult">{popularGeneral[2].title.length > 46 ? popularGeneral[2].title.slice(0, 46) + '...' : popularGeneral[2].title}</a> : undefined }
+            {this.state.popularGeneral.length > 2 ? <a onClick={() => this.setFaqAnswer(this.state.popularGeneral[2])} className="search_popularResultsResult">{this.state.popularGeneral[2].title.length > 46 ? this.state.popularGeneral[2].title.slice(0, 46) + '...' : this.state.popularGeneral[2].title}</a> : undefined }
             </div>
             </div>
 
@@ -502,11 +503,11 @@ render() {
             <div className="search__popularResultsHeader">Stories</div>
             <hr className="search__popularResultsHr"/>
             <div className="faq__popularResultsWidth">
-            {popularStories.length > 0 ? <a onClick={() => this.setFaqAnswer(popularStories[0])} className="search_popularResultsResult">{popularStories[0].title.length > 46 ? popularStories[0].title.slice(0, 46) + '...' : popularStories[0].title}</a> : undefined }
+            {this.state.popularStories.length > 0 ? <a onClick={() => this.setFaqAnswer(this.state.popularStories[0])} className="search_popularResultsResult">{this.state.popularStories[0].title.length > 46 ? this.state.popularStories[0].title.slice(0, 46) + '...' : this.state.popularStories[0].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularStories.length > 1 ? <a onClick={() => this.setFaqAnswer(popularStories[1])} className="search_popularResultsResult">{popularStories[1].title.length > 46 ? popularStories[1].title.slice(0, 46) + '...' : popularStories[1].title}</a> : undefined }
+            {this.state.popularStories.length > 1 ? <a onClick={() => this.setFaqAnswer(this.state.popularStories[1])} className="search_popularResultsResult">{this.state.popularStories[1].title.length > 46 ? this.state.popularStories[1].title.slice(0, 46) + '...' : this.state.popularStories[1].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularStories.length > 2 ? <a onClick={() => this.setFaqAnswer(popularStories[2])} className="search_popularResultsResult">{popularStories[2].title.length > 46 ? popularStories[2].title.slice(0, 46) + '...' : popularStories[2].title}</a> : undefined }
+            {this.state.popularStories.length > 2 ? <a onClick={() => this.setFaqAnswer(this.state.popularStories[2])} className="search_popularResultsResult">{this.state.popularStories[2].title.length > 46 ? this.state.popularStories[2].title.slice(0, 46) + '...' : this.state.popularStories[2].title}</a> : undefined }
             </div>
             </div>
 
@@ -515,11 +516,11 @@ render() {
             <div className="search__popularResultsHeader">Contact</div>
             <hr className="search__popularResultsHr"/>
             <div className="faq__popularResultsWidth">
-            {popularContact.length > 0 ? <a onClick={() => this.setFaqAnswer(popularContact[0])} className="search_popularResultsResult">{popularContact[0].title.length > 46 ? popularContact[0].title.slice(0, 46) + '...' : popularContact[0].title}</a> : undefined }
+            {this.state.popularContact.length > 0 ? <a onClick={() => this.setFaqAnswer(this.state.popularContact[0])} className="search_popularResultsResult">{this.state.popularContact[0].title.length > 46 ? this.state.popularContact[0].title.slice(0, 46) + '...' : this.state.popularContact[0].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularContact.length > 1 ? <a onClick={() => this.setFaqAnswer(popularContact[1])} className="search_popularResultsResult">{popularContact[1].title.length > 46 ? popularContact[1].title.slice(0, 46) + '...' : popularContact[1].title}</a> : undefined }
+            {this.state.popularContact.length > 1 ? <a onClick={() => this.setFaqAnswer(this.state.popularContact[1])} className="search_popularResultsResult">{this.state.popularContact[1].title.length > 46 ? this.state.popularContact[1].title.slice(0, 46) + '...' : this.state.popularContact[1].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularContact.length > 2 ? <a onClick={() => this.setFaqAnswer(popularContact[2])} className="search_popularResultsResult">{popularContact[2].title.length > 46 ? popularContact[2].title.slice(0, 46) + '...' : popularContact[2].title}</a> : undefined }
+            {this.state.popularContact.length > 2 ? <a onClick={() => this.setFaqAnswer(this.state.popularContact[2])} className="search_popularResultsResult">{this.state.popularContact[2].title.length > 46 ? this.state.popularContact[2].title.slice(0, 46) + '...' : this.state.popularContact[2].title}</a> : undefined }
             </div>
             </div>
 
@@ -529,11 +530,11 @@ render() {
             <div className="search__popularResultsHeader">Donate</div>
             <hr className="search__popularResultsHr"/>
             <div className="faq__popularResultsWidth">
-            {popularDonate.length > 0 ? <a onClick={() => this.setFaqAnswer(popularDonate[0])} className="search_popularResultsResult">{popularDonate[0].title.length > 46 ? popularDonate[0].title.slice(0, 46) + '...' : popularDonate[0].title}</a> : undefined }
+            {this.state.popularDonate.length > 0 ? <a onClick={() => this.setFaqAnswer(this.state.popularDonate[0])} className="search_popularResultsResult">{this.state.popularDonate[0].title.length > 46 ? this.state.popularDonate[0].title.slice(0, 46) + '...' : this.state.popularDonate[0].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularDonate.length > 1 ? <a onClick={() => this.setFaqAnswer(popularDonate[1])} className="search_popularResultsResult">{popularDonate[1].title.length > 46 ? popularDonate[0].title.slice(0, 46) + '...' : popularDonate[1].title}</a> : undefined }
+            {this.state.popularDonate.length > 1 ? <a onClick={() => this.setFaqAnswer(this.state.popularDonate[1])} className="search_popularResultsResult">{this.state.popularDonate[1].title.length > 46 ? this.state.popularDonate[0].title.slice(0, 46) + '...' : this.state.popularDonate[1].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularDonate.length > 2 ? <a onClick={() => this.setFaqAnswer(popularDonate[2])} className="search_popularResultsResult">{popularDonate[2].title.length > 46 ? popularDonate[0].title.slice(0, 46) + '...' : popularDonate[2].title}</a> : undefined }
+            {this.state.popularDonate.length > 2 ? <a onClick={() => this.setFaqAnswer(this.state.popularDonate[2])} className="search_popularResultsResult">{this.state.popularDonate[2].title.length > 46 ? this.state.popularDonate[0].title.slice(0, 46) + '...' : this.state.popularDonate[2].title}</a> : undefined }
             </div>
             </div>
 
@@ -542,11 +543,11 @@ render() {
             <div className="search__popularResultsHeader">Advertising</div>
             <hr className="search__popularResultsHr"/>
             <div className="faq__popularResultsWidth">
-            {popularAdvertising.length > 0 ? <a onClick={() => this.setFaqAnswer(popularAdvertising[0])} className="search_popularResultsResult">{popularAdvertising[0].title.length > 46 ? popularAdvertising[0].title.slice(0, 46) + '...' : popularAdvertising[0].title}</a> : undefined }
+            {this.state.popularAdvertising.length > 0 ? <a onClick={() => this.setFaqAnswer(this.state.popularAdvertising[0])} className="search_popularResultsResult">{this.state.popularAdvertising[0].title.length > 46 ? this.state.popularAdvertising[0].title.slice(0, 46) + '...' : this.state.popularAdvertising[0].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularAdvertising.length > 1 ? <a onClick={() => this.setFaqAnswer(popularAdvertising[1])} className="search_popularResultsResult">{popularAdvertising[1].title.length > 46 ? popularAdvertising[1].title.slice(0, 46) + '...' : popularAdvertising[1].title}</a> : undefined }
+            {this.state.popularAdvertising.length > 1 ? <a onClick={() => this.setFaqAnswer(this.state.popularAdvertising[1])} className="search_popularResultsResult">{this.state.popularAdvertising[1].title.length > 46 ? this.state.popularAdvertising[1].title.slice(0, 46) + '...' : this.state.popularAdvertising[1].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularAdvertising.length > 2 ? <a onClick={() => this.setFaqAnswer(popularAdvertising[2])} className="search_popularResultsResult">{popularAdvertising[2].title.length > 46 ? popularAdvertising[2].title.slice(0, 46) + '...' : popularAdvertising[2].title}</a> : undefined }
+            {this.state.popularAdvertising.length > 2 ? <a onClick={() => this.setFaqAnswer(this.state.popularAdvertising[2])} className="search_popularResultsResult">{this.state.popularAdvertising[2].title.length > 46 ? this.state.popularAdvertising[2].title.slice(0, 46) + '...' : this.state.popularAdvertising[2].title}</a> : undefined }
             </div>
             </div>
 
@@ -554,11 +555,11 @@ render() {
             <div className="search__popularResultsHeader">Copyright</div>
             <hr className="search__popularResultsHr"/>
             <div className="faq__popularResultsWidth">
-            {popularCopyright.length > 0 ? <a onClick={() => this.setFaqAnswer(popularCopyright[0])} className="search_popularResultsResult">{popularCopyright[0].title.length > 46 ? popularCopyright[0].title.slice(0, 46) + '...' : popularCopyright[0].title}</a> : undefined }
+            {this.state.popularCopyright.length > 0 ? <a onClick={() => this.setFaqAnswer(this.state.popularCopyright[0])} className="search_popularResultsResult">{this.state.popularCopyright[0].title.length > 46 ? this.state.popularCopyright[0].title.slice(0, 46) + '...' : this.state.popularCopyright[0].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularCopyright.length > 1 ? <a onClick={() => this.setFaqAnswer(popularCopyright[1])} className="search_popularResultsResult">{popularCopyright[1].title.length > 46 ? popularCopyright[1].title.slice(0, 46) + '...' : popularCopyright[1].title}</a> : undefined }
+            {this.state.popularCopyright.length > 1 ? <a onClick={() => this.setFaqAnswer(this.state.popularCopyright[1])} className="search_popularResultsResult">{this.state.popularCopyright[1].title.length > 46 ? this.state.popularCopyright[1].title.slice(0, 46) + '...' : this.state.popularCopyright[1].title}</a> : undefined }
             <div className="clearBoth search__popularResultsSpacing"></div>
-            {popularCopyright.length > 2 ? <a onClick={() => this.setFaqAnswer(popularCopyright[2])} className="search_popularResultsResult">{popularCopyright[2].title.length > 46 ? popularCopyright[2].title.slice(0, 46) + '...' : popularCopyright[2].title}</a> : undefined }
+            {this.state.popularCopyright.length > 2 ? <a onClick={() => this.setFaqAnswer(this.state.popularCopyright[2])} className="search_popularResultsResult">{this.state.popularCopyright[2].title.length > 46 ? this.state.popularCopyright[2].title.slice(0, 46) + '...' : this.state.popularCopyright[2].title}</a> : undefined }
             </div>
             </div>
 
@@ -628,7 +629,7 @@ render() {
       }
 
       {this.state.answer ? <div className="faq__answerVeryBottomSpacing"></div> : <div className="faqPageBottomHeight"></div>}
-          <Footer/>
+          <Footer route='' />
           </div>
           : undefined }
       </div>

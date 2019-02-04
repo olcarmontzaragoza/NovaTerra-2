@@ -122,24 +122,24 @@ render() {
 <div id='trackRightSidebar' className={this.state.trackClassName}>
 
 { this.state.sideBarSide ?
-<div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="topCategoryBox latestCategoryRight middleSideBar__selectedCategory">
+<div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="latestCategoryRight middleSideBar__selectedCategory">
   <div className="posStoryCat marginLeft10">
 Latest </div>
 </div>
 :
-<div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="topCategoryBox latestCategoryRight">
+<div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="latestCategoryRight">
   <div className="posStoryCat marginLeft10">
 Latest </div>
 </div>
 }
 
 { this.state.sideBarSide ?
-<div ref="trendingSide" onClick={() => { this.handleChange('trending') }} className="topCategoryBox topCategoryBox1 trendingCategoryRight">
+<div ref="trendingSide" onClick={() => { this.handleChange('trending') }} className="topCategoryBox1 trendingCategoryRight">
   <div className="posStoryCatTrending">
 Trending </div>
 </div>
 :
-<div ref="trendingSide" onClick={() => { this.handleChange('trending') }} className="topCategoryBox topCategoryBox1 trendingCategoryRight middleSideBar__selectedCategory">
+<div ref="trendingSide" onClick={() => { this.handleChange('trending') }} className="topCategoryBox1 trendingCategoryRight middleSideBar__selectedCategory">
   <div className="posStoryCatTrending">
 Trending </div>
 </div>

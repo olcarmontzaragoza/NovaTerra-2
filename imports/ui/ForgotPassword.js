@@ -91,7 +91,7 @@ this.setState({ error: '' });
       <div className="forgotPasswordBottomSpacing"></div>
       </div></div></div>
 
-      <Footer/>
+      <Footer route='' />
           </div>
           : undefined }
 

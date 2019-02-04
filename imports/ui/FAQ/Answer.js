@@ -37,7 +37,7 @@ render() {
           : <p>Couldn't find this answer</p> }
 
 
-          <Footer/>
+          <Footer route='' />
       </div>
     );
   }
