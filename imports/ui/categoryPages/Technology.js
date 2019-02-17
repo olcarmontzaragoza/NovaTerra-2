@@ -11,28 +11,35 @@ function myArrayMax(arr) {
     return Math.max.apply(null, arr);
 }
 
-const latest = Stories.find({
-  category: 'Tech', storyType: 'published'
-}, {
-  sort: {
-    lastUpdated: -1
-  }
-}).fetch();
-
-const popular = Stories.find({
-  category: 'Tech', storyType: 'published'
-}, {
-  sort: {
-    likes: -1
-  }
-}).fetch();
-
 export class Tech extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
 
 };
+}
+returnLatest() {
+  const latest = Stories.find({
+    category: 'Tech', storyType: 'published'
+  }, {
+    sort: {
+      lastUpdated: -1
+    }
+  }).fetch();
+
+  return latest;
+}
+returnPopular() {
+
+  const popular = Stories.find({
+    category: 'Tech', storyType: 'published'
+  }, {
+    sort: {
+      likes: -1
+    }
+  }).fetch();
+
+  return popular;
 }
 returnCreators(type) {
 
@@ -89,7 +96,7 @@ document.title = `NovaTerra - Technology`;
 render() {
     return (
       <div>
-      {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={latest} popularCollection={popular} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('new')} category='Technology' categoryDescription="our greatest ally or greatest enemy?" relatedCategories={['Future', 'Economy', 'Now']} categoryLinks={['/future', '/economy', '/now']} relatedTags={['Innovation', 'Research', 'Work']} tagLinks={['/innovation', '/research', '/work']}  />
+      {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('new')} category='Technology' categoryDescription="our greatest ally or greatest enemy?" relatedCategories={['Future', 'Economy', 'Now']} categoryLinks={['/future', '/economy', '/now']} relatedTags={['Innovation', 'Research', 'Work']} tagLinks={['/innovation', '/research', '/work']}  />
       : undefined }</div>
     );
   }

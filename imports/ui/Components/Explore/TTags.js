@@ -108,20 +108,22 @@ render() {
         Popular Tags
         </a>
         <div className="positionZIndexPositionsTags">
-        <div className="floatRight explore__positionDropDown">
+        <div className="sort__marginLeftExplore">
+        <div className="sort__buttonMarginLeftExplore">
           <div className="dropdown">
             <div ref={this.setWrapperRef} onClick={this.toggleDropDown.bind(this)} className="sort__sortByButton dropbtn"><FontAwesomeIcon icon={['fas', 'sort-amount-up']} className="sort__mainIcon"/><div className="sort__mainText">Sort by</div></div>
             <div ref={this.setWrapperRef2} className={this.state.toggleDropDown}>
+              <div className="dropdown-content__innerLargerMargins">
             <div className="dropdown-content__innerMargins">
               <div onClick={() => { this.changeSortOptions('popular') }} className="sort__popularContainer"><FontAwesomeIcon icon={['fas', 'fire']} className={`${this.state.sortOption === 'popular' ? 'sort__greenIconPop' : 'sort__popularIcon'}`}  /><div className={`${this.state.sortOption === 'popular' ? 'sort__greenText' : 'sort__popularText'}`}>Popular</div></div>
               <div className="clearBoth"></div>
               <div onClick={() => { this.changeSortOptions('newest') }} className="sort__newestContainer"><FontAwesomeIcon icon={['fas', 'hourglass-start']} className={`${this.state.sortOption === 'newest' ? 'sort__greenIcon' : 'sort__newestIcon'}`} /><div className={`${this.state.sortOption === 'newest' ? 'sort__greenText' : 'sort__newestText'}`}>Newest</div></div>
               <div className="clearBoth"></div>
               <div onClick={() => { this.changeSortOptions('oldest') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'hourglass-end']} className={`${this.state.sortOption === 'oldest' ? 'sort__greenIcon' : 'sort__oldestIcon'}`} /><div className={`${this.state.sortOption === 'oldest' ? 'sort__greenText' : 'sort__oldestText'}`}>Oldest</div></div>
-            </div></div>
+            </div></div></div>
           </div>
           </div>
-          </div>
+          </div></div>
           </div>
 
         <hr className="explore__belowCreatorsHr" />

@@ -117,7 +117,7 @@ render() {
     {this.getStories()[1] ?
     <div>
 
-    <Link to={this.getStories()[1].link}><Image cloud_name='novaterra' className="middleTopImagePositioning" publicId={this.getStories()[2].mainImage}><Transformation crop="thumb" /></Image></Link>
+    <Link to={this.getStories()[1].link}><Image cloud_name='novaterra' className="middleTopImagePositioning" publicId={this.getStories()[1].mainImage}><Transformation crop="thumb" /></Image></Link>
 
     <div className="floatLeft">
 
@@ -141,7 +141,7 @@ render() {
     {this.getStories()[2] ?
     <div>
 
-    <Link to={this.getStories()[2].link}><Image cloud_name='novaterra' className="middleTopImagePositioning" publicId={this.getStories()[1].mainImage}><Transformation crop="thumb" /></Image></Link>
+    <Link to={this.getStories()[2].link}><Image cloud_name='novaterra' className="middleTopImagePositioning" publicId={this.getStories()[2].mainImage}><Transformation crop="thumb" /></Image></Link>
 
     <div className="floatLeft">
 

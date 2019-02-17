@@ -7,6 +7,7 @@ import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session';
 import moment from 'moment';
 import Disqus from 'disqus-react';
+// import ReactDisqusThread from 'react-disqus-thread';
 
 import StoryPageContainer from './StoryPageContainer';
 import LatestOnNovaTerra from './LatestOnNovaTerra';
@@ -58,6 +59,9 @@ containerThreeMarginLeft: 'ab__1195',
 containerFourMarginLeft: 'ab__1195',
 };
 }
+handleNewComment() {
+
+}
 initialiseDisqus() {
 
   let disqusConfig = {
@@ -66,7 +70,7 @@ initialiseDisqus() {
     title: this.props.story.title,
   }
 
-  this.setState({ disqusShortname: 'novaterra' });
+  this.setState({ disqusShortname: 'www-novaterra-earth' });
   this.setState({ disqusConfig });
 
 }
@@ -149,7 +153,6 @@ if (!animationOnGoing) {
 animationOnGoing = true;
 popIndex--;
 this.popCheckFunc();
-console.log('leftArrowPop Ran', popIndex);
 this.setGreen(popIndex);
 }
 animationOnGoing = false;
@@ -161,14 +164,12 @@ if (popIndex > 0 && popIndex < this.returnLargestPopIndex()) {
    animationOnGoing = true;
    popIndex = popIndex + 1;
    this.popCheckFunc();
-   console.log('rigtArrowPop Ran', popIndex);
    this.setGreen(popIndex);
 }
 animationOnGoing = false;
 }
 }
 popCheckFunc() {
-console.log('popCheckFunc Ran', popIndex);
 
 if (popIndex === 1) {
 
@@ -496,20 +497,27 @@ Popular
 </div>
 : undefined }
 
-<div id="disqus_thread"></div>
+{/* <div id="disqus_thread"></div> */}
 
-<Disqus.CommentCount shortname={'novaterra'} config={{ url: this.props.story.link,
-identifier: this.props.story.id,
-title: this.props.story.title }}>
-  Comments
-</Disqus.CommentCount>
+<div className="storyBottom__disqusStyles">
 
-<Disqus.DiscussionEmbed shortname={'novaterra'} config={{ url: this.props.story.link,
-identifier: this.props.story.id,
+<Disqus.DiscussionEmbed shortname={'www-novaterra-earth'} config={{ url: `https://www.novaterra.earth/${this.props.story.link}`,
+identifier: this.props.story._id,
 title: this.props.story.title }} />
+</div>
+
+
+{/*<ReactDisqusThread
+				shortname="www-novaterra-earth"
+				identifier={this.props.story._id}
+				title={this.props.story.title}
+				url={this.props.story.link}
+        category_id="123456"
+				onNewComment={this.handleNewComment()}/>
+				/>*/}
+
 
 <LatestOnNovaTerra story={this.props.story} users={this.props.users} />
-
 </div>
     );
   }

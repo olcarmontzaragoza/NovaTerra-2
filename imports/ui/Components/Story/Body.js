@@ -15,8 +15,7 @@ render() {
 <div className="storyBody__topSpacing"></div>
 
 <div className="storyBody__margins">
-<div className="mainStoryText">
-{this.props.story.body}
+<div className="mainStoryText" dangerouslySetInnerHTML={{ __html: this.props.story.body }}>
 </div></div>
 
 <div className="marginLeftTags">

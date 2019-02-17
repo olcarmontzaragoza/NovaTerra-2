@@ -145,79 +145,6 @@ let homeMiddleArray = [];
 //   }
 // }
 
-let findLatest =  Stories.find({ storyType: 'published' }, {
-    sort: {
-      lastUpdated: -1
-    }
-}).fetch().map((story) => {
-  if (moment(story.lastUpdated).isAfter(oneWeekAgo)) {
-    mainLatest.push(story);
-  } else if (moment(story.lastUpdated).isAfter(oneMonthAgo)) {
-    monthLatest.push(story);
-  } else if (moment(story.lastUpdated).isAfter(threeMonthsAgo)) {
-    threeMonthLatest.push(story);
-  }
-});
-
-if (mainLatest.length < 16) {
-
-monthLatest.map((story) => {
-if (mainLatest.length < 16) {
-mainLatest.push(story);
-}
-});
-
-threeMonthLatest.map((story) => {
-if (mainLatest.length < 16) {
-mainLatest.push(story);
-}
-});
-
-} else {
-mainLatest = mainLatest.slice(0, 16);
-}
-
-mainLatest = shuffle(mainLatest);
-
-let latestClimate = Stories.find({
-  category: 'Climate', storyType: 'published'
-}, {
-  sort: {
-      lastUpdated: -1
-  }
-}).fetch();
-
-let latestWorld = Stories.find({
-  category: 'World', storyType: 'published'
-}, {
-  sort: {
-      lastUpdated: -1
-  }
-}).fetch();
-
-let latestFuture = Stories.find({
-  category: 'Future', storyType: 'published'
-}, {
-  sort: {
-      lastUpdated: -1
-  }
-}).fetch();
-
-if (homeMiddleArray.length === 16) {
- mainLatest = homeMiddleArray;
-} else if (homeMiddleArray.length > 0) {
-homeMiddleArray.map((story) => {
-mainLatest.unshift(story);
-});
-mainLatest = mainLatest.slice(0, 16);
-}
-
-mainLatest.map((story) => {
-  if (findLatest.includes(story)) {
-    let index = findLatest.indexOf(story);
-    findLatest.splice(index, 1);
-  }
-});
 
 export class HomeMiddle extends React.Component {
 constructor(props) {
@@ -225,10 +152,133 @@ super(props);
 this.state = {
 // showMoreContainers: this.props.showMoreContainers,
 // middleStories: this.props.middleStoriese
-latestStories: mainLatest
+
 };
 }
 renderStoriesMiddle() {
+
+}
+returnMainLatest() {
+  console.log('RERERERENDING');
+
+  let findLatest =  Stories.find({ storyType: 'published' }, {
+      sort: {
+        lastUpdated: -1
+      }
+  }).fetch().map((story) => {
+    console.log('STORIES', story);
+
+    // if (moment(story.lastUpdated).isBefore(oneMonthAgo)) {
+      // console.log("iSSS BEFORE A MONTH AGO");
+      mainLatest.push(story);
+    // } else if (moment(story.lastUpdated).isAfter(oneMonthAgo)) {
+    //   monthLatest.push(story);
+    // } else if (moment(story.lastUpdated).isAfter(threeMonthsAgo)) {
+    //   threeMonthLatest.push(story);
+    // }
+  });
+
+  // console.log('FINDADADA ', Stories.find().count());
+  //
+  // console.log('FINDADADA ', findLatest.length);
+
+  // if (mainLatest.length < 16) {
+  //
+  // monthLatest.map((story) => {
+  // if (mainLatest.length < 16) {
+  // mainLatest.push(story);
+  // }
+  // });
+  //
+  // threeMonthLatest.map((story) => {
+  // if (mainLatest.length < 16) {
+  // mainLatest.push(story);
+  // }
+  // });
+
+  // } else {
+  // mainLatest = mainLatest.slice(0, 16);
+  // }
+
+  // mainLatest = shuffle(mainLatest);
+
+  let latestClimate = Stories.find({
+    category: 'Climate', storyType: 'published'
+  }, {
+    sort: {
+        lastUpdated: -1
+    }
+  }).fetch();
+
+  let latestWorld = Stories.find({
+    category: 'World', storyType: 'published'
+  }, {
+    sort: {
+        lastUpdated: -1
+    }
+  }).fetch();
+
+  let latestFuture = Stories.find({
+    category: 'Future', storyType: 'published'
+  }, {
+    sort: {
+        lastUpdated: -1
+    }
+  }).fetch();
+
+  // if (homeMiddleArray.length === 16) {
+  //  mainLatest = homeMiddleArray;
+  // } else if (homeMiddleArray.length > 0) {
+  // homeMiddleArray.map((story) => {
+  // mainLatest.unshift(story);
+  // });
+  // mainLatest = mainLatest.slice(0, 16);
+  // }
+  //
+  // mainLatest.map((story) => {
+  //   if (findLatest.includes(story)) {
+  //     let index = findLatest.indexOf(story);
+  //     findLatest.splice(index, 1);
+  //   }
+  // });
+
+  console.log('main main2', mainLatest.length)
+
+  // let originals = [];
+  // mainLatest.map((story) => {
+  //   if (originals.includes(story._id)) {
+  //     let index = mainLatest.indexOf(story);
+  //     mainLatest.splice(index, 1);
+  //   } else {
+  //     originals.push(story._id);
+  //   }
+  // });
+
+  // console.log('ORIRIRI', originals);
+
+  console.log('main main', mainLatest.length)
+
+  // mainLatest.map((story) => {
+  //
+  //   mainLatest.map((storyTwo) => {
+  //     if (story._id === storyTwo._id) {
+  //       let index = mainLatest.indexOf(storyTwo);
+  //       mainLatest.splice(index, 1);
+  //     }
+  //   });
+
+  // });
+
+  let results = [];
+
+  mainLatest.map((story) => {
+  results.push(
+    <div key={story._id}>
+      <MiddleStory story={story} users={this.props.users} />
+    </div>)
+  });
+
+return results;
 
 }
 renderEightMoreStories() {
@@ -257,11 +307,9 @@ setNum() {
       </div>
             <hr className="bottomHrHomeTop" />
 
+<div className="homeMiddle__mainTopFlexDiv">
 
-      <div className="mainSideBarHomeMiddle">
-      <MiddleSidebar users={this.props.users} />
-      </div>
-
+        <div>
         <div className="label homeMiddle__mainLabel">
         Latest on Novaterra
         </div>
@@ -269,37 +317,61 @@ setNum() {
 
         <div>
         {this.setNum()}
-        {console.log('latest stories', this.state.latestStories)}
-        {
-          this.state.latestStories.map((story) => {
+        {console.log('latest stories', this.returnMainLatest())}
+
+
+
+        {Stories.find({ storyType: 'published' }, {
+            sort: {
+              lastUpdated: -1
+            }
+        }).fetch().map((story) => {
+
+          return (<div key={story._id}>
+            <MiddleStory story={story} users={this.props.users} />
+          </div>)
+
+        })}
+
+
+
+      {/*   this.returnMainLatest().map((story) => {
           num++;
-          if (num === 3 && latestClimate.length >= 3) {
+          // if (num === 3) {
           return (
             <div key={story._id}>
               <MiddleStory story={story} users={this.props.users} />
-              {/* <MiddleStoryCategory collection={latestClimate} /> */}
+              {/* <MiddleStoryCategory collection={latestClimate} />
             </div>
           )
-        } else if (num === 7 && latestWorld.length >= 3) {
+        } else if (num === 7) {
           return (
             <div key={story._id}>
               <MiddleStory story={story} users={this.props.users} />
-              {/* <MiddleStoryCategory collection={latestWorld} /> */}
+              {/* <MiddleStoryCategory collection={latestWorld} />
             </div>
           )
-        } else if (num === 11 && latestFuture.length >= 3) {
+        } else if (num === 11 ) {
           return (
             <div key={story._id}>
-              <MiddleStory story={story} users={this.props.users} collection={latestFuture} />
-              {/* <MiddleStoryCategory collection={latestFuture} /> */}
+              <MiddleStory story={story} users={this.props.users} />
+              {/* <MiddleStoryCategory collection={latestFuture} />
             </div>
           )
           } else {
-          return <MiddleStory key={story._id} users={this.props.users} story={story}/>;
+          return (
+          <div key={story._id}>
+          <MiddleStory users={this.props.users} story={story}/>
+          </div>
+          )
           }
+
 
         })
         }
+
+          */}
+
 
         { this.state.storiesLefToShow && !Session.get('storiesLeftHomeMiddle') ?
         <div>
@@ -310,7 +382,14 @@ setNum() {
         </div>
         : undefined }
 
+        </div></div>
+
+        <div className="mainSideBarHomeMiddle">
+        <MiddleSidebar users={this.props.users} />
         </div>
+
+        </div>
+
 
         <div id='home__bottomElement'></div>
 

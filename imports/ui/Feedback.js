@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
+import moment from 'moment';
 
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
@@ -58,11 +59,31 @@ e.preventDefault();
 
   let message = this.refs.message.value;
 
-  if (!(this.state.error)) {
-    this.setState({ showMessage: true });
-  } else {
-    this.setState({ showMessage: false });
+  let details = {
+    reason: 'FEEDBACK',
+    time: moment(moment().valueOf()).format('LLLL'),
+    user: Meteor.userId() ? Meteor.userId() : 'Not Signed In',
+    username: Meteor.userId() ? Meteor.users.findOne({ _id: Meteor.userId() }).username : 'Not Signed in',
+    design,
+    functionality,
+    easeOfUse,
+    userExperience,
+    homepage,
+    category,
+    mission,
+    search,
+    profile,
+    other,
+    message
   }
+
+Meteor.call('submissions.insert', details);
+
+if (!(this.state.error)) {
+  this.setState({ showMessage: true });
+} else {
+  this.setState({ showMessage: false });
+}
 
 
 // Important: Don't send an email to the user, just send it to your main account with a title saying 'Feedback'
@@ -120,7 +141,7 @@ returnDescriptionCharactersLeft(e) {
 
       <div className="clearBoth"></div>
 
-      <div className="feedback__firstDiv">Your advice could have a significant impact on both NovaTerra and our future. Your feedback will help improve NovaTerra, which as a result will help us get closer to our goal of raising <Link className="link" to="/mission">$50,000 by 2020</Link>. Thank your for your support, NovaTerra.</div>
+      <div className="feedback__firstDiv">Your advice could have a significant impact on both NovaTerra and our future. Your feedback will help improve NovaTerra, which as a result will help us get closer to our goal of raising <Link className="link" to="/mission">€50,000 by 2020</Link>. Thank your for your support, NovaTerra.</div>
 
       <div className="clearBoth"></div>
 

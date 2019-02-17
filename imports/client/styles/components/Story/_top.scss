@@ -961,6 +961,7 @@ line-height:1.53; font-size:0.9em;
 .homeTop__mainImage {
   width:814px;
   margin-left:4px;
+  border-radius:4px;
 
    @media screen and (max-width: 1242px) {
     left:20px;
@@ -969,37 +970,48 @@ line-height:1.53; font-size:0.9em;
    }
    @media screen and (max-width: 1100px) {
      left:3px;
-     width:90.6vw;
+     width:91.9vw;
      position:relative;
    }
    @media screen and (max-width: 1050px) {
      left:-10px;
-     width:92.6vw;
+     width:93.9vw;
     position:relative;
    }
    @media screen and (max-width: 925px) {
      left:-10px;
-     width:91.5vw;
+     width:93vw;
     position:relative;
    }
    @media screen and (max-width: 835px) {
      left:-15px;
-     width:91.5vw;
+     width:93vw;
     position:relative;
    }
    @media screen and (max-width: 790px) {
      left:-25px;
-     width:93.5vw;
+     width:95.7vw;
     position:relative;
+   }
+   @media screen and (max-width: 695px) {
+     left:-30px;
+     width:96.2vw;
+    position:relative;
+    margin-top:-40px;
    }
    @media screen and (max-width: 670px) {
      left:-30px;
-     width:92.5vw;
+     width:96.2vw;
     position:relative;
    }
    @media screen and (max-width: 595px) {
      left:-30px;
-     width:91vw;
+     width:95vw;
+    position:relative;
+   }
+   @media screen and (max-width: 395px) {
+     left:-30px;
+     width:93vw;
     position:relative;
    }
 }

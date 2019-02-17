@@ -210,7 +210,7 @@ minRead: `3`, // Find out how to calcualte this
 likes: ['1', '2', '3', '4', '5', '6'],
 comments: '4',
 shares: 0,
-storyType: 'waiting', // Change this to drafted soon
+storyType: 'published', // Change this to drafted soon
 _id: '10',
 link: '/story/where-have-all-the-berries-goneee',
 references: [],
@@ -299,13 +299,13 @@ Meteor.methods({
 
 // if (Stories.find().count() === 0) {
 // if (Stories.find({ title: "Cape Town's Water Crisis And What This Means For The Rest of The World" }).count() === 0) Stories.insert({ ...Story1 });
-// if (Stories.find({ title: "China's Recent Ban on Foreign Waste And What This Means For The Rest of The World" }).count() === 0) Stories.insert({ ...Story2 });
-// if (Stories.find({ title: "Could The Recovering Ozone Make Justice Worse?" }).count() === 0) Stories.insert({ ...Story3 });
-// if (Stories.find({ title: "Can America Still Enter The Paris Climate Agreement?" }).count() === 0) Stories.insert({ ...Story4 });
-// if (Stories.find({ title: "What a Zero Waste Society Will Look Like" }).count() === 0) Stories.insert({ ...Story5 });
-// if (Stories.find({ title: "How to Design Cities to Withstand Wildfires" }).count() === 0) Stories.insert({ ...Story6 });
-// if (Stories.find({ title: "How to Live a Plastic Free Lifestyle" }).count() === 0) Stories.insert({ ...Story7 });
-// if (Stories.find({ title: "Where Have All The Berries Gone?" }).count() === 0) Stories.insert({ ...Story8 });
-// if (Stories.find({ title: "Where Have All The Berries Gonee?" }).count() === 0) Stories.insert({ ...Story9 });
+// // if (Stories.find({ title: "China's Recent Ban on Foreign Waste And What This Means For The Rest of The World" }).count() === 0) Stories.insert({ ...Story2 });
+// // if (Stories.find({ title: "Could The Recovering Ozone Make Justice Worse?" }).count() === 0) Stories.insert({ ...Story3 });
+// // if (Stories.find({ title: "Can America Still Enter The Paris Climate Agreement?" }).count() === 0) Stories.insert({ ...Story4 });
+// // if (Stories.find({ title: "What a Zero Waste Society Will Look Like" }).count() === 0) Stories.insert({ ...Story5 });
+// // if (Stories.find({ title: "How to Design Cities to Withstand Wildfires" }).count() === 0) Stories.insert({ ...Story6 });
+// // if (Stories.find({ title: "How to Live a Plastic Free Lifestyle" }).count() === 0) Stories.insert({ ...Story7 });
+// // if (Stories.find({ title: "Where Have All The Berries Gone?" }).count() === 0) Stories.insert({ ...Story8 });
+// // if (Stories.find({ title: "Where Have All The Berries Gonee?" }).count() === 0) Stories.insert({ ...Story9 });
 // if (Stories.find({ title: "Where Have All The Berries Goneee?" }).count() === 0) Stories.insert({ ...Story10 });
 // }

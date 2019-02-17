@@ -241,6 +241,8 @@ margin-top:-1px;
   justify-content:space-between;
   padding-left:15px;
   padding-right:15px;
+  position:relative;
+  z-index:21000;
 }
 .greenIcon {
   color:#15a05c;
@@ -312,6 +314,7 @@ z-index:10;
 .nav__profileMainImage {
   border-radius:50%;
   height:56px;
+  width:56px;
   float:left;
 }
 .nav__profileUsernameAndDate {
@@ -488,7 +491,7 @@ margin-top:8px;
   width:43px;
   border-radius: 50%;
   margin-right:7px;
-  margin-left:1px;
+  margin-left:4px;
   margin-top:15px;
   -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -540,6 +543,24 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
   background-color: #378b29;
 background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
 }
+.notification__userImageModal {
+  height:43px;
+  width:43px;
+  border-radius: 50%;
+  margin-right:7px;
+  margin-left:11px;
+  margin-top:15px;
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+
+  @media screen and (max-width:385px) {
+  margin-left:6px;
+  }
+}
 .nav__notificationsMargin {
   margin-top:-1px;
 }
@@ -565,12 +586,11 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
 .nav__notificationsPostImagePositioning {
   margin-top:0px;
   position:relative;
-  left:402px;
+  left:421px;
   clear:both;
 }
 .nav__notificationsTopPadding {
 margin-left:16px;
-margin-top:11px;
 height:60px;
 width:500px;
 margin-left:-10px;
@@ -584,10 +604,27 @@ margin-top:0px;
   margin-left:22px;
 }
 .nav__hrSeperator {
-  height:1px;border:none;color:#dddddd;background-color:#dddddd; display:flex; width:407px; margin-left:52px;
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; display:flex; width:407px; margin-left:52px; margin-bottom:2px; margin-top:-8px;
+}
+.nav__hrSeperatorModal {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; display:flex; width:286px; margin-left:42px; margin-bottom:2px; margin-top:-8px;
+
+  @media screen and (max-width:375px) {
+  margin-left:30px;
+  width:80.4vw;
+  }
+
+}
+.nav__hrSeperatorUserModal {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; display:flex; width:286px; margin-left:42px; margin-bottom:2px; margin-top:-3px;
+
+  @media screen and (max-width:375px) {
+  margin-left:30px;
+  width:80.4vw;
+  }
 }
 .nav__belowHrMargin {
-height:7px;
+height:4px;
 }
 .nav__belowHrMargin1 {
 height:4px;
@@ -597,6 +634,7 @@ height:4px;
   width:43px;
   margin-right:8px;
   border-radius:2px;
+  margin-left:25px;
   float:left;
   -webkit-touch-callout: none;
       -webkit-user-select: none;
@@ -605,6 +643,29 @@ height:4px;
           -ms-user-select: none;
               user-select: none;
 }
+.notification__storyImageModal {
+  height:43px;
+  width:43px;
+  margin-right:8px;
+  border-radius:2px;
+  margin-left:25px;
+  float:left;
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+
+  @media screen and (max-width:385px) {
+  margin-left:19px;
+  }
+}
+
+
+
+
+
 .nav__notificationsStoryTitle {
   transition:0.25s;
 }
@@ -613,7 +674,7 @@ height:4px;
   transition:0.25s;
 }
 .nav__notificationsWidth {
-width:393px;
+width:315px;
 }
 .nav__notificationsVisit {
 margin-left:18px;
@@ -637,7 +698,7 @@ font-size:0.95em;
   margin-top:-42px;
 }
 .nav__userEventElimateSpacing1 {
-  margin-top:-15px;
+  margin-top:-23px;
 }
 .nav__userEventElimateSpacingFollow {
   margin-top:-27px;
@@ -650,11 +711,38 @@ font-size:0.95em;
 
 
   margin-bottom:-5px;
-  height:25px;
+
+  font-size:0.74em;
+  align-items:center;
   padding-left:10px;
+    display:inline-block;
   margin-left:3px;
   padding-right:10px;
 
+padding-top:7px;
+padding-bottom:7px;
+
+  transition:0.25s;
+  cursor:pointer;
+}
+.nav__notificationsFollowModal {
+  border:1px solid #15a05c;
+  border-radius:3px;
+  color:#15a05c;
+  opacity:0.8;
+
+
+  margin-bottom:-5px;
+
+  font-size:0.74em;
+  align-items:center;
+  padding-left:10px;
+    display:inline-block;
+  margin-left:3px;
+  padding-right:10px;
+
+padding-top:7px;
+padding-bottom:7px;
 
   transition:0.25s;
   cursor:pointer;
@@ -698,15 +786,96 @@ font-size:10.2px;
 }
 .nav__learnWhy {
   margin-left:7px;
-  margin-bottom:10px;
+  margin-top:20px;
+  margin-bottom:-20px;
 }
 .nav__learnMore {
   margin-left:7px;
-  margin-bottom:-15px;
+  margin-top:20px;
+  margin-bottom:-20px;
+}
+.nav__learnMoreModal {
+  margin-left:-123px;
+  margin-top:20px;
+  margin-bottom:-20px;
+
+  @media screen and (max-width:385px) {
+    position:relative;
+    right:7px;
+  }
+  @media screen and (max-width:373px) {
+    position:relative;
+    right:12px;
+  }
+  @media screen and (max-width:365px) {
+    position:relative;
+    right:17px;
+  }
+  @media screen and (max-width:357px) {
+    position:relative;
+    right:21px;
+  }
+  @media screen and (max-width:350px) {
+    position:relative;
+    right:27px;
+  }
+  @media screen and (max-width:341px) {
+    position:relative;
+    right:34px;
+  }
+  @media screen and (max-width:336px) {
+    position:relative;
+    right:46px;
+  }
+  @media screen and (max-width:327px) {
+    position:relative;
+    right:53px;
+  }
 }
 .nav__visit {
   margin-left:10px;
   margin-bottom:10px;
+  margin-top:20px;
+  margin-bottom:-20px;
+}
+.nav__visitModal {
+  margin-left:-116px;
+  margin-bottom:10px;
+  margin-top:20px;
+  margin-bottom:-20px;
+
+  @media screen and (max-width:385px) {
+    position:relative;
+    right:7px;
+  }
+  @media screen and (max-width:373px) {
+    position:relative;
+    right:12px;
+  }
+  @media screen and (max-width:365px) {
+    position:relative;
+    right:17px;
+  }
+  @media screen and (max-width:357px) {
+    position:relative;
+    right:21px;
+  }
+  @media screen and (max-width:350px) {
+    position:relative;
+    right:27px;
+  }
+  @media screen and (max-width:341px) {
+    position:relative;
+    right:34px;
+  }
+  @media screen and (max-width:336px) {
+    position:relative;
+    right:46px;
+  }
+  @media screen and (max-width:327px) {
+    position:relative;
+    right:53px;
+  }
 }
 .nav__notificationsMessageBackButton {
 color:#c1c1c1;
@@ -768,6 +937,12 @@ margin-top:37px;
   background-color:#dddddd;
   display:flex;
   right:4.6vw;
+
+  @media screen and (max-width: 630px) {
+    color:#fff;
+    background-color: #fff;
+    margin-bottom:-16px;
+  }
 }
 .nav__headerLogoTopDiv {
   display:flex;
@@ -792,14 +967,10 @@ margin-top:37px;
 }
 .nav__fillingHeight {
   height:32px;
-
-  @media screen and (max-width: 700px) {
-    display:none;
-  }
 }
 .nav__categories {
 position:relative;
-width:91vw;
+width:98vw;
 margin-left:12px;
 
 @media screen and (max-width: 360px) {
@@ -947,14 +1118,35 @@ margin-top:15px;
     margin-left:0px;
   }
   @media screen and (max-width: 631px) {
-  width:334px;
+  width:414px;
   }
-  @media screen and (max-width: 521px) {
-    width:238px;
+  @media screen and (max-width: 545px) {
+  width:364px;
+  }
+  // @media screen and (max-width: 651px) {
+  // width:414px;
+  // }
+  @media screen and (max-width: 500px) {
+    width:338px;
     font-size:0.98em;
   }
+  @media screen and (max-width: 465px) {
+    width:318px;
+  }
+  @media screen and (max-width: 440px) {
+    width:298px;
+  }
+  @media screen and (max-width: 412px) {
+    width:268px;
+  }
+  @media screen and (max-width: 380px) {
+    width:248px;
+  }
+  @media screen and (max-width: 352px) {
+    width:238px;
+  }
   @media screen and (max-width: 340px) {
-    width:198px;
+    width:218px;
     font-size:0.96em;
   }
 }
@@ -1004,12 +1196,12 @@ margin-top:15px;
 .header__innerLinksBoxCat {
   width:861px;
   height:40px;
-  position:absolute;
+  position:relative;
 }
 .header__innerLinksBox {
   width:1132px;
   height:40px;
-  position:absolute;
+  position:relative;
 }
 .header__tagExplore {
   float:left;
@@ -1032,6 +1224,11 @@ margin-top:15px;
   display:block;
   }
 }
+.header__catInnerExplore {
+  @media screen and (min-width: 671px) {
+    display:none;
+  }
+}
 .header__leftIcon {
   position:relative;
   margin-top:0px;
@@ -1043,6 +1240,13 @@ margin-top:15px;
 
   @media screen and (max-width: 631px) {
   display:block;
+  margin-left:-17px;
+  }
+  @media screen and (max-width: 595px) {
+  margin-left:-24px;
+  }
+  @media screen and (max-width: 340px) {
+  margin-left:-21px;
   }
 }
 .header__rightIcon {
@@ -1060,20 +1264,20 @@ margin-top:15px;
 }
 .nav__navFixed {
 margin-left:-8px;
-width:100vw;
+width:101vw;
 background-color:#fff;
-opacity:0.95;
+// opacity:0.95;
 position:fixed;
 top:0%;
 margin-top:0px;
-z-index:12000;
+z-index:21000;
 height:75px;
 }
 .nav__navNotFixed {
 margin-left:-8px;
 width:100vw;
 background-color:#fff;
-opacity:0.97;
+// opacity:0.97;
 position:relative;
 top:0%;
 margin-top:0px;
@@ -1308,20 +1512,45 @@ font-size:0.81em;
   margin-top:20px;
   margin-left:-12px;
   margin-bottom:12px;
+
+  @media screen and (max-width:385px) {
+  margin-top:17px;
+  margin-left:-18px;
+  }
 }
 .nav__notificationsModalContainer {
-  width:332px;
-  height:220px;
+  width:349px;
+  height:240px;
   overflow-y: scroll;
   overflow-x: hidden;
-  margin-top:30px;
-  margin-left:-20px;
+  margin-top:37px;
+  margin-left:-36px;
+
+  @media screen and (max-width:385px) {
+    height:235px;
+  }
+  @media screen and (max-width:335px) {
+    height:185px;
+  }
+  @media screen and (max-width:305px) {
+    height:185px;
+  }
+  @media screen and (max-width:285px) {
+    height:185px;
+  }
+  @media screen and (max-width:260px) {
+    height:255px;
+  }
 }
 .nav__notificationsTitle {
   font-size:1.12em;
 
   margin-top:-39.5px;
   color:#fff;
+
+  @media screen and (max-width:385px) {
+    margin-left:-10px;
+  }
 }
 .nav__notificationModalNum {
   position:absolute;
@@ -1347,19 +1576,66 @@ font-size:0.81em;
   // margin-left:10px;
 }
 .nav__notificationsText {
-  margin-top:21px;
+  margin-top:3px;
+  margin-bottom:29px;
   float:left;
+  font-size:0.98em;
+  display:block;
 }
+.nav__notificationsTextModal {
+  margin-top:3px;
+  margin-bottom:29px;
+  float:left;
+  font-size:0.98em;
+  display:block;
+  width:201px;
+
+  @media screen and (max-width:385px) {
+    width:50.5vw;
+  }
+  @media screen and (max-width:335px) {
+    width:47.5vw;
+  }
+  @media screen and (max-width:305px) {
+    width:45.5vw;
+  }
+  @media screen and (max-width:285px) {
+    width:42.5vw;
+  }
+  @media screen and (max-width:260px) {
+    width:40.5vw;
+  }
+}
+.nav__notificationsTextNormalUser {
+  margin-top:-44px;
+  margin-bottom:29px;
+  float:left;
+  margin-left:64px;
+  font-size:0.98em;
+  width:298px;
+}
+.nav__notificationsTextUser {
+  width:300px;
+}
+// .nav__notificationsTextUser {
+//   margin-top:3px;
+//   margin-bottom:29px;
+//   float:left;
+//   font-size:0.98em;
+//   background-color: #f00;
+//   width:300px;
+//   flex-direction: row;
+// }
 .nav__notificationsDot {
   float:left;
 }
-.nav__notificationsTextModal {
-  margin-top:18px;
+.nav__notificationsTextUserModal {
+  margin-top:-30px;
   margin-left:-3px;
   font-size:0.93em;
-  width:200px;
+  width:175px;
   float:left;
-
+  margin-bottom:30px;
 }
 .notifications__topInnermarginsModal {
   margin-top:10.5px;
@@ -1367,31 +1643,66 @@ font-size:0.81em;
 }
 .nav__followButtonLargeModal {
 margin-top:21px;
-margin-left:189px;
+margin-left:202px;
 margin-bottom:-5px;
 padding-left:15px;
 padding-right:15px;
 padding-top:7px;
 padding-bottom:7px;
 
-position:absolute;
+position:relative;
 border:1px solid #15a05c;
 opacity:0.8;
 border-radius:4px;
 letter-spacing:0.023em;
 color:#15a05c;
 cursor:pointer;
+font-size:0.69em;
+
+@media screen and (max-width:385px) {
+  position:relative;
+  right:7px;
+  margin-left:206px;
+}
+@media screen and (max-width:373px) {
+  position:relative;
+  right:12px;
+}
+@media screen and (max-width:365px) {
+  position:relative;
+  right:17px;
+}
+@media screen and (max-width:357px) {
+  position:relative;
+  right:21px;
+}
+@media screen and (max-width:350px) {
+  position:relative;
+  right:27px;
+}
+@media screen and (max-width:341px) {
+  position:relative;
+  right:34px;
+}
+@media screen and (max-width:336px) {
+  position:relative;
+  right:46px;
+}
+@media screen and (max-width:327px) {
+  position:relative;
+  right:53px;
+}
 }
 .nav__followingButtonLargeModal {
 margin-top:21px;
-margin-left:172px;
+margin-left:185px;
 margin-bottom:-5px;
 padding-left:15px;
 padding-right:15px;
 padding-top:7px;
 padding-bottom:7px;
 
-position:absolute;
+position:relative;
 border:1px solid #15a05c;
 opacity:0.8;
 background-color:#15a05c;
@@ -1399,6 +1710,41 @@ border-radius:4px;
 letter-spacing:0.023em;
 color:#fff;
 cursor:pointer;
+font-size:0.64em;
+
+@media screen and (max-width:385px) {
+  position:relative;
+  right:7px;
+  margin-left:189px;
+}
+@media screen and (max-width:373px) {
+  position:relative;
+  right:12px;
+}
+@media screen and (max-width:365px) {
+  position:relative;
+  right:17px;
+}
+@media screen and (max-width:357px) {
+  position:relative;
+  right:21px;
+}
+@media screen and (max-width:350px) {
+  position:relative;
+  right:27px;
+}
+@media screen and (max-width:341px) {
+  position:relative;
+  right:34px;
+}
+@media screen and (max-width:336px) {
+  position:relative;
+  right:46px;
+}
+@media screen and (max-width:327px) {
+  position:relative;
+  right:53px;
+}
 }
 .nav__profileNotificationSmallIconLarge {
   position:absolute;

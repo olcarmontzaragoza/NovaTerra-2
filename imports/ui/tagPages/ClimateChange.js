@@ -3,29 +3,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import TagPageLayout from './TagPageLayout';
 import { Stories } from '../../api/stories';
 
-let latest = [];
-let popular = [];
-
-const preLatest = Stories.find({ storyType: 'published' }, {
-  sort: {
-    lastUpdated: -1
-  }
-}).fetch().map((story) => {
-  if (story.tags.includes('Climate Change')) {
-    latest.push(story);
-  }
-});
-
-const prePopular = Stories.find({ storyType: 'published' }, {
-  sort: {
-    likes: -1
-  }
-}).fetch().map((story) => {
-  if (story.tags.includes('Climate Change')) {
-    popular.push(story);
-  }
-});
-
 function myArrayMin(arr) {
     return Math.min.apply(null, arr);
 }
@@ -46,9 +23,38 @@ this.state = {
 
 };
 }
+returnLatest() {
+  let latest = [];
+
+  const preLatest = Stories.find({ storyType: 'published' }, {
+    sort: {
+      lastUpdated: -1
+    }
+  }).fetch().map((story) => {
+    if (story.tags.includes('Climate Change')) {
+      latest.push(story);
+    }
+  });
+
+  return latest;
+}
+returnPopular() {
+  let popular = [];
+  const prePopular = Stories.find({ storyType: 'published' }, {
+    sort: {
+      likes: -1
+    }
+  }).fetch().map((story) => {
+    if (story.tags.includes('Climate Change')) {
+      popular.push(story);
+    }
+  });
+
+  return popular;
+}
 returnCreators(type) {
   let climateChangeCreators = [];
-  popular.map((story) => {
+  this.returnPopular().map((story) => {
     let user = Meteor.users.findOne({ _id: story.userId }); // FIX THIS
 
     let alreadyAdded = false;
@@ -84,7 +90,7 @@ document.title = `NovaTerra - Climate Change`;
 render() {
     return (
       <div>
-        {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={latest} popularCollection={popular} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Climate Change' tagDescription="are these effects irreversible?" relatedCategories={['Environment', 'Future', 'Now']} categoryLinks={['/environment', '/future', '/now']} relatedTags={['Energy', 'Biodiversity', 'Politics']} tagLinks={['/energy', '/biodiversity', '/politics']}  /> : undefined }
+        {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Climate Change' tagDescription="are these effects irreversible?" relatedCategories={['Environment', 'Future', 'Now']} categoryLinks={['/environment', '/future', '/now']} relatedTags={['Energy', 'Biodiversity', 'Politics']} tagLinks={['/energy', '/biodiversity', '/politics']}  /> : undefined }
       </div>
     );
   }

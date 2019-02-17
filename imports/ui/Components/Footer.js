@@ -37,7 +37,7 @@ let details = {
   lastUpdated: moment().valueOf(),
   minRead: 0,
   likes: [],
-  comments: '',
+  comments: 0,
   shares: 0,
   storyType: 'drafted',
   _id: `${newId}`,
@@ -115,7 +115,7 @@ render() {
  </div>
   <Link to="/get-involved" className="footerLink">Get Involved</Link>
 <div className="clearBoth footerLinkSpacing"></div>
-  <a onClick={() => this.createNewStory()} className="footerLink">Create a Story</a>
+  <a onClick={() => this.createNewStory()} className="footerLink createAStoryCursor">Create a Story</a>
 <div className="clearBoth footerLinkSpacing"></div>
   <Link to="/feedback" className="footerLink">Tell us Your Thoughts</Link>
 <div className="clearBoth footerLinkSpacing"></div>

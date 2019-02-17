@@ -42,7 +42,6 @@ Tracker.autorun(() => {
 }
 }
 renderFollowingButton() {
-console.log('renderFollowingButton ran');
 
 let user = Meteor.users.findOne({ _id: Meteor.userId() });
 let profileFollow = Meteor.users.findOne({ _id: this.props.story.userId }).following.includes(user._id);
@@ -50,7 +49,6 @@ let profileFollow = Meteor.users.findOne({ _id: this.props.story.userId }).follo
 // console.log('author tooltip id', this.props.userId);
 
 this.setState({ profileFollow });
-console.log('followButton', this.state.profileFollow);
 }
 toggleIsFollowing() {
   // this.renderFollowingButton();
@@ -60,23 +58,17 @@ toggleIsFollowing() {
   let user = Meteor.users.findOne({ _id: Meteor.userId() });
   let otherUser = Meteor.users.findOne({ _id: this.props.story.userId });
 
-  console.log('otheruser', otherUser._id);
-
   let currentFollowing = user.following;
   let currentFollowers = otherUser.followers;
 
   if (user.following.includes(otherUser._id)) {
   let newFollowing = currentFollowing;
-  console.log('newFollowing', newFollowing);
   let index = newFollowing.indexOf(otherUser._id);
-  console.log('index', index);
   newFollowing.splice(index, 1);
-  console.log('newFollowing', newFollowing);
 
   let newFollowers = currentFollowers;
   let otherIndex = currentFollowers.indexOf(user._id);
   newFollowers.splice(index, 1);
-  console.log('newFollowers', newFollowers);
 
   Meteor.call('users.update', Meteor.userId(), { following: newFollowing });
   Meteor.call('users.update', otherUser._id, { followers: newFollowers });
@@ -84,8 +76,7 @@ toggleIsFollowing() {
   // this.renderFollowingButton();
   // this.setState({ follow: false });
   // this.renderFollowingButton();
-  console.log('newFollowing', newFollowing);
-  console.log('newFollowers', newFollowers);
+
 
 
   } else {
@@ -93,13 +84,11 @@ toggleIsFollowing() {
   if (!(newFollowing.includes(otherUser._id))) {
   newFollowing.push(otherUser._id);
   }
-  console.log('newFollowing', newFollowing);
 
   let newFollowers = currentFollowers;
   if (!(newFollowers.includes(user._id))) {
   newFollowers.push(user._id);
 }
-  console.log('newFollowers', newFollowers);
 
   // console.log('follow', this.state.profileFollow);
 
@@ -112,8 +101,7 @@ toggleIsFollowing() {
   // this.renderFollowingButton();
   //
   // this.renderFollowingButton();
-  console.log('newFollowing', newFollowing);
-  console.log('newFollowers', newFollowers);
+
   // this.renderFollowingButton();
 
     // console.log('follow value', this.state.profileFollow);
@@ -183,9 +171,9 @@ render() {
 <div className="authorAndComments__shareIconsMarginLeft">
 <ShareIconsAndDropDown/>
 </div>
-<div className="shareAndCommentsStory2">
+<div className="ab__shareAndCommentsStory2">
   <FontAwesomeIcon icon={['fas', 'comments']} className="commentIconStory2" />
-  <div className="scFont refNumCom">{this.props.story.comments}</div>
+  <div className="scFont refNumCom">0</div>
 
   <div className="commentAndSharesLineStory1">
   </div>
@@ -203,6 +191,8 @@ render() {
 <div className="authorAndComments__aboutTheAuthorTopSpacing"></div>
 
 <div className="ac__mobileMarginLeft">
+
+<div className="referencesAndAuthorTopDiv">
 
 <div className="floatLeft">
 <div className="authorAndComments__aboutTheAuthor">
@@ -234,7 +224,7 @@ About The Author
 </div>
 
 </div>
-</div>
+
 
 <div className="authorsAndComments__referencesTopPositioningDiv">
 
@@ -246,12 +236,12 @@ References
 
 <div className="authorAndComments__referencesTopDiv">
 
-{ this.props.story.references.length >= 2 ?
+{ this.props.story.references ?
 <div>
- <div className="authorAndComments__outsideReferenceOuterDiv">1. </div> <div className="authorAndComments__outerReferenceInnerDiv"> {this.props.story.references[0].citation} </div>
- <div className="authorAndComments__outsideReferenceOuterDiv">1. </div> <div className="authorAndComments__outerReferenceInnerDiv"> {this.props.story.references[1].citation} </div>
+ <div className="authorAndComments__outsideReferenceOuterDiv" dangerouslySetInnerHTML={{ __html: this.props.story.references.slice(0, 100) }}></div>
 </div>
 : undefined }
+</div>
 </div>
 
 <div className="clickShareRef">
@@ -259,7 +249,7 @@ References
       {!this.props.story.references < 2 ? this.insertShowMoreLinks() : undefined }
 </div>
 </div>
-</div>
+</div></div>
 
           <div className={`mySidenav sidenav ${this.state.showMore ? 'width385' : 'width0'}`}>
             <div className="closebtn" onClick={() => { this.toggleReferencesSide()}}>&times;</div>
@@ -271,15 +261,18 @@ References
           </h2>
           <hr className="referencesSideSecondHr" />
 
-          {this.props.story.references.map((reference) => {
+          {this.props.story.references.length > 0 ? <div>
+          {this.props.story.references}
+
+            {/* .map((reference) => {
             count++;
             if (count === 0) {
               return (
                 <div className="authorAndComments__referencesDiv"><div className="authorAndComments__relative">1. </div> <div className="authorAndComments__referencesInnerDiv">
                 {reference.citation}
-              </div></div>
-              );
-            } else {
+              </div>*/}</div> : undefined}
+
+          {/*   } else {
               return (
                 <div>
                 <hr className="authorAndComments__referencesHr" />
@@ -290,9 +283,11 @@ References
               );
             }
           })}
+          </div>
+          : undefined } */}
           <a className="e ekes" onClick={() => { this.toggleReferencesSide() }}><div className={`${this.props.story.references.length < 5 ? 'referencesSideBottomCloseBottom' : 'referencesSideBottomClose'}`}>Close </div><div className={`${this.props.story.references.length < 5 ? 'referencesSideBottomCloseXBottom' : 'referencesSideBottomCloseX'}`}>&times;</div></a>
-        </div>
 
+          </div>
 <div className="toolEndRef"></div>
 <div className="authorAndComments__veryBottomSpacing"></div>
 

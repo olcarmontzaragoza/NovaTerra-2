@@ -129,12 +129,12 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
 
     jsx.push((<div key={notification._id} className={`nav__notificationsTopPadding`}>
       <div className="nav__belowHrMargin1"></div>
-      { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperator"/> : undefined }
+      { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorModal"/> : undefined }
       <div className="nav__belowHrMargin"></div>
-      {notification.published ? <Link to={story.link} className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__visit">Visit</button></Link> : <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>}
+      {notification.published ? <Link to={story.link} className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__visitModal">Visit</button></Link> : <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>}
       <div className={`${notification.published ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacingFollow'}`}></div>
-      <Link to={story.link} className="floatLeft"><Image className="notification__storyImage" cloud_name='novaterra' publicId={story.mainImage}><Transformation crop="thumb" /></Image></Link>
-      <div className="nav__notificationsText nav__notificationsWidth">{notification.description}&nbsp;<br/><Link to={story.link} className="nav__notificationsStoryTitle" dangerouslySetInnerHTML={{ __html:
+      <Link to={story.link} className="floatLeft"><Image className="notification__storyImageModal" cloud_name='novaterra' publicId={story.mainImage}><Transformation crop="thumb" /></Image></Link>
+      <div className="nav__notificationsTextModal nav__notificationsWidth">{notification.description}&nbsp;<br/><Link to={story.link} className="nav__notificationsStoryTitle" dangerouslySetInnerHTML={{ __html:
       story.title }}></Link>
       <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}{/* moment(notification.created).fromNow() */}</a>
       </div>
@@ -145,12 +145,12 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
 
     jsx.push((<div key={notification._id} className="nav__notificationsTopPadding">
       <div className="nav__belowHrMargin1"></div>
-      { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperator"/> : undefined }
+      { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorModal"/> : undefined }
       <div className="nav__belowHrMargin"></div>
-      <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnMore" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>
+      <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__learnMoreModal" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>
       <div className="nav__userEventElimateSpacing1"></div>
-      <a className="floatLeft"><img src={notification.messageImage} className="notification__storyImage"/></a>
-      <div className="nav__notificationsText nav__notificationsWidth">{notification.description.length > 145 ? notification.description.slice(0, 145) + '...' : notification.description}&nbsp;
+      <a className="floatLeft"><img src={notification.messageImage} className="notification__storyImageModal"/></a>
+      <div className="nav__notificationsTextModal nav__notificationsWidth">{notification.description.length > 145 ? notification.description.slice(0, 145) + '...' : notification.description}&nbsp;
       <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}{/* moment(notification.created).fromNow() */}</a>
       </div>
       <div className="clearBoth"></div>
@@ -170,6 +170,8 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
 }
 }
 renderNotificationsMessage() {
+
+  document.getElementById('navModal__scroll').scrollTop = 0;
 
   let notification = this.state.notificationsMessage;
 
@@ -204,6 +206,7 @@ notificationsLeftToSee() {
 }
 turnOffNotifications() {
   this.setState({ notificationsOn: false });
+  this.setState({ notificationsMessage: false });
   this.setNotificationsSeen();
 }
 render () {
@@ -223,7 +226,7 @@ render () {
              <div className="nav__profileTopContainerModal"></div>
              <div className="nav__notificationsTitle">Notifications</div>
 
-            <div className="nav__notificationsModalContainer">
+            <div className="nav__notificationsModalContainer" id="navModal__scroll">
 
             {this.state.notificationsMessage ? this.renderNotificationsMessage() : this.renderNotificationsOrMessage()}
 
@@ -240,7 +243,7 @@ render () {
            {this.findUser(Meteor.userId()).profilePhoto ? <Image className="mpl__topImage" cloud_name='novaterra' className="nav__profileMainImageModal" publicId={this.findUser(Meteor.userId()).profilePhoto}><Transformation crop="thumb" /></Image> :
            <img src={`${this.props.route}images/noImage.png`} className="nav__profileMainImageModal"/>}
            <div className="nav__profileUsernameAndDateModal">
-           {this.findUser(Meteor.userId()).username.length > 18 ? this.renderSmallDescription() : <div className="nav__profileUsernameModal">{this.findUser(Meteor.userId()).username}</div>}
+           {this.findUser(Meteor.userId()).username.length > 18 ? <div className="nav__profileUsernameModal">{this.findUser(Meteor.userId()).username.slice(0, 18) + '...'}</div> : <div className="nav__profileUsernameModal">{this.findUser(Meteor.userId()).username}</div>}
            <div className="nav__profileJoinedDateModal">{`Joined ${moment(this.findUser(Meteor.userId())).format('MMMM YYYY')}`}</div>
            </div>
            </div>

@@ -24,7 +24,6 @@ constructor(props) {
 super(props);
 this.state = {
 percentage: 0,
-check: '1',
 currentPage: Session.get('currentPage'),
 };
 this.handleStoryScroll = this.handleStoryScroll.bind(this);
@@ -32,7 +31,8 @@ this.handleStoryScroll = this.handleStoryScroll.bind(this);
 findStory() {
 let preUrl = this.state.currentPage; // .slice(7, browserHistory.location.pathname.length);
 preUrl = preUrl.trim();
-let story = Stories.findOne({ link: `/` + preUrl });
+
+let story = Stories.findOne({ link: preUrl });
 console.log('story', story);
 return story;
 }
@@ -52,7 +52,7 @@ componentDidMount() {
       console.log('story page tracker ran');
       let findUser = Meteor.users;
       this.setState({ users: Meteor.users });
-      console.log('users', this.state.users.findOne());
+      // console.log('users', this.state.users.findOne());
       if (this.state.users) {
       if (this.findStory()) {
       console.log('added to viewed');
@@ -71,7 +71,9 @@ componentDidMount() {
       this.findStory();
       });
 
-      document.addEventListener('mousedown', this.handleClickOutside);
+      // (adsbygoogle = window.adsbygoogle || []).push({});
+
+    document.addEventListener('mousedown', this.handleClickOutside);
     document.addEventListener('scroll', this.handleStoryScroll);
 }
 handleStoryScroll() {
@@ -98,7 +100,6 @@ componentWillUnmount() {
     document.removeEventListener('scroll', this.handleStoryScroll);
 }
 handleClickOutside(e) {
-this.setState({ check: this.state.check.length + '1' });
 }
 renderNormalContent() {
   if (this.findStory()) {
@@ -106,11 +107,11 @@ renderNormalContent() {
       <div>
       <div className="filler" style={{ width: `${this.state.percentage}%`}}></div>
       <Top story={this.findStory()} users={this.state.users} />
-      <SharePostSideBar story={this.findStory()} users={this.state.users} />
       <Body story={this.findStory()} />
       <div className="story__veryBottomSpacing"></div>
       <AuthorAndComments story={this.findStory()} users={this.state.users} />
       <StoryBottom story={this.findStory()} users={this.state.users} />
+      <div className="ab__bottomSpacing1020"></div>
       </div>
     )
   } else {
@@ -121,10 +122,11 @@ render() {
     return (
       <div>
       <meta name="viewport" content="initial-scale=1"></meta>
+
           {this.state.users ?
             <div>
             <Navbar route={'../'} users={this.state.users} />
-            {this.state.check ? this.renderNormalContent() : undefined}
+            {this.renderNormalContent()}
             <Footer route='../' />
             </div>
           : undefined }

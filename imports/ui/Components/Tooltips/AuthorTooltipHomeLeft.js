@@ -51,7 +51,7 @@ Tracker.autorun(() => {
    this.renderFollowingButton();
 });
 }
-window.addEventListener("scroll", this.handleScroll);
+// window.addEventListener("scroll", this.handleScroll);
 }
 handleScroll(e) {
 
@@ -247,7 +247,6 @@ toggleIsFollowing() {
 }
   render() {
     return (
-      <div className="tooltip__zIndex">
         <div ref='tooltipScroll' style={{top: `${this.state.tooltipTop}` }} className={`${this.state.tooltipArray[0]} tooltipScroll`}>
         <div style={{top: this.state.tooltipTop}} className={`${this.state.tooltipArray[0]} popUpAuthor`}>
          <div className="titleAuthorHovContainer1">
@@ -257,6 +256,7 @@ toggleIsFollowing() {
               <Link to={this.findUser(this.props.userId).profileUrl}>{this.findUser(this.props.userId).username}</Link>
               </div>
                 </div>
+              <div className="tooltip__zIndex">
                <span className={`${this.state.tooltipArray[3]}`}></span>
                <span className={`${this.state.tooltipArray[2]}`}></span>
                <span className={`${this.state.tooltipArray[1]}`}>

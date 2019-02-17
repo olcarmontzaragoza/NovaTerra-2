@@ -988,7 +988,7 @@ return (
 
 <div className="flex">
 
-<div className="search__tooltipSection search__tooltipSection1 floatLeft">
+<div className="search__tooltipSectionFAQ search__tooltipSection1 floatLeft">
 <div className="search__tooltipHeader">Search Type</div>
 <hr className="search__tooltipHeaderHr"/>
 
@@ -1011,7 +1011,7 @@ return (
 
 </div>
 
-<div className="search__tooltipSection floatLeft">
+<div className="search__tooltipSectionRight floatLeft">
 <div className="search__tooltipHeader">Read Time</div>
 <hr className="search__tooltipHeaderHr"/>
 

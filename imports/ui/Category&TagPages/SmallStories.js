@@ -34,7 +34,7 @@ render() {
       <div>
         <div ref={this.props.refs[0]} className="categoryAndTag__largerContainerStories1BottomSmallStories">
         <div className="containerStory1">
-        <Link to={this.props.collection.link}><Image cloud_name='novaterra' className="categoryAndTags__bottomContainerImage" publicId={this.props.collection.mainImage}><Transformation crop="thumb" /></Image></Link>
+        <Link to={this.props.collection.link}><Image cloud_name='novaterra' className="categoryAndTags__bottomContainerImageSmallStories" publicId={this.props.collection.mainImage}><Transformation crop="thumb" /></Image></Link>
         <hr className="categoriesAndTags__popularImageLineBelow1"/>
         <div className="popularContainerHeightsAndShadowBelow">
         <div className="popularContainerInnerMargins">

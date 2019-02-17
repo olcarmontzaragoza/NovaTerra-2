@@ -1,14 +1,28 @@
 .mission__ourCharitiesBox {
 width:85vw;
-height:1692px;
+height:1749px;
 margin-top:60px;
 border-radius:5px;
 background: #c94b4b;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #4b134f, #c94b4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 1250px) {
 margin-left:7.1vw;
+}
+@media screen and (max-width: 1250px) {
+margin-left:7.1vw;
+height:1709px;
+}
+@media screen and (max-width: 1160px) {
+margin-left:7.1vw;
+height:1659px;
+}
+@media screen and (max-width: 990px) {
+height:1655px;
+}
+@media screen and (max-width: 965px) {
+height:1615px;
 }
 @media screen and (max-width: 960px) {
 margin-left:6.9vw;
@@ -17,6 +31,43 @@ margin-left:6.9vw;
 margin-left:-8px;
 width:100vw;
 }
+@media screen and (max-width: 773px) {
+height:1735px;
+}
+@media screen and (max-width: 665px) {
+height:1720px;
+}
+@media screen and (max-width: 605px) {
+height:1815px;
+}
+@media screen and (max-width: 545px) {
+height:1780px;
+}
+@media screen and (max-width: 530px) {
+height:1740px;
+}
+@media screen and (max-width: 480px) {
+height:1720px;
+}
+@media screen and (max-width: 445px) {
+height:1600px;
+}
+@media screen and (max-width: 420px) {
+height:1520px;
+}
+@media screen and (max-width: 400px) {
+height:1500px;
+}
+@media screen and (max-width: 368px) {
+height:1480px;
+}
+@media screen and (max-width: 360px) {
+height:1680px;
+}
+
+
+
+
 // @media screen and (max-width: 650px) {
 // margin-left:6.3vw;
 // }
@@ -30,12 +81,14 @@ width:100vw;
   // margin-top:30px;
 
   @media screen and (min-width: 1252px) {
-    width:42vw;
+    width:42vw !important;
     margin-right:-50px;
     margin-top:48px;
+    height:480px !important;
   }
   @media screen and (max-width: 1252px) {
-    width:40vw;
+    width:40vw !important;
+    height:480px !important;
   }
   @media screen and (max-width: 1080px) {
     width:44vw;
@@ -51,31 +104,39 @@ width:100vw;
     width:41vw;
     margin-right:-25px;
     margin-left:-99px;
+    height:460px !important;
   }
   @media screen and (max-width: 900px) {
-    width:54vw;
+    width:55.5vw !important;
     margin-right:-25px;
     margin-left:-97px;
   }
   @media screen and (max-width: 825px) {
-    width:51vw;
+    width:52vw !important;
     margin-right:-25px;
     margin-left:-97px;
   }
   @media screen and (max-width: 775px) {
-    width:78vw;
+    width:78.5vw !important;
     margin-right:-25px;
     margin-left:23px;
   }
   @media screen and (max-width: 670px) {
-    width:81.5vw;
+    width:81.5vw !important;
     margin-right:-25px;
     margin-left:20px;
   }
   @media screen and (max-width: 547px) {
-    width:81.5vw;
+    width:81.5vw !important;
     margin-right:-25px;
     margin-left:15px;
+    height:420px !important;
+  }
+  @media screen and (max-width: 420px) {
+    height:370px !important;
+  }
+  @media screen and (max-width: 360px) {
+    height:430px !important;
   }
 }
 .mission__charityColours {
@@ -370,23 +431,73 @@ font-size:0.95em;
   margin-top:20px;
   background-color:#fff;
   width:880px;
-  height:1260px;
+  height:1325px;
   border-radius:5px;
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1250px) {
   width:68.8vw;
+  }
+  @media screen and (max-width: 1250px) {
+  width:68.8vw;
+  height:1285px;
+  }
+  @media screen and (max-width: 1160px) {
+  width:68.8vw;
+  height:1235px;
+  }
+  @media screen and (max-width: 990px) {
+  width:68.8vw;
+  height:1205px;
+  }
+  @media screen and (max-width: 965px) {
+  width:68.8vw;
+  height:1185px;
   }
   @media screen and (max-width: 900px) {
   width:83.5vw;
   }
+  @media screen and (max-width: 773px) {
+  width:83.5vw;
+  height:1320px;
+  }
   @media screen and (max-width: 670px) {
   width:87vw;
+  }
+  @media screen and (max-width: 665px) {
+  width:87vw;
+  height:1300px;
+  }
+  @media screen and (max-width: 605px) {
+  width:87vw;
+  height:1410px;
+  }
+  @media screen and (max-width: 545px) {
+  width:87vw;
+  height:1360px;
   }
   @media screen and (max-width: 533px) {
   width:87vw;
   }
+  @media screen and (max-width: 530px) {
+  height:1320px;
+  }
   @media screen and (max-width: 500px) {
   width:89vw;
+  }
+  @media screen and (max-width: 460px) {
+  height:1290px;
+  }
+  @media screen and (max-width: 420px) {
+  height:1210px;
+  }
+  @media screen and (max-width: 400px) {
+  height:1190px;
+  }
+  @media screen and (max-width: 368px) {
+  height:1310px;
+  }
+  @media screen and (max-width: 360px) {
+  height:1370px;
   }
 }
 // .mission__secondCharityGraph {
@@ -432,8 +543,135 @@ font-size:1.7em;
 }
 }
 .missionWidths {
-  height:300px;
+
 }
 .mission__firstCharityGraphSpacing {
   height:40px;
+}
+.ourCharities__pieChart {
+
+  @media screen and (min-width: 1290px) {
+    left:17vw;
+    width:480px !important;
+    display:flex;
+    height:480px !important;
+    position:relative;
+  }
+  @media screen and (max-width: 1290px) {
+    width:480px !important;
+    display:flex;
+    height:480px !important;
+    position:relative;
+    left:15vw;
+  }
+  @media screen and (max-width: 1160px) {
+    width:440px !important;
+    display:flex;
+    height:440px !important;
+    position:relative;
+    left:15.5vw;
+  }
+  @media screen and (max-width: 1120px) {
+    width:440px !important;
+    display:flex;
+    height:440px !important;
+    position:relative;
+    left:13.5vw;
+  }
+  @media screen and (max-width: 990px) {
+    width:410px !important;
+    display:flex;
+    height:410px !important;
+    position:relative;
+    left:13.5vw;
+  }
+  @media screen and (max-width: 940px) {
+    width:410px !important;
+    display:flex;
+    height:410px !important;
+    position:relative;
+    left:11.5vw;
+  }
+  @media screen and (max-width: 900px) {
+    width:410px !important;
+    display:flex;
+    height:410px !important;
+    position:relative;
+    left:18.5vw;
+  }
+  @media screen and (max-width: 840px) {
+    width:410px !important;
+    display:flex;
+    height:410px !important;
+    position:relative;
+    left:16.5vw;
+  }
+  @media screen and (max-width: 760px) {
+    width:400px !important;
+    display:flex;
+    height:400px !important;
+    position:relative;
+    left:15vw;
+  }
+  @media screen and (max-width: 665px) {
+    width:390px !important;
+    display:flex;
+    height:390px !important;
+    position:relative;
+    left:11.5vw;
+  }
+  @media screen and (max-width: 600px) {
+    width:380px !important;
+    display:flex;
+    height:380px !important;
+    position:relative;
+    left:9.5vw;
+  }
+  @media screen and (max-width: 555px) {
+    width:370px !important;
+    display:flex;
+    height:370px !important;
+    position:relative;
+    left:7.5vw;
+  }
+  @media screen and (max-width: 530px) {
+    width:340px !important;
+    display:flex;
+    height:340px !important;
+    position:relative;
+    left:7.5vw;
+  }
+  @media screen and (max-width: 460px) {
+    width:320px !important;
+    display:flex;
+    height:320px !important;
+    position:relative;
+    left:7.5vw;
+  }
+  @media screen and (max-width: 425px) {
+    width:300px !important;
+    display:flex;
+    height:300px !important;
+    position:relative;
+    left:7.5vw;
+  }
+  @media screen and (max-width: 390px) {
+    width:290px !important;
+    display:flex;
+    height:290px !important;
+    position:relative;
+    left:7.5vw;
+  }
+  @media screen and (max-width: 360px) {
+    width:250px !important;
+    display:flex;
+    height:290px !important;
+    position:relative;
+    left:7.5vw;
+  }
+}
+.ourCharities__pieChartInner {
+  // width: 100% !important;
+  // max-width: 800px;
+  // height: auto !important;
 }

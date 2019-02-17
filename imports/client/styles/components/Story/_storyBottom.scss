@@ -879,20 +879,20 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
 }
 .ab__bottomMainStoryImage1 {
 border-radius:50px;
-margin-left:22.4px;
-margin-top:18.5px;
+margin-left:20.4px;
+margin-top:21.5px;
 margin-right:-10px;
 width:43px;
 height:43px;
 position:relative;
-z-index:-1;
+z-index:10;
 float:left;
 cursor:pointer;
 }
 .ab__bottomMainStoryImage1Image {
 border-radius:50px;
 margin-left:22.4px;
-margin-top:20.5px;
+margin-top:-45.5px;
 margin-right:-10px;
 width:43px;
 height:43px;
@@ -905,9 +905,9 @@ cursor:pointer;
   border-radius:50%;
   width:48px;
   height:48px;
-  position:absolute;
+  position:relative;
   z-index:0;
-  margin-top:18px;
+  margin-top:17px;
   margin-left:19px;
 
   background-color: #378b29;
@@ -936,9 +936,9 @@ display:none;
 }
 }
 .bottomShareAndCommentsStory1 {
-margin-left:252px;
-margin-top:34px;
-position:absolute;
+margin-left:254px;
+margin-top:32px;
+position:relative;
 
 @media screen and (max-width: 665px) {
 display:none;
@@ -1112,6 +1112,13 @@ box-shadow:         -0.5px 0.8px 0.8px 1px #f0f0f0;
 @media screen and (max-width: 665px) {
 width:90.4vw;
 }
+@media screen and (max-width: 562px) {
+height:178px;
+}
+@media screen and (max-width: 383px) {
+height:198px;
+}
+
 }
 .moreStoryImages {
 border-radius: 0px 2px 29px 0px;
@@ -1138,11 +1145,17 @@ left:61.6vw;
 top:-24px;
 position:relative;
 }
+@media screen and (max-width: 562px) {
+height:180px;
+}
 @media screen and (max-width: 550px) {
 left:58.7vw;
 top:-24px;
 width:32vw;
 position:relative;
+}
+@media screen and (max-width: 383px) {
+height:200px;
 }
 }
 .db__latestMoreArContainerTitle {
@@ -1155,11 +1168,15 @@ word-spacing:0.015em;
 margin-bottom:13px;
 margin-top:15px;
 margin-left:20px;
-position:absolute;
+position:relative;
 width:340px;
+height:69px;
+display:block;
 transition:0.2s;
 letter-spacing:-0.01em;
 cursor:pointer;
+margin-bottom:-83px;
+z-index:10;
 
 @media screen and (max-width: 665px) {
 width:53vw;
@@ -1171,6 +1188,13 @@ font-size: 1.12em;
 @media screen and (max-width: 500px) {
 width:53vw;
 font-size: 1.08em;
+}
+@media screen and (max-width: 372px) {
+width:48.5vw;
+font-size: 1.08em;
+}
+@media screen and (max-width: 335px) {
+font-size: 1.05em;
 }
 }
 .moreStoryReTitle1 {
@@ -1206,6 +1230,7 @@ color:#000000;
 }
 .db__bottomLatestElimateSpacing {
   margin-top:-105px;
+
 }
 .adsSectionBottomMarginLeft {
   margin-left:680px;
@@ -1217,17 +1242,43 @@ color:#000000;
     display:none;
   }
 }
-.topHeaderTitleMore {
-font-size:1.97em;
+.ab__topHeaderTitleMore {
+font-size:2.01em;
 line-height:0;
 padding-bottom:0px;
 margin-left:3px;
+
+@media screen and (max-width: 700px) {
+font-size:1.91em;
 }
-.topHeaderTitleMoreAds {
-font-size:1.95em;
+@media screen and (max-width: 600px) {
+font-size:1.81em;
+}
+@media screen and (max-width: 380px) {
+font-size:1.74em;
+}
+@media screen and (max-width: 340px) {
+font-size:1.7em;
+}
+}
+.ab__topHeaderTitleMoreAds {
+font-size:2.12em;
 line-height:0;
 padding-bottom:0px;
-margin-top:-45px;
+margin-top:-25px;
+
+@media screen and (max-width: 700px) {
+font-size:2.02em;
+}
+@media screen and (max-width: 700px) {
+font-size:1.92em;
+}
+@media screen and (max-width: 380px) {
+font-size:1.85em;
+}
+@media screen and (max-width: 340px) {
+font-size:1.78em;
+}
 }
 .topHeaderMoreLine {
 height:4px;
@@ -1237,6 +1288,11 @@ width:602px;
 margin-left:0px;
 margin-bottom:13px;
 border:none;
+
+@media screen and (max-width: 655px) {
+  width:93.7vw;
+}
+
 }
 .topHeaderMoreLineAds {
 height:4px;
@@ -1558,19 +1614,21 @@ float:left; margin-left:0px; margin-right:60px;
 .ab__advertisementInnerBlock {
 margin-left:2.7%; margin-top:3px;
 }
+.marginBottomAdsLatest {
+  margin-bottom:-250px;
+}
 .ab__advertisementTopPositioning {
-  margin-left:773px; margin-top:-1275px;
+   margin-top:-145px;
+   margin-left:100px;
 
   @media screen and (max-width: 1145px) {
-    margin-left:743px;
+    margin-left:62px;
   }
   @media screen and (max-width: 1095px) {
-    margin-left:714px;
-    margin-top:-1286px;
+    margin-left:50px;
   }
-  @media screen and (max-width: 1040px) {
-    margin-left:702px;
-    margin-top:-1286px;
+  @media screen and (max-width: 1050px) {
+  margin-left:26px;
   }
   @media screen and (max-width: 1020px) {
     display:none;
@@ -1590,6 +1648,10 @@ margin-left:2.7%; margin-top:3px;
 }
 .ab__advertisementBottomText {
   font-size:0.95em; margin-left:1px; margin-top:5px; width:300px; line-height:1.4;
+
+  @media screen and (max-width: 430px) {
+    width:76vw;
+  }
 }
 .readMoreTopDiv {
   margin-top:9px; margin-left:40px; margin-bottom:40px;
@@ -1598,7 +1660,7 @@ margin-left:2.7%; margin-top:3px;
   font-size:2.02em;line-height:0; padding-bottom:0px; margin-left:10px;
 }
 .ab__readMoreTitleAndHrPositioning {
-  margin-left:690px; margin-top:90px;
+  margin-left:-82px; margin-top:80px;
 }
 .ab__readMoreMainHr {
 height:4px;border:none;color:#dddddd;background-color:#dddddd;width:390px; margin-left:-5px; margin-bottom:-10px; margin-left:10px;
@@ -1639,7 +1701,7 @@ margin-top:-59px;
   margin-left:2px;
 }
 .ab__latestMarginLeftAuthor {
-  margin-left:5px;
+  margin-left:-4px;
   margin-top:-2px;
 }
 .ab__novaterraAdsMobileBottom {
@@ -1662,6 +1724,10 @@ margin-top:-59px;
   background: -webkit-linear-gradient(#4ca2cd, #67B26F);
   background: linear-gradient(#4ca2cd, #67B26F);
   border-radius:6px;
+
+  @media screen and (max-width: 365px) {
+    width:87vw;
+  }
 }
 .ab__mobileAdAbove {
 margin-top:40px;
@@ -1701,5 +1767,75 @@ margin-left:148px;
 @media screen and (max-width: 432px) {
   margin-left:21px;
 }
+@media screen and (max-width: 383px) {
+  margin-left:11px;
+}
 
+}
+.ab__positionLatestContainer {
+display:inline-block;
+
+@media screen and (max-width: 1020px) {
+    margin-bottom:60px;
+}
+}
+.ab__latestAndAds {
+  margin-right:-200px;
+
+  @media screen and (min-width: 1020px) {
+      display:flex;
+  }
+}
+.storyBottom__disqusStyles {
+  width:750px;
+  margin-bottom:140px;
+  margin-top:-45px;
+  position:relative;
+  left:20vw;
+
+  @media screen and (max-width: 1210px) {
+    left:19vw;
+  }
+  @media screen and (max-width: 1175px) {
+    left:18vw;
+  }
+  @media screen and (max-width: 1155px) {
+    left:17vw;
+  }
+  @media screen and (max-width: 1120px) {
+    left:16vw;
+  }
+  @media screen and (max-width: 1095px) {
+    left:15vw;
+  }
+  @media screen and (max-width: 1060px) {
+    left:14vw;
+  }
+  @media screen and (max-width: 1025px) {
+    left:13vw;
+  }
+  @media screen and (max-width: 1000px) {
+    left:12vw;
+  }
+  @media screen and (max-width: 970px) {
+    left:11vw;
+  }
+  @media screen and (max-width: 945px) {
+    left:9.5vw;
+  }
+  @media screen and (max-width: 920px) {
+    left:8.2vw;
+  }
+  @media screen and (max-width: 890px) {
+    left:6.5vw;
+  }
+  @media screen and (max-width: 890px) {
+    left:6.5vw;
+  }
+  @media screen and (max-width: 860px) {
+    left:5.5vw;
+  }
+  @media screen and (max-width: 860px) {
+    width:89vw;
+  }
 }

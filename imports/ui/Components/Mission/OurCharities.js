@@ -13,39 +13,39 @@ library.add(far);
 import {Line, Pie} from 'react-chartjs-2';
 
 const lineData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  labels: ['February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
   datasets: [
     {
       label: 'NRDC',
-      data: [0, 1, 2, 3, 4, 5, 6, 7],
+      data: [0],
     backgroundColor: ["#36A2EB",]
     }, {
     label: 'COTAP, The Good Food Institute',
-    data: [0, 3, 6, 9, 12, 15, 18, 21],
+    data: [0],
   backgroundColor: ["#FF6384"]
 }, {
 label: 'New Harvest',
-data: [0, 4, 7, 11, 17, 21, 26, 32],
+data: [0],
 backgroundColor: ["#FDEF6B"]
 }, {
 label: '350.org',
-data: [0, 5, 9, 13, 17, 25, 33, 43],
+data: [0],
 backgroundColor: ["#f19b2c"]
 }, {
 label: 'Stand For Trees',
-data: [0, 8, 13, 19, 27, 33, 46, 57],
+data: [0],
 backgroundColor: ["#68819E"]
 }, {
 label: 'Solar Aid',
-data: [0, 11, 21, 32, 43, 54, 66, 79],
+data: [0],
 backgroundColor: ["#736697"]
 }, {
 label: 'The Solutions Project',
-data: [0, 15, 34, 46, 60, 73, 85, 99],
+data: [0],
 backgroundColor: ["#8FB030"]
 }, {
 label: 'Just Diggit',
-data: [0, 20, 50, 66, 80, 94, 117, 133],
+data: [0],
 backgroundColor: ["#A18871"]
 }
 ]
@@ -57,14 +57,15 @@ tooltips: {
   backgroundColor: 'rgba(255, 255, 255, 1)',
   titleFontColor: 'rgba(0, 0, 0, 1)',
   bodyFontColor:  'rgba(0, 0, 0, 1)',
-}
+},
+maintainAspectRatio: false,
 }
 
 const pieData = {
   labels: ['COTAP', 'The Good Food Institute', 'The Good Food Institute', 'New Harvest', '350.org', 'Stand For Trees', 'Solar Aid', 'The Solutions Project', 'Just Diggit'],
   datasets: [
     {
-      data: [1, 3, 3, 5, 8, 12, 17, 23, 28],
+      data: [0, 3, 3, 5, 8, 12, 17, 23, 28],
     backgroundColor: [
       "#36A2EB", "#FF6384", "#FF6384", "#FDEF6B", "#f19b2c", "#68819E", "#736697", "#8FB030", "#A18871"]
     }]
@@ -75,7 +76,8 @@ tooltips: {
   backgroundColor: 'rgba(255, 255, 255, 1)',
   titleFontColor: 'rgba(0, 0, 0, 1)',
   bodyFontColor:  'rgba(0, 0, 0, 1)',
-}
+},
+maintainAspectRatio: false,
 }
 export class OurCharities extends React.Component {
 constructor(props) {
@@ -114,46 +116,48 @@ this.state = {
 
           <div className="mission__charityColours">
 
-          <div className="mission__justDiggitBox"></div> <div className="mission__charityColourText">Just Diggit (€{133})</div>
-          <div className="mission__theSolutionsProjectBox"></div> <div className="mission__charityColourText">Solutions Project (€{99})</div>
-          <div className="mission__solarAidBox"></div> <div className="mission__charityColourText">Solar Aid (€{79})</div>
-          <div className="mission__standForTreesBox"></div> <div className="mission__charityColourText">Stand For Trees (€{57})</div>
-          <div className="mission__350DotOrgBox"></div> <div className="mission__charityColourText">350.org (€{43})</div>
-          <div className="mission__newHarvestBox"></div> <div className="mission__charityColourText">New Harvest (€{32})</div>
-          <div className="mission__theGoodFoodInsituteBox"></div> <div className="mission__charityColourText">GFI (€{21})</div>
-          <div className="mission__cotapBox"></div> <div className="mission__charityColourText">COTAP (€{21})</div>
-          <div className="mission__nrdcBox"></div> <div className="mission__charityColourText">NRDC (€{7})</div>
+          <div className="mission__justDiggitBox"></div> <div className="mission__charityColourText">Just Diggit (€{0})</div>
+          <div className="mission__theSolutionsProjectBox"></div> <div className="mission__charityColourText">Solutions Project (€{0})</div>
+          <div className="mission__solarAidBox"></div> <div className="mission__charityColourText">Solar Aid (€{0})</div>
+          <div className="mission__standForTreesBox"></div> <div className="mission__charityColourText">Stand For Trees (€{0})</div>
+          <div className="mission__350DotOrgBox"></div> <div className="mission__charityColourText">350.org (€{0})</div>
+          <div className="mission__newHarvestBox"></div> <div className="mission__charityColourText">New Harvest (€{0})</div>
+          <div className="mission__theGoodFoodInsituteBox"></div> <div className="mission__charityColourText">GFI (€{0})</div>
+          <div className="mission__cotapBox"></div> <div className="mission__charityColourText">COTAP (€{0})</div>
+          <div className="mission__nrdcBox"></div> <div className="mission__charityColourText">NRDC (€{0})</div>
 
           </div>
 
           <div className="mission__graphWidths">
-          <Line className="missionWidths" data={lineData} options={lineOptions} width={560} height={500} />
+          <Line className="missionWidths" data={lineData} options={lineOptions} />
           </div>
           <div className="clearBoth"></div>
           <div className="mission__charityColoursMobile">
           <div className="clearBoth"></div>
           <div className="floatLeft ourCharitiesMobileBox">
-          <div className="mission__justDiggitBox"></div> <div className="mission__charityColourText">Just Diggit (€{133})</div>
-          <div className="mission__theSolutionsProjectBox"></div> <div className="mission__charityColourText">Solutions Project (€{99})</div>
-          <div className="mission__solarAidBox"></div> <div className="mission__charityColourText">Solar Aid (€{79})</div>
+          <div className="mission__justDiggitBox"></div> <div className="mission__charityColourText">Just Diggit (€{0})</div>
+          <div className="mission__theSolutionsProjectBox"></div> <div className="mission__charityColourText">Solutions Project (€{0})</div>
+          <div className="mission__solarAidBox"></div> <div className="mission__charityColourText">Solar Aid (€{0})</div>
           </div>
 
           <div className="floatLeft ourCharitiesMobileBox">
-          <div className="mission__standForTreesBox"></div> <div className="mission__charityColourText">Stand For Trees (€{57})</div>
-          <div className="mission__350DotOrgBox"></div> <div className="mission__charityColourText">350.org (€{43})</div>
-          <div className="mission__newHarvestBox"></div> <div className="mission__charityColourText">New Harvest (€{32})</div>
+          <div className="mission__standForTreesBox"></div> <div className="mission__charityColourText">Stand For Trees (€{0})</div>
+          <div className="mission__350DotOrgBox"></div> <div className="mission__charityColourText">350.org (€{0})</div>
+          <div className="mission__newHarvestBox"></div> <div className="mission__charityColourText">New Harvest (€{0})</div>
           </div>
 
           <div className="floatLeft ourCharitiesMobileBox2">
-          <div className="mission__theGoodFoodInsituteBox"></div> <div className="mission__charityColourText">GFI (€{21})</div>
-          <div className="mission__cotapBox"></div> <div className="mission__charityColourText">COTAP (€{21})</div>
-          <div className="mission__nrdcBox"></div> <div className="mission__charityColourText">NRDC (€{7})</div>
+          <div className="mission__theGoodFoodInsituteBox"></div> <div className="mission__charityColourText">GFI (€{0})</div>
+          <div className="mission__cotapBox"></div> <div className="mission__charityColourText">COTAP (€{0})</div>
+          <div className="mission__nrdcBox"></div> <div className="mission__charityColourText">NRDC (€{0})</div>
           </div>
           </div>
 
           <div className="clearBoth"></div>
           <div className="mission__shareOfEarningsHeader">Share of Earnings (%)</div>
-          <Pie data={pieData} options={pieOptions} />
+          <div className="ourCharities__pieChart">
+          <Pie className="ourCharities__pieChartInner" data={pieData} options={pieOptions} />
+          </div>
           </div>
          </div>
 

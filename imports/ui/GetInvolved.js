@@ -26,6 +26,7 @@ render() {
       <meta name="viewport" content="initial-scale=1"></meta>
         {this.state.users ?
         <div>
+        <meta name="viewport" content="initial-scale=1"></meta>
         <Navbar route={''} users={this.state.users} />
         <div className="getInvolved__mainTitleCategories">
         Get Involved

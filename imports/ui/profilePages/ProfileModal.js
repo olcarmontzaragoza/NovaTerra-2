@@ -129,7 +129,7 @@ findUserPhoto() {
 render () {
   return (
     <div>
-    {this.findUserPhoto() ? <div><div className="profileModal__profileModalBehindCircleTRY"></div><Image className="mpl__topImage" onClick={() => this.changeOpen()} cloud_name='novaterra' publicId={this.findUserPhoto()}><Transformation crop="thumb" /></Image></div> : <img src={`${this.props.route}images/noImage.png`} onClick={() => this.changeOpen()} className="mpl__topImage"/>}
+    {this.findUserPhoto() ? <div><div className="profileModal__profileModalBehindCircleTRY"></div><Image className="mpl__topImage" onClick={() => this.changeOpen()} cloud_name='novaterra' publicId={this.findUserPhoto()}><Transformation crop="fit" /></Image></div> : <img src={`${this.props.route}images/noImage.png`} onClick={() => this.changeOpen()} className="mpl__topImage"/>}
     <Modal isOpen={this.state.isOpen}
            contentLabel='Change Profile Image'
            onRequestClose={this.handleModalClose.bind(this)}

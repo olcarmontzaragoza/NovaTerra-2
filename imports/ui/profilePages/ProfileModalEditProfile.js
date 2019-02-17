@@ -57,9 +57,11 @@ doThis() {
 }
 userHasPhoto() {
 let user = Meteor.users.findOne({ _id: Meteor.userId() });
+  if (user.profilePhoto) {
   if (user.profilePhoto.length > 0) {
     return true;
   }
+}
   return false;
 }
 findUserPhoto() {

@@ -348,7 +348,7 @@ return (
 
 </div> */}
 
-<div className="search__tooltipSection floatLeft faq__searchResultsMarginLeft">
+<div className="search__tooltipSectionRight floatLeft faq__searchResultsMarginLeft">
 <div className="search__tooltipHeader">Search Results</div>
 <hr className="search__tooltipHeaderHr"/>
 
@@ -448,7 +448,6 @@ render() {
 
     return (
       <div>
-      <meta name="viewport" content="initial-scale=1"></meta>
           {this.state.users && Faq.find().count() > 0 ?
           <div>
           <meta name="viewport" content="initial-scale=1"></meta>

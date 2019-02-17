@@ -11,28 +11,34 @@ function myArrayMax(arr) {
     return Math.max.apply(null, arr);
 }
 
-const latest = Stories.find({
-  category: 'Environment', storyType: 'published'
-}, {
-  sort: {
-    lastUpdated: -1
-  }
-}).fetch();
-
-const popular = Stories.find({
-  category: 'Environment', storyType: 'published'
-}, {
-  sort: {
-    likes: -1
-  }
-}).fetch();
-
 export class Environment extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
 
 };
+}
+returnPopular() {
+  const popular = Stories.find({
+    category: 'Environment', storyType: 'published'
+  }, {
+    sort: {
+      likes: -1
+    }
+  }).fetch();
+
+  return popular;
+}
+returnLatest() {
+  const latest = Stories.find({
+    category: 'Environment', storyType: 'published'
+  }, {
+    sort: {
+      lastUpdated: -1
+    }
+  }).fetch();
+
+  return latest;
 }
 returnCreators(type) {
 
@@ -89,7 +95,7 @@ document.title = `NovaTerra - Environment`;
 render() {
     return (
       <div>
-      {this.state.users ? <CategoryPageLayout isEnvironment={true} users={this.state.users} latestCollection={latest} popularCollection={popular} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} category='Environment' categoryDescription="have we lost our touch?" relatedCategories={['Now', 'Health', 'Future']} categoryLinks={['/now', '/health', '/future']} relatedTags={['Climate Change', 'Biodiversity', 'Waste']} tagLinks={['/climate-change', '/biodiversity', '/waste']}  />
+      {this.state.users ? <CategoryPageLayout isEnvironment={true} users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} category='Environment' categoryDescription="have we lost our touch?" relatedCategories={['Now', 'Health', 'Future']} categoryLinks={['/now', '/health', '/future']} relatedTags={['Climate Change', 'Biodiversity', 'Waste']} tagLinks={['/climate-change', '/biodiversity', '/waste']}  />
       : undefined }
       </div>
     );

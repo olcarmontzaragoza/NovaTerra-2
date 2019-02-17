@@ -203,16 +203,16 @@ return userAction;
     return (
       <div className={`nav__notificationsTopPadding ${!this.props.notification.seen ? 'nav__notificationNotSeenBackground' : ''}`}>
           <div className="nav__belowHrMargin1"></div>
-          { this.props.notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperator"/> : undefined }
+          { this.props.notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorUserModal"/> : undefined }
           <div className="nav__belowHrMargin"></div>
           <div className="notifications__topInnermarginsModal">
           <div className={`clearBoth ${this.props.notification.follow ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacing'}`}></div>
           <Link to={this.findUserAction().profileUrl} className="floatLeft">{this.findUserAction().profilePhoto ? <div><div className="navNot__behindCircleModal"></div><Image className="notification__userImageImage floatLeft" cloud_name='novaterra' publicId={this.findUserAction().profilePhoto}><Transformation crop="thumb" /></Image></div> :
-            <img src={`${this.props.route}images/noImage.png`} className="notification__userImage"/>}</Link>
+            <img src={`${this.props.route}images/noImage.png`} className="notification__userImageModal"/>}</Link>
           {this.state.profileFollow ? <div className="nav__followingButtonLargeModal floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className="nav__followButtonLargeModal floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}
           { this.props.notification.postImage ? <Link to={this.props.notification.postUrl} className="nav__notificationsPostImagePositioning"><img className="nav__notificationsStoryImage" src={this.props.notification.postImage}/></Link> : undefined}
-          <div className="nav__notificationsTextModal"><Link to={this.findUserAction().profileUrl} className="link nav__notificationsTextMarginTop">{this.findUserAction().username}</Link><a className="nav__notificationsTextMarginTop">&nbsp;{this.props.notification.description}.</a>
-          <a className="nav__notificationsFromNow nav__notificationsTextMarginTop">&nbsp;{this.returnTime(this.props.notification.created)}{/* moment(notification.created).fromNow() */}</a>
+          <div className="nav__notificationsTextUserModal"><Link to={this.findUserAction().profileUrl} className="link">{this.findUserAction().username}</Link><a className="">&nbsp;{this.props.notification.description}.</a>
+          <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(this.props.notification.created)}{/* moment(notification.created).fromNow() */}</a>
 
           </div>
           </div>

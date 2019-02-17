@@ -711,6 +711,10 @@ margin-top:70px;
 .clearSpacingTopHome {
 clear:both;
 height:5px;
+
+@media screen and (max-width: 740px) {
+height:40px;
+}
 }
 
 .floatLeft {

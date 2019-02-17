@@ -22,7 +22,7 @@ constructor(props) {
 super(props);
 this.state = {
 sortOption: 'popular',
-toggleDropDown: 'dropdown-content',
+toggleDropDown: 'dropdown-contentBase',
 creators: this.props.creatorsPop,
 showMoreCreatorsExplore: [],
 sliceNumCreatorsExplore: 6,
@@ -49,10 +49,10 @@ this.setState({ creatorsLefToShowExplore: this.props.creatorsOld.length > 6 });
 }
 }
 toggleDropDown() {
-if (this.state.toggleDropDown === 'dropdown-content') {
-this.setState({ 'toggleDropDown': 'dropdown-content1' });
+if (this.state.toggleDropDown === 'dropdown-contentBase') {
+this.setState({ 'toggleDropDown': 'dropdown-content1Base' });
 } else {
-this.setState({ toggleDropDown: 'dropdown-content' });
+this.setState({ toggleDropDown: 'dropdown-contentBase' });
 }
 }
 setWrapperRef(node) {
@@ -69,7 +69,7 @@ componentWillUnmount() {
 }
 handleClickOutside(e) {
     if (this.wrapperRef && this.wrapperRef2 && !this.wrapperRef.contains(e.target) && !this.wrapperRef2.contains(e.target)) {
-      this.setState({ toggleDropDown: 'dropdown-content' });
+      this.setState({ toggleDropDown: 'dropdown-contentBase' });
     }
 }
 renderSixMoreCreators() {
@@ -95,10 +95,12 @@ renderSixMoreCreators() {
         <a className="mainTitleCatSubTitle categoryPageHoverLink floatLeft">
         Popular Creators
         </a>
-        <div className="floatRight explore__positionDropDown">
+        <div className="sort__marginLeftExplore">
+        <div className="sort__buttonMarginLeftExplore">
           <div className="dropdown">
             <div ref={this.setWrapperRef} onClick={this.toggleDropDown.bind(this)} className="sort__sortByButton dropbtn"><FontAwesomeIcon icon={['fas', 'sort-amount-up']} className="sort__mainIcon"/><div className="sort__mainText">Sort by</div></div>
             <div ref={this.setWrapperRef2} className={this.state.toggleDropDown}>
+            <div className="dropdown-content__innerLargerMargins">
             <div className="dropdown-content__innerMargins">
               <div onClick={() => { this.changeSortOptions('popular') }} className="sort__popularContainer"><FontAwesomeIcon icon={['fas', 'fire']} className={`${this.state.sortOption === 'popular' ? 'sort__greenIconPop' : 'sort__popularIcon'}`}  /><div className={`${this.state.sortOption === 'popular' ? 'sort__greenText' : 'sort__popularText'}`}>Popular</div></div>
               <div className="clearBoth"></div>
@@ -106,8 +108,8 @@ renderSixMoreCreators() {
               <div className="clearBoth"></div>
               <div onClick={() => { this.changeSortOptions('oldest') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'hourglass-end']} className={`${this.state.sortOption === 'oldest' ? 'sort__greenIcon' : 'sort__oldestIcon'}`} /><div className={`${this.state.sortOption === 'oldest' ? 'sort__greenText' : 'sort__oldestText'}`}>Oldest</div></div>
             </div></div>
-          </div>
-          </div>
+          </div></div>
+          </div></div>
           </div>
         <hr className="explore__belowCreatorsHr" />
 

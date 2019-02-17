@@ -28,16 +28,17 @@ render() {
     return (
       <div>
         <div className="se3">
-        <Link to={`${this.props.collection[this.props.num].link}`} className="kws">{`0${this.props.num + 1}`}</Link>
+        <Link to={`${this.props.story.link}`} className="kws">{`0${this.props.num + 1}`}</Link>
         </div>
         <div className="sq">
-        <Link to={`${this.props.collection[this.props.num].link}`} className={`sq1 ${this.userHasSeenStory(this.props.collection[this.props.num]) ? 'title__grey' : ''}`}>{this.props.collection[this.props.num].title.length > 68 ? this.props.collection[this.props.num].title.slice(0, 68) + '...' : this.props.collection[this.props.num].title}</Link>
+        <Link to={`${this.props.story.link}`} className={`sq1 ${this.userHasSeenStory(this.props.story) ? 'title__grey' : ''}`}>{this.props.story.title.length > 63 ? this.props.story.title.slice(0, 63) + '...' : this.props.story.title}</Link>
         </div>
-        <Link to={`/${this.props.collection[this.props.num].category}`} className="qqra">
-        {this.props.collection[this.props.num].category}
+        <div className="clearBoth"></div>
+        <Link to={`/${this.props.story.category}`} className={`qqra ${this.props.num === 0 ? 'firstEnvironmentMiddleHomeSide' : ''}`}>
+        {this.props.story.category}
         </Link>
         <div className="qqrf">
-        {`${this.returnUsername(this.props.collection[this.props.num].userId)} · ${this.props.collection[this.props.num].minRead} min`}
+        {`${this.returnUsername(this.props.story.userId)} · ${this.props.story.minRead} min`}
       </div> {/* ${this.findUsername(this.props.collection[this.props.num].userId)} */}
       </div>
     )

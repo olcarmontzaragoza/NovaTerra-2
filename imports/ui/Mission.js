@@ -33,6 +33,7 @@ componentDidMount() {
       this.setState({ users: Meteor.users });
       });
     });
+  // (adsbygoogle = window.adsbygoogle || []).push({});
 document.title = `NovaTerra - Mission`;
 }
 render() {

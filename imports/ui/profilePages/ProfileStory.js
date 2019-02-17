@@ -3,10 +3,13 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import { funcReplace } from '../../routes/routes.js';
+import { Notifications } from '../../api/notifications';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
+
+import Disqus from 'disqus-react';
 
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
@@ -51,7 +54,15 @@ titleClick() {
   }
 }
 pressedCancelOrDraft() {
-Meteor.call('stories.update', this.props.story._id, { storyType: 'drafted', link: `/draft/${this.props.story._id}`, });
+  console.log('pressed draft ran');
+  if (Notifications.find({ storyId: this.props.story._id })) {
+    Notifications.find({ storyId: this.props.story._id }).fetch().map((story) => {
+      Meteor.call('notifications.remove', this.props.story._id);
+    });
+  }
+
+Meteor.call('stories.update', this.props.story._id, { storyType: 'drafted', link: `draft/${this.props.story._id}`, });
+console.log('caled stories update');
 }
 deleteDraft() {
 console.log('should delete story');
@@ -109,7 +120,10 @@ render() {
 
        <div className="profile__bottomShareAndCommentsStory1">
            <FontAwesomeIcon icon={['far', 'comments']} className="profile__bottomCommentIconStory" />
-        <div className="scFont profile__bottomCommentNumStory1">{this.props.story.comments}</div>
+        <div className="scFont profile__bottomCommentNumStory1"><Disqus.CommentCount shortname={'www-novaterra-earth'} config={{ url: `https://www.novaterra.earth/${this.props.story.link}`,
+        identifier: this.props.story._id,
+        title: this.props.story.title }}>
+        </Disqus.CommentCount></div>
 
         <div className="profile__commentAndSharesLineStory1">
         </div>

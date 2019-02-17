@@ -62,7 +62,7 @@ import DraftedStory from '../ui/profilePages/DraftedStory';
 import PrivacyPolicy from '../ui/otherPages/PrivacyPolicy';
 import Admin from '../ui/otherPages/Admin';
 // import SiteMap from '../ui/otherPages/SiteMap';
-// import TermsOfUse from '../ui/otherPages/TermsOfUse';
+import TermsOfUse from '../ui/otherPages/TermsOfUse';
 
 import { Router, Route, browserHistory, Switch, Redirect } from 'react-router';
 
@@ -76,6 +76,7 @@ const authenticatedPages = ['/profile', '/settings', '/draft', '/draft/:id'];
 const allUsers = (Component) => {
   let location = browserHistory.location.pathname.slice(1, browserHistory.location.pathname.length);
   Session.set('currentPage', location);
+  window.scrollTo(0, 0);
   return <Component />;
 };
 
@@ -107,6 +108,7 @@ const onEnterStoryPage = (Component) => {
     let unCapTitle = preUrl.replace(/-/g, ' ');
     let story = Stories.findOne({ unCapTitle });
     Session.set('currentStory', story);
+    window.scrollTo(0, 0);
     return <Component story={story} />;
 };
 
@@ -181,7 +183,6 @@ export const routes = (
           <Route path="/biodiversity" render={() => allUsers(Biodiversity)}  />
           <Route path="/self" render={() => allUsers(Self)}  />
           <Route path="/energy" render={() => allUsers(Energy)}  />
-          <Route path="/innovation" render={() => allUsers(Innovation)}  />
           <Route path="/equality" render={() => allUsers(Equality)}  />
           <Route path="/research" render={() => allUsers(Research)}  />
           <Route path="/personal-finance" render={() => allUsers(PersonalFinance)}  />
@@ -203,6 +204,7 @@ export const routes = (
 
           <Route path="/privacy-policy" render={() => allUsers(PrivacyPolicy)}  />
           <Route path="/admin" render={() => allUsers(Admin)}  />
+          <Route path="/terms-of-use" render={() => allUsers(TermsOfUse)}  />
           // <Route path="/site-map" render={() => allUsers(SiteMap)}  />
 
           <Route path="*" render={() => allUsers(NotFound)}  />

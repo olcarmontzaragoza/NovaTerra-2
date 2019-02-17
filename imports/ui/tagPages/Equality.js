@@ -3,29 +3,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import TagPageLayout from './TagPageLayout';
 import { Stories } from '../../api/stories';
 
-let latest = [];
-let popular = [];
-
-const preLatest = Stories.find({ storyType: 'published' }, {
-  sort: {
-    lastUpdated: -1
-  }
-}).fetch().map((story) => {
-  if (story.tags.includes('Equality')) {
-    latest.push(story);
-  }
-});
-
-const prePopular = Stories.find({ storyType: 'published' }, {
-  sort: {
-    likes: -1
-  }
-}).fetch().map((story) => {
-  if (story.tags.includes('Equality')) {
-    popular.push(story);
-  }
-});
-
 function myArrayMin(arr) {
     return Math.min.apply(null, arr);
 }
@@ -46,9 +23,38 @@ this.state = {
 
 };
 }
+returnLatest() {
+  let latest = [];
+  const preLatest = Stories.find({ storyType: 'published' }, {
+    sort: {
+      lastUpdated: -1
+    }
+  }).fetch().map((story) => {
+    if (story.tags.includes('Equality')) {
+      latest.push(story);
+    }
+  });
+
+  return latest;
+}
+returnPopular() {
+let popular = [];
+
+const prePopular = Stories.find({ storyType: 'published' }, {
+  sort: {
+    likes: -1
+  }
+}).fetch().map((story) => {
+  if (story.tags.includes('Equality')) {
+    popular.push(story);
+  }
+});
+
+return popular;
+}
 returnCreators(type) {
   let equalityCreators = [];
-  popular.map((story) => {
+  this.returnPopular().map((story) => {
     let user = Meteor.users.findOne({ _id: story.userId }); // FIX THIS
 
     let alreadyAdded = false;

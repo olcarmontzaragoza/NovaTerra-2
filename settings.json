@@ -1,8 +1,12 @@
 {
   "galaxy.meteor.com": {
      "env": {
-       "MONGO_URL": "http://novaterra.earth",
+       "MONGO_URL": "https://novaterra.earth",
        "MONGO_URL": "mongodb://olivercarmont:Thuglife.79@ds161901.mlab.com:61901/novaterra"
      }
-   }
+   },
+   "google": {
+    "clientId": "177612273728-bjmjnubs1o8iu4fv4279k6asn0egpi4j.apps.googleusercontent.com",
+    "secret": "hKHJ1DDgZz-VhQV7WT4iCB_j"
+  }
 }

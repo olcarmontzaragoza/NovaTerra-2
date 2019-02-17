@@ -7,6 +7,8 @@ import { funcReplace } from '../../routes/routes.js';
 
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
+import Disqus from 'disqus-react';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -92,7 +94,7 @@ render() {
      <div className="profileUserStory__authorSection">
 
      <div ref={this.setAuthorImage3Ref} className="floatLeft"><Link to={this.findUser(this.props.story.userId).profileUrl}>{this.findUser(this.props.story.userId).profilePhoto ? <div><div className="profile__behindCircleUserProfileStory"></div><Image className="profile__popMainStoryImage2UserProfileStoryImage floatLeft" cloud_name='novaterra' publicId={this.findUser(this.props.story.userId).profilePhoto}><Transformation crop="thumb" /></Image></div> :
-     <img src={`images/noImage.png`} className="profile__popMainStoryImage2UserProfileStory floatLeft"/>}</Link></div>
+     <img src={`../images/noImage.png`} className="profile__popMainStoryImage2UserProfileStory floatLeft"/>}</Link></div>
 
      <div className="floatLeft categoryAndTag__authorBelowStorySecondStory">
        <div className="profileserUStory__popContainerReadingText">
@@ -109,7 +111,10 @@ render() {
 
      <div className="userprofile__bottomShareAndCommentsStory1">
          <FontAwesomeIcon icon={['far', 'comments']} className="profile__bottomCommentIconStory" />
-      <div className="scFont profile__bottomCommentNumStory1">{this.props.story.comments}</div>
+      <div className="scFont profile__bottomCommentNumStory1"><Disqus.CommentCount shortname={'www-novaterra-earth'} config={{ url: `https://www.novaterra.earth/${this.props.story.link}`,
+      identifier: this.props.story._id,
+      title: this.props.story.title }}>
+      </Disqus.CommentCount></div>
 
       <div className="profile__commentAndSharesLineStory1">
       </div>

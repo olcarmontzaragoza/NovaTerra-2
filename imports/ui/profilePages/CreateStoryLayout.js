@@ -35,7 +35,6 @@ var myWidget = cloudinary.createUploadWidget({
   if (result.info.public_id) {
   let story = Stories.findOne({ _id: id });
   Meteor.call('stories.update', story._id, { mainImage: result.info.public_id });
-  console.log('updated', result.info.public_id);
   Session.set({ storyImageEntered: true });
   }
 });
@@ -129,6 +128,7 @@ toggleDropDown: 'dropdown-content',
 toggleDropDownTags: 'dropdown-contentTags',
 tags: Stories.findOne({ _id: props.storyId }).tags,
 titleConfig: {
+  key: 'aF4H3A8C7bA4B3A2B2I3H2C4C6C3E4uddzlzjbcsD1qtdcp==',
   theme: "custom",
   charCounterMax: 85,
   multiLine: false,
@@ -144,6 +144,7 @@ titleConfig: {
 },
 bodyConfig: {
   // pluginsEnabled: ['quickInsert'],
+  key: 'aF4H3A8C7bA4B3A2B2I3H2C4C6C3E4uddzlzjbcsD1qtdcp==',
   placeholderText: "I'm ready when you are!",
   theme: "custom",
   linkList: [
@@ -157,13 +158,9 @@ bodyConfig: {
               href: 'https://google.com',
               target: '_blank'
             },
-            {
-              text: 'Facebook',
-              href: 'https://facebook.com'
-            }
   ],
-  toolbarButtons: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', '|', '-',  'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough',  '|', 'insertLink', 'video', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
-  toolbarButtonsMD: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', '|', '-', 'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
+  toolbarButtons: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', '|', 'undo', 'redo', '|',  'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough',  '|', 'insertLink', 'video', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
+  toolbarButtonsMD: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', '|',  'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
   toolbarButtonsSM: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript','insertHR', 'quote', 'insertFile', 'html', '|', 'getPDF', 'spellChecker', 'help', '-', 'undo', 'redo', '|', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', '|', 'formatOL', 'formatUL'],
   toolbarButtonsXS: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'insertFile', 'html', '|', 'help', '-', 'undo', 'redo', '|', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'formatOL', 'formatUL'],
   imageUploadURL: 'https://api.cloudinary.com/v1_1/novaterra/image/upload',
@@ -182,6 +179,7 @@ bodyConfig: {
 },
 bodyFullConfig: {
   // pluginsEnabled: ['quickInsert'],
+  key: 'aF4H3A8C7bA4B3A2B2I3H2C4C6C3E4uddzlzjbcsD1qtdcp==',
   placeholderText: "I'm ready when you are!",
   theme: "custom",
   linkList: [
@@ -195,10 +193,6 @@ bodyFullConfig: {
               href: 'https://google.com',
               target: '_blank'
             },
-            {
-              text: 'Facebook',
-              href: 'https://facebook.com'
-            }
   ],
   toolbarButtons: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help',  'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough',  '|', 'insertLink', 'video', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
   toolbarButtonsMD: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', 'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
@@ -207,6 +201,7 @@ bodyFullConfig: {
 },
 referencesConfig: {
   theme: "custom",
+  key: 'aF4H3A8C7bA4B3A2B2I3H2C4C6C3E4uddzlzjbcsD1qtdcp==',
   quickInsertButtons: ['ul', 'ol', 'hr'],
   imageAllowedTypes: [''],
   videoAllowedProviders: [''],
@@ -261,7 +256,7 @@ handleClickOutside(e) {
     if (this.wrapperRef && this.wrapperRef2 && !this.wrapperRef.contains(e.target) && !this.wrapperRef2.contains(e.target)) {
       this.setState({ toggleDropDown: 'dropdown-content' });
     }
-    else if (this.wrapperRef3 && this.wrapperRef4 && !this.wrapperRef3.contains(e.target) && !this.wrapperRef4.contains(e.target)) {
+   if (this.wrapperRef3 && this.wrapperRef4 && !this.wrapperRef3.contains(e.target) && !this.wrapperRef4.contains(e.target)) {
       this.setState({ toggleDropDownTags: 'dropdown-contentTags' });
     }
 }
@@ -284,14 +279,12 @@ findStory() {
 }
 returnBodyMessage() {
   let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  console.log('width', width);
 
   if (width < 767) {
     return <div><p className="editor__bodyMessage">Want fully featured desktop editor?</p><p className="link" onClick={() => this.setState({ bodyFeatures: 'desktop' })}>Click here</p></div>;
 }
 }
 changeSortOptions(category) {
-  console.log(this.findStory().category);
   Meteor.call('stories.update', this.props.storyId, { category });
   setTimeout(
     function() {
@@ -319,15 +312,11 @@ if (tagName === tag) {
     let index = newTags.indexOf(tag);
     newTags.splice(index, 1);
 
-    console.log('newTags', newTags);
-
     Meteor.call('stories.update', this.props.storyId, { tags: newTags });
 
   } else {
     newTags = Stories.findOne({ _id: this.props.storyId }).tags;
     newTags.push(tag);
-
-    console.log('newTags', newTags);
 
     Meteor.call('stories.update', this.props.storyId, { tags: newTags });
   }
@@ -345,7 +334,6 @@ if (tagName === tag) {
 returnCategoryIcon() {
   let category;
   if (this.state.category) {
-    console.log('chose category');
     category = this.state.category;
   } else {
     category = this.findStory().category;
@@ -371,70 +359,70 @@ this.state.tags.map((tag) => {
 
 if (tag === 'Energy') {
 
-returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `solar-panel`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Energy</div></div>);
+returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `solar-panel`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Energy</div></div>);
 
 } else if (tag === 'Climate Change') {
 
-returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `thermometer-full`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Climate Change</div></div>);
+returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `thermometer-full`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Climate Change</div></div>);
 
 } else if (tag === 'Innovation') {
 
-returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `satellite`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Innovation</div></div>);
+returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `satellite`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Innovation</div></div>);
 
 } else if (tag === 'Transport') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `car`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Transport</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `car`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Transport</div></div>);
 
 } else if (tag === 'Biodiversity') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `paw`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Biodiversity</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `paw`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Biodiversity</div></div>);
 
 } else if (tag === 'Cities') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `city`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Cities</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `city`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Cities</div></div>);
 
 } else if (tag === 'Food') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `utensils`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Food</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `utensils`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Food</div></div>);
 
 } else if (tag === 'Science') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `flask`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Science</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `flask`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Science</div></div>);
 
 } else if (tag === 'Waste') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `trash-alt`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Waste</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `trash-alt`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Waste</div></div>);
 
 } else if (tag === 'Self') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `male`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Self</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `male`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Self</div></div>);
 
 } else if (tag === 'Research') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `brain`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Research</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `brain`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Research</div></div>);
 
 } else if (tag === 'Politics') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `vote-yea`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Politics</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `vote-yea`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Politics</div></div>);
 
 } else if (tag === 'Personal Finance') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `money-bill-wave`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Personal Finance</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `money-bill-wave`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Personal Finance</div></div>);
 
 } else if (tag === 'Work') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `briefcase`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Work</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `briefcase`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Work</div></div>);
 
 } else if (tag === 'Equality') {
 
-  returnArray.push(<div className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `equals`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Equality</div></div>);
+  returnArray.push(<div key={tag} className="tags__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `equals`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Equality</div></div>);
 
 }
 
 });
 
 if (this.state.tags.length === 0) {
-  returnArray.push(<div className="tagsHashtag__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `hashtag`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainTextHashtag">Tags</div></div>);
+  returnArray.push(<div key='none' className="tagsHashtag__sortOutsideSpacing"><FontAwesomeIcon icon={['fas', `hashtag`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainTextHashtag">Tags</div></div>);
 }
 
 return returnArray;
@@ -467,6 +455,7 @@ findStoryPhoto() {
 removeImage() {
   Meteor.call('stories.update', this.props.storyId, { mainImage: '' });
   Session.set('storyImageEntered', false);
+  Session.set({ storyImageEntered: false });
 }
 includesTag(tag) {
 
@@ -477,8 +466,6 @@ if (tagName === tag) {
   includes = true;
 }
 });
-
-console.log(tag, includes);
 
 return includes;
 }
@@ -527,8 +514,6 @@ handleBodyChange(model) {
 
   plainText = plainText.slice(0,65);
 
-
-  console.log('minread', minRead);
   Meteor.call('stories.update', this.props.storyId, { body: model, minRead, description: plainText });
   this.setState({ getBodySaved: 'Saving...' });
 
@@ -542,9 +527,13 @@ handleBodyChange(model) {
 
 }
 handleTitleChange(model) {
-  this.setState({ title: model });
+  this.setState({ title: model.trim() });
 
-  let plainText = model.replace(/(<([^>]+)>)/g, "");
+
+
+  let plainText = model.trim();
+
+  plainText = plainText.replace(/(<([^>]+)>)/g, "");
 
   var entities = [
     [ 'quot', '"'],
@@ -595,7 +584,7 @@ render() {
       <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"/>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
- crossorigin="anonymous"/>
+ crossOrigin="anonymous"/>
 
       <div className="editor__marginLeft">
 
@@ -605,6 +594,7 @@ render() {
         <div className="dropdown">
           <div ref={this.setWrapperRef} onClick={() => this.toggleDropDown()} className="profileEdit__sortByButton dropbtn">{!this.findStory().category ? <div className="profileMainSortDiv"><FontAwesomeIcon icon={['fas', 'compass']} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Category</div></div> : <div className="profileMainSortDiv"><FontAwesomeIcon icon={['fas', `${this.returnCategoryIcon()}`]} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">{this.state.category || this.findStory().category}</div></div>}  </div>
           <div ref={this.setWrapperRef2} className={this.state.toggleDropDown}>
+          <div className="dropdown-content__innerLargerMargins">
           <div className="dropdown-content__innerMargins">
             <div onClick={() => { this.changeSortOptions('Economy') }} className="sort__popularContainer"><FontAwesomeIcon icon={['fas', 'yen-sign']} className={`${this.findStory().category === 'Economy' || this.state.category === 'Economy' ? 'sort__greenIconPop' : 'sort__popularIcon'}`}  /><div className={`${this.findStory().category === 'Economy' || this.state.category === 'Economy' ? 'sort__greenText' : 'sort__popularText'}`}>Economy</div></div>
             <div className="clearBoth"></div>
@@ -618,6 +608,7 @@ render() {
             <div className="clearBoth"></div>
             <div onClick={() => { this.changeSortOptions('Now') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'newspaper']} className={`${this.findStory().category === 'Now' || this.state.category === 'Now' ? 'sort__greenIcon' : 'sort__oldestIcon'}`} /><div className={`${this.findStory().category === 'Now' || this.state.category === 'Now' ? 'sort__greenText' : 'sort__oldestText'}`}>Now</div></div>
           </div></div>
+          </div>
         </div>
       </div>
 
@@ -627,6 +618,7 @@ render() {
         <div className="dropdown">
           <div ref={this.setWrapperRef3} onClick={() => this.toggleDropDownTags()} className="profileEdit__tagsByButton dropbtn">{!this.state.tags.length === 0 ? <div className="profileMainSortDivTags"><FontAwesomeIcon icon={['fas', 'hashtag']} className="sortProfile__mainIcon"/><div className="sortProfile__mainText">Tags</div></div> : <div className="profileMainSortDiv">{this.returnTagIcons()}</div>}</div>
           <div ref={this.setWrapperRef4} className={this.state.toggleDropDownTags}>
+          <div className="dropdown-content__innerLargerMargins">
           <div className="dropdown-content__innerMargins">
 
             <div className="floatLeft dropDownTagsMarginRight">
@@ -634,7 +626,7 @@ render() {
             <div className="clearBoth"></div>
             <div onClick={() => { this.changeTagSortOptions('Climate Change') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'thermometer-full']} className={`${this.includesTag('Climate Change') ? 'tags__greenIcon' : 'tags__newestIcon'}`} /><div className={this.includesTag('Climate Change') ? 'tags__greenIcon' : 'tags__newestIcon'}>Climate Change</div></div>
             <div className="clearBoth"></div>
-            <div onClick={() => { this.changeTagSortOptions('Innovation') }} className="sort__newestContainer"><FontAwesomeIcon icon={['fas', 'satellite']} className={`${this.includesTag('Innovation') ? 'tags__greenIcon' : 'tags__newestIcon'}`} /><div className={`${this.includesTag('Innovation') ? 'tags__greenText' : 'tags__newestText'}`}>Innovation</div></div>
+            <div onClick={() => { this.changeTagSortOptions('Innovation') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'satellite']} className={`${this.includesTag('Innovation') ? 'tags__greenIcon' : 'tags__newestIcon'}`} /><div className={`${this.includesTag('Innovation') ? 'tags__greenText' : 'tags__newestText'}`}>Innovation</div></div>
             <div className="clearBoth"></div>
             <div onClick={() => { this.changeTagSortOptions('Transport') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'car']} className={`${this.includesTag('Transport') ? 'tags__greenIcon' : 'tags__newestIcon'}`} /><div className={`${this.includesTag('Transport') ? 'tags__greenText' : 'tags__newestText'}`}>Transport</div></div>
             <div className="clearBoth"></div>
@@ -650,7 +642,7 @@ render() {
             <div className="floatLeft">
             <div onClick={() => { this.changeTagSortOptions('Waste') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'trash-alt']} className={`${this.includesTag('Waste') ? 'tags__greenIcon' : 'tags__newestIcon'}`} /><div className={`${this.includesTag('Waste') ? 'tags__greenText' : 'tags__newestText'}`}>Waste</div></div>
             <div className="clearBoth"></div>
-            <div onClick={() => { this.changeTagSortOptions('Self') }} className="sort__newestContainer"><FontAwesomeIcon icon={['fas', 'male']} className={`${this.includesTag('Self') ? 'tags__greenIconSelf' : 'tags__newestIconSelf'}`} /><div className={`${this.includesTag('Self') ? 'tags__greenText' : 'tags__newestText'}`}>Self</div></div>
+            <div onClick={() => { this.changeTagSortOptions('Self') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'male']} className={`${this.includesTag('Self') ? 'tags__greenIconSelf' : 'tags__newestIconSelf'}`} /><div className={`${this.includesTag('Self') ? 'tags__greenText' : 'tags__newestText'}`}>Self</div></div>
             <div className="clearBoth"></div>
             <div onClick={() => { this.changeTagSortOptions('Research') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'brain']} className={`${this.includesTag('Research') ? 'tags__greenIcon' : 'tags__newestIcon'}`} /><div className={`${this.includesTag('Research') ? 'tags__greenText' : 'tags__newestText'}`}>Research</div></div>
             <div className="clearBoth"></div>
@@ -664,7 +656,7 @@ render() {
             </div>
 
           </div></div>
-        </div>
+        </div></div>
       </div>
 
       <p className="createStory__imageInfo">P.S: Pick as many as you want!</p>
@@ -673,7 +665,7 @@ render() {
       <div onClick={() => this.removeImage()} className={`createStory__removeImageButton ${Session.get('storyImageEntered') ? '' : 'createStory__lowOpacity'}`}>Remove Image</div> <div onClick={() => this.doThis()} className="createStory__addImageButton">Upload Image</div>
       {/* <input type="file" label="Upload" id="uplodadStoryImage" ref="uploadStoryImage" onChange={this.setImageBelow.bind(this)} className="createStory__fileName" accept="image/*"/> */}
       <div className="clearBoth"></div>
-      {Session.get('storyImageEntered') ? <Image className="createStory__actualImageUploadedShadow" cloud_name='novaterra' publicId={this.findStoryPhoto()}><Transformation crop="scale" /></Image> : <img id="imagePreview" className="createStory__actualImageUploaded"/>}
+      {Session.get('storyImageEntered') ? <Image className="createStory__actualImageUploadedShadow" cloud_name='novaterra' publicId={this.findStoryPhoto() ? this.findStoryPhoto() : ''}><Transformation crop="scale" /></Image> : <img id="imagePreview" className="createStory__actualImageUploaded"/>}
 
 
 
@@ -682,6 +674,8 @@ render() {
       <p className="createStory__imageInfo">P.S: This will not work with file other than images</p>
 
       {/* {this.state.storyMainImage ? <button onClick={() => this.uploadImage()} className="createStory__useButton">Use</button> : <button className="createStory__useButtonDim">Use</button>} */}
+
+      <div className="createStoryLayout__mainInputs">
 
       <div className="profile__createStoryHeader">Title</div>
       <FroalaEditor model={this.state.title} onModelChange={this.handleTitleChange} className="title" config={this.state.titleConfig} />
@@ -693,14 +687,15 @@ render() {
 
       <div className="createStory__changesSaved">{this.state.getBodySaved}</div>
 
-      {}
 
       <div className="clearBoth"></div>
 
-    <div className="profile__optionalPart">(Optional)</div><div className="profile__createStoryHeaderNextOptional">References</div>
+    <div className="profile__createStoryHeaderNextOptional">References</div><div className="profile__optionalPart">(Optional)</div>
       <FroalaEditor model={this.state.references} onModelChange={this.handleReferencesChange} config={this.state.referencesConfig} />
 
       <div className="createStory__changesSaved">{this.state.getReferencesSaved}</div>
+
+      </div>
 
       </div>
       {/*

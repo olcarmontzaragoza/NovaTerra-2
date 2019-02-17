@@ -47,7 +47,7 @@ export class OurTeam extends React.Component {
         Co-founder
         </div>
         <div className="mission__ourTeamMemberDescription">
-        High school student, full-stack developer, environmentalist and a driver of change.
+        Social entrepreneur 🚀 High school student 👨‍🎓, Full-stack developer, Environmentalist 🌲 and a driver of change.
         </div>
         </div>
         </div>
@@ -68,7 +68,7 @@ export class OurTeam extends React.Component {
         Co-founder
         </div>
         <div className="mission__ourTeamMemberDescription">
-        Software engineer with an obsession for disruptive technology.
+        Social entrepreneur 🚀 Co-founder of Silicon Valet - AI Car Parking App in Cal Hacks Berkeley Startup incubator 🚘 | Co-launched One Cherry - the UK's first e-commerce Charity Platform 🍒
         </div>
         </div>
         </div>

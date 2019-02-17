@@ -38,7 +38,6 @@ let user = Meteor.users.findOne({ _id: Meteor.userId() });
 let liked = this.props.story.likes.includes(Meteor.userId());
 
 this.setState({ liked });
-console.log('likedButton', liked);
 }
 clickedLikeButton() {
 // Meteor.call('stories.update', this.props.story._id, { likes: ['1', '2', '3'] });
@@ -47,26 +46,18 @@ let user = Meteor.users.findOne({ _id: Meteor.userId() });
 
 let currentLikes = this.props.story.likes;
 
-console.log('currentLikes', currentLikes);
-
 if (this.props.story.likes.includes(Meteor.userId())) {
 let newLikes = currentLikes;
-console.log('newLikes', newLikes);
 let index = newLikes.indexOf(Meteor.userId());
-console.log('index', index);
 newLikes.splice(index, 1);
-console.log('newLikes', newLikes);
 Meteor.call('stories.update', this.props.story._id, { likes: newLikes });
 // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
 this.setState({ liked: false });
-console.log('newLikes', newLikes);
 } else {
 let newLikes = currentLikes;
 newLikes.push(Meteor.userId());
-console.log('newLikes', newLikes);
 Meteor.call('stories.update', this.props.story._id, { likes: newLikes });
 this.setState({ liked: true });
-console.log('newLikes', newLikes);
 }
 }
 componentDidMount() {
@@ -109,10 +100,10 @@ render() {
     return (
       <div>
         { !this.state.fixedSideBar ?
-        <div id="storyBody__sidebar" className="storyBody__topDivFixed">
+        <div id="storyBody__sidebar" className="storyBody__topDivFixed storySocialSidebarTop">
 
 
-        <div onClick={() => { this.clickedLikeButton() }}>
+        <div className="socialSidebar__earthLeft" onClick={() => { this.clickedLikeButton() }}>
         <FontAwesomeIcon icon={['fas', 'globe-americas']} className={`${this.state.liked ? 'storyBody__topLikeButtonLiked' : 'storyBody__topLikeButton' }`} />
         </div>
 
@@ -262,7 +253,7 @@ render() {
         </a>
 
         <a className="sideCommentsHov">
-        <FontAwesomeIcon icon={['far', 'comments']} className="commentImageSide"/><div className="commentNumSide">72</div>
+        <FontAwesomeIcon icon={['far', 'comments']} className="commentImageSide"/><div className="commentNumSide">0</div>
         </a>
       </div>
         </div>

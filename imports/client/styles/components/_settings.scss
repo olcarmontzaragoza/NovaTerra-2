@@ -591,11 +591,11 @@ textarea:focus {
   cursor:default;
   margin-bottom:8px;
   margin-top:14px;
-  -webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
--o-user-select: none;
-user-select: none;
+//   -webkit-user-select: none;
+// -moz-user-select: none;
+// -ms-user-select: none;
+// -o-user-select: none;
+// user-select: none;
 
 @media screen and (max-width: 395px) {
   width:77.8vw;

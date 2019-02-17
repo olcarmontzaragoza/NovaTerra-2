@@ -234,6 +234,9 @@ letter-spacing:0.045em;
 @media screen and (max-width: 495px) {
 font-size:1.2em;
 }
+@media screen and (max-width: 450px) {
+width:93vw;
+}
 @media screen and (max-width: 425px) {
 font-size:1.1em;
 }
@@ -250,6 +253,9 @@ margin-bottom:20px;
   margin-top:9px;
   margin-bottom:-15px;
   font-size:0.96em;
+}
+@media screen and (max-width: 450px) {
+  width:92vw;
 }
 
 }
@@ -376,7 +382,7 @@ transition:0.35s ease;
 .authorAndComments__referencesHr {
   border:none; color:#e4e4e4; height:1px; margin-left:42px; margin-top:-6px; margin-bottom:21px; width:315px; background-color:#e4e4e4;
 }
-.shareAndCommentsStory2 {
+.ab__shareAndCommentsStory2 {
   margin-top:-27px; margin-left:535px;
 
   @media screen and (max-width: 697px) {
@@ -424,17 +430,18 @@ transition:0.35s ease;
     right:225px;
   }
   @media screen and (max-width: 452px) {
-    position:relative;
-    right:245px;
+    // position:relative;
+    // right:245px;
+    display:none;
   }
-  @media screen and (max-width: 429px) {
-    position:relative;
-    right:265px;
-  }
-  @media screen and (max-width: 410px) {
-    position:relative;
-    right:285px;
-  }
+  // @media screen and (max-width: 429px) {
+  //   position:relative;
+  //   right:265px;
+  // }
+  // @media screen and (max-width: 410px) {
+  //   position:relative;
+  //   right:285px;
+  // }
 }
 .commentIconStory2 {
   color:#dcdcdc; width:25.5px; height:25.5px; font-size:1.36em; margin-top:-5px;
@@ -487,6 +494,10 @@ transition:0.35s ease;
    @media screen and (max-width: 420px) {
       font-size:1.82em;
    }
+   @media screen and (max-width: 350px) {
+      font-size:1.73em;
+      padding-bottom:5px;
+   }
  }
  .authorAndComments__topHrs {
    height:3.25px; border:none; color:#dddddd; background-color:#dddddd; width:323px; margin-left:13px; margin-top:-7px;
@@ -500,6 +511,14 @@ transition:0.35s ease;
      position:relative;
      left:11vw;
    }
+   @media screen and (max-width: 415px) {
+     position:relative;
+     left:8vw;
+   }
+   @media screen and (max-width: 366px) {
+     position:relative;
+     left:5vw;
+   }
 
 
  }
@@ -511,7 +530,6 @@ transition:0.35s ease;
    }
    @media screen and (max-width: 762px) and (min-width: 475px) {
      width:56vw;
-     background-color:#f00;
    }
    @media screen and (max-width: 475px) {
      margin-left:2px;
@@ -559,7 +577,7 @@ transition:0.35s ease;
    margin-top:9px;
  }
  .authorAndComments__referencesTopDiv {
-   width:340px; font-weight:400; margin-left:-125px; margin-top:30px;
+   width:340px; font-weight:400; margin-left:-125px; margin-top:30px; float:left;
  }
  .authorAndComments__outsideReferenceOuterDiv {
    position:relative; top:1.2px;
@@ -605,7 +623,7 @@ z-index:1;
   margin-top:50px;
 }
 .authorsAndComments__referencesTPositioningDiv {
-  position:relative; margin-top:15px;
+  position:relative; margin-top:15px; width:600px;
 
   @media screen and (max-width: 587px) {
   margin-right:-120px;
@@ -616,26 +634,64 @@ z-index:1;
 
   @media screen and (min-width: 810px) {
       float:left;
+      margin-left:-295px;
   }
   @media screen and (max-width: 810px) and (min-width: 762px) {
     margin-left:-48px;
       float:left;
   }
   @media screen and (max-width: 762px) {
-    position:relative;
     left:30.3vw;
+    margin-left:-302px;
+    position:relative;
+    top:25px;
+    clear:both;
+  }
+  @media screen and (max-width: 692px) {
+    left:32.3vw;
+  }
+  @media screen and (max-width: 655px) {
+    left:34.8vw;
+  }
+  @media screen and (max-width: 615px) {
+    left:37.8vw;
   }
   @media screen and (max-width: 590px) {
     position:relative;
-    left:33.9vw;
+    left:38.9vw;
   }
-  @media screen and (max-width: 530px) {
+  @media screen and (max-width: 565px) {
+    left:40.9vw;
+  }
+  @media screen and (max-width: 535px) {
     position:relative;
-    left:37.9vw;
+    left:43.5vw;
+  }
+  @media screen and (max-width: 505px) {
+    position:relative;
+    left:45.5vw;
   }
   @media screen and (max-width: 470px) {
     position:relative;
-    left:39.9vw;
+    left:47.9vw;
+  }
+  @media screen and (max-width: 443px) {
+    position:relative;
+    left:49.9vw;
+  }
+  @media screen and (max-width: 425px) {
+    position:relative;
+    left:51.9vw;
+  }
+  @media screen and (max-width: 415px) {
+    position:relative;
+    left:219px;
+    right:5px;
+  }
+  @media screen and (max-width: 360px) {
+    position:relative;
+    left:226px;
+    right:5px;
   }
 }
 .width0 {
@@ -701,10 +757,11 @@ margin-left:0.3vw;
   margin-bottom:10px;
 }
 .authorAndComments__descriptionMarginTop {
-  margin-top:12px; letter-spacing:0.033em;
+  margin-top:18px; letter-spacing:0.033em;
+  width:238px;
 
-  @media screen and (max-width: 587px) {
-
+  @media screen and (max-width: 382px) {
+    width:70vw;
   }
 }
 .story__bottomFollowButtonPositioning {
@@ -781,5 +838,11 @@ position:relative;
 left:23vw;
 margin-bottom:6px;
 margin-top:0px;
+}
+}
+
+.referencesAndAuthorTopDiv {
+  @media screen and (min-width: 762px) {
+  display:flex;
 }
 }

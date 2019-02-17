@@ -12,12 +12,41 @@ import createBrowserHistory from 'history/createBrowserHistory';
 
 browserHistory = createBrowserHistory();
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
 export class Login extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
 error: ''
 };
+}
+gitHubLogin() {
+  Meteor.loginWithGithub({
+      requestPermissions: ['user'],
+      loginStyle: "popup",
+  }, function (err) {
+
+  });
+}
+twitterLogin() {
+  Meteor.loginWithTwitter({
+      requestPermissions: ['user'],
+      loginStyle: "popup",
+  }, function (err) {
+
+  });
+}
+googleLogin() {
+  Meteor.loginWithGoogle({
+      requestPermissions: ['user'],
+      loginStyle: "popup",
+  }, function (err) {
+
+  });
 }
 onSubmit(e) {
 e.preventDefault();
@@ -65,12 +94,14 @@ render() {
         <div className="login__mobileView">
 
         <div className="floatLeft login__leftContainer" width="350">
+        <div className="login__mobileInnerPadding">
         <div className="login__topTitleLogin">Log in <Link className="login__topTitleSignup" to="/signup"> / Sign up</Link></div>
         <hr className="flex login__hrTop"/>
         <br className="clearBoth"/>
 
-        <span onClick={Meteor.loginWithFacebook}><img src="images/loginButtons/facebook.svg" className="floatLeft" height="18" width="18"/><p>Login With Facebook</p></span>
-        <span onClick={Meteor.loginWithGoogle}><img src="images/loginButtons/google.svg" className="floatLeft" height="18" width="18"/><p>Login With Google</p></span>
+        {/* <div onClick={() => this.googleLogin()} className="signup__loginWithGoogle"><FontAwesomeIcon icon={['fab', 'google-plus-g']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Login With Google</div></div> */}
+        <div onClick={() => this.twitterLogin()} className="signup__loginWithTwitter"><FontAwesomeIcon icon={['fab', 'twitter']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Login With Twitter</div></div>
+        <div onClick={() => this.gitHubLogin()} className="signup__loginWithGithub"><FontAwesomeIcon icon={['fab', 'github']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Login With Github</div></div>
 
         {this.state.error ? <div className="login__errorBox"><p>{this.state.error}</p></div> : undefined}
 
@@ -96,6 +127,7 @@ render() {
         <div className="clearBoth"></div>
         <div className="login__veryBottomSpacing"></div>
         </div></div>
+        </div>
 
         <Footer route='' />
         </div>

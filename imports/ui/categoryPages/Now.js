@@ -11,28 +11,34 @@ function myArrayMax(arr) {
     return Math.max.apply(null, arr);
 }
 
-const latest = Stories.find({
-  category: 'Now', storyType: 'published'
-}, {
-  sort: {
-    lastUpdated: -1
-  }
-}).fetch();
-
-const popular = Stories.find({
-  category: 'Now', storyType: 'published'
-}, {
-  sort: {
-    likes: -1
-  }
-}).fetch();
-
 export class Now extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
 
 };
+}
+returnLatest() {
+  const latest = Stories.find({
+    category: 'Now', storyType: 'published'
+  }, {
+    sort: {
+      lastUpdated: -1
+    }
+  }).fetch();
+
+  return latest;
+}
+returnPopular() {
+  const popular = Stories.find({
+    category: 'Now', storyType: 'published'
+  }, {
+    sort: {
+      likes: -1
+    }
+  }).fetch();
+
+return popular;
 }
 returnCreators(type) {
 
@@ -89,7 +95,7 @@ document.title = `NovaTerra - Now`;
 render() {
     return (
       <div>
-       {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={latest} popularCollection={popular} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} category='Now' categoryDescription="in the moment." relatedCategories={['Economy', 'Environment', 'Future']} categoryLinks={['/economy', '/environment', '/future']} relatedTags={['Equality', 'Politics', 'Innovation']} tagLinks={['/equality', '/politics', '/innovation']}  /> : undefined }
+       {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} category='Now' categoryDescription="in the moment." relatedCategories={['Economy', 'Environment', 'Future']} categoryLinks={['/economy', '/environment', '/future']} relatedTags={['Equality', 'Politics', 'Innovation']} tagLinks={['/equality', '/politics', '/innovation']}  /> : undefined }
       </div>
     );
   }

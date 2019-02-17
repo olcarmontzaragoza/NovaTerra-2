@@ -138,6 +138,7 @@ return (
   <Link to='/now' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'now' ? 'nav__green' : ''}`}>Now</Link>
   <Link to='/technology' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'technology' ? 'nav__green' : ''}`}>Technology</Link>
   <Link to='/environment' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'environment' ? 'nav__green' : ''}`}>Environment</Link>
+  <Link to='/explore' className={`header__innerCatExplore nav__category floatLeft hoverGreen ${this.state.currentPage === 'explore' ? 'nav__green' : ''}`}>Explore</Link>
   </div>
   </div>
   <Link to="/explore" className={`header__catExplore floatLeft hoverGreen ${this.state.currentPage === 'explore' ? 'nav__green' : ''}`}>Explore</Link>

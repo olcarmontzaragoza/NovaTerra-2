@@ -34,7 +34,7 @@ export class OurMission extends React.Component {
 
       <div className="mission__ourVisionMargins">
       <div className="mission__ourVisionSubHeader">Our Vision</div>
-      <div className="mission__ourVisionText">To create the next-generation social media platform that promotes sustainability and activism.</div>
+      <div className="mission__ourVisionText">To create the next-generation social platform that promotes sustainability and activism.</div>
       </div>
 
       <div className="missionOurPrinciplesTopMargin"></div>

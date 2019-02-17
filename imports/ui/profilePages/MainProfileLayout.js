@@ -231,7 +231,7 @@ createNewStory() {
     lastUpdated: moment().valueOf(),
     minRead: 0,
     likes: [],
-    comments: '',
+    comments: 0,
     shares: 0,
     storyType: 'drafted',
     _id: `${newId}`,
@@ -352,10 +352,12 @@ setProfileBottomPosts() {
   }
 
   { this.props.route ?
-    <div className="floatRight mpl__dropdown">
+    <div className="sort__marginLeftProfile">
+    <div className="sort__buttonMarginLeftProfile">
       <div className="dropdown">
         <div ref={this.setWrapperRef} onClick={this.toggleDropDown.bind(this)} className="sort__sortByButton dropbtn"><FontAwesomeIcon icon={['fas', 'sort-amount-up']} className="sort__mainIcon"/><div className="sort__mainText">Sort by</div></div>
         <div ref={this.setWrapperRef2} className={this.state.toggleDropDown}>
+        <div className="dropdown-content__innerLargerMargins">
         <div className="dropdown-content__innerMargins">
           <div onClick={() => { this.changeSortOptions('popular') }} className="sort__popularContainer"><FontAwesomeIcon icon={['fas', 'fire']} className={`${this.state.sortOption === 'popular' ? 'sort__greenIconPop' : 'sort__popularIcon'}`}  /><div className={`${this.state.sortOption === 'popular' ? 'sort__greenText' : 'sort__popularText'}`}>Popular</div></div>
           <div className="clearBoth"></div>
@@ -363,8 +365,8 @@ setProfileBottomPosts() {
           <div className="clearBoth"></div>
           <div onClick={() => { this.changeSortOptions('oldest') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'hourglass-end']} className={`${this.state.sortOption === 'oldest' ? 'sort__greenIcon' : 'sort__oldestIcon'}`} /><div className={`${this.state.sortOption === 'oldest' ? 'sort__greenText' : 'sort__oldestText'}`}>Oldest</div></div>
         </div></div>
-      </div>
-      </div>
+      </div></div>
+      </div></div>
       : undefined }
 
   <div className="clearBoth"></div>
@@ -729,7 +731,7 @@ render() {
       </div></div>
         <div className="clearBoth"></div>
 
-        <div className="bottomProfileMargins">
+        <div className="editProfile__bottomHeight">
 
         </div>
 

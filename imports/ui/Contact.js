@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
+import moment from 'moment';
 
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
@@ -19,16 +20,108 @@ descriptionLength: 0,
 onSubmit(e) {
 e.preventDefault();
 
+let details;
+
 if (this.state.showFirstForm) {
-  let email = Meteor.users.findOne({ _id: Meteor.userId() }).emails[0].address;
-  let reason = this.refs.reason.value;
-  let message = this.refs.message.value;
+
+let email = this.state.users.findOne({ _id: Meteor.userId() }).emails[0].address;
+let header = this.refs.header.value.trim();
+let message = this.refs.message.value.trim();
+
+details = {
+  reason: 'CONTACT',
+  time: moment(moment().valueOf()).format('LLLL'),
+  user: Meteor.userId(),
+  username: Meteor.users.findOne({ _id: Meteor.userId() }).username,
+  email,
+  header,
+  message
+}
+
 } else {
+
   let firstName = this.refs.firstName.value.trim();
   let lastName = this.refs.lastName.value.trim();
   let email = this.refs.email.value.trim();
-  let message = this.refs.message.value;
+  let header = this.refs.header.value.trim();
+  let body = this.refs.body.value.trim();
+
+  if (firstName.length < 1) {
+  this.setErrorScrollTop();
+  return this.setState({ error: 'Did you forget your add your first name?' });
+  }
+
+  if (lastName.length < 1) {
+    this.setErrorScrollTop();
+  return this.setState({ error: 'Did you forget your add your last name?' });
+  }
+
+  if (firstName.length > 15) {
+    this.setErrorScrollTop();
+  return this.setState({ error: "First Name shouldn't be more than 15 characters" });
+  }
+
+  if (lastName.length > 15) {
+    this.setErrorScrollTop();
+  return this.setState({ error: "Last Name shouldn't be more than 15 characters" });
+  }
+
+  Meteor.call('users.validateEmail', email, (err) => {
+      if (err) {
+        console.log('err', err);
+        if (err.reason === 'Email must be a valid email address [400]') {
+          err.reason = 'Are you sure your email Address is correct?';
+        }  else if (err.reason === 'Internal server error') {
+          err.reason = 'Are you sure your email Address is correct?';
+        } else if (err.reason === 'Email already exists.') {
+          err.reason = "I'm afraid this email already exists";
+        }
+        this.setErrorScrollTop();
+        this.setState({error: err.reason });
+      } else {
+          this.setState({error: '' });
+      }
+  });
+
+
+  details = {
+    reason: 'CONTACT',
+    time: moment(moment().valueOf()).format('LLLL'),
+    user: Meteor.userId() ? Meteor.userId() : 'Not Signed In',
+    username: Meteor.userId() ? Meteor.users.findOne({ _id: Meteor.userId() }).username : 'Not Signed in',
+    first: firstName,
+    last: lastName,
+    email,
+    header,
+    body
+  }
 }
+
+Meteor.call('submissions.insert', details);
+
+setTimeout(
+  function() {
+    console.log('error', this.state.error);
+    if (!(this.state.error)) {
+    this.setState({ showMessage: true });
+    } else {
+    this.setState({ showMessage: false });
+    }
+  }
+  .bind(this),
+  50
+);
+
+// if (this.state.showFirstForm) {
+//   let email = Meteor.users.findOne({ _id: Meteor.userId() }).emails[0].address;
+//   let reason = this.refs.reason.value;
+//   let message = this.refs.message.value;
+// } else {
+//   let firstName = this.refs.firstName.value.trim();
+//   let lastName = this.refs.lastName.value.trim();
+//   let email = this.refs.email.value.trim();
+//   let message = this.refs.message.value;
+// }
 }
 componentDidMount() {
   Meteor.subscribe('allUsers', () => {
@@ -39,71 +132,9 @@ componentDidMount() {
     });
 document.title = `NovaTerra - Contact`;
 }
-submitContactForm(e) {
-e.preventDefault();
-  if (this.state.showFirstForm) {
+submitContactForm() {
 
-  let email = this.state.users.findOne({ _id: Meteor.userId() }).emails[0].address;
-  let message = this.refs.message.value.trim();
 
-  } else {
-
-    let firstName = this.refs.firstName.value.trim();
-    let lastName = this.refs.lastName.value.trim();
-    let email = this.refs.email.value.trim();
-    let header = this.refs.header.value.trim();
-    let body = this.refs.body.value.trim();
-
-    if (firstName.length < 1) {
-    this.setErrorScrollTop();
-    return this.setState({ error: 'Did you forget your add your first name?' });
-    }
-
-    if (lastName.length < 1) {
-      this.setErrorScrollTop();
-    return this.setState({ error: 'Did you forget your add your last name?' });
-    }
-
-    if (firstName.length > 15) {
-      this.setErrorScrollTop();
-    return this.setState({ error: "First Name shouldn't be more than 15 characters" });
-    }
-
-    if (lastName.length > 15) {
-      this.setErrorScrollTop();
-    return this.setState({ error: "Last Name shouldn't be more than 15 characters" });
-    }
-
-    Meteor.call('users.validateEmail', email, (err) => {
-        if (err) {
-          console.log('err', err);
-          if (err.reason === 'Email must be a valid email address [400]') {
-            err.reason = 'Are you sure your email Address is correct?';
-          }  else if (err.reason === 'Internal server error') {
-            err.reason = 'Are you sure your email Address is correct?';
-          } else if (err.reason === 'Email already exists.') {
-            err.reason = "I'm afraid this email already exists";
-          }
-          this.setErrorScrollTop();
-          this.setState({error: err.reason });
-        } else {
-            this.setState({error: '' });
-        }
-    });
-}
-
-setTimeout(
-    function() {
-      console.log('error', this.state.error);
-      if (!(this.state.error)) {
-      this.setState({ showMessage: true });
-      } else {
-      this.setState({ showMessage: false });
-      }
-    }
-    .bind(this),
-    50
-  );
 }
 resetError() {
 this.setState({ error: '' });
@@ -172,7 +203,7 @@ setPage() {
       :
 
       <div>
-      <form onSubmit={this.submitContactForm.bind(this)} noValidate>
+      <form onSubmit={this.onSubmit.bind(this)} noValidate>
 
       { Meteor.userId() ? <div><div className="floatLeft contactPageWidth2 contactPageSwitchBack login__smalllBelowThings"> Want to switch back?</div><div className="link floatLeft" onClick={() => { this.setPage() }}>Click here</div></div> : <div className="floatLeft contactPageWidth3 contactPageSwitchBack">Please fill in the form below to reach out to us. Take into account we will use the email you provide below to respond back to you. Note, that if you like, you can also contact us directly at contact@novaterra.earth.</div>}
 
@@ -222,7 +253,7 @@ setPage() {
 
       <br className="clearBoth"/>
 
-      <button className="login__loginButton signup__belowSubmitButtonMarginBottom" onClick={() => { this.submitContactForm.bind(this) }}>Submit</button>
+      <button className="login__loginButton signup__belowSubmitButtonMarginBottom" onClick={() => { this.submitContactForm() }}>Submit</button>
       {this.state.showMessage ? <div className="contact__successBox"><div className="contact__successBoxInnerMargins">Sent. You will recieve a response within 24 hours.</div></div> : undefined}
       </form>
 

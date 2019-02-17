@@ -1,9 +1,9 @@
 .mainStoryText {
 font-weight:200;
-line-height:1.65; /* 1.55 */
+line-height:1.77;
 word-spacing:0.015em;
 font-size:1.2em;
-width:800px;
+width:728px;
 margin-left:13%;
 
 color:rgba(0,0,0,.84);
@@ -15,6 +15,13 @@ font-family:jaf-bernina-sans, sans-serif; */
    /* "San Francisco"
     "Roboto", "Segoe UI";*/
 
+@media screen and (max-width: 793px) {
+  width:91.2vw;
+}
+@media screen and (max-width: 350px) {
+  width:90vw;
+  font-size:1.17em;
+}
 }
 .storyTags {
 height:37.5px;
@@ -26,7 +33,6 @@ padding-right:12px;
 padding-left:12px;
 cursor:pointer;
 font-size:0.84em;
-/* 0.98em *; */
 }
 .fullBleedImage {
   content:url("https://static1.squarespace.com/static/59fb854ccd39c36469316a33/t/5af5ad3d0e2e72299b8d9319/1526050109823/2015OceanAcidification_CO2Graph_web.jpg");
@@ -248,9 +254,11 @@ width:21px; height:21px; float:left; margin-left:12px; margin-top:-6px; font-siz
 }
 .sideSharesHov:hover .shareNumSide  {
 color:#15a05c;
+transition:0.25s;
 }
 .sideSharesHov:hover .shareImageSide  {
 color:#15a05c;
+transition:0.25s;
 }
 .sideSharesHov {
   margin-bottom:58px; cursor:pointer;
@@ -276,66 +284,74 @@ width:22px; height:20px; float:left; margin-left:9px; margin-top:8px;
 }
 .sideCommentsHov:hover .commentNumSide  {
 color:#15a05c;
+transition:0.25s;
 }
 .sideCommentsHov:hover .commentImageSide  {
 color:#15a05c;
+transition:0.25s;
 }
 .divSocialHovtt {
 display:flex;
 justify-content:center;
 font-size:50px;
-transition:1s ease;
+transition:2s;
 }
 .divSocialHovtt:hover svg * {
 fill: url(#rgyt);
+transition:2s;
 }
 
 .divSocialHovtts {
 display:flex;
 justify-content:center;
 font-size:50px;
-transition:1s ease;
+transition:2s;
 }
 .divSocialHovtts:hover svg * {
 fill: url(#rgys);
+transition:2s;
 }
 .divSocialHovttk {
 display:flex;
 justify-content:center;
 font-size:50px;
-transition:1s ease;
+transition:2s;
 }
 .divSocialHovttk:hover svg * {
 fill: url(#rgyl);
+transition:2s;
 }
 .divSocialHovttrw {
 display:flex;
 justify-content:center;
 font-size:50px;
-transition:1s ease;
+transition:2s;
 }
 .divSocialHovttrw:hover svg * {
 fill: url(#rgysy);
+transition:2s;
 }
 
 .divSocialHovttrww {
 display:flex;
 justify-content:center;
 font-size:50px;
-transition:1s ease;
+transition:2s ease;
 }
 .divSocialHovttrww:hover svg * {
 fill: url(#rgysrr);
+transition:2s ease;
 }
 
 .divSocialHovttrwwt {
 display:flex;
 justify-content:center;
 font-size:50px;
-transition:1s ease;
+transition:2s;
 }
 .divSocialHovttrwwt:hover svg * {
 fill: url(#wrq);
+transition:2s;
 }
 
 .divSocialHovun {
@@ -354,6 +370,7 @@ display:flex;
 justify-content:center;
 font-size:50px;
 color:black;
+transition-delay: 2s;
 }
 .gradient3 {
 color:red;
@@ -361,6 +378,7 @@ color:red;
 
 .divSocialHov:hover svg * {
 fill: url(#rg);
+transition-delay: 2s;
 }
 .divSocialHovjs {
 display:flex;
@@ -376,6 +394,7 @@ background-image: gradient( linear, left bottom, right top, color-stop(0.05, #2a
 color:transparent;
 -webkit-background-clip: text;
 background-clip: text;
+transition-delay: 1s;
 }
 .divSocialHovjsetsr:hover .hovFacebookTitleL2 {
 
@@ -384,6 +403,7 @@ background-image: gradient( linear, left bottom, right top, color-stop(0, #7797d
 color:transparent;
 -webkit-background-clip: text;
 background-clip: text;
+transition-delay: 1s;
 }
 .divSocialHovjsetsrt2:hover .hovRedditTitleL22 {
 
@@ -414,6 +434,7 @@ background-image: gradient( linear, left bottom, right top, color-stop(0.1, #258
 color:transparent;
 -webkit-background-clip: text;
 background-clip: text;
+transition-delay: 1s;
 }
 .divSocialHovReddit:hover .hovRedditTitleL4 {
 
@@ -424,16 +445,109 @@ background-image: gradient( linear, left bottom, right top, color-stop(0.4, #ff6
 color:transparent;
 -webkit-background-clip: text;
 background-clip: text;
+transition-delay: 1s;
 }
 .staffPickText:hover {
 
 }
+.fr-view {
+  line-height:2 !important;
+}
 .storyBody__margins {
-  margin-top:-75px; display:inline-block;
-    display:-moz-inline-block; margin-left:15px; margin-right:-85px;
+  margin-top:-175px; display:inline-block;
+    display:-moz-inline-block; left:14.1vw;
+    width:728px;
+    max-width:728px;
+
+  position:relative;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+  @media screen and (max-width: 1255px) {
+  left:12.7vw;
+  }
+  @media screen and (max-width: 1205px) {
+  left:11.3vw;
+  }
+  @media screen and (max-width: 1135px) {
+  left:9.3vw;
+  }
+  @media screen and (max-width: 1108px) {
+  left:6.3vw;
+  }
+  @media screen and (max-width: 1070px) {
+  left:3.9vw;
+  }
+  @media screen and (max-width: 1005px) {
+  left:1.9vw;
+  }
+  @media screen and (max-width: 960px) {
+  left:-1.2vw;
+  }
+  @media screen and (max-width: 905px) {
+  left:-2vw;
+  }
+  @media screen and (max-width: 860px) {
+  left:-6vw;
+  }
+  @media screen and (max-width: 825px) {
+  left:-7.7vw;
+  }
+  @media screen and (max-width: 750px) {
+  left:-8.7vw;
+  }
+  @media screen and (max-width: 720px) {
+  left:-9.9vw;
+  }
+  @media screen and (max-width: 660px) {
+  left:-10.9vw;
+  }
+  @media screen and (max-width: 620px) {
+  left:-11.5vw;
+  }
+  @media screen and (max-width: 585px) {
+  left:-12vw;
+  }
+  @media screen and (max-width: 555px) {
+  left:-12.8vw;
+  }
+  @media screen and (max-width: 525px) {
+  left:-13.8vw;
+  }
+  @media screen and (max-width: 495px) {
+  left:-14.8vw;
+  }
+  @media screen and (max-width: 470px) {
+  left:-15.6vw;
+  }
+  @media screen and (max-width: 425px) {
+  left:-74px;
+  }
+  @media screen and (max-width: 400px) {
+  left:-74px;
+  }
+  @media screen and (max-width: 370px) {
+  left:-74px;
+  }
+  @media screen and (max-width: 350px) {
+  left:-74px;
+  }
+  @media screen and (max-width: 305px) {
+  left:-74px;
+  }
 }
 .storyBody__tagsTopDiv {
   color:#555555; font-weight:500; margin-top:2px; letter-spacing:0.013em;
+
+  @media screen and (max-width: 520px) {
+  font-size:0.95em;
+  }
+  @media screen and (max-width: 420px) {
+  font-size:0.92em;
+  }
 }
 .storyBody__tagsInnerDiv {
   height:8px;
@@ -442,10 +556,17 @@ background-clip: text;
   height:0px; margin-top:-150px; clear:both;
 }
 .storyBody__topDiv {
- margin-left:75px; position:absolute; left:50px;
+ margin-left:38px; margin-top:50px; position:absolute; left:50px;
+
+ @media screen and (max-width: 1120px) {
+ display:none;
+ }
 }
 .storyBody__topDivFixed {
- margin-left:75px; top:25%; position:fixed;
+  margin-left:75px; position:relative; // top:25%;
+}
+.storySocialSidebarTop {
+  margin-top:400px;
 }
 .storyBody__facebookHover {
   width:27.5px; height:27.5px; color:#e1e1e1; cursor:pointer;
@@ -475,22 +596,26 @@ background-clip: text;
   color:#dcdcdc; background-color:#dcdcdc; height:2px; margin-left:5px; border:none; margin-bottom:-2px; width:58px; margin-top:10px;
 }
 .storyBody__topLikeButton {
-  font-size:1.75em; color:#e1e1e1; cursor:pointer; margin-left:20px; transition:0.25s;
+  font-size:1.75em; color:#e1e1e1; cursor:pointer; margin-left:24px; transition:0.25s;
 }
 .storyBody__topLikeButtonLiked {
-  font-size:1.75em; color:#15a05c; cursor:pointer; margin-left:20px; transition:0.25s;
+  font-size:1.75em; color:#15a05c; cursor:pointer; margin-left:24px; transition:0.25s;
 }
 .storyBody__topLikeButtonStatic {
-  font-size:1.75em; color:#e1e1e1; cursor:pointer; margin-left:16px; transition:0.25s;
+  font-size:1.75em; color:#e1e1e1; cursor:pointer; margin-left:19px; transition:0.25s;
 }
 .storyBody__topLikeButtonStaticLiked {
-  font-size:1.75em; color:#15a05c; cursor:pointer; margin-left:16px; transition:0.25s;
+  font-size:1.75em; color:#15a05c; cursor:pointer; margin-left:19px; transition:0.25s;
 }
 .storyBody__topLikeButton:hover {
 
 }
 .storyBody__topLikeButtonLiked:hover {
 
+}
+.socialSidebar__earthLeft {
+  position:relative;
+  left:80px;
 }
 .story__veryBottomSpacing {
   margin-top:200px; height:100px;
@@ -500,6 +625,40 @@ position:relative; left:-142px;
 }
 .marginLeftTags {
   position:relative;
-  left: 21.2vw;
+  left: 20.7vw;
   margin-top:13px;
+
+  @media screen and (max-width: 1250px) {
+  left:19.7vw;
+  }
+  @media screen and (max-width: 1180px) {
+  left:18.3vw;
+  }
+  @media screen and (max-width: 1135px) {
+  left:16.9vw;
+  }
+  @media screen and (max-width: 1110px) {
+  left:14.2vw;
+  }
+  @media screen and (max-width: 1070px) {
+  left:12.2vw;
+  }
+  @media screen and (max-width: 1005px) {
+  left:10.2vw;
+  }
+  @media screen and (max-width: 960px) {
+  left:8.5vw;
+  }
+  @media screen and (max-width: 900px) {
+  left:6.5vw;
+  }
+  @media screen and (max-width: 860px) {
+  left:4.8vw;
+  }
+  @media screen and (max-width: 825px) {
+  left:24px;
+  }
+  @media screen and (max-width: 720px) {
+  left:17px;
+  }
 }

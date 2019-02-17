@@ -179,11 +179,10 @@ returnTime(time) {
         <div className="nav__belowHrMargin1"></div>
         { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperator"/> : undefined }
         <div className="nav__belowHrMargin"></div>
-        {notification.published ? <Link to={story.link} className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__visit">Visit</button></Link> : <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>}
+        {notification.published ? <Link to={story.link} className="nav__notificationsPostImagePositioning"><div className="nav__notificationsFollow nav__visit">Visit</div></Link> : <div className="nav__notificationsPostImagePositioning"><div className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</div></div>}
         <div className={`${notification.published ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacingFollow'}`}></div>
         <Link to={story.link} className="floatLeft"><Image className="notification__storyImage" cloud_name='novaterra' publicId={story.mainImage}><Transformation crop="thumb" /></Image></Link>
-        <div className="nav__notificationsText nav__notificationsWidth">{notification.description}&nbsp;<br/><Link to={story.link} className="nav__notificationsStoryTitle" dangerouslySetInnerHTML={{ __html:
-        story.title }}></Link><a className="nav__notificationsDot">.</a>
+        <div className="nav__notificationsText nav__notificationsWidth">{notification.description}&nbsp;<br/><Link to={story.link} className="nav__notificationsStoryTitle">{story.title}.</Link>
         <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}</a>
         </div>
         <div className="clearBoth"></div>
@@ -195,9 +194,9 @@ returnTime(time) {
         <div className="nav__belowHrMargin1"></div>
         { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperator"/> : undefined }
         <div className="nav__belowHrMargin"></div>
-        <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnMore" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>
+        <div className="nav__notificationsPostImagePositioning"><div className="nav__notificationsFollow nav__learnMore" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</div></div>
         <div className="nav__userEventElimateSpacing1"></div>
-        <a className="floatLeft"><img src={notification.messageImage} className="notification__storyImage"/></a>
+        <a className="floatLeft"><Image className="notification__storyImage" cloud_name='novaterra' publicId={notification.messageImage}><Transformation crop="thumb" /></Image></a>
         <div className="nav__notificationsText nav__notificationsWidth">{notification.description.length > 145 ? notification.description.slice(0, 145) + '...' : notification.description}&nbsp;
         <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}{/* moment(notification.created).fromNow() */}</a>
         </div>
@@ -233,7 +232,7 @@ returnTime(time) {
       lastUpdated: moment().valueOf(),
       minRead: 0,
       likes: [],
-      comments: '',
+      comments: 0,
       shares: 0,
       storyType: 'drafted',
       _id: `${newId}`,
@@ -507,14 +506,21 @@ if (width > 1020) {
     let user = Meteor.users.findOne({ _id: Meteor.userId() });
 
     let details = {
-    description: "Your story is now waiting.",
-    thisUserId: user._id,
-    created: moment().valueOf(),
-    type: 'storyEvent',
-    storyId: story._id,
-    published:false,
-    isStoryEvent: true,
+      description: "Your story is now waiting.",
+      thisUserId: user._id,
+      created: moment().valueOf(),
+      type: 'featureEvent',
+      messageTitle: "Your story is now waiting.",
+      messageBody: "This is a quick check we make of each story to make sure it doesn't contain spam, advertising or misinformation. Don't worry, we aren't judging your story ;)",
+      messageImage: story.mainImage,
+      storyId: story._id
     };
+
+    if (Notifications.find({ storyId: story._id })) {
+      Notifications.find({ storyId: story._id }).fetch().map((story) => {
+        Meteor.call('notifications.remove', story._id);
+      });
+    }
 
     console.log('notification inserted...')
 

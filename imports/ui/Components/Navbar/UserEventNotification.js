@@ -211,8 +211,8 @@ return userAction;
             <img src={`${this.props.route}images/noImage.png`} className="notification__userImage"/>}</Link>
           {this.state.profileFollow ? <div className="nav__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className="nav__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}
           { this.props.notification.postImage ? <Link to={this.props.notification.postUrl} className="nav__notificationsPostImagePositioning"><img className="nav__notificationsStoryImage" src={this.props.notification.postImage}/></Link> : undefined}
-          <div className="flex nav__notificationsText"><Link to={this.findUserAction().profileUrl} className="link nav__notificationsTextMarginTop">{this.findUserAction().username}</Link><p className="nav__notificationsTextMarginTop">&nbsp;{this.props.notification.description}.</p>
-          <p className="nav__notificationsFromNow nav__notificationsTextMarginTop">&nbsp;{this.returnTime(this.props.notification.created)}{/* moment(notification.created).fromNow() */}</p>
+          <div className="nav__notificationsTextNormalUser"><Link to={this.findUserAction().profileUrl} className="link">{this.findUserAction().username}</Link><a className="">&nbsp;{this.props.notification.description}.</a>
+          <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(this.props.notification.created)}{/* moment(notification.created).fromNow() */}</a>
 
           </div>
           </div>

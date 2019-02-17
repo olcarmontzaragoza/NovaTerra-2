@@ -57,7 +57,6 @@ publishStory(id) {
         ['lt', '<'],
         ['gt', '>'],
         ['nbsp', ' '],
-
     ];
 
     for (var i = 0, max = entities.length; i < max; ++i) {
@@ -66,6 +65,8 @@ publishStory(id) {
 
   let link = secondReplaced.toLowerCase();
   link = link.replace(/\s/g , "-");
+  link = link.replace(/[?]/g, "");
+  // link = link.replace(/?/g , "-");
 
   let details = {
   description: "Your story has been published:",
@@ -74,14 +75,18 @@ publishStory(id) {
   type: 'storyEvent',
   storyId: story._id,
   published:true,
-  link: `/story/${link}`,
+  link: `story/${link}`,
   };
 
-  console.log('notification inserted...')
+  if (Notifications.find({ storyId: story._id })) {
+    Notifications.find({ storyId: story._id }).fetch().map((story) => {
+      Meteor.call('notifications.remove', story._id);
+    });
+  }
 
   Meteor.call('notifications.insert', details);
 
-  Meteor.call('stories.update', id, { storyType: 'published', link, lastUpdated: moment().valueOf() });
+  Meteor.call('stories.update', id, { storyType: 'published', link: `story/${link}`, lastUpdated: moment().valueOf() });
 
 }
 doNotPublishStory(id) {

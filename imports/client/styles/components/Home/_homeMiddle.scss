@@ -123,6 +123,9 @@
    display:none;
    }
    }
+.firstEnvironmentMiddleHomeSide {
+  
+}
  .moreHoverAuthorName1 {
 height:19px;
 margin-top:-97.5px;
@@ -759,6 +762,20 @@ margin-top:1px;
 right:-6px;
 height:82px;
 width:108.5px;
+border-radius: 0px 4px 29px 0px;
+margin-top:1px;
+}
+@media screen and (max-width: 352px)  {
+right:-6px;
+height:67px;
+width:96.5px;
+border-radius: 0px 4px 29px 0px;
+margin-top:1px;
+}
+@media screen and (max-width: 330px)  {
+right:-6px;
+height:62px;
+width:86.5px;
 border-radius: 0px 4px 29px 0px;
 margin-top:1px;
 }

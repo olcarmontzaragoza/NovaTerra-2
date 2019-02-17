@@ -207,7 +207,7 @@ handleClickOutside(e) {
 // }
 mapSmallerStories() {
   if (this.props.collection.length === 1) {
-    return <SmallStories users={this.props.users} collection={this.props.collection[0]} refs={[this.setTopContainer1Ref, this.setCategory1Ref, this.setAuthorImage1Ref, this.setAuthorName1Ref]}/>;
+    return   <div className="categoryAndTag__marginLeftSmallStories"><SmallStories users={this.props.users} collection={this.props.collection[0]} refs={[this.setTopContainer1Ref, this.setCategory1Ref, this.setAuthorImage1Ref, this.setAuthorName1Ref]}/></div>;
   } else if (this.props.collection.length === 2) {
     return (
     <div className="categoryAndTag__marginLeftSmallStories">

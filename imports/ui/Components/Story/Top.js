@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import ShareIconsAndDropDown from './ShareIconsAndDropDown';
 import AuthorTooltip from '../Tooltips/AuthorTooltip';
+import SharePostSideBar from './SharePostSideBar';
 
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
@@ -28,8 +29,6 @@ window.setTimeout(function() {
   }
   testAd.remove();
 }, 100);
-
-console.log(adBlockerEnabled);
 
 export class Top extends React.Component {
 constructor(props) {
@@ -59,7 +58,6 @@ Tracker.autorun(() => {
 }
 }
 renderFollowingButton() {
-console.log('renderFollowingButton ran');
 
 let user = Meteor.users.findOne({ _id: Meteor.userId() });
 let profileFollow = Meteor.users.findOne({ _id: this.props.story.userId }).following.includes(user._id);
@@ -67,7 +65,6 @@ let profileFollow = Meteor.users.findOne({ _id: this.props.story.userId }).follo
 // console.log('author tooltip id', this.props.userId);
 
 this.setState({ profileFollow });
-console.log('followButton', this.state.profileFollow);
 }
 toggleIsFollowing() {
   // this.renderFollowingButton();
@@ -77,23 +74,17 @@ toggleIsFollowing() {
   let user = Meteor.users.findOne({ _id: Meteor.userId() });
   let otherUser = Meteor.users.findOne({ _id: this.props.story.userId });
 
-  console.log('otheruser', otherUser._id);
-
   let currentFollowing = user.following;
   let currentFollowers = otherUser.followers;
 
   if (user.following.includes(otherUser._id)) {
   let newFollowing = currentFollowing;
-  console.log('newFollowing', newFollowing);
   let index = newFollowing.indexOf(otherUser._id);
-  console.log('index', index);
   newFollowing.splice(index, 1);
-  console.log('newFollowing', newFollowing);
 
   let newFollowers = currentFollowers;
   let otherIndex = currentFollowers.indexOf(user._id);
   newFollowers.splice(index, 1);
-  console.log('newFollowers', newFollowers);
 
   Meteor.call('users.update', Meteor.userId(), { following: newFollowing });
   Meteor.call('users.update', otherUser._id, { followers: newFollowers });
@@ -101,8 +92,7 @@ toggleIsFollowing() {
   // this.renderFollowingButton();
   // this.setState({ follow: false });
   // this.renderFollowingButton();
-  console.log('newFollowing', newFollowing);
-  console.log('newFollowers', newFollowers);
+
 
 
   } else {
@@ -110,13 +100,12 @@ toggleIsFollowing() {
   if (!(newFollowing.includes(otherUser._id))) {
   newFollowing.push(otherUser._id);
   }
-  console.log('newFollowing', newFollowing);
 
   let newFollowers = currentFollowers;
   if (!(newFollowers.includes(user._id))) {
   newFollowers.push(user._id);
   }
-  console.log('newFollowers', newFollowers);
+
 
   // console.log('follow', this.state.profileFollow);
 
@@ -129,8 +118,7 @@ toggleIsFollowing() {
   // this.renderFollowingButton();
   //
   // this.renderFollowingButton();
-  console.log('newFollowing', newFollowing);
-  console.log('newFollowers', newFollowers);
+
   // this.renderFollowingButton();
 
     // console.log('follow value', this.state.profileFollow);
@@ -161,7 +149,7 @@ render() {
 {this.props.story.title.length > 60 ? this.props.story.title.slice(0, 60) + '...' : this.props.story.title}
 </div>
 <hr className="homeTop__titleVerticalLine" />
-<div className="titleImageToolTip">{this.findUser(this.props.story.userId).profilePhoto ? <div><div className="storyTop__behindCircle"></div><Image className="titleAuthorImageHoverImage" cloud_name='novaterra' publicId={this.findUser(this.props.story.userId).profilePhoto}><Transformation crop="thumb" /></Image></div> : <img src={`${this.props.route}images/noImage.png`} className="titleAuthorImageHover"/>}
+<div className="titleImageToolTip">{this.findUser(this.props.story.userId).profilePhoto ? <div><div className="storyTop__behindCircle"></div><Image className="titleAuthorImageHoverImage" cloud_name='novaterra' publicId={this.findUser(this.props.story.userId).profilePhoto}><Transformation crop="thumb" /></Image></div> : <img src={`../images/noImage.png`} className="titleAuthorImageHover"/>}
 </div>
 
 <div className="stsyst">
@@ -190,6 +178,8 @@ render() {
 {/*}<div className="homeTop__storyImageSubtitle">
   Fresh Water Pouring Off Large Glaciers in Nordaustlandet, Norway. Source: National Geographic {this.props.story.mainImageSubtitle}
 </div>*/}
+
+<SharePostSideBar story={this.props.story} users={this.props.users} />
 
 </div>
 
@@ -236,8 +226,8 @@ render() {
 </div>
 </div>
 
-
 <div className="homeTop__veryBottomSpacing"></div>
+
 </div>
     );
   }

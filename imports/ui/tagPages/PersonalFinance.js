@@ -3,29 +3,6 @@ import { withTracker } from 'meteor/react-meteor-data';
 import TagPageLayout from './TagPageLayout';
 import { Stories } from '../../api/stories';
 
-let latest = [];
-let popular = [];
-
-const preLatest = Stories.find({ storyType: 'published' }, {
-  sort: {
-    lastUpdated: -1
-  }
-}).fetch().map((story) => {
-  if (story.tags.includes('Personal Finance')) {
-    latest.push(story);
-  }
-});
-
-const prePopular = Stories.find({ storyType: 'published' }, {
-  sort: {
-    likes: -1
-  }
-}).fetch().map((story) => {
-  if (story.tags.includes('Personal Finance')) {
-    popular.push(story);
-  }
-});
-
 function myArrayMin(arr) {
     return Math.min.apply(null, arr);
 }
@@ -46,9 +23,35 @@ this.state = {
 
 };
 }
+returnPopular() {
+  let popular = [];
+  const prePopular = Stories.find({ storyType: 'published' }, {
+    sort: {
+      likes: -1
+    }
+  }).fetch().map((story) => {
+    if (story.tags.includes('Personal Finance')) {
+      popular.push(story);
+    }
+  });
+  return popular;
+}
+returnLatest() {
+  let latest = [];
+  const preLatest = Stories.find({ storyType: 'published' }, {
+    sort: {
+      lastUpdated: -1
+    }
+  }).fetch().map((story) => {
+    if (story.tags.includes('Personal Finance')) {
+      latest.push(story);
+    }
+  });
+  return latest;
+}
 returnCreators(type) {
   let innovationCreators = [];
-  popular.map((story) => {
+  this.returnPopular().map((story) => {
     let user = Meteor.users.findOne({ _id: story.userId });
 
     let alreadyAdded = false;
@@ -83,7 +86,7 @@ document.title = `NovaTerra - Personal Finance`;
 render() {
     return (
       <div>
-        {this.state.users ? <TagPageLayout users={this.props.users} latestCollection={latest} popularCollection={popular} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Personal Finance' tagDescription="in the age of consumerism." relatedCategories={['Economy', 'Now', 'Technology']} categoryLinks={['/economy', '/now', '/technology']} relatedTags={['Self', 'Work', 'Transport']} tagLinks={['/self', '/work', '/transport']}  /> : undefined }
+        {this.state.users ? <TagPageLayout users={this.props.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Personal Finance' tagDescription="in the age of consumerism." relatedCategories={['Economy', 'Now', 'Technology']} categoryLinks={['/economy', '/now', '/technology']} relatedTags={['Self', 'Work', 'Transport']} tagLinks={['/self', '/work', '/transport']}  /> : undefined }
       </div>
     );
   }

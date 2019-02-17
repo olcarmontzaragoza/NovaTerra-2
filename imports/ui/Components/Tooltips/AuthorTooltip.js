@@ -243,9 +243,14 @@ toggleIsFollowing() {
 }
   // this.renderFollowingButton();
 }
+goToStoryPage(story) {
+  let storyLink = story.link;
+  storyLink = storyLink.slice(5, storyLink.length);
+  console.log('sssstory link', storyLink);
+  window.location = `/story${storyLink}`;
+}
   render() {
     return (
-      <div className="tooltip__zIndex">
         <div ref='tooltipScroll' style={{top: `${this.state.tooltipTop}` }} className={`${this.state.tooltipArray[0]} tooltipScroll`}>
         <div style={{top: this.state.tooltipTop}} className={`${this.state.tooltipArray[0]} popUpAuthor`}>
          <div className="titleAuthorHovContainer1">
@@ -255,6 +260,7 @@ toggleIsFollowing() {
               <Link to={this.findUser(this.props.userId).profileUrl}>{this.findUser(this.props.userId).username}</Link>
               </div>
                 </div>
+               <div className="tooltip__zIndex">
                <span className={`${this.state.tooltipArray[3]}`}></span>
                <span className={`${this.state.tooltipArray[2]}`}></span>
                <span className={`${this.state.tooltipArray[1]}`}>
@@ -280,15 +286,14 @@ toggleIsFollowing() {
                 <div className="clearBoth"></div>
                 <div className="popularStoriesList">
 
-
-                 <div className="authorTooltip__toolTipPopularStoriesN">1. </div><Link to={this.returnUserStories()[0].link} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[0].title}</Link>
+                 <div className="authorTooltip__toolTipPopularStoriesN">1. </div>{Session.get('currentPage').slice(0, 5) ? <a onClick={() => this.goToStoryPage(this.returnUserStories()[0])} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[0].title}</a> : <Link to={this.returnUserStories()[0].link} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[0].title}</Link>}
 
                  <div className="tooltipStoriesSpacing">
                  </div>
 
                  {this.returnUserStories().length > 1 ?
                    <div>
-                   <div className="authorTooltip__toolTipPopularStoriesN"> 2. </div><Link to={this.returnUserStories()[1].link} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[1].title}</Link>
+                   <div className="authorTooltip__toolTipPopularStoriesN"> 2. </div>{Session.get('currentPage').slice(0, 5) ? <a onClick={() => this.goToStoryPage(this.returnUserStories()[1])} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[1].title}</a> : <Link to={this.returnUserStories()[1].link} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[1].title}</Link>}
                    <div className="tooltipStoriesSpacing">
                    </div>
 
@@ -299,7 +304,7 @@ toggleIsFollowing() {
 
                  {this.returnUserStories().length > 2 ?
                  <div>
-                 <div className="authorTooltip__toolTipPopularStoriesN" id="fontThirdStoryTooltip"> 3. </div><Link to={this.returnUserStories()[2].link} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[2].title}</Link>
+                 <div className="authorTooltip__toolTipPopularStoriesN" id="fontThirdStoryTooltip"> 3. </div>{Session.get('currentPage').slice(0, 5) ? <a onClick={() => this.goToStoryPage(this.returnUserStories()[2])} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[2].title}</a> : <Link to={this.returnUserStories()[2].link} className="authorTooltip__toolTipPopularStory">{this.returnUserStories()[2].title}</Link>}
                  </div>
 
                  : undefined

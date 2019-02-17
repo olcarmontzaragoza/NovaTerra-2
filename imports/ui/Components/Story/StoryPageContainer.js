@@ -6,6 +6,8 @@ import moment from 'moment';
 import { funcReplace } from '../../../routes/routes.js';
 import AuthorTooltip from '../Tooltips/AuthorTooltip';
 
+import Disqus from 'disqus-react';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -82,10 +84,8 @@ componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
 }
 handleClickOutside(e) {
-  console.log('IS HANDLING CLICK');
   if (this.bottomTopContainer1 && this.bottomCategory1 && this.bottomAuthorName1 && this.bottomAuthorImage1 && this.bottomTopContainer1.contains(e.target) && !this.bottomCategory1.contains(e.target) && !this.bottomAuthorName1.contains(e.target) && !this.bottomAuthorImage1.contains(e.target)) {
   window.location = `${this.props.stories[0].link}`;
-    console.log('CLICKED THE FIIIIIIRST');
   } else if (this.bottomTopContainer2 && this.bottomCategory2 && this.bottomAuthorName2 && this.bottomAuthorImage2 && this.bottomTopContainer2.contains(e.target) && !this.bottomCategory2.contains(e.target) && !this.bottomAuthorName2.contains(e.target) && !this.bottomAuthorImage2.contains(e.target)) {
     window.location = `${this.props.stories[1].link}`;      // funcReplace(this.props.stories[1].link);
   } else if (this.bottomTopContainer3 && this.bottomCategory3 && this.bottomAuthorName3 && this.bottomAuthorImage3 && this.bottomTopContainer3.contains(e.target) && !this.bottomCategory3.contains(e.target) && !this.bottomAuthorName3.contains(e.target) && !this.bottomAuthorImage3.contains(e.target)) {
@@ -132,7 +132,10 @@ render() {
         </div>
          <div className="shareAndCommentsStory1">
              <FontAwesomeIcon icon={['far', 'comments']} className="commentIconStory" />
-          <div className="scFont commentNumStory1">{this.props.stories[0].comments}</div>
+          <div className="scFont commentNumStory1"><Disqus.CommentCount shortname={'www-novaterra-earth'} config={{ url: `https://www.novaterra.earth/${this.props.stories[0].link}`,
+          identifier: this.props.stories[0]._id,
+          title: this.props.stories[0].title }}>
+          </Disqus.CommentCount></div>
 
           <div className="storyBottom__commentAndSharesLineStory1">
           </div>
@@ -178,7 +181,10 @@ render() {
         </div>
         <div className="shareAndCommentsStory1">
             <FontAwesomeIcon icon={['far', 'comments']} className="commentIconStory" />
-          <div className="scFont commentNumStory1">{this.props.stories[1].comments}</div>
+          <div className="scFont commentNumStory1"><Disqus.CommentCount shortname={'www-novaterra-earth'} config={{ url: `https://www.novaterra.earth/${this.props.stories[1].link}`,
+          identifier: this.props.stories[1]._id,
+          title: this.props.stories[1].title }}>
+          </Disqus.CommentCount></div>
 
           <div className="storyBottom__commentAndSharesLineStory1">
           </div>
@@ -226,7 +232,10 @@ render() {
         </div>
         <div className="shareAndCommentsStory1">
           <FontAwesomeIcon icon={['far', 'comments']} className="commentIconStory" />
-          <div className="scFont commentNumStory1">{this.props.stories[2].comments}</div>
+          <div className="scFont commentNumStory1"><Disqus.CommentCount shortname={'www-novaterra-earth'} config={{ url: `https://www.novaterra.earth/${this.props.stories[2].link}`,
+          identifier: this.props.stories[2]._id,
+          title: this.props.stories[2].title }}>
+          </Disqus.CommentCount></div>
 
           <div className="storyBottom__commentAndSharesLineStory1">
           </div>
