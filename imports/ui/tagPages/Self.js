@@ -94,7 +94,7 @@ document.title = `NovaTerra - Self`;
 render() {
     return (
       <div>
-      {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Self' tagDescription="how to invest in yourself." relatedCategories={['health', 'Technology', 'Economy']} categoryLinks={['/health', '/technology', '/economy']} relatedTags={['Personal Finance', 'Food', 'Work']} tagLinks={['/personal-finance', '/food', '/work']}  /> : undefined }
+      {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Self' tagDescription="how to invest in yourself." relatedCategories={['health', 'Tech', 'Economy']} categoryLinks={['/health', '/tech', '/economy']} relatedTags={['Personal Finance', 'Food', 'Work']} tagLinks={['/personal-finance', '/food', '/work']}  /> : undefined }
       </div>
     );
   }

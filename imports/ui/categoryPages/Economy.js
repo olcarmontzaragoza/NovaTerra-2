@@ -95,7 +95,7 @@ document.title = `NovaTerra - Economy`;
 render() {
     return (
       <div>
-     {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} category='Economy' categoryDescription="climate change vs capitalism." relatedCategories={['Now', 'Future', 'Technology']} categoryLinks={['/now', '/future', '/technology']} relatedTags={['Personal Finance', 'Work', 'Politics']} tagLinks={['/personal-finance', '/work', '/politics']}  /> : undefined }
+     {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} category='Economy' categoryDescription="climate change vs capitalism." relatedCategories={['Now', 'Future', 'Tech']} categoryLinks={['/now', '/future', '/tech']} relatedTags={['Personal Finance', 'Work', 'Politics']} tagLinks={['/personal-finance', '/work', '/politics']}  /> : undefined }
      </div>
     );
   }

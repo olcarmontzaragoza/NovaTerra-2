@@ -20,12 +20,21 @@ width:100vw;
 @media screen and (max-width: 575px) {
   margin-left:-8px;
   width:100vw;
-  height:1092px;
+  height:1192px;
+}
+@media screen and (max-width: 480px) {
+  height:1202px;
 }
 @media screen and (max-width: 445px) {
   margin-left:-8px;
   width:100vw;
-  height:982px;
+  height:1122px;
+}
+@media screen and (max-width: 435px) {
+  height:1147px;
+}
+@media screen and (max-width: 360px) {
+  height:1117px;
 }
 // @media screen and (max-width: 650px) {
 // margin-left:6.3vw;
@@ -135,18 +144,23 @@ margin-bottom:-19px;
 .mission__ourTeamTextRight {
 float:left;
 margin-left:45px;
-margin-top:37px;
+margin-top:12px;
 
 @media screen and (max-width: 1000px) {
-margin-top:32px;
+margin-top:12px;
+margin-left:35px;
+}
+@media screen and (max-width: 900px) {
+margin-top:9px;
 margin-left:35px;
 }
 @media screen and (max-width: 725px) {
-margin-top:32px;
 margin-left:32px;
 }
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 575px) {
 margin-top:32px;
+}
+@media screen and (max-width: 415px) {
 margin-left:13px;
 }
 }
@@ -172,6 +186,7 @@ font-size:0.94em;
 .mission__ourTeamMemberDescription {
 font-size:0.95em;
 width:350px;
+line-height:1.55;
 
 @media screen and (max-width: 1000px) {
 width:280px;
@@ -197,26 +212,43 @@ width:70vw;
   height:490px;
   border-radius:5px;
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1000px) {
   width:68.8vw;
+  }
+  @media screen and (max-width: 1000px) and (min-width: 900px) {
+  width:68.8vw;
+  height:501px;
   }
   @media screen and (max-width: 900px) {
   width:83.5vw;
   }
+  @media screen and (max-width: 725px) {
+  width:83.5vw;
+  height:501px;
+  }
   @media screen and (max-width: 670px) {
   width:87vw;
   }
+  @media screen and (max-width: 575px) {
+  height:760px;
+  }
   @media screen and (max-width: 533px) {
   width:87vw;
+  height:780px;
   }
   @media screen and (max-width: 500px) {
   width:89vw;
   }
-  @media screen and (max-width: 575px) {
+  @media screen and (max-width: 480px) {
   width:89vw;
-  height:680px;
+  height:800px;
   }
-
+  @media screen and (max-width: 435px) {
+  height:825px;
+  }
+  @media screen and (max-width: 360px) {
+  height:805px;
+  }
 }
 .mission__betweenMemberSpacing {
   height:45px;

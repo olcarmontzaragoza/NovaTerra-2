@@ -88,7 +88,7 @@ document.title = `NovaTerra - Transport`;
 render() {
     return (
       <div>
-      {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag="Transport" tagDescription="where does it go next?" relatedCategories={['Economy', 'Future', 'Technology']} categoryLinks={['/economy', '/future', '/technology']} relatedTags={['Cities', 'Energy', 'Innovation']} tagLinks={['/cities', '/energy', '/innovation']}  /> : undefined }
+      {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag="Transport" tagDescription="where does it go next?" relatedCategories={['Economy', 'Future', 'Tech']} categoryLinks={['/economy', '/future', '/tech']} relatedTags={['Cities', 'Energy', 'Innovation']} tagLinks={['/cities', '/energy', '/innovation']}  /> : undefined }
       </div>
     );
   }

@@ -38,13 +38,13 @@ type: 'category',
 description: "it's in our hands.",
 }
 
-const Technology = {
+const Tech = {
 lastUpdated: moment().valueOf(),
-name: 'Technology',
+name: 'Tech',
 profilePhoto: `${route}/Technology.jpg`,
-link: '/technology',
+link: '/tech',
 followers: [],
-_id: 'Technology',
+_id: 'Tech',
 type: 'category',
 description: "have we lost our touch?",
 }
@@ -195,7 +195,7 @@ Meteor.methods({
 
 // if (Categories.find().count() === 0) {
 // if (Categories.find({ name: 'Future' }).count() === 0) Categories.insert({ ...Future });
-// if (Categories.find({ name: 'Technology' }).count() === 0) Categories.insert({ ...Technology });
+// if (Categories.find({ name: 'Tech' }).count() === 0) Categories.insert({ ...Tech });
 // if (Categories.find({ name: 'Economy' }).count() === 0) Categories.insert({ ...Economy });
 // if (Categories.find({ name: 'Now' }).count() === 0) Categories.insert({ ...Now });
 // if (Categories.find({ name: 'Health' }).count() === 0) Categories.insert({ ...Health });

@@ -162,7 +162,7 @@ handleClickOutside(e) {
 findUser() {
   console.log('id', this.props.user);
   let user;
-  if (this.props.user === 'Climate' || this.props.user === 'Energy' || this.props.user === 'Future' || this.props.user === 'Technology' || this.props.user === 'World' || this.props.user === 'Economy' || this.props.user === 'Science' || this.props.user === 'Politics' || this.props.user === 'Health' || this.props.user === 'Media' || this.props.user === 'ArtAndFilm' || this.props.user === 'Environment') {
+  if (this.props.user === 'Climate' || this.props.user === 'Energy' || this.props.user === 'Future' || this.props.user === 'Tech' || this.props.user === 'World' || this.props.user === 'Economy' || this.props.user === 'Science' || this.props.user === 'Politics' || this.props.user === 'Health' || this.props.user === 'Media' || this.props.user === 'ArtAndFilm' || this.props.user === 'Environment') {
     console.log('climate ran');
     user = Categories.findOne({ _id: this.props.user });
     console.log('climate user', user);
@@ -183,7 +183,7 @@ render() {
 
         <div className="floatLeft bottomContainerUserProfileUsers">
         {this.findUser().username ? <div className="user__mpl__mainAuthor floatLeft">{this.findUser().username.length > 35 ? this.findUser().username.slice(0, 35) + '...' : this.findUser().username}</div> : <div className="user__mpl__mainAuthor floatLeft">{this.findUser().name.length > 35 ? this.findUser().name.slice(0, 35) + '...' : this.findUser().name}</div>}
-        {this.findUser()._id === Meteor.userId() ? undefined : <div>{this.state.follow ? <button ref={this.setFollowingRef} className="mpl__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</button> : <button ref={this.setFollowingRef} className="mpl__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</button>}</div>}
+        {this.findUser()._id === Meteor.userId() ? undefined : <div>{this.state.follow ? <a ref={this.setFollowingRef} className="mpl__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</a> : <a ref={this.setFollowingRef} className="mpl__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</a>}</div>}
         <div className="clearBoth"></div>
         { this.findUser().type ? <div className={`mpl__mainStatUsers`}>{`${this.getPostsFromCatOrTag()} ${this.getPostsFromCatOrTag() === 1 ? 'story' : 'stories'}`}</div> : <div className={`mpl__mainStatUsers`}>{`${this.findStoriesLength(this.props.user._id)} ${this.findStoriesLength(this.props.user._id).length === 1 ? 'story' : 'stories'}`}</div>}
         <div className={`mpl__mainStatUsers`}>{`${this.findUser().followers.length} ${this.findUser().followers.length === 1 ? 'follower' : 'followers'}`}</div>

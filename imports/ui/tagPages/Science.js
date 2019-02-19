@@ -87,7 +87,7 @@ document.title = `NovaTerra - Science`;
 render() {
     return (
       <div>
-        {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Science' tagDescription="what can it tells us?" relatedCategories={['Future', 'Environment', 'Technology']} categoryLinks={['/future', '/environment', '/technology']} relatedTags={['Research', 'Energy', 'Biodiversity']} tagLinks={['/research', '/energy', '/biodiversity']}  /> : undefined }
+        {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Science' tagDescription="what can it tells us?" relatedCategories={['Future', 'Environment', 'Tech']} categoryLinks={['/future', '/environment', '/tech']} relatedTags={['Research', 'Energy', 'Biodiversity']} tagLinks={['/research', '/energy', '/biodiversity']}  /> : undefined }
       </div>
     );
   }

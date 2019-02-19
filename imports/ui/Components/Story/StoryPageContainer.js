@@ -85,11 +85,24 @@ componentWillUnmount() {
 }
 handleClickOutside(e) {
   if (this.bottomTopContainer1 && this.bottomCategory1 && this.bottomAuthorName1 && this.bottomAuthorImage1 && this.bottomTopContainer1.contains(e.target) && !this.bottomCategory1.contains(e.target) && !this.bottomAuthorName1.contains(e.target) && !this.bottomAuthorImage1.contains(e.target)) {
-  window.location = `${this.props.stories[0].link}`;
+
+  let storyLink = this.props.stories[0].link;
+  storyLink = storyLink.slice(5, storyLink.length);
+  window.location = `/story${storyLink}`;
+
   } else if (this.bottomTopContainer2 && this.bottomCategory2 && this.bottomAuthorName2 && this.bottomAuthorImage2 && this.bottomTopContainer2.contains(e.target) && !this.bottomCategory2.contains(e.target) && !this.bottomAuthorName2.contains(e.target) && !this.bottomAuthorImage2.contains(e.target)) {
-    window.location = `${this.props.stories[1].link}`;      // funcReplace(this.props.stories[1].link);
+
+    let storyLink = this.props.stories[1].link;
+    storyLink = storyLink.slice(5, storyLink.length);
+    window.location = `/story${storyLink}`;
+
+       // funcReplace(this.props.stories[1].link);
   } else if (this.bottomTopContainer3 && this.bottomCategory3 && this.bottomAuthorName3 && this.bottomAuthorImage3 && this.bottomTopContainer3.contains(e.target) && !this.bottomCategory3.contains(e.target) && !this.bottomAuthorName3.contains(e.target) && !this.bottomAuthorImage3.contains(e.target)) {
-    window.location = `${this.props.stories[2].link}`;        // funcReplace(this.props.stories[2].link);
+
+    let storyLink = this.props.stories[2].link;
+    storyLink = storyLink.slice(5, storyLink.length);
+    window.location = `/story${storyLink}`;
+           // funcReplace(this.props.stories[2].link);
 }
 }
 findUser(userId) {

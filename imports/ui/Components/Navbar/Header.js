@@ -136,9 +136,9 @@ return (
   <Link to='/health' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'health' ? 'nav__green' : ''}`}>Health</Link>
   <Link to='/economy' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'economy' ? 'nav__green' : ''}`}>Economy</Link>
   <Link to='/now' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'now' ? 'nav__green' : ''}`}>Now</Link>
-  <Link to='/technology' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'technology' ? 'nav__green' : ''}`}>Technology</Link>
+  <Link to='/tech' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'tech' ? 'nav__green' : ''}`}>Tech</Link>
   <Link to='/environment' className={`nav__category floatLeft hoverGreen ${this.state.currentPage === 'environment' ? 'nav__green' : ''}`}>Environment</Link>
-  <Link to='/explore' className={`header__innerCatExplore nav__category floatLeft hoverGreen ${this.state.currentPage === 'explore' ? 'nav__green' : ''}`}>Explore</Link>
+  {/*<Link to='/explore' className={`header__innerCatExplore nav__category floatLeft hoverGreen ${this.state.currentPage === 'explore' ? 'nav__green' : ''}`}>Explore</Link>*/}
   </div>
   </div>
   <Link to="/explore" className={`header__catExplore floatLeft hoverGreen ${this.state.currentPage === 'explore' ? 'nav__green' : ''}`}>Explore</Link>

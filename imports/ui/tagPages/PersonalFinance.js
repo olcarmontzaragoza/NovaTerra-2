@@ -86,7 +86,7 @@ document.title = `NovaTerra - Personal Finance`;
 render() {
     return (
       <div>
-        {this.state.users ? <TagPageLayout users={this.props.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Personal Finance' tagDescription="in the age of consumerism." relatedCategories={['Economy', 'Now', 'Technology']} categoryLinks={['/economy', '/now', '/technology']} relatedTags={['Self', 'Work', 'Transport']} tagLinks={['/self', '/work', '/transport']}  /> : undefined }
+        {this.state.users ? <TagPageLayout users={this.props.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Personal Finance' tagDescription="in the age of consumerism." relatedCategories={['Economy', 'Now', 'Tech']} categoryLinks={['/economy', '/now', '/tech']} relatedTags={['Self', 'Work', 'Transport']} tagLinks={['/self', '/work', '/transport']}  /> : undefined }
       </div>
     );
   }

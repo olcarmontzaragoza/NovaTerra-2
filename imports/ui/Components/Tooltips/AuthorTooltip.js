@@ -266,7 +266,7 @@ goToStoryPage(story) {
                <span className={`${this.state.tooltipArray[1]}`}>
                <div className="authorTooltip__titleAuthorHovContainer1">
                <Link to={this.findUser(this.props.userId).profileUrl} className="authorTooltip__hoverOverToolTipMainAuthor">
-                  {this.findUser(this.props.userId).username.length > 20 ? this.findUser(this.props.userId).username.length.slice(0, 20) + '...' : this.findUser(this.props.userId).username}
+                  {this.findUser(this.props.userId).username.length > 20 ? this.findUser(this.props.userId).username.slice(0, 20) + '...' : this.findUser(this.props.userId).username}
                </Link>
               </div>
 

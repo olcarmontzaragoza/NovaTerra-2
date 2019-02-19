@@ -91,12 +91,12 @@ Tracker.autorun(() => {
   this.setState({ users: Meteor.users });
 });
 });
-document.title = `NovaTerra - Technology`;
+document.title = `NovaTerra - Tech`;
 }
 render() {
     return (
       <div>
-      {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('new')} category='Technology' categoryDescription="our greatest ally or greatest enemy?" relatedCategories={['Future', 'Economy', 'Now']} categoryLinks={['/future', '/economy', '/now']} relatedTags={['Innovation', 'Research', 'Work']} tagLinks={['/innovation', '/research', '/work']}  />
+      {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('new')} category='Tech' categoryDescription="our greatest ally or greatest enemy?" relatedCategories={['Future', 'Economy', 'Now']} categoryLinks={['/future', '/economy', '/now']} relatedTags={['Innovation', 'Research', 'Work']} tagLinks={['/innovation', '/research', '/work']}  />
       : undefined }</div>
     );
   }

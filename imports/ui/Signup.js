@@ -83,7 +83,7 @@ let username = `${firstName} ${lastName}`;
 let email = this.refs.email.value.trim();
 let password = this.refs.password.value.trim();
 
-// let termsAccepted = this.refs.termsAccepted.checked;
+let termsAccepted = this.refs.termsAccepted.checked;
 let passwordConfirmation = this.refs.passwordConfirmation.value.trim();
 
 if (firstName.length < 1) {
@@ -116,16 +116,17 @@ this.setErrorScrollTop();
 return this.setState({ error: "Make sure your passwords match" });
 }
 
-// if (!termsAccepted)  {
-// this.setErrorScrollTop();
-// return this.setState({ error: `Make sure you accept our Terms of Use` });
-//
-// }
+if (!termsAccepted)  {
+this.setErrorScrollTop();
+return this.setState({ error: `Make sure you accept our Privacy Policy` });
+
+}
 
 // let following = [], followers = [], bookmarks: [], messageShow: [], description:'', profilePhoto:'';
 
 Accounts.createUser({ email, password, username, joinDate: moment().valueOf() }, (err) => {
     if (err) {
+      console.log('err', err);
       if (err.reason === 'Email must be a valid email address [400]') {
         err.reason = 'Are you sure your email Address is correct?';
       }  else if (err.reason === 'Email must be a valid email address') {
@@ -255,25 +256,27 @@ render() {
 
 
          <div className={`login__rightSubtitle ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__redLabel' : ''}`}>First Name</div>
-         <input type="name" ref="firstName" name="first-name" maxLength="15" onChange={() => { this.resetError()}} className={`login__mainAuthorTextArea floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__passwordRed' : ''}`} />
+         <input type="name" ref="firstName" name="first-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
          <div className={`login__rightSubtitle ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>Last Name</div>
-         <input type="name" ref="lastName" name="last-name" maxLength="15" onChange={() => { this.resetError()}} className={`login__mainAuthorTextArea floatLeft ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__passwordRed' : ''}`} />
+         <input type="name" ref="lastName" name="last-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
          <div className={`login__rightSubtitle ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email</div>
-         <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`login__mainAuthorTextArea floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__passwordRed' : ''}`} />
+         <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
           <div className={`login__rightSubtitle ${this.state.error === 'Try making your password least 6 characters' ? 'signup__redLabel' : ''}`}>Password</div>
-         <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className={`login__mainAuthorTextArea floatLeft ${this.state.error === 'Try making your password least 6 characters' ? 'signup__passwordRed' : ''}`} />
+         <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Try making your password least 6 characters' ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
          <div className={`login__rightSubtitle ${this.state.error === 'Make sure your passwords match' ? 'signup__redLabel' : ''}`}>Password Confirmation</div>
-         <input type="password" ref="passwordConfirmation" name="password" onChange={() => { this.resetError()}} className={`login__mainAuthorTextArea floatLeft ${this.state.error === 'Make sure your passwords match' ? 'signup__passwordRed' : ''}`} />
+         <input type="password" ref="passwordConfirmation" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Make sure your passwords match' ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
          <Recaptcha
          sitekey="6LfIf44UAAAAAOHPXFxXTzyZ0yGBahrl22AFqArk"
          />
 
-      {/* <div className="checkmark_container"><div onClick={() => { this.setState({ termsOfUse: !this.state.termsOfUse })}} className="floatLeft inputSignupPage cursorDefault">I accept NovaTerra's <Link className="signupTermsLink" to="/terms-of-use">Terms of Use</Link><input onClick={() => { this.setState({ termsOfUse: !this.state.termsOfUse })}} checked={this.state.termsOfUse} className="signUpPageMarginRight" ref="termsAccepted" type="checkbox" name="acceptedTerms"/><span className={`checkmark ${this.state.error === "Make sure you accept our Terms of Use" ? 'signup__checkboxRed' : ''}`}></span></div></div> */}
+      <div className="signup__privacyPolicyMargins">
+      <div className="checkmark_container"><div onClick={() => { this.setState({ termsOfUse: !this.state.termsOfUse })}} className="floatLeft inputSignupPage cursorDefault">I accept NovaTerra's <br className="signupPrivacyBr"/> <Link className="signupTermsLink" to="/privacy-policy">Privacy Policy</Link><input onClick={() => { this.setState({ termsOfUse: !this.state.termsOfUse })}} checked={this.state.termsOfUse} className="signUpPageMarginRight" ref="termsAccepted" type="checkbox" name="acceptedTerms"/><span className={`checkmark ${this.state.error === "Make sure you accept our Privacy Policy" ? 'signup__checkboxRed' : ''}`}></span></div></div>
+      </div>
 
       <br className="clearBoth"/>
       <button className="login__loginButton signup__belowSubmitButtonMarginBottom">Sign up</button>

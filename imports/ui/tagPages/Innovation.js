@@ -88,7 +88,7 @@ document.title = `NovaTerra - Innovation`;
 render() {
     return (
       <div>
-        {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Innovation' tagDescription="it's about time." relatedCategories={['Future', 'Technology', 'Economy']} categoryLinks={['/future', '/technology', '/economy']} relatedTags={['Research', 'Science', 'Energy']} tagLinks={['/research', '/science', '/energy']}  /> : undefined }
+        {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Innovation' tagDescription="it's about time." relatedCategories={['Future', 'Tech', 'Economy']} categoryLinks={['/future', '/tech', '/economy']} relatedTags={['Research', 'Science', 'Energy']} tagLinks={['/research', '/science', '/energy']}  /> : undefined }
       </div>
     );
   }

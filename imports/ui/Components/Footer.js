@@ -87,7 +87,7 @@ render() {
 <div className="clearBoth footerLinkSpacing"></div>
  <Link to="/economy" className="footerLink">Economy</Link>
 <div className="clearBoth footerLinkSpacing"></div>
- <Link to="/technology" className="footerLink">Technology</Link>
+ <Link to="/tech" className="footerLink">Tech</Link>
 <div className="clearBoth footerLinkSpacing"></div>
  <Link to="/environment" className="footerLink">Environment</Link>
 <div className="clearBoth footerLinkSpacing"></div>

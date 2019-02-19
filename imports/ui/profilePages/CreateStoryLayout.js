@@ -344,7 +344,7 @@ returnCategoryIcon() {
     return 'leaf';
   } else if (category === 'Future') {
     return 'dna';
-  } else if (category === 'Technology') {
+  } else if (category === 'Tech') {
     return 'microchip';
   } else if (category === 'Health') {
     return 'heartbeat';
@@ -602,7 +602,7 @@ render() {
             <div className="clearBoth"></div>
             <div onClick={() => { this.changeSortOptions('Environment') }} className="sort__newestContainer"><FontAwesomeIcon icon={['fas', 'leaf']} className={`${this.findStory().category === 'Environment' || this.state.category === 'Environment' ? 'sort__greenIcon' : 'sort__newestIcon'}`} /><div className={`${this.findStory().category === 'Environment' || this.state.category === 'Environment' ? 'sort__greenText' : 'sort__newestText'}`}>Environment</div></div>
             <div className="clearBoth"></div>
-            <div onClick={() => { this.changeSortOptions('Technology') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'microchip']} className={`${this.findStory().category === 'Technology' || this.state.category === 'Technology' ? 'sort__greenIcon' : 'sort__oldestIcon'}`} /><div className={`${this.findStory().category === 'Technology' || this.state.category === 'Technology' ? 'sort__greenText' : 'sort__oldestText'}`}>Technology</div></div>
+            <div onClick={() => { this.changeSortOptions('Tech') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'microchip']} className={`${this.findStory().category === 'Tech' || this.state.category === 'Tech' ? 'sort__greenIcon' : 'sort__oldestIcon'}`} /><div className={`${this.findStory().category === 'Tech' || this.state.category === 'Tech' ? 'sort__greenText' : 'sort__oldestText'}`}>Tech</div></div>
             <div className="clearBoth"></div>
             <div onClick={() => { this.changeSortOptions('Health') }} className="sort__oldestContainer"><FontAwesomeIcon icon={['fas', 'heartbeat']} className={`${this.findStory().category === 'Health' || this.state.category === 'Health' ? 'sort__greenIcon' : 'sort__oldestIcon'}`} /><div className={`${this.findStory().category === 'Health' || this.state.category === 'Health' ? 'sort__greenText' : 'sort__oldestText'}`}>Health</div></div>
             <div className="clearBoth"></div>

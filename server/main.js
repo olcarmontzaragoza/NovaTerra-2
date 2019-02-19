@@ -60,34 +60,34 @@ Meteor.startup(() => {
 
 
 
-Accounts.onCreateUser(function (options, user) {
-
-if (user.services.github) {
-    var accessToken = user.services.github.accessToken,
-        result,
-        profile;
-    result = Meteor.http.get("https://api.github.com/user", {
-        params: {
-            access_token: accessToken
-        }
-    });
-    if (result.error)
-        throw result.error;
-
-    profile = _.pick(result.data,
-        "login",
-        "name",
-        "avatar_url",
-        "location",
-        "email",
-        "bio",
-        "html_url");
-
-    user.profile = profile;
-
-    return user;
-  }
-});
+// Accounts.onCreateUser(function (options, user) {
+//
+// if (user.services.github) {
+//     var accessToken = user.services.github.accessToken,
+//         result,
+//         profile;
+//     result = Meteor.http.get("https://api.github.com/user", {
+//         params: {
+//             access_token: accessToken
+//         }
+//     });
+//     if (result.error)
+//         throw result.error;
+//
+//     profile = _.pick(result.data,
+//         "login",
+//         "name",
+//         "avatar_url",
+//         "location",
+//         "email",
+//         "bio",
+//         "html_url");
+//
+//     user.profile = profile;
+//
+//     return user;
+//   }
+// });
 
 // Meteor.startup(() => {
 //   ServiceConfiguration.configurations.insert(

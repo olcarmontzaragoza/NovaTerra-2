@@ -95,7 +95,7 @@ document.title = `NovaTerra - Now`;
 render() {
     return (
       <div>
-       {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} category='Now' categoryDescription="in the moment." relatedCategories={['Economy', 'Environment', 'Future']} categoryLinks={['/economy', '/environment', '/future']} relatedTags={['Equality', 'Politics', 'Innovation']} tagLinks={['/equality', '/politics', '/innovation']}  /> : undefined }
+       {this.state.users ? <CategoryPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular() } creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} category='Now' categoryDescription="in the moment." relatedCategories={['Economy', 'Environment', 'Future']} categoryLinks={['/economy', '/environment', '/future']} relatedTags={['Equality', 'Politics', 'Innovation']} tagLinks={['/equality', '/politics', '/innovation']}  /> : undefined }
       </div>
     );
   }

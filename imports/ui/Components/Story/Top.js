@@ -6,6 +6,7 @@ import moment from 'moment';
 import ShareIconsAndDropDown from './ShareIconsAndDropDown';
 import AuthorTooltip from '../Tooltips/AuthorTooltip';
 import SharePostSideBar from './SharePostSideBar';
+import { funcReplace } from '../../../routes/routes.js';
 
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
@@ -155,13 +156,12 @@ render() {
 <div className="stsyst">
 <div className="homeTop__titleStoryMainDateAndTime">
 <div className="storyTop__authorToolTipPositioning">
-<AuthorTooltip route='../' userId={this.props.story.userId} users={this.props.users} outsideClassName='storyTop__firstAuthorToolTipStyles' />
+<div className="floatLeft"><AuthorTooltip route='../' userId={this.props.story.userId} users={this.props.users} outsideClassName='storyTop__firstAuthorToolTipStyles' /></div>
+{Meteor.userId() === this.props.story.userId ? undefined : <a className="floatLeft followingToStoryAdj">{this.state.profileFollow ? <div className="top__followingButtonLarge story__topFollowButtonPositioning" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className="top__followButtonLarge story__topFollowButtonPositioning" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}</a>}
 </div>
 <div className="top__readTimeTop">{moment(this.props.story.lastUpdated).format('DD MMM YYYY')} · {this.props.story.minRead} min read</div>
 </div>
  </div>
-
-{Meteor.userId() === this.props.story.userId ? undefined : <div>{this.state.profileFollow ? <div className="top__followingButtonLarge story__topFollowButtonPositioning" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className="top__followButtonLarge story__topFollowButtonPositioning" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}</div>}
 
 
 <div className="clearBoth homeTop__elimateSpacing"></div>

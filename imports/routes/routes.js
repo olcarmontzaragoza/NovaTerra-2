@@ -25,7 +25,7 @@ import Economy from '../ui/categoryPages/Economy';
 import Environment from '../ui/categoryPages/Environment';
 import Future from '../ui/categoryPages/Future';
 import Health from '../ui/categoryPages/Health';
-import Technology from '../ui/categoryPages/Technology';
+import Tech from '../ui/categoryPages/Tech';
 import Now from '../ui/categoryPages/Now';
 
 // Tag categoryPages
@@ -173,7 +173,7 @@ export const routes = (
           <Route path="/environment" render={() => allUsers(Environment)}  />
           <Route path="/future" render={() => allUsers(Future)}  />
           <Route path="/health" render={() => allUsers(Health)}  />
-          <Route path="/technology" render={() => allUsers(Technology)}  />
+          <Route path="/tech" render={() => allUsers(Tech)}  />
 
           <Route path="/climate-change" render={() => allUsers(ClimateChange)}  />
           <Route path="/waste" render={() => allUsers(Waste)}  />

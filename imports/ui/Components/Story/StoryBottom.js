@@ -396,7 +396,7 @@ returnTrendingWeek() {
   let trendingWeek = [], trendingMonth = [], trendingThreeMonths = [];
 
   const popular = Stories.find({
-    category: this.props.story.category, storyType: 'published'
+ storyType: 'published'
   }, {
     sort: {
       likes: -1
@@ -452,7 +452,7 @@ render() {
     return (
       <div>
         <div className="showToolTipAbove"></div>
-
+{console.log('trending week', this.returnTrendingWeek())}
 { this.returnTrendingWeek().length >= 3 ?
 <div className="ab__popularSectionMarginLeft">
 <div className="ret storyBottom__popularTopDiv">

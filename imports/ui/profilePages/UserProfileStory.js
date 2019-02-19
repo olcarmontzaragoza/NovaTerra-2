@@ -51,12 +51,16 @@ componentWillUnmount() {
 handleClickOutside(e) {
 
   if (this.topContainer1 && this.category1 && this.authorName1 && this.authorImage1 && this.topContainer1.contains(e.target) && !this.category1.contains(e.target) && !this.authorName1.contains(e.target)) {
-    funcReplace(this.props.story.link);
+    let storyLink = this.props.story.link;
+    storyLink = storyLink.slice(5, storyLink.length);
+    window.location = `/story${storyLink}`;
   }
 }
 titleClick() {
   console.log('should replace');
-    funcReplace(this.props.story.link);
+  let storyLink = this.props.story.link;
+  storyLink = storyLink.slice(5, storyLink.length);
+  window.location = `/story${storyLink}`;
 }
 getSliceNum() {
   let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;

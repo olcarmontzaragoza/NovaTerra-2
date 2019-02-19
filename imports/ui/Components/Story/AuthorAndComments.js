@@ -124,6 +124,16 @@ toggleReferencesSide() {
 
 this.setState({ showMore: !this.state.showMore });
 
+setTimeout(
+  function() {
+    document.getElementById('referencesSideBar').scrollTop = 0;
+  }
+  .bind(this),
+  30
+);
+
+
+
 // $("#mySidenav").hide();
 //
 // function showSide() {
@@ -151,10 +161,17 @@ this.setState({ showMore: !this.state.showMore });
 }
 insertShowMoreLinks() {
   return (
-    <div>
-
+    <div className="story__positionShowMoreLessLinks">
+    {this.state.showMore ? <div onClick={() => { this.toggleReferencesSide() }}className="story__referencesShowLess">Show Less<FontAwesomeIcon icon={['fas', 'angle-up']} className='story__referencesShowLessIcon' /></div> : <div onClick={() => { this.toggleReferencesSide() }} className="story__referencesShowMore">Show More<FontAwesomeIcon icon={['fas', 'angle-down']} className='story__referencesShowMoreIcon' /></div>}
     </div>
   );
+}
+renderReferences() {
+  if (this.props.story.references.length > 200) {
+    return this.props.story.references.slice(0, 200) + '...';
+  } else {
+    return this.props.story.references;
+  }
 }
 render() {
     return (
@@ -238,20 +255,22 @@ References
 
 { this.props.story.references ?
 <div>
- <div className="authorAndComments__outsideReferenceOuterDiv" dangerouslySetInnerHTML={{ __html: this.props.story.references.slice(0, 100) }}></div>
+ <div className="authorAndComments__outsideReferenceOuterDiv" dangerouslySetInnerHTML={{ __html: this.renderReferences() }}></div>
+
+ <div className="clickShareRef">
+     <div className="authorAndComments__referencesShowMoreTopDiv">
+       {this.props.story.references.length > 200 ? this.insertShowMoreLinks() : undefined }
+ </div>
+ </div>
 </div>
 : undefined }
 </div>
 </div>
 
-<div className="clickShareRef">
-    <div className="authorAndComments__referencesShowMoreTopDiv">
-      {!this.props.story.references < 2 ? this.insertShowMoreLinks() : undefined }
-</div>
-</div>
+
 </div></div>
 
-          <div className={`mySidenav sidenav ${this.state.showMore ? 'width385' : 'width0'}`}>
+          <div className={`mySidenav sidenav ${this.state.showMore ? 'width385' : 'width0'}`} id="referencesSideBar">
             <div className="closebtn" onClick={() => { this.toggleReferencesSide()}}>&times;</div>
 
           <hr className="titleVerticalLine referencesSideTopHr" />
@@ -261,8 +280,7 @@ References
           </h2>
           <hr className="referencesSideSecondHr" />
 
-          {this.props.story.references.length > 0 ? <div>
-          {this.props.story.references}
+          <div className="referencesNav__mainBody" dangerouslySetInnerHTML={{ __html: this.props.story.references }}></div>
 
             {/* .map((reference) => {
             count++;
@@ -270,7 +288,7 @@ References
               return (
                 <div className="authorAndComments__referencesDiv"><div className="authorAndComments__relative">1. </div> <div className="authorAndComments__referencesInnerDiv">
                 {reference.citation}
-              </div>*/}</div> : undefined}
+              </div>*/}
 
           {/*   } else {
               return (
@@ -285,8 +303,10 @@ References
           })}
           </div>
           : undefined } */}
-          <a className="e ekes" onClick={() => { this.toggleReferencesSide() }}><div className={`${this.props.story.references.length < 5 ? 'referencesSideBottomCloseBottom' : 'referencesSideBottomClose'}`}>Close </div><div className={`${this.props.story.references.length < 5 ? 'referencesSideBottomCloseXBottom' : 'referencesSideBottomCloseX'}`}>&times;</div></a>
 
+          <div className="story__referencesMiddleHeight"></div>
+          <div className="story__referencesCloseTooltip" onClick={() => { this.toggleReferencesSide() }}><div className={`referencesSideBottomCloseBottom`}>Close <a className={`referencesSideBottomCloseXLeft`}>&times;</a></div></div>
+          <div className="story__referencesMiddleHeightAfter"></div>
           </div>
 <div className="toolEndRef"></div>
 <div className="authorAndComments__veryBottomSpacing"></div>
