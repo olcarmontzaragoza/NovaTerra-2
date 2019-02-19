@@ -91,7 +91,7 @@ document.title = `NovaTerra - Equality`;
 render() {
     return (
       <div>
-        {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={latest} popularCollection={popular} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Equality' tagDescription="is this really fair?" relatedCategories={['Now', 'Future', 'Economy']} categoryLinks={['/now', '/future', '/economy']} relatedTags={['Work', 'Politics', 'Self']} tagLinks={['/work', '/politics', '/self']}  /> : undefined }
+        {this.state.users ? <TagPageLayout users={this.state.users} latestCollection={this.returnLatest()} popularCollection={this.returnPopular()} creatorsPop={this.returnCreators('pop')} creatorsNew={this.returnCreators('new')} creatorsOld={this.returnCreators('old')} tag='Equality' tagDescription="is this really fair?" relatedCategories={['Now', 'Future', 'Economy']} categoryLinks={['/now', '/future', '/economy']} relatedTags={['Work', 'Politics', 'Self']} tagLinks={['/work', '/politics', '/self']}  /> : undefined }
       </div>
     );
   }

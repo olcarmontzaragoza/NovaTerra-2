@@ -405,3 +405,18 @@ width:73.3vw;
   display:none;
   }
 }
+.signup__recaptchaPositioning {
+  width:300px;
+  margin-top:12px;
+
+  transform:scale(1.02);-webkit-transform:scale(1.02);transform-origin:0 0;-webkit-transform-origin:0 0;
+
+  margin-bottom:8px;
+
+  @media screen and (max-width:405px) {
+  width:73.3vw;
+  transform:scale(0.80);-webkit-transform:scale(0.80);transform-origin:0 0;-webkit-transform-origin:0 0;
+  margin-bottom:-7px;
+  }
+
+}

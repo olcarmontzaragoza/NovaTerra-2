@@ -21,7 +21,7 @@ import Footer from './Components/Footer';
 
 // import ServiceConfiguration from 'meteor/service-configuration';
 
-var Recaptcha = require('react-recaptcha');
+import Reaptcha from 'reaptcha';
 
 Meteor.subscribe('allUsers');
 //
@@ -46,6 +46,10 @@ this.state = {
 error: '',
 termsOfUse: false,
 };
+this.onVerify = this.onVerify.bind(this);
+}
+onVerify() {
+
 }
 gitHubLogin() {
 
@@ -270,9 +274,9 @@ render() {
          <div className={`login__rightSubtitle ${this.state.error === 'Make sure your passwords match' ? 'signup__redLabel' : ''}`}>Password Confirmation</div>
          <input type="password" ref="passwordConfirmation" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Make sure your passwords match' ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
-         <Recaptcha
-         sitekey="6LfIf44UAAAAAOHPXFxXTzyZ0yGBahrl22AFqArk"
-         />
+         <div className="signup__recaptchaPositioning">
+        <Reaptcha sitekey="6LcVl5IUAAAAAOiNnKNrSXwIqKRrT3dJtsF63Fpq" onVerify={this.onVerify} />
+        </div>
 
       <div className="signup__privacyPolicyMargins">
       <div className="checkmark_container"><div onClick={() => { this.setState({ termsOfUse: !this.state.termsOfUse })}} className="floatLeft inputSignupPage cursorDefault">I accept NovaTerra's <br className="signupPrivacyBr"/> <Link className="signupTermsLink" to="/privacy-policy">Privacy Policy</Link><input onClick={() => { this.setState({ termsOfUse: !this.state.termsOfUse })}} checked={this.state.termsOfUse} className="signUpPageMarginRight" ref="termsAccepted" type="checkbox" name="acceptedTerms"/><span className={`checkmark ${this.state.error === "Make sure you accept our Privacy Policy" ? 'signup__checkboxRed' : ''}`}></span></div></div>
