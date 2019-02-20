@@ -255,9 +255,7 @@ goToStoryPage(story) {
         <div style={{top: this.state.tooltipTop}} className={`${this.state.tooltipArray[0]} popUpAuthor`}>
          <div className="titleAuthorHovContainer1">
          <div className={`hoverAuthorName authorNameTooltipTop ${`${this.props.outsideClassName}`}`}>
-         {console.log(this.props.userId)}
-         {console.log(this.findUser(this.props.userId))}
-              <Link to={this.findUser(this.props.userId).profileUrl}>{this.findUser(this.props.userId).username}</Link>
+              <Link to={this.findUser(this.props.userId).profileUrl}>{this.findUser(this.props.userId).username.length > 20 ? this.findUser(this.props.userId).username.slice(0, 17) + '...' : this.findUser(this.props.userId).username}</Link>
               </div>
                 </div>
                <div className="tooltip__zIndex">

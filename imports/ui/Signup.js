@@ -275,7 +275,7 @@ render() {
          <input type="password" ref="passwordConfirmation" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Make sure your passwords match' ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
          <div className="signup__recaptchaPositioning">
-        <Reaptcha sitekey="6LcVl5IUAAAAAOiNnKNrSXwIqKRrT3dJtsF63Fpq" onVerify={this.onVerify} />
+        <Reaptcha sitekey="6Ldl2JIUAAAAAJgqbgB5bwOjm_gJEf1KdoowMbZf" />
         </div>
 
       <div className="signup__privacyPolicyMargins">

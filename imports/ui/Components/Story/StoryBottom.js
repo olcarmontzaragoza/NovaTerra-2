@@ -57,6 +57,8 @@ containerOneMarginLeft: 'ab__zero',
 containerTwoMarginLeft: 'ab__1195',
 containerThreeMarginLeft: 'ab__1195',
 containerFourMarginLeft: 'ab__1195',
+
+width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
 };
 }
 handleNewComment() {
@@ -317,6 +319,7 @@ this.changeArrowColor();
 
 renderFourPopularCircles() {
 
+
   if (this.returnTrendingWeek().length >= 10) {
 
     return (
@@ -339,12 +342,43 @@ renderFourPopularCircles() {
     )
 
   } if (this.returnTrendingWeek().length >= 4) {
+
     return (
-      <div>
-      <div className={`popCircle1 ${this.state.popCircleOne}`} onClick={() => { this.popOneOnClick() }}></div>
-      <div className={`popCircle2 ${this.state.popCircleTwo}`} onClick={() => { this.popTwoOnClick() }}></div>
-      </div>
-    )
+        <div>
+        <div className={`popCircle1 ${this.state.popCircleOne}`} onClick={() => { this.popOneOnClick() }}></div>
+        <div className={`popCircle2 ${this.state.popCircleTwo}`} onClick={() => { this.popTwoOnClick() }}></div>
+        </div>
+      )
+
+    // if (this.state.width > 760) {
+    //   return (
+    //     <div>
+    //     <div className={`popCircle1 ${this.state.popCircleOne}`} onClick={() => { this.popOneOnClick() }}></div>
+    //     <div className={`popCircle2 ${this.state.popCircleTwo}`} onClick={() => { this.popTwoOnClick() }}></div>
+    //     </div>
+    //   )
+    // } else if (this.state.width < 760 && this.state.width > 580) {
+    //   return (
+    //     <div>
+    //     <div className={`popCircle1 ${this.state.popCircleOne}`} onClick={() => { this.popOneOnClick() }}></div>
+    //     <div className={`popCircle2 ${this.state.popCircleTwo}`} onClick={() => { this.popTwoOnClick() }}></div>
+    //     {this.returnTrendingWeek().length > 4 ? <div className={`popCircle3 ${this.state.popCircleThree}`} onClick={() => { this.popThreeOnClick() }}></div> : undefined}
+    //     </div>
+    //   )
+    // } else {
+    //   return (
+    //     <div>
+    //     <div className={`popCircle1 ${this.state.popCircleOne}`} onClick={() => { this.popOneOnClick() }}></div>
+    //     <div className={`popCircle2 ${this.state.popCircleTwo}`} onClick={() => { this.popTwoOnClick() }}></div>
+    //     <div className={`popCircle3 ${this.state.popCircleThree}`} onClick={() => { this.popThreeOnClick() }}></div>
+    //     <div className={`popCircle4 ${this.state.popCircleFour}`} onClick={() => { this.popFourOnClick() }}></div>
+    //     {this.returnTrendingWeek().length > 4 ? <div className={`popCircle5 ${this.state.popCircleFive}`} onClick={() => { this.popFiveOnClick() }}></div> : undefined}
+    //     {this.returnTrendingWeek().length > 5 ? <div className={`popCircle6 ${this.state.popCircleSix}`} onClick={() => { this.popSixOnClick() }}></div> : undefined}
+    //     </div>
+    //   )
+    // }
+
+
   }
   if (this.returnTrendingWeek().length === 3) {
     return (
@@ -486,7 +520,7 @@ Popular
 
 
 <div className="storyBottom__positionFourCircles">
-{this.renderFourPopularCircles()}
+{this.state.width ? this.renderFourPopularCircles() : undefined}
 </div>
 </div>
 

@@ -909,7 +909,7 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
 border-radius:50px;
 margin-left:20.4px;
 margin-top:21.5px;
-margin-right:-10px;
+margin-right:-1.5px;
 width:43px;
 height:43px;
 position:relative;
@@ -1147,8 +1147,10 @@ width:90.4vw;
 @media screen and (max-width: 562px) {
 height:178px;
 }
-@media screen and (max-width: 383px) {
-height:198px;
+@media screen and (max-width: 390px) {
+// height:198px;
+height:330px;
+border-radius:3px 3px 3px 3px;
 }
 
 }
@@ -1186,8 +1188,13 @@ top:-24px;
 width:32vw;
 position:relative;
 }
-@media screen and (max-width: 383px) {
-height:200px;
+@media screen and (max-width: 390px) {
+// height:200px;
+width:90.7vw;
+height:160px;
+top:-193px;
+left:0px;
+border-radius: 2px 2px 0px 0px;
 }
 }
 .db__latestMoreArContainerTitle {
@@ -1197,7 +1204,6 @@ font-weight:bold;
 font-family:sans-serif;
 letter-spacing:0.034em;
 word-spacing:0.015em;
-margin-bottom:13px;
 margin-top:15px;
 margin-left:20px;
 position:relative;
@@ -1221,13 +1227,18 @@ font-size: 1.12em;
 width:53vw;
 font-size: 1.08em;
 }
-@media screen and (max-width: 372px) {
-width:48.5vw;
-font-size: 1.08em;
+@media screen and (max-width: 390px) {
+width:80vw;
+font-size: 1.14em;
+margin-bottom:-76px;
 }
-@media screen and (max-width: 335px) {
-font-size: 1.05em;
-}
+// @media screen and (max-width: 372px) {
+// width:48.5vw;
+// font-size: 1.08em;
+// }
+// @media screen and (max-width: 335px) {
+// font-size: 1.05em;
+// }
 }
 .moreStoryReTitle1 {
 margin-right:200px;
@@ -1253,6 +1264,10 @@ z-index:40;
   margin-top:17px;
   margin-bottom:-13px;
   margin-left:2px;
+
+  @media screen and (max-width: 390px) {
+  margin-top:178px;
+  }
 }
 .db__topMoreCat:hover {
 color:#000000;

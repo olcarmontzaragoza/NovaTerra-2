@@ -83,7 +83,7 @@ returnTitle() {
 render() {
     return (
       <div>
-      <div ref={this.setTopContainer1Ref} className="profileStory__moreIndividualContainers" >
+      <div ref={this.setTopContainer1Ref} className="profileStory__moreIndividualContainers">
 
       <Link to={this.props.story.link}>{this.props.story.mainImage ? <Image cloud_name='novaterra' className="mainImageStoriesProfilePage" publicId={this.props.story.mainImage}><Transformation crop="thumb" /></Image> : <img src={'../images/noImage.png'} className="mainImageStoriesProfilePage" />}</Link>
       <div className="profile__categoryMarginTop"></div>

@@ -271,7 +271,7 @@ user-select: none;
   font-size:0.92em;
 }
 @media screen and (max-width: 460px) {
-  font-size:0.86em;
+  font-size:0.933em;
 }
 }
 .mpl__selectedOption {
@@ -417,6 +417,12 @@ user-select: none;
   @media screen and (max-width: 545px) {
   left:-195px;
   }
+  @media screen and (max-width: 545px) {
+  left:-195px;
+  }
+  @media screen and (max-width: 380px) {
+
+  }
 }
 .mpl__hr {
   margin-left:0px;
@@ -443,6 +449,9 @@ user-select: none;
   }
   @media screen and (max-width: 470px) {
   width:92.6vw;
+  }
+  @media screen and (max-width: 380px) {
+    margin-bottom:-5px;
   }
 }
 .mpl__topMargins {
@@ -676,7 +685,7 @@ box-shadow:         0.5px 1.2px 1.2px 1.5px #f0f0f0;
   font-size:1em;
 }
 @media screen and (max-width: 470px) {
-  width:68vw;
+  width:84.5vw;
   height:90px;
   font-size:0.88em;
 }
@@ -707,6 +716,18 @@ box-shadow:         0.5px 1.2px 1.2px 1.5px #f0f0f0;
       position:relative;
       left:9.8vw;
       margin-left:0px;
+  }
+  @media screen and (max-width: 470px) {
+      position:relative;
+      left:5.8vw;
+      margin-left:0px;
+      margin-top:55px;
+  }
+  @media screen and (max-width: 410px) {
+      position:relative;
+      left:5.1vw;
+      margin-left:0px;
+      margin-top:55px;
   }
 }
 .profile__firstBottomSpacing {
@@ -924,6 +945,10 @@ box-shadow:         0.5px 1.2px 1.2px 1.5px #f0f0f0;
     position:relative;
     left:0.5vw;
   }
+  @media screen and (max-width: 380px) {
+    height:370px;
+    margin-bottom:50px;
+  }
 }
 .storiesBelowMainProfile {
   margin-top:50px;
@@ -932,7 +957,6 @@ box-shadow:         0.5px 1.2px 1.2px 1.5px #f0f0f0;
 .mainImageStoriesProfilePage {
   border-radius: 2px 0px 0px 2px;
   height:187px;
-  float:left;
   margin-left:0px;
   margin-top:0px;
 
@@ -951,6 +975,14 @@ box-shadow:         0.5px 1.2px 1.2px 1.5px #f0f0f0;
   }
   @media screen and (max-width: 540px) {
   width:37.6vw;
+  }
+  @media screen and (min-width: 380px) {
+    float:left;
+  }
+  @media screen and (max-width: 380px) {
+  clear:both;
+  width:92vw;
+  border-radius: 2px 2px 0px 0px;
   }
 }
 .profileStory__topRedText {
@@ -994,6 +1026,10 @@ transition:0.17s;
 }
 .profile__categoryMarginTop {
 height:25px;
+
+@media screen and (max-width:380px) {
+height:15px;
+}
 }
 .profile__moreArContainerTitle {
 line-height:1.35;
@@ -1027,6 +1063,11 @@ font-size: 1.05em;
 width:43vw;
 font-size: 0.99em;
 }
+@media screen and (max-width:380px) {
+width:82.5vw;
+font-size: 1.09em;
+margin-top:2px;
+}
 }
 .profile__moreArContainerTitleUserProfileStory {
 line-height:1.35;
@@ -1055,10 +1096,17 @@ font-size: 1.1em;
 @media screen and (max-width:605px) and (min-width:500px) {
 width:43vw;
 font-size: 1.05em;
+margin-top:2px;
 }
 @media screen and (max-width:500px) {
 width:43vw;
 font-size: 0.99em;
+margin-top:2px;
+}
+@media screen and (max-width:380px) {
+margin-top:3px;
+width:81.7vw;
+font-size: 1.06em;
 }
 }
 .profile__moreArContainerTitle:hover {
@@ -1078,6 +1126,9 @@ margin-top:96.5px;
 }
 @media screen and (max-width:580px) {
 margin-top:103.5px;
+}
+@media screen and (max-width:380px) {
+margin-top:98.5px;
 }
 }
 .profile__popContainerReadingText {
@@ -1141,6 +1192,34 @@ margin-top:103.5px;
     right:8px;
     margin-top:11px;
     font-size:1.67em;
+  }
+  @media screen and (max-width: 380px) {
+    right:0px;
+    margin-top:0px;
+    font-size:1.82em;
+  }
+}
+.profileEditProfileTopMargins {
+  @media screen and (max-width: 380px) {
+    margin-top:12px;
+    position:relative;
+    top:10px;
+  }
+}
+.profile__editProfileBackground {
+  @media screen and (max-width: 380px) {
+  background-color: #fff;
+    border-radius:5px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    transition:0.35s;
+    position: absolute;
+    cursor:pointer;
+    width:25px;
+    height:25px;
+    right:16px;
+    margin-top:16px;
   }
 }
 .profile__editIcon:hover {
@@ -1691,6 +1770,9 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
     height:162px;
     position:relative;
     left:-36px;
+  }
+  @media screen and (max-width: 380px) {
+    height:362px;
   }
 }
 .mpl__mainAuthorTextArea {
@@ -2391,11 +2473,21 @@ margin-left:59px;
   @media screen and (max-width: 500px) {
     font-size:0.87em;
   }
+  @media screen and (max-width: 380px) {
+    font-size:0.95em;
+  }
 
 }
 .profileStory__mainFloatLeft {
-  float:left;
+
   margin-right:-150px;
+
+  @media screen and (min-width: 380px) {
+      float:left;
+  }
+  @media screen and (max-width: 380px) {
+      margin-left:20px;
+  }
 }
 .profile__mobileDraftIcon {
 background-color:#e1e1e1;
@@ -2433,6 +2525,12 @@ background-color:#e1e1e1;
     margin-top:13px;
     right:13px;
   }
+  @media screen and (max-width: 380px) {
+    margin-top:15px;
+    right:13px;
+    height:27px;
+    width:27px;
+  }
 }
 .profile__mobileDraftIcon:hover {
 transition:0.35s;
@@ -2468,6 +2566,13 @@ transition:0.35s;
   margin-top:57px;
   margin-left:-17px;
   width:445px;
+
+  @media screen and (max-width: 600px) {
+    margin-left:-14px;
+  }
+  @media screen and (max-width: 390px) {
+    margin-top:53px;
+  }
 }
 .profile__popMainStoryImage2UserProfileStory {
   border-radius:50px;
@@ -2796,6 +2901,13 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
       height:24px;
       width:24px;
     }
+    @media screen and (max-width: 380px) {
+      right:15px;
+      position:absolute;
+      top:-13px;
+      height:27px;
+      width:27px;
+    }
 }
 .profile__mobileDraftDeleteIcon:hover {
 transition:0.35s;
@@ -2809,6 +2921,9 @@ background-color:#ef4545;
   }
   @media screen and (max-width: 725px) {
     font-size:0.81em;
+  }
+  @media screen and (max-width: 380px) {
+
   }
 }
 .mpl__waitingTooltip {

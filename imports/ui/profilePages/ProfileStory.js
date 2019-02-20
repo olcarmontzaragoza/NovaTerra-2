@@ -72,11 +72,9 @@ getSliceNum() {
   let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
   console.log("deeeed width", width);
   if (width > 450) {
-    console.log('REEEETURNED', 36);
     return 72;
   } else {
-    console.log('REEEETURNED', 25);
-    return 57;
+    return 72;
   }
 }
 returnTitle() {
@@ -91,7 +89,7 @@ render() {
         <div>
         <div ref={this.setTopContainer1Ref} className="profileStory__moreIndividualContainers" >
 
-        {this.props.story.storyType === 'drafted' ?  <div><FontAwesomeIcon onClick={() => funcReplace(this.props.story.link)} ref={this.setTopRight1Ref} icon={['fas', 'pen-square']} className="profile__editIcon" aria-hidden="true" /><div className="profile__mobileDraftDeleteIcon" onClick={() => this.deleteDraft()} ><FontAwesomeIcon icon={['fas', 'trash']} className="mobile__mobileDeleteIconIcon" /></div></div> : undefined }
+        {this.props.story.storyType === 'drafted' ?  <div><div className="profile__editProfileBackground"><FontAwesomeIcon onClick={() => funcReplace(this.props.story.link)} ref={this.setTopRight1Ref} icon={['fas', 'pen-square']} className="profile__editIcon" aria-hidden="true" /></div><div className="profile__mobileDraftDeleteIcon" onClick={() => this.deleteDraft()} ><FontAwesomeIcon icon={['fas', 'trash']} className="mobile__mobileDeleteIconIcon" /></div></div> : undefined }
         {this.props.story.storyType === 'published' ?  <div ref={this.setTopRight1Ref}><div className="profile__mobileDraftIcon"><FontAwesomeIcon icon={['fas', 'pencil-alt']} onClick={() => this.pressedCancelOrDraft()} className="mobile__mobileDraftIconIcon" /></div></div> : undefined }
         {this.props.story.storyType === 'waiting' ?  <div className="profile__mobileDraftIcon"><FontAwesomeIcon icon={['fas', 'stopwatch']} onClick={() => this.pressedCancelOrDraft()} className="mobile__mobileCancelIconIcon" /></div> : undefined }
 
