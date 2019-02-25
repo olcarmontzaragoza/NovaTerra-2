@@ -46,6 +46,10 @@ return this.props.user.find({}, {
   }
 }).fetch();
 }
+redirectPage(link) {
+  link = link.slice(8, link.length);
+  window.location = `/profile${link}`;
+}
 render() {
     return (
             <div>
@@ -58,9 +62,9 @@ render() {
 
             <div className="clearBoth marginBelowInputNotFound"></div>
             <p className="floatLeft">Popular creators on NovaTerra:</p>
-            {this.returnPopularCreators().length > 0 ? <Link to={this.returnPopularCreators()[0].profileUrl} className="notfound__link floatLeft link">{this.returnPopularCreators()[0].username}</Link> : undefined}
-            {this.returnPopularCreators().length > 1 ? <Link to={this.returnPopularCreators()[1].profileUrl} className="notfound__link floatLeft link">{this.returnPopularCreators()[1].username}</Link> : undefined}
-            {this.returnPopularCreators().length > 2 ? <Link to={this.returnPopularCreators()[2].profileUrl} className="notfound__link floatLeft link">{this.returnPopularCreators()[2].username}</Link> : undefined}
+            {this.returnPopularCreators().length > 0 ? <a onClick={() => this.redirectPage(this.returnPopularCreators()[0].profileUrl)} className="notfound__link floatLeft link">{this.returnPopularCreators()[0].username}</a> : undefined}
+            {this.returnPopularCreators().length > 1 ? <a onClick={() => this.redirectPage(this.returnPopularCreators()[1].profileUrl)} className="notfound__link floatLeft link">{this.returnPopularCreators()[1].username}</a> : undefined}
+            {this.returnPopularCreators().length > 2 ? <a onClick={() => this.redirectPage(this.returnPopularCreators()[2].profileUrl)} className="notfound__link floatLeft link">{this.returnPopularCreators()[2].username}</a> : undefined}
 
           </div>
           <div className="notFound__marginBottom"></div>

@@ -105,6 +105,12 @@ handleClickOutside(e) {
            // funcReplace(this.props.stories[2].link);
 }
 }
+switchStory(link) {
+  console.log('switch story ranzeeees');
+  let storyLink = link;
+  storyLink = storyLink.slice(5, storyLink.length);
+  window.location = `/story${storyLink}`;
+}
 findUser(userId) {
     const user = this.props.users.findOne({ _id: userId });
     return user;
@@ -116,7 +122,7 @@ render() {
         <div className="smallerContainerStories1">
 
         <div ref={this.setTopContainerBottom1Ref} className="bottomContainerStory1">
-        <Link to={this.props.stories[0].link}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[0].mainImage}><Transformation crop="thumb" /></Image></Link>
+        <a onClick={() => this.switchStory(this.props.stories[0].link)}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[0].mainImage}><Transformation crop="thumb" /></Image></a>
 
             <hr className="popularImageLineBelow" />
         <div className="popularContainerHeightsAndShadow">
@@ -164,7 +170,7 @@ render() {
         { this.props.stories[1] ?
 
             <div ref={this.setTopContainerBottom2Ref} className="bottomContainerStory2">
-            <Link to={this.props.stories[1].link}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[1].mainImage}><Transformation crop="thumb" /></Image></Link>
+            <a onClick={() => this.switchStory(this.props.stories[1].link)}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[1].mainImage}><Transformation crop="thumb" /></Image></a>
 
             <hr className="popularImageLineBelow" />
         <div className="popularContainerHeightsAndShadow">
@@ -215,7 +221,7 @@ render() {
         { this.props.stories[2] ?
 
         <div ref={this.setTopContainerBottom3Ref} className="bottomContainerStory3">
-        <Link to={this.props.stories[2].link}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[2].mainImage}><Transformation crop="thumb" /></Image></Link>
+        <a onClick={() => this.switchStory(this.props.stories[2].link)}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[2].mainImage}><Transformation crop="thumb" /></Image></a>
 
             <hr className="popularImageLineBelow" />
         <div className="popularContainerHeightsAndShadow">

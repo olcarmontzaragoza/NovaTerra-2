@@ -21,7 +21,9 @@ import Footer from './Components/Footer';
 
 // import ServiceConfiguration from 'meteor/service-configuration';
 
-import Reaptcha from 'reaptcha';
+// import Recaptcha from 'reaptcha';
+
+import ReCAPTCHA from "react-google-recaptcha";
 
 Meteor.subscribe('allUsers');
 //
@@ -45,6 +47,7 @@ super(props);
 this.state = {
 error: '',
 termsOfUse: false,
+recaptcha: false,
 };
 this.onVerify = this.onVerify.bind(this);
 }
@@ -89,6 +92,13 @@ let password = this.refs.password.value.trim();
 
 let termsAccepted = this.refs.termsAccepted.checked;
 let passwordConfirmation = this.refs.passwordConfirmation.value.trim();
+
+let recaptcha = this.state.recaptcha;
+
+if (!recaptcha) {
+this.setErrorScrollTop();
+return this.setState({ error: 'Please complete the Recaptcha' });
+}
 
 if (firstName.length < 1) {
 this.setErrorScrollTop();
@@ -215,6 +225,9 @@ this.setState({ error: '' });
 continueWithFacebook() {
 
 }
+reChange(e) {
+  this.setState({ recaptcha: e });
+}
 render() {
     return (
       <div>
@@ -275,7 +288,7 @@ render() {
          <input type="password" ref="passwordConfirmation" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Make sure your passwords match' ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
          <div className="signup__recaptchaPositioning">
-        <Reaptcha sitekey="6Ldl2JIUAAAAAJgqbgB5bwOjm_gJEf1KdoowMbZf" />
+        <ReCAPTCHA sitekey="6LfMEpMUAAAAAAo_dmGQX26p_vFsLr_IdmTvzRC_" onChange={() => this.reChange.bind(this)} />
         </div>
 
       <div className="signup__privacyPolicyMargins">

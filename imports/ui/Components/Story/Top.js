@@ -147,7 +147,7 @@ render() {
 </Link>
   </div>
 <div className="titleMainTitleHeader">
-{this.props.story.title.length > 60 ? this.props.story.title.slice(0, 60) + '...' : this.props.story.title}
+{this.props.story.title} {/* this.props.story.title.length > 60 ? this.props.story.title.slice(0, 60) + '...' : } */}
 </div>
 <hr className="homeTop__titleVerticalLine" />
 <div className="titleImageToolTip">{this.findUser(this.props.story.userId).profilePhoto ? <div><div className="storyTop__behindCircle"></div><Image className="titleAuthorImageHoverImage" cloud_name='novaterra' publicId={this.findUser(this.props.story.userId).profilePhoto}><Transformation crop="thumb" /></Image></div> : <img src={`../images/noImage.png`} className="titleAuthorImageHover"/>}

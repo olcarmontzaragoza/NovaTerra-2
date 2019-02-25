@@ -116,21 +116,21 @@ margin-left:443px;
 margin-left:433px;
 }
 @media screen and (max-width: 560px) {
-margin-left:75vw;
+margin-left:76.5vw;
 }
 @media screen and (max-width: 480px) {
-margin-left:72vw;
+margin-left:74vw;
 }
 @media screen and (max-width: 415px) {
-margin-left:69vw;
+margin-left:71.5vw;
 
 margin-top:-126px;
 }
 @media screen and (max-width: 375px) {
-margin-left:66vw;
+margin-left:69.5vw;
 }
 @media screen and (max-width: 345px) {
-margin-left:63vw;
+margin-left:66vw;
 }
 
 
@@ -157,16 +157,16 @@ float:left;
   position:absolute; margin-left:-65px; margin-top:-18.5px;
 
   @media screen and (max-width: 415px) {
-  margin-left:-63.5vw;
-  margin-top:-8px;
+  margin-left:-63vw;
+  margin-top:-9px;
   }
   @media screen and (max-width: 375px) {
-  margin-left:-60vw;
-  margin-top:-8px;
+  margin-left:-61.5vw;
+  margin-top:-9px;
   }
   @media screen and (max-width: 345px) {
-  margin-left:-56.5vw;
-  margin-top:-8px;
+  margin-left:-57vw;
+  margin-top:-9px;
   }
 }
 .ab__colorGrey {
@@ -324,7 +324,7 @@ height:163px;
 }
 @media screen and (max-width: 580px) {
 width:92.2vw;
-height:198px;
+height:183px;
 margin-top:-26px;
 }
 }
@@ -367,7 +367,21 @@ height:298px;
   width:345px;
   height:298px;
 }
-
+@media screen and (max-width: 580px) {
+left:2.1%;
+}
+@media screen and (max-width: 500px) {
+left:2.15%;
+}
+@media screen and (max-width: 430px) {
+left:2.15%;
+}
+@media screen and (max-width: 365px) {
+left:2%;
+}
+@media screen and (max-width: 350px) {
+left:1.9%;
+}
 }
 .bottomContainerStory2 {
 position: relative;
@@ -1141,8 +1155,12 @@ border-radius:3px 3px 30px 3px;
 -moz-box-shadow:    -0.5px 0.8px 0.8px 1px #f0f0f0;
 box-shadow:         -0.5px 0.8px 0.8px 1px #f0f0f0;
 
+@media screen and (min-width: 665px) {
+height:158px;
+}
 @media screen and (max-width: 665px) {
 width:90.4vw;
+height:158px;
 }
 @media screen and (max-width: 562px) {
 height:178px;
@@ -1151,6 +1169,11 @@ height:178px;
 // height:198px;
 height:330px;
 border-radius:3px 3px 3px 3px;
+margin-bottom:50px;
+margin-left:65px;
+}
+@media screen and (max-width: 340px) {
+margin-left:63.5px;
 }
 
 }

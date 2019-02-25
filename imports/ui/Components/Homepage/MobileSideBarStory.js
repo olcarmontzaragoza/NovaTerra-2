@@ -37,7 +37,7 @@ render() {
         {this.props.collection[this.props.num].category}
         </Link>
         <div className="qqrfMobile">
-        {`${this.returnUsername(this.props.collection[this.props.num].userId)} · ${this.props.collection[this.props.num].minRead} min`}
+        {`${this.returnUsername(this.props.collection[this.props.num].userId).length > 18 ? this.returnUsername(this.props.collection[this.props.num].userId).slice(0, 18) + '...' : this.returnUsername(this.props.collection[this.props.num].userId)} · ${this.props.collection[this.props.num].minRead} min`}
       </div> {/* ${this.findUsername(this.props.collection[this.props.num].userId)} */}
       </div>
     )

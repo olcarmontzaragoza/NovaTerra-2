@@ -192,7 +192,7 @@ render() {
 
     {this.getStories()[4] ?
     <div>
-    <Link to={this.getStories()[4].link}><Image cloud_name='novaterra' className="rightHomeImagePositioning topFifthStoryPhoto" publicId={this.getStories()[4].mainImage}><Transformation crop="thumb" /></Image></Link>
+    <Link to={this.getStories()[4].link}><Image cloud_name='novaterra' className="rightHomeImagePositioning" publicId={this.getStories()[4].mainImage}><Transformation crop="thumb" /></Image></Link>
 
     <Link to={this.getStories()[4].link} className={`rightSectionTopTitle greenHov ${this.userHasSeenStory(this.getStories()[4]) ? 'title__grey' : ''}`}>
     {this.getStories()[4].title.length > 56 ? this.getStories()[4].title.slice(0, 56) + '...' : this.getStories()[4].title}
@@ -213,7 +213,7 @@ render() {
 
     {this.getStories()[5] ?
     <div>
-    <Link to={this.getStories()[5].link}><Image cloud_name='novaterra' className="rightHomeImagePositioning topFifthStoryPhoto" publicId={this.getStories()[5].mainImage}><Transformation crop="thumb" /></Image></Link>
+    <Link to={this.getStories()[5].link}><Image cloud_name='novaterra' className="rightHomeImagePositioning" publicId={this.getStories()[5].mainImage}><Transformation crop="thumb" /></Image></Link>
 
     <Link to={this.getStories()[5].link} className={`rightSectionTopTitle greenHov ${this.userHasSeenStory(this.getStories()[5]) ? 'title__grey' : ''}`}>
     {this.getStories()[5].title.length > 56 ? this.getStories()[5].title.slice(0, 56) + '...' : this.getStories()[5].title}

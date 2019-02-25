@@ -150,12 +150,12 @@ returnTime(time) {
   let jsx = [];
   let notificationNum = -1;
 
-    console.log('NOTIFICATIONS', Notifications.find({ thisUserId: Meteor.userId() }).count());
-
-    console.log('NOTIFICATION USER', Meteor.userId());
-
-    console.log('NOTIFICATION USER', Notifications.find().count());
-    console.log('NOTIFICATION USER', Notifications.findOne({ description : "Your story is now waiting." }));
+    // console.log('NOTIFICATIONS', Notifications.find({ thisUserId: Meteor.userId() }).count());
+    //
+    // console.log('NOTIFICATION USER', Meteor.userId());
+    //
+    // console.log('NOTIFICATION USER', Notifications.find().count());
+    // console.log('NOTIFICATION USER', Notifications.findOne({ description : "Your story is now waiting." }));
 
   if (Notifications.find().count() >= 1) {
 
@@ -197,7 +197,7 @@ returnTime(time) {
         <div className="nav__notificationsPostImagePositioning"><div className="nav__notificationsFollow nav__learnMore" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</div></div>
         <div className="nav__userEventElimateSpacing1"></div>
         <a className="floatLeft"><Image className="notification__storyImage" cloud_name='novaterra' publicId={notification.messageImage}><Transformation crop="thumb" /></Image></a>
-        <div className="nav__notificationsText nav__notificationsWidth">{notification.description.length > 145 ? notification.description.slice(0, 145) + '...' : notification.description}&nbsp;
+        <div className="nav__notificationsText nav__notificationsWidth">{notification.description.length > 145 ? notification.description.slice(0, 145) + '...' : notification.description}.&nbsp;
         <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}{/* moment(notification.created).fromNow() */}</a>
         </div>
         <div className="clearBoth"></div>

@@ -148,16 +148,11 @@ toggleIsFollowing() {
 }
 handleClickOutside(e) {
   if (this.followingRef && this.userBox && this.userBox.contains(e.target) && !this.followingRef.contains(e.target)) {
-    funcReplace(this.props.user.profileUrl);
+    let user = Meteor.users.findOne({ _id: this.props.user });
+    let storyLink = user.profileUrl;
+    storyLink = storyLink.slice(8, storyLink.length);
+    window.location = `/profile${storyLink}`;
   }
-  if (this.followingRef && this.userBox && this.userBox.contains(e.target) && this.followingRef.contains(e.target)) {
-    console.log('they both existsssss');
-  }
-  if (this.followingRef && this.userBox && this.userBox.contains(e.target)) {
-    console.log('they both existsssss12345');
-  }
-
-
 }
 findUser() {
   console.log('id', this.props.user);
@@ -176,14 +171,14 @@ findUser() {
 render() {
     return (
       <div>
-        <Link to={this.findUser().profileUrl} ref={this.setUserBoxRef}><div className="profileStory__moreIndividualContainersUsers" >
+        <div ref={this.setUserBoxRef}><div className="profileStory__moreIndividualContainersUsers" >
 
         {this.findUser().profilePhoto  ? <div><div className="mpl__behindCircleUser"></div><Image className="profileUser__mainImageStoriesProfilePageImage" cloud_name='novaterra' publicId={this.findUser().profilePhoto }><Transformation crop="thumb" /></Image></div> :
         <img src={`${this.props.route}images/noImage.png`} className="profileUser__mainImageStoriesProfilePage"/>}
 
         <div className="floatLeft bottomContainerUserProfileUsers">
         {this.findUser().username ? <div className="user__mpl__mainAuthor floatLeft">{this.findUser().username.length > 35 ? this.findUser().username.slice(0, 35) + '...' : this.findUser().username}</div> : <div className="user__mpl__mainAuthor floatLeft">{this.findUser().name.length > 35 ? this.findUser().name.slice(0, 35) + '...' : this.findUser().name}</div>}
-        {this.findUser()._id === Meteor.userId() ? undefined : <div>{this.state.follow ? <a ref={this.setFollowingRef} className="mpl__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</a> : <a ref={this.setFollowingRef} className="mpl__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</a>}</div>}
+        {this.findUser()._id === Meteor.userId() ? undefined : <div>{this.state.follow ? <div ref={this.setFollowingRef} className="mpl__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div ref={this.setFollowingRef} className="mpl__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}</div>}
         <div className="clearBoth"></div>
         { this.findUser().type ? <div className={`mpl__mainStatUsers`}>{`${this.getPostsFromCatOrTag()} ${this.getPostsFromCatOrTag() === 1 ? 'story' : 'stories'}`}</div> : <div className={`mpl__mainStatUsers`}>{`${this.findStoriesLength(this.props.user._id)} ${this.findStoriesLength(this.props.user._id).length === 1 ? 'story' : 'stories'}`}</div>}
         <div className={`mpl__mainStatUsers`}>{`${this.findUser().followers.length} ${this.findUser().followers.length === 1 ? 'follower' : 'followers'}`}</div>
@@ -194,7 +189,7 @@ render() {
         </div>
         <div className="clearBoth"></div>
 
-       </div></Link>
+       </div></div>
       </div>
     );
   }

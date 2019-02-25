@@ -107,7 +107,7 @@ render() {
 
         <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
         <div className="login__rightSubtitle">Email</div>
-        <input type="email" ref="email" name="email" onChange={() => { this.resetError()}}className="login__mainAuthorTextArea floatLeft" />
+        <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className="login__mainAuthorTextArea floatLeft" />
 
         <div className="login__rightSubtitle">Password</div>
         <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className="login__mainAuthorTextArea floatLeft" />

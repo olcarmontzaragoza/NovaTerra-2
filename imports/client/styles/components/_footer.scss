@@ -166,9 +166,12 @@ font-weight:500;
 font-size:1.15em;
 letter-spacing:0.005em;
 font-weight:500;
+
+
 }
 .allGetInvolvedLinks {
 margin-top:16.1px;
+
 }
 .getInvolvedLink:hover {
   color:#0f934b;
@@ -384,17 +387,39 @@ margin-top:8.5px;
   display:block;
   width:175px;
   left:23.1vw;
-
+  }
   @media screen and (max-width: 839px) {
   left:20.1vw;
   margin-top:-14px;
   }
+  @media screen and (max-width: 630px) {
+  left:26.6vw;
+  margin-top:-14px;
+  }
   @media screen and (max-width: 529px) {
-  left:20.4vw;
+  left:26.4vw;
   margin-top:-14px;
   margin-left:-6px;
   }
+  @media screen and (max-width: 470px) {
+  left:25.2vw;
   }
+  @media screen and (max-width: 445px) {
+  left:24.2vw;
+  }
+  @media screen and (max-width: 420px) {
+  left:23.2vw;
+  }
+  @media screen and (max-width: 390px) {
+  left:21vw;
+  }
+  @media screen and (max-width: 375px) {
+  left:20vw;
+  }
+  @media screen and (max-width: 360px) {
+  left:18.8vw;
+  }
+
 }
 
 .footer__facebookWidthHeight {

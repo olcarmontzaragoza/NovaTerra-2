@@ -134,8 +134,7 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
       {notification.published ? <Link to={story.link} className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__visitModal">Visit</button></Link> : <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>}
       <div className={`${notification.published ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacingFollow'}`}></div>
       <Link to={story.link} className="floatLeft"><Image className="notification__storyImageModal" cloud_name='novaterra' publicId={story.mainImage}><Transformation crop="thumb" /></Image></Link>
-      <div className="nav__notificationsTextModal nav__notificationsWidth">{notification.description}&nbsp;<br/><Link to={story.link} className="nav__notificationsStoryTitle" dangerouslySetInnerHTML={{ __html:
-      story.title }}></Link>
+      <div className="nav__notificationsTextModal nav__notificationsWidth">{notification.description}&nbsp;<br/><Link to={story.link} className="nav__notificationsStoryTitle">{story.title}.</Link>
       <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}{/* moment(notification.created).fromNow() */}</a>
       </div>
       <div className="clearBoth"></div>
@@ -150,7 +149,7 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
       <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__learnMoreModal" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>
       <div className="nav__userEventElimateSpacing1"></div>
       <a className="floatLeft"><img src={notification.messageImage} className="notification__storyImageModal"/></a>
-      <div className="nav__notificationsTextModal nav__notificationsWidth">{notification.description.length > 145 ? notification.description.slice(0, 145) + '...' : notification.description}&nbsp;
+      <div className="nav__notificationsTextModal nav__notificationsWidth">{notification.description.length > 145 ? notification.description.slice(0, 145) + '...' : notification.description}.&nbsp;
       <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}{/* moment(notification.created).fromNow() */}</a>
       </div>
       <div className="clearBoth"></div>

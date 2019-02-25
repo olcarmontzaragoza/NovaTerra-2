@@ -86,11 +86,11 @@ render() {
         <div className="search__popularResultsHeader">Stories</div>
         <hr className="search__popularResultsHr"/>
         <div className="search__popularResultsWidth">
-        {this.returnPopStories().length > 0 ? <Link to={this.returnPopStories()[0].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[1].title.slice(0, 55) + '...' : this.returnPopStories()[1].title}</Link> : undefined }
+        {this.returnPopStories().length > 0 ? <Link to={this.returnPopStories()[0].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[0].title.slice(0, 55) + '...' : this.returnPopStories()[0].title}</Link> : undefined }
         <div className="clearBoth search__popularResultsSpacing"></div>
-        {this.returnPopStories().length > 1 ? <Link to={this.returnPopStories()[0].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[1].title.slice(0, 55) + '...' : this.returnPopStories()[1].title}</Link> : undefined }
+        {this.returnPopStories().length > 1 ? <Link to={this.returnPopStories()[1].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[1].title.slice(0, 55) + '...' : this.returnPopStories()[1].title}</Link> : undefined }
         <div className="clearBoth search__popularResultsSpacing"></div>
-        {this.returnPopStories().length > 2 ? <Link to={this.returnPopStories()[0].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[1].title.slice(0, 55) + '...' : this.returnPopStories()[1].title}</Link> : undefined }
+        {this.returnPopStories().length > 2 ? <Link to={this.returnPopStories()[2].link} className="search_popularResultsResult">{this.returnPopStories()[1].title.length > 55 ? this.returnPopStories()[2].title.slice(0, 55) + '...' : this.returnPopStories()[2].title}</Link> : undefined }
         </div>
         </div>
 
@@ -106,7 +106,7 @@ render() {
         </div>
 
 
-        <div className="floatLeft search__popularResultsIndividual">
+        <div className="floatLeft search__popularResultsIndividualCategories">
         <div className="search__popularResultsHeader">Categories</div>
         <hr className="search__popularResultsHr"/>
         {this.returnPopCategories().length > 0 ? <Link to={this.returnPopCategories()[0].link} className="search_popularResultsResult">{this.returnPopCategories()[0].name}</Link> : undefined }
@@ -118,7 +118,7 @@ render() {
 
         <div className="clearBoth search__popularResultsMiddleSpacing"></div>
 
-        <div className="floatLeft search__popularResultsIndividual">
+        <div className="floatLeft search__popularResultsIndividualTag">
         <div className="search__popularResultsHeader">Tags</div>
         <hr className="search__popularResultsHr"/>
         {this.returnPopTags().length > 0 ? <Link to={this.returnPopTags()[0].link} className="search_popularResultsResult">{this.returnPopTags()[0].name}</Link> : undefined }

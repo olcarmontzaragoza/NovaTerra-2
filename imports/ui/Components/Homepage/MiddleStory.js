@@ -57,7 +57,7 @@ render() {
       <div>
         <div className="homeMiddle__moreIndividualContainers" ref={this.setTopContainer1Ref}>
         <div className="floatLeft">
-            <div className="categoryAndTags__authorLargerDiv2" ref={this.setCategory1Ref}><Link to={`/${this.props.story.category}`} className="homeMiddle__topMoreCat">
+            <div className="categoryAndTags__authorLargerDiv2HomeMiddle" ref={this.setCategory1Ref}><Link to={`/${this.props.story.category}`} className="homeMiddle__topMoreCat">
             {this.props.story.category}
             </Link></div>
 

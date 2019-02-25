@@ -37,6 +37,7 @@
     "react-dropzone": "^8.0.3",
     "react-facebook-login": "^4.1.1",
     "react-froala-wysiwyg": "^2.9.1-1",
+    "react-google-recaptcha": "^1.0.5",
     "react-modal": "^3.8.1",
     "react-native": "^0.57.8",
     "react-recaptcha": "^2.3.10",
