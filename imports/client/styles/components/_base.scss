@@ -4,9 +4,13 @@ color:#000;
 }
 input {
   -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 textarea {
   -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 html, body {
