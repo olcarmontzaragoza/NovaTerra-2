@@ -77,9 +77,9 @@ componentDidMount() {
     document.addEventListener('scroll', this.handleStoryScroll);
 }
 handleStoryScroll() {
+    console.log('is currently handling scroll');
      var winHeight = window.innerHeight;
 
-     // Annoying to compute doc height due to browser inconsistency
      var body = document.body;
      var html = document.documentElement;
      var docHeight = Math.max( body.scrollHeight, body.offsetHeight,
@@ -87,12 +87,20 @@ handleStoryScroll() {
 
      var value = document.body.scrollTop;
 
-     let newValue = window.pageYOffset / docHeight;
+     let subtractValue = document.getElementById('authorAndComments').offsetTop;
+     // let mainHeight = docHeight - subtractValue;
+
+     console.log('subtractValue', docHeight);
+      console.log('subtractValue', subtractValue);
+
+     let newValue = window.pageYOffset / subtractValue;
+
      newValue = newValue * 100;
      if (newValue > 0) {
-     newValue = newValue + 15.1;
+     newValue = newValue + 1.1;
     }
      console.log(newValue);
+     console.log('percentage', newValue);
      this.setState({ percentage: newValue });
 }
 componentWillUnmount() {
@@ -108,7 +116,7 @@ renderNormalContent() {
       <div className="filler" style={{ width: `${this.state.percentage}%`}}></div>
       <Top story={this.findStory()} users={this.state.users} />
       <Body story={this.findStory()} />
-      <div className="story__veryBottomSpacing"></div>
+      <div id="authorAndComments" className="story__veryBottomSpacing"></div>
       <AuthorAndComments story={this.findStory()} users={this.state.users} />
       <StoryBottom story={this.findStory()} users={this.state.users} />
       <div className="ab__bottomSpacing1020"></div>
