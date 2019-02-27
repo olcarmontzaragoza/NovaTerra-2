@@ -126,12 +126,12 @@ render() {
 <div className="clearBoth"></div>
 
 <div className="footer__socialMediaTopDiv">
-<div className="kpebFooter socialHoverrs">
+<a href="https://www.facebook.com/NovaTerra.earth/"><div className="kpebFooter socialHoverrs">
 <FontAwesomeIcon icon={['fab', 'facebook-f']} className="tuers1 footer__facebookWidthHeight" />
-</div>
-<div className="ypebFooter socialHoverrs">
+</div></a>
+<a href="https://twitter.com/NovaTerra_earth"><div className="ypebFooter socialHoverrs">
 <FontAwesomeIcon icon={['fab', 'twitter']} className="tuers2 footer__twitterWidthHeight" />
-</div>
+</div></a>
 <div className="tpebFooter socialHoverrs">
 <FontAwesomeIcon icon={['fab', 'medium-m']} className="tuers3 footer__mediumWidthHeight" />
 </div>

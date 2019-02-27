@@ -7,6 +7,8 @@ import { Tags } from '../../api/tags';
 import { Categories } from '../../api/categories';
 import { funcReplace } from '../../routes/routes.js';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 export class User extends React.Component {
@@ -177,14 +179,15 @@ render() {
         <img src={`${this.props.route}images/noImage.png`} className="profileUser__mainImageStoriesProfilePage"/>}
 
         <div className="floatLeft bottomContainerUserProfileUsers">
-        {this.findUser().username ? <div className="user__mpl__mainAuthor floatLeft">{this.findUser().username.length > 35 ? this.findUser().username.slice(0, 35) + '...' : this.findUser().username}</div> : <div className="user__mpl__mainAuthor floatLeft">{this.findUser().name.length > 35 ? this.findUser().name.slice(0, 35) + '...' : this.findUser().name}</div>}
-        {this.findUser()._id === Meteor.userId() ? undefined : <div>{this.state.follow ? <div ref={this.setFollowingRef} className="mpl__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div ref={this.setFollowingRef} className="mpl__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}</div>}
+        {this.findUser().username ? <div className="user__mpl__mainAuthor floatLeft">{this.findUser().username.length > 19 ? this.findUser().username.slice(0, 19) + '...' : this.findUser().username}</div> : <div className="user__mpl__mainAuthor floatLeft">{this.findUser().name.length > 35 ? this.findUser().name.slice(0, 35) + '...' : this.findUser().name}</div>}
+        {this.findUser()._id === Meteor.userId() ? undefined : <div>{this.state.follow ? <div ref={this.setFollowingRef} className="mpl__followingButtonLargeUser floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div ref={this.setFollowingRef} className="mpl__followButtonLargeUser floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}</div>}
+        {this.findUser()._id === Meteor.userId() ? undefined : <div>{this.state.follow ? <div ref={this.setFollowingRef} className="mpl__followingButtonLargeMobile floatLeft" onClick={() => { this.toggleIsFollowing() }}><FontAwesomeIcon icon={['fas', 'plus']} className='mpl__mobileFollowingIcon' /></div> : <div ref={this.setFollowingRef} className="mpl__followButtonLargeMobile floatLeft" onClick={() => { this.toggleIsFollowing() }}><FontAwesomeIcon icon={['fas', 'plus']}  className='mpl__mobileFollowIcon' /></div>}</div>}
         <div className="clearBoth"></div>
-        { this.findUser().type ? <div className={`mpl__mainStatUsers`}>{`${this.getPostsFromCatOrTag()} ${this.getPostsFromCatOrTag() === 1 ? 'story' : 'stories'}`}</div> : <div className={`mpl__mainStatUsers`}>{`${this.findStoriesLength(this.props.user._id)} ${this.findStoriesLength(this.props.user._id).length === 1 ? 'story' : 'stories'}`}</div>}
+      { this.findUser().type ? <div className={`mpl__mainStatUsers`}>{`${this.getPostsFromCatOrTag()} ${this.getPostsFromCatOrTag() === 1 ? 'story' : 'stories'}`}</div> : <div className={`mpl__mainStatUsers`}>{`${this.findStoriesLength(this.props.user._id)} ${this.findStoriesLength(this.props.user._id).length === 1 ? 'story' : 'stories'}`}</div>}
         <div className={`mpl__mainStatUsers`}>{`${this.findUser().followers.length} ${this.findUser().followers.length === 1 ? 'follower' : 'followers'}`}</div>
         {this.findUser().type ? undefined : <div className={`mpl__mainStatUsers`}>{`${this.findUser().following.length} following`}</div>}
         <div className="clearBoth"></div>
-        <div className="mpl__mainDescriptionUser">{this.findUser().description.length > 46 ? this.findUser().description.slice(0, 46) + '...' : this.findUser().description}</div>
+        <div className="mpl__mainDescriptionUser">{this.findUser().description.length > 88 ? this.findUser().description.slice(0, 88) + '...' : this.findUser().description}</div>
 
         </div>
         <div className="clearBoth"></div>

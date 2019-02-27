@@ -106,7 +106,8 @@ render() {
         {this.state.error ? <div className="login__errorBox"><p>{this.state.error}</p></div> : undefined}
 
         <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
-        <div className="login__rightSubtitle">Email</div>
+
+        <label className="login__rightSubtitle">Email</label>
         <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className="login__mainAuthorTextArea floatLeft" />
 
         <div className="login__rightSubtitle">Password</div>

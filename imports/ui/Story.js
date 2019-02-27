@@ -97,7 +97,7 @@ handleStoryScroll() {
 
      newValue = newValue * 100;
      if (newValue > 0) {
-     newValue = newValue + 1.1;
+     newValue = newValue + 13.2;
     }
      console.log(newValue);
      console.log('percentage', newValue);

@@ -179,7 +179,7 @@ this.changeProfileBottom('following');
 returnInsideQuestionTooltip() {
   return (
     <div>
-    <p className="mpl__textInsideQuestionMark">These are your waiting stories. At NovaTerra, we make a quick, 24-hour check of each story before publishing it to ensure that they do not contain spam, misinformation or advertising. Don't worry about this, most stories are perfectly fine!</p>
+    <p className="mpl__textInsideQuestionMark">These are your waiting stories. At NovaTerra, we make a quick, 24-hour check of each story before publishing it to ensure that it does not contain spam, misinformation or advertising. Don't worry about this, most stories are perfectly fine!</p>
     </div>
   )
 }
@@ -658,6 +658,19 @@ toggleIsFollowing() {
   funcReplace('/login');
 }
 }
+returnFollowingButtons() {
+if (this.props.user.username.length < 19) {
+return <div className="mpl__topFollowMobileHide">{this.state.profileFollow ? <a className="mpl__followingButtonLargeTop floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</a> : <a className="mpl__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</a>}</div>;
+}
+else {
+return (
+  <div>
+  <div className="mpl__profileSmallerFollowingButtons">{this.state.profileFollow ? <div ref={this.setFollowingRef} className="mpl__followingButtonLargeMobileProfile floatLeft" onClick={() => { this.toggleIsFollowing() }}><FontAwesomeIcon icon={['fas', 'plus']} className='mpl__mobileFollowingIcon' /></div> : <div ref={this.setFollowingRef} className="mpl__followButtonLargeMobileProfile floatLeft" onClick={() => { this.toggleIsFollowing() }}><FontAwesomeIcon icon={['fas', 'plus']}  className='mpl__mobileFollowIcon' /></div>}</div>
+  <div className="mpl__profileLargerFollowingButtons">{this.state.profileFollow ? <a className="mpl__followingButtonLargeTop floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</a> : <a className="mpl__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</a>}</div>
+  </div>
+)
+}
+}
 render() {
     return (
       <div>
@@ -670,18 +683,38 @@ render() {
         {!this.props.route ? <ProfileModal route={this.props.route} imageSrc={this.renderMainProfileImage()} /> : this.props.user.profilePhoto ? <div><div className="profileModal__profileModalBehindCircleTRY"></div><Image className="mpl__topImage" cloud_name='novaterra' className="mpl__topImage" publicId={this.props.user.profilePhoto}><Transformation crop="thumb" /></Image></div> : <img src={`${this.props.route}images/noImage.png`} className="mpl__topImage"/> }
 
         <div className="floatLeft mpl__authorRightContainer">
-        <div className="mpl__mainAuthor floatLeft">{this.props.user.username}</div> {this.props.route && this.props.user._id !== Meteor.userId() ? <div>{this.state.profileFollow ? <a className="mpl__followingButtonLargeTop floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</a> : <a className="mpl__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</a>}</div> : undefined }
+        <div className="mpl__mainAuthor floatLeft">{this.props.user.username}</div> {this.props.route && this.props.user._id !== Meteor.userId() ? this.returnFollowingButtons() : undefined }
         <div className="clearBoth"></div>
+        <div className="mpl__mainStatsDesktop">
         <div className={`mpl__mainStat ${this.state.profileBottom === 'posts'  ? 'mpl__selectedStat' : ''}`} onClick={() => { this.changeProfileBottom('posts') }}>{`${this.props.published.length} ${this.props.published.length === 1 ? 'story' : 'stories'}`}</div>
         <div className={`mpl__mainStat ${this.state.profileBottom === 'followers' ? 'mpl__selectedStat' : ''}`} onClick={ () => { this.changeProfileBottom('followers') }}>{`${this.props.user.followers.length} ${this.props.user.followers.length === 1 ? 'follower' : 'followers'}`}</div>
         <div className={`mpl__mainStat ${this.state.profileBottom === 'following' ? 'mpl__selectedStat' : ''}`} onClick={ () => { this.changeProfileBottom('following') }}>{`${this.props.user.following.length} following`}</div>
+        </div>
+        <div className="mpl__mainStatsMobile">
+        <div className="floatLeft mpl__mobileStatTopDivs" onClick={() => { this.changeProfileBottom('posts') }}>
+        <div className={`mpl__mainNumberStatMobile ${this.state.profileBottom === 'posts'  ? 'mpl__selectedStat' : ''}`}>{this.props.published.length}</div>
+        <div className={`mpl__mainStatMobile ${this.state.profileBottom === 'posts'  ? 'mpl__selectedStat' : ''}`}>{`${this.props.published.length === 1 ? 'story' : 'stories'}`}</div>
+        </div>
+        <div className="floatLeft mpl__mobileStatTopDivs" onClick={ () => { this.changeProfileBottom('followers') }}>
+        <div className={`mpl__mainNumberStatMobile ${this.state.profileBottom === 'followers' ? 'mpl__selectedStat' : ''}`}>{this.props.user.followers.length}</div>
+        <div className={`mpl__mainStatMobile ${this.state.profileBottom === 'followers' ? 'mpl__selectedStat' : ''}`}>{`${this.props.user.followers.length === 1 ? 'follower' : 'followers'}`}</div>
+        </div>
+        <div className="floatLeft mpl__mobileStatTopDivs" onClick={ () => { this.changeProfileBottom('following') }}>
+        <div className={`mpl__mainNumberStatMobile ${this.state.profileBottom === 'following' ? 'mpl__selectedStat' : ''}`}>{this.props.user.followers.length}</div>
+        <div className={`mpl__mainStatMobile ${this.state.profileBottom === 'following' ? 'mpl__selectedStat' : ''}`}>{`following`}</div>
+        </div>
+        </div>
         <div className="clearBoth"></div>
 
         <div className="mpl__mainDescription">{this.props.user.description ? this.props.user.description : ''}</div>
 
         { !this.props.route ? <a onClick={() => { this.makeProfileEditable() }} className="mpl__editProfile">Edit Profile</a> : undefined}
+        <a onClick={() => { this.toggleIsFollowing() }} className="mpl__editProfileMobile">{!this.props.route ? 'Edit Profile' : <p>{this.state.profileFollow ? 'Following' : 'Follow'}</p>}</a>
 
-      </div></div>
+
+      </div>
+        <div className="mpl__mainDescriptionMobile"><div className="trytrytry">{this.props.user.username}</div>{this.props.user.description ? this.props.user.description : ''}</div>
+      </div>
         <div className="clearBoth mpl__profileTopHeight"></div>
 
         <div className="bottomProfileMargins">
@@ -726,7 +759,7 @@ render() {
         </div>
 
         <div className="clearBoth"></div>
-       <a onClick={() => { this.saveEditProfile() }} className="mpl__editProfile saveCancelMargin">Save</a><a className="slashSaveCancel saveCancelMargin">/</a><a onClick={() => { this.cancelEditProfile() }} className="mpl__cancelProfile">Cancel</a>
+       <a onClick={() => { this.saveEditProfile() }} className="mpl__saveProfile saveCancelMargin">Save</a><a className="slashSaveCancel saveCancelMargin">/</a><a onClick={() => { this.cancelEditProfile() }} className="mpl__cancelProfile">Cancel</a>
 
       </div></div>
         <div className="clearBoth"></div>
