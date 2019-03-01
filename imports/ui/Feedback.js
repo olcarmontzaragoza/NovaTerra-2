@@ -13,6 +13,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 library.add(far);
 library.add(fas);
 
@@ -207,7 +209,9 @@ returnDescriptionCharactersLeft(e) {
 
 
 
-        <p> (Re-captcha) </p>
+        <div className="signup__recaptchaPositioning">
+       <ReCAPTCHA sitekey="6LfMEpMUAAAAAAo_dmGQX26p_vFsLr_IdmTvzRC_" onChange={() => this.reChange.bind(this)} />
+       </div>
 
         <br className="clearBoth"/>
 

@@ -243,7 +243,7 @@ float:right;
 .posStoryCat {
 font-size:0.84em;
 font-weight:900;
-letter-spacing: 0em;
+letter-spacing: 0.031em;
 margin-left:-1px;
 cursor:pointer;
  -webkit-touch-callout: none;
@@ -253,6 +253,10 @@ cursor:pointer;
          -ms-user-select: none;
              user-select: none;
 
+@media screen and (max-width: 430px) {
+letter-spacing:-0.046em;
+}
+
 // font-size:sans-serif;
 
 // @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -260,7 +264,7 @@ cursor:pointer;
 }
 .posStoryCatTrending {
 font-size:0.84em;
-font-weight:700;
+font-weight:900;
 letter-spacing: 0.028em;
 margin-left:-1px;
 cursor:pointer;
@@ -270,6 +274,12 @@ cursor:pointer;
         -moz-user-select: none;
          -ms-user-select: none;
              user-select: none;
+
+@media screen and (max-width: 430px) {
+  letter-spacing:-0.05em;
+}
+
+
 }
 .latestCategoryRight {
 background-color:#ffffff;
@@ -488,17 +498,20 @@ margin-bottom:30px;
   margin-bottom:9px;
   margin-top:180px;
   }
+  @media screen and (max-width: 430px) {
+    letter-spacing:-0.036em;
+  }
   @media screen and (max-width: 400px) {
   margin-left:-7px;
   font-size:1.24em;
   margin-top:200px;
-  margin-bottom:5px;
+  margin-bottom:9px;
   }
   @media screen and (max-width: 300px) {
   margin-left:0px;
   font-size:1.24em;
   margin-top:220px;
-  margin-bottom:5px;
+  margin-bottom:9px;
   }
 
   }

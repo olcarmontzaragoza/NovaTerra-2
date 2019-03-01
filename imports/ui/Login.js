@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 import { browserHistory } from 'react-router';
 
 import createBrowserHistory from 'history/createBrowserHistory';
@@ -112,6 +114,10 @@ render() {
 
         <div className="login__rightSubtitle">Password</div>
         <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className="login__mainAuthorTextArea floatLeft" />
+
+        <div className="signup__recaptchaPositioning">
+       <ReCAPTCHA sitekey="6LfMEpMUAAAAAAo_dmGQX26p_vFsLr_IdmTvzRC_" onChange={() => this.reChange.bind(this)} />
+       </div>
 
         <br className="clearBoth"/>
         <button className="login__loginButton">Login</button>

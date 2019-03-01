@@ -402,11 +402,34 @@ if (this.state.results.length > 0) {
   return this.state.results;
 } else {
   return (
-    <div className="faq__positionNoQuestionsMessage">
-    <div className="faq__noQuestionFound">Sorry this question has not been asked yet. Would you like to add it to the FAQ?</div>
+    <div className="notFound__containerSearch">
+    <div className="notFound__topSection">
+    <svg width="0" height="0">
+    <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+    <stop stopColor="#67B26F" offset="0.28" />
+    <stop stopColor="#4ca2cd" offset="0.65" />
+    </radialGradient>
+    </svg>
+    <div className="notFound__iconHover">
+    <FontAwesomeIcon icon={['far', 'compass']} className='notFound__iconSearch' />
+    </div>
+    </div>
+
+    <div className="notFound__bottomMargins">
+    <div className="notFound__bottomMessage">
+      <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">Sorry this question has not been asked yet. Would you like to add it to the FAQ?</p></div>
+    </div>
+    </div>
+    <div className="notFound__positionButtonMobile">
     <Link to='/contact' className="faqAddQuestion faq__positionNoQuestionMessageButton">Add Question to FAQ</Link>
     </div>
+
+    </div>
   )
+    // <div className="faq__positionNoQuestionsMessage">
+    // <div className="faq__noQuestionFound">Sorry this question has not been asked yet. Would you like to add it to the FAQ?</div>
+    // <Link to='/contact' className="faqAddQuestion faq__positionNoQuestionMessageButton">Add Question to FAQ</Link>
+    // </div>
 }
 
 }

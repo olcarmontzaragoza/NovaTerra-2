@@ -19,6 +19,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
 import Modal from 'react-modal';
 Modal.setAppElement('#app');
 
@@ -186,23 +188,198 @@ returnInsideQuestionTooltip() {
 showNoStoriesMessage() {
 if (!this.props.route) {
   if (this.state.selectedOption === 1) {
-    return <div className="mpl__publishedNoText"><p className="mpl__noStoriesFound floatLeft">You haven't published any stories yet. </p><div className="floatLeft link mpl__noPublishedStoriesMarginLeft" onClick={() => { this.toggleStoriesSort(2) }}>Start by creating a draft!</div></div>;
+    return (
+      <div className="notFound__container">
+      <div className="notFound__topSection">
+      <svg width="0" height="0">
+      <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+      <stop stopColor="#67B26F" offset="0.28" />
+      <stop stopColor="#4ca2cd" offset="0.65" />
+      </radialGradient>
+      </svg>
+      <div className="notFound__iconHover">
+      <FontAwesomeIcon icon={['far', 'edit']} className='notFound__icon' />
+      </div>
+      </div>
+
+      <div className="notFound__bottomMargins">
+      <div className="notFound__bottomMessage">
+        <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">You haven't published any stories yet. <a className="link notFound__noPublishedStoriesMarginLeft" onClick={() => { this.toggleStoriesSort(2) }}>Start by creating a draft!</a></p></div>
+      </div>
+      </div>
+      <div className="notFound__positionButtonMobile">
+      <div onClick={() => { this.toggleStoriesSort(2) }} className="notFound__actionButton">Create a Draft</div>
+      </div>
+
+      </div>
+    )
+
   } else if (this.state.selectedOption === 2) {
-    return <p className="mpl__noStoriesFound2">You haven't created any drafts yet. Click the button below to create your first draft!</p>;
+    return (
+      <div className="notFound__containerDraft">
+      <div className="notFound__topSection">
+      <svg width="0" height="0">
+      <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+      <stop stopColor="#67B26F" offset="0.28" />
+      <stop stopColor="#4ca2cd" offset="0.65" />
+      </radialGradient>
+      </svg>
+      <div className="notFound__iconHover">
+      <FontAwesomeIcon icon={['fas', 'plus-circle']} className='notFound__icon' />
+      </div>
+      </div>
+
+      <div className="notFound__bottomMargins">
+      <div className="notFound__bottomMessage">
+        <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">You haven't created any drafts yet. Click the button below to create your first draft!</p></div>
+      </div>
+      </div>
+      <div className="notFound__positionButtonMobile">
+      <div onClick={() => this.createNewStory()} className="notFound__actionButtonDraft">Create a new Story</div>
+      </div>
+      </div>
+    )
   } else {
-    return <div><p className="mpl__noStoriesFound2Waiting">You don't have any stories in review at the moment.</p><QuestionCircleTooltipClick inside={this.returnInsideQuestionTooltip()} outside={<FontAwesomeIcon className="mpl__questionCircle" icon={['far', 'question-circle']} />} outsideClassName="mpl__waitingTooltip" insideClassName='mpl__questionCircleInside' /></div>;
+    return (
+      <div className="notFound__container">
+      <div className="notFound__topSection">
+      <svg width="0" height="0">
+      <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+      <stop stopColor="#67B26F" offset="0.28" />
+      <stop stopColor="#4ca2cd" offset="0.65" />
+      </radialGradient>
+      </svg>
+      <div className="notFound__iconHover">
+      <FontAwesomeIcon icon={['fas', 'search']} className='notFound__icon' />
+      </div>
+      </div>
+
+      <div className="notFound__bottomMargins">
+      <div className="notFound__bottomMessage">
+        <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">You don't have any stories in review at the moment.<QuestionCircleTooltipClick inside={this.returnInsideQuestionTooltip()} outside={<FontAwesomeIcon className="mpl__questionCircle" icon={['far', 'question-circle']} />} outsideClassName="mpl__waitingTooltip" insideClassName='mpl__questionCircleInside' /></p></div>
+      </div>
+      </div>
+      <div className="notFound__positionButtonMobile">
+      <div onClick={() => this.toggleStoriesSort(2)} className="notFound__actionButton">Publish a Story</div>
+      </div>
+      </div>
+    )
   }
 
 } else {
-return <p className="mpl__noStoriesFound2">Hmm... This user doesn't seem to have posted any stories yet.</p>;
+return (
+  <div className={this.props.user._id === Meteor.userId() ? 'notFound__containerProfileUser2' : 'notFound__containerProfileUser'}>
+  <div className="notFound__topSection">
+  <svg width="0" height="0">
+  <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+  <stop stopColor="#67B26F" offset="0.28" />
+  <stop stopColor="#4ca2cd" offset="0.65" />
+  </radialGradient>
+  </svg>
+  <div className="notFound__iconHover">
+  <FontAwesomeIcon icon={['fas', 'search']} className='notFound__icon' />
+  </div>
+  </div>
+
+  <div className="notFound__bottomMargins">
+  <div className="notFound__bottomMessage">
+    <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">{this.props.user._id === Meteor.userId() ? <p>You haven't published any stories yet. <Link to="/profile" className="link notFound__noPublishedStoriesMarginLeft">Start by creating a draft!</Link></p> : "Hmm... This user doesn't seem to have posted any stories yet."}</p></div>
+  </div>
+  </div>
+  {this.props.user._id === Meteor.userId() ? <div className="notFound__positionButtonMobile">
+  <Link to="/profile"><div className="notFound__actionButton">Profile</div></Link>
+  </div> : undefined }
+  </div>
+)
 }
 }
 returnNoFollowersMessage() {
 if (this.props.user.followers.length === 0) {
 if (this.props.route) {
-  return <div className="profile__noFollowersMessage">This user does have any followers. Click 'follow' to become their first follower!</div>;
+  return (
+    <div className="notFound__containerProfileUserFollow">
+    <div className="notFound__topSection">
+    <svg width="0" height="0">
+    <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+    <stop stopColor="#67B26F" offset="0.28" />
+    <stop stopColor="#4ca2cd" offset="0.65" />
+    </radialGradient>
+    </svg>
+    <div className="notFound__iconHover">
+    <FontAwesomeIcon icon={['fas', 'user-friends']} className='notFound__icon' />
+    </div>
+    </div>
+
+    <div className="notFound__bottomMargins">
+    <div className="notFound__bottomMessage">
+      <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">{this.props.user._id === Meteor.userId() ? "You don't have any followers at the moment. Try inviting some of your friends over to NovaTerra!" : "This user doesn't have any followers. Click 'follow' to become their first follower!"}</p></div>
+    </div>
+    </div>
+    <div className="notFound__positionButtonMobile">
+    {this.props.user._id !== Meteor.userId() ? <div onClick={() => { this.toggleIsFollowing() }} className="notFound__actionButtonFollow">{this.state.profileFollow ? "Following" : "Follow"}</div> : <div className="notFound__positionButtonMobileSocial">
+
+    <a href="https://www.facebook.com" className="notFound__oopeb notFound__socialHover">
+     <div className="homeTop__heightOne"></div>
+     <FontAwesomeIcon icon={['fab', 'facebook-f']} className="tue notFound__firstShareIcon" />
+      </a>
+    <a href="https://www.twitter.com" className="notFound__aapeb notFound__socialHover">
+     <FontAwesomeIcon icon={['fab', 'twitter']} className="tue notFound__secondShareIcon" />
+      </a>
+    <a href="https://www.instagram.com" className="notFound__mmpeb notFound__socialHover">
+     <FontAwesomeIcon icon={['fab', 'instagram']} className="tue notFound__thirdShareIcon" />
+      </a>
+    <a href="https://www.pinterest.com" className="notFound__mmpeb notFound__socialHover">
+    <FontAwesomeIcon icon={['fab', 'pinterest']} className="tue notFound__fourthShareIcon" />
+      </a>
+      <a href="https://www.reddit.com" className="notFound__mmpeb notFound__socialHover">
+      <FontAwesomeIcon icon={['fab', 'reddit']} className="tue notFound__fifthShareIcon" />
+        </a>
+    </div>}
+
+    </div>
+    </div>
+  )
 } else {
-  return <div className="profile__noFollowersMessage">We couldn't find any followers. Why not invite some of your friends over to NovaTerra?</div>;
+  return (
+    <div className="notFound__containerProfileUserFollow2">
+    <div className="notFound__topSection">
+    <svg width="0" height="0">
+    <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+    <stop stopColor="#67B26F" offset="0.28" />
+    <stop stopColor="#4ca2cd" offset="0.65" />
+    </radialGradient>
+    </svg>
+    <div className="notFound__iconHover">
+    <FontAwesomeIcon icon={['fas', 'user-friends']} className='notFound__icon' />
+    </div>
+    </div>
+
+    <div className="notFound__bottomMargins">
+    <div className="notFound__bottomMessage">
+      <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">You don't have any followers at the moment. Why not invite some of your friends over to NovaTerra?</p></div>
+    </div>
+    </div>
+    <div className="notFound__positionButtonMobileSocial">
+
+    <a href="https://www.facebook.com" className="notFound__oopeb notFound__socialHover">
+     <div className="homeTop__heightOne"></div>
+     <FontAwesomeIcon icon={['fab', 'facebook-f']} className="tue notFound__firstShareIcon" />
+      </a>
+    <a href="https://www.twitter.com" className="notFound__aapeb notFound__socialHover">
+     <FontAwesomeIcon icon={['fab', 'twitter']} className="tue notFound__secondShareIcon" />
+      </a>
+    <a href="https://www.instagram.com" className="notFound__mmpeb notFound__socialHover">
+     <FontAwesomeIcon icon={['fab', 'instagram']} className="tue notFound__thirdShareIcon" />
+      </a>
+    <a href="https://www.pinterest.com" className="notFound__mmpeb notFound__socialHover">
+    <FontAwesomeIcon icon={['fab', 'pinterest']} className="tue notFound__fourthShareIcon" />
+      </a>
+      <a href="https://www.reddit.com" className="notFound__mmpeb notFound__socialHover">
+      <FontAwesomeIcon icon={['fab', 'reddit']} className="tue notFound__fifthShareIcon" />
+        </a>
+    </div>
+    </div>
+  )
 }
 }
 return undefined;
@@ -210,9 +387,55 @@ return undefined;
 returnNoFollowingMessage() {
 if (this.props.user.following.length === 0) {
 if (this.props.route) {
-  return <div className="profile__noFollowersMessage">This user doesn't seem to be following any creators at the moment.</div>;
+  return (
+    <div className={this.props.user._id === Meteor.userId() ? 'notFound__containerProfileUserFollow2' : 'notFound__containerProfileUserFollow3'}>
+    <div className="notFound__topSection">
+    <svg width="0" height="0">
+    <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+    <stop stopColor="#67B26F" offset="0.28" />
+    <stop stopColor="#4ca2cd" offset="0.65" />
+    </radialGradient>
+    </svg>
+    <div className="notFound__iconHover">
+    <FontAwesomeIcon icon={['fas', 'users']} className='notFound__icon' />
+    </div>
+    </div>
+
+    <div className="notFound__bottomMargins">
+    <div className="notFound__bottomMessage">
+      <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">{this.props.user._id === Meteor.userId() ? <div>You don't seem to be following any creators at the moment. Check out our <Link to='/explore' className="link">Explore page</Link> to find creators to follow!</div> : "This user doesn't seem to be following any creators at the moment."}</p></div>
+    </div>
+    </div>
+    {this.props.user._id === Meteor.userId() ? <div className="notFound__positionButtonMobile">
+      <Link to="/explore"><div className="notFound__actionButtonFollow">Explore</div></Link>
+      </div> : undefined }
+    </div>
+  )
 }
-  return <div className="profile__noFollowersMessage">You don't seem to be following any creators at the moment.</div>;
+  return (
+    <div className='notFound__containerProfileUserFollow2'>
+    <div className="notFound__topSection">
+    <svg width="0" height="0">
+    <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+    <stop stopColor="#67B26F" offset="0.28" />
+    <stop stopColor="#4ca2cd" offset="0.65" />
+    </radialGradient>
+    </svg>
+    <div className="notFound__iconHover">
+    <FontAwesomeIcon icon={['fas', 'users']} className='notFound__icon' />
+    </div>
+    </div>
+
+    <div className="notFound__bottomMargins">
+    <div className="notFound__bottomMessage">
+      <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">You don't seem to be following any creators at the moment. Check out our <Link to="/explore" className="link">Explore page</Link> to find creators to follow!</p></div>
+    </div>
+    </div>
+    <div className="notFound__positionButtonMobile">
+    <Link to="/explore"><div className="notFound__actionButtonFollow">Explore</div></Link>
+    </div>
+    </div>
+  )
 }
 return undefined;
 }
@@ -671,6 +894,9 @@ return (
 )
 }
 }
+redirectToProfile() {
+  window.location = `/profile`;
+}
 render() {
     return (
       <div>
@@ -709,7 +935,7 @@ render() {
         <div className="mpl__mainDescription">{this.props.user.description ? this.props.user.description : ''}</div>
 
         { !this.props.route ? <a onClick={() => { this.makeProfileEditable() }} className="mpl__editProfile">Edit Profile</a> : undefined}
-        <a onClick={() => { this.toggleIsFollowing() }} className="mpl__editProfileMobile">{!this.props.route ? 'Edit Profile' : <p>{this.state.profileFollow ? 'Following' : 'Follow'}</p>}</a>
+        {!this.props.route ? <a onClick={() => { this.makeProfileEditable() }} className="mpl__editProfileMobile">Edit Profile</a> : <div>{this.props.user._id !== Meteor.userId() ? <a onClick={() => { this.toggleIsFollowing() }} className="mpl__editProfileMobile">{this.state.profileFollow ? 'Following' : 'Follow'}</a> : <a onClick={() => { this.redirectToProfile() }} className="mpl__editProfileMobile">Profile</a>}</div>}
 
 
       </div>

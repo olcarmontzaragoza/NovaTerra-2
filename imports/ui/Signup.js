@@ -95,10 +95,10 @@ let passwordConfirmation = this.refs.passwordConfirmation.value.trim();
 
 let recaptcha = this.state.recaptcha;
 
-if (!recaptcha) {
-this.setErrorScrollTop();
-return this.setState({ error: 'Please complete the Recaptcha' });
-}
+// if (!recaptcha) {
+// this.setErrorScrollTop();
+// return this.setState({ error: 'Please complete the Recaptcha' });
+// }
 
 if (firstName.length < 1) {
 this.setErrorScrollTop();

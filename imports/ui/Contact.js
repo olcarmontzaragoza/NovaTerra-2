@@ -6,6 +6,8 @@ import moment from 'moment';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 Meteor.subscribe('currentUser');
 
 export class Contact extends React.Component {
@@ -173,7 +175,7 @@ setPage() {
         <div>
         <form onSubmit={this.onSubmit.bind(this)} noValidate>
 
-        <div className="contact__firstDiv floatLeft">Hmm... I see you are logged in. I will use your account's email to contact you. If you would like to use another email address, please <div className="link contact__link" onClick={() => { this.setState({ showFirstForm: false }) }}>click here</div></div>
+        <div className="contact__firstDiv floatLeft">Hmm... I see you are logged in. I will use your account's email to contact you. If you would like to use another email address, please <div className="link contact__link" onClick={() => { this.setState({ showFirstForm: false }) }}>Click here</div></div>
 
         <br className="clearBoth"/>
 
@@ -189,7 +191,9 @@ setPage() {
 
         <br className="clearBoth"/>
 
-        <p> (Re-captcha) </p>
+        <div className="signup__recaptchaPositioning">
+       <ReCAPTCHA sitekey="6LfMEpMUAAAAAAo_dmGQX26p_vFsLr_IdmTvzRC_" onChange={() => this.reChange.bind(this)} />
+       </div>
 
         <br className="clearBoth"/>
 
@@ -205,7 +209,7 @@ setPage() {
       <div>
       <form onSubmit={this.onSubmit.bind(this)} noValidate>
 
-      { Meteor.userId() ? <div><div className="floatLeft contactPageWidth2 contactPageSwitchBack login__smalllBelowThings"> Want to switch back?</div><div className="link floatLeft" onClick={() => { this.setPage() }}>Click here</div></div> : <div className="floatLeft contactPageWidth3 contactPageSwitchBack">Please fill in the form below to reach out to us. Take into account we will use the email you provide below to respond back to you. Note, that if you like, you can also contact us directly at contact@novaterra.earth.</div>}
+      { Meteor.userId() ? <div><div className="floatLeft contactPageWidth2 contactPageSwitchBack login__smalllBelowThings"> Want to switch back?</div><div className="link floatLeft contact__clickHereMarginTop" onClick={() => { this.setPage() }}>Click here</div></div> : <div className="floatLeft contactPageWidth3 contactPageSwitchBack">Please fill in the form below to reach out to us. Take into account we will use the email you provide below to respond back to you. Note, that if you like, you can also contact us directly at contact@novaterra.earth.</div>}
 
      {this.state.error ? <div className="contact__positioningErrorBox"><div className="login__errorBox"><p>{this.state.error}</p></div></div> : undefined}
 
@@ -249,7 +253,9 @@ setPage() {
 
       <br className="clearBoth"/>
 
-      <p> (Re-captcha) </p>
+      <div className="signup__recaptchaPositioning">
+     <ReCAPTCHA sitekey="6LfMEpMUAAAAAAo_dmGQX26p_vFsLr_IdmTvzRC_" onChange={() => this.reChange.bind(this)} />
+     </div>
 
       <br className="clearBoth"/>
 

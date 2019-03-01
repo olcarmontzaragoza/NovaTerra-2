@@ -79,8 +79,8 @@ render () {
     <Modal isOpen={this.state.isOpen}
            contentLabel='Change Profile Image'
            onRequestClose={this.handleModalClose.bind(this)}
-           className="boxed-view__box"
-           overlayClassName="boxed-view boxed-view--modal">
+           className="boxed-view__boxPro"
+           overlayClassName="boxed-viewPro boxed-view--modalPro">
       <h1 className="profileModal__imageModalTitle">Change Profile Image</h1>
       <hr className="profileModal__hr"/>
 
@@ -89,9 +89,12 @@ render () {
       <div className="clearBoth"></div>
 
       {this.userHasPhoto() || Session.get('imageEntered') ? <div><div className="profileModal__profileModalBehindCircle"></div><Image className="profileModal__mainImage" cloud_name='novaterra' publicId={this.findUserPhoto()}><Transformation crop="scale" /></Image></div> : <div className="profileModal__mainImageNormal" style={{  backgroundImage: "url(" + `${this.props.imageSrc}` + ")" }} id="imagePreview"></div>}
+      <div className="profileModal__bottomButtonsMobile">
       <div className={`profileModal__addButton`} onClick={() => this.doThis()}>Add</div>
       <div className="profileModal__removeButton" onClick={() => this.removeProfilePhoto()}>Remove</div>
       <div className="profileModal__cancelButton" onClick={this.handleModalClose.bind(this)}>Cancel</div>
+      </div>
+      <div className="profileModal__bottomButtonsMobileHeight"></div>
 
       {this.state.error ? <p>{this.state.error}</p> : undefined}
 

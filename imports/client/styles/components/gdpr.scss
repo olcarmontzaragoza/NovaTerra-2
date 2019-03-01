@@ -1,0 +1,73 @@
+.gdprMessage__container {
+  position:fixed;
+  bottom: 16px;
+  left: 16px;
+  z-index:20000;
+  background-color: #fff;
+  margin-left:1px;
+  width:260px;
+  height:210px;
+  // border:1px solid #e1e1e1;
+  border-radius:10px;
+
+  -webkit-box-shadow:   0.5px 1.2px 5px 1.5px #f0f0f0;
+  -moz-box-shadow:    0.5px 1.2px 5px 1.5px #f0f0f0;
+  box-shadow:         0.5px 1.2px 5px 1.5px #f0f0f0;
+
+  @media screen and (max-width: 560px) {
+    bottom: 12px;
+    left: 12px;
+  }
+  @media screen and (max-width: 400px) {
+    bottom: 10px;
+    left: 10px;
+  }
+}
+.gdprMessage__containerHidden {
+  display:none;
+}
+.gdprMessage__topBackground {
+  width:100%;
+  height:60px;
+  background: -webkit-linear-gradient(#4ca2cd, #67B26F);
+  background: linear-gradient(#4ca2cd, #67B26F);
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  font-size:1.16em;
+  font-weight:800;
+  letter-spacing:0.038em;
+  color:#fff;
+  border-radius:9px 9px 0px 0px;
+
+@media screen and (max-width: 430px) {
+  letter-spacing:-0.04em;
+}
+}
+.gdprMessage__bottomMargins {
+margin-top:16px;
+margin-left:16px;
+}
+.gdprMessage__bottomMessage {
+width:90%;
+font-size:0.96em;
+line-height:1.5;
+letter-spacing:0.02em;
+}
+.gdprMessage__sureButton {
+border-radius:4px;
+color:#fff;
+background-color:#15a05c;
+height:33px;
+width:66px;
+opacity:0.8;
+display:flex;
+justify-content:center;
+align-items:center;
+letter-spacing:0.033em;
+font-size:0.82em;
+position:relative;
+margin-top:15px;
+margin-left:172px;
+cursor:pointer;
+}

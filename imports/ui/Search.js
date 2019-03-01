@@ -890,6 +890,7 @@ element.value = null;
 document.getElementById('onlyId').focus();
 // this.setState({ searching: true });
 this.searchUpdated();
+window.scrollTo(0, 0);
 }
 // componentDidMount() {
 
@@ -1079,11 +1080,34 @@ renderNoResults() {
 returnNoResultsMessage() {
 if (this.state.searchTerm.length > 1) {
   return (
-    <div className="search__positionNoResultsMessage">
-    <FontAwesomeIcon icon={['far', 'compass']} className='search__noNotficationsIcon' />
-    <div className="search__centerNoResultsMessage"><div className="search__noResultsFound">{`Sorry, we couldn't find any results.`}</div> {/* ${this.state.searchTerm.length > 35 ? this.state.searchTerm.slice(0, 35) + '...' : this.state.searchTerm } */}
-    </div></div>
+    <div className="notFound__containerSearch">
+    <div className="notFound__topSection">
+    <svg width="0" height="0">
+    <radialGradient id="notFoundColor" r="150%" cx="30%" cy="107%">
+    <stop stopColor="#67B26F" offset="0.28" />
+    <stop stopColor="#4ca2cd" offset="0.65" />
+    </radialGradient>
+    </svg>
+    <div className="notFound__iconHover">
+    <FontAwesomeIcon icon={['far', 'compass']} className='notFound__iconSearch' />
+    </div>
+    </div>
+
+    <div className="notFound__bottomMarginsSearch">
+    <div className="notFound__bottomMessage">
+      <div className="notFound__publishedNoText"><p className="notFound__noStoriesFound">Sorry, we couldn't find any results for: "{this.state.searchTerm.length > 48 ? this.state.searchTerm.slice(0, 48) + '...' : this.state.searchTerm }"</p></div>
+    </div>
+    </div>
+    <div className="notFound__positionButtonMobile">
+    <div onClick={() => { this.clearSearchInput() }} className="notFound__actionButton notFound__actionButtonMarginBottomSearch">Clear Search</div>
+    </div>
+
+    </div>
   )
+  // <div className="search__positionNoResultsMessage">
+  // <FontAwesomeIcon icon={['far', 'compass']} className='search__noNotficationsIcon' />
+  // <div className="search__centerNoResultsMessage"><div className="search__noResultsFound">{`Sorry, we couldn't find any results.`}</div>
+  // </div></div>
 }
 }
 renderNormalContent() {
