@@ -14,18 +14,25 @@ margin-left:7.1vw;
 margin-left:6.9vw;
 }
 @media screen and (max-width: 900px) {
-margin-left:-8px;
-width:100vw;
+margin-left:0px;
+width:101vw;
+border-radius:0px;
 }
 @media screen and (max-width: 610px) {
-  margin-left:-8px;
-  width:100vw;
+  margin-left:0px;
+  width:101vw;
   height:1665px;
 }
 @media screen and (max-width: 445px) {
-  margin-left:-8px;
-  width:100vw;
+  margin-left:0px;
+  width:101vw;
   height:1545px;
+}
+@media screen and (max-width: 441px) {
+width:101.5vw;
+}
+@media screen and (max-width: 419px) {
+width:103.5vw;
 }
 // @media screen and (max-width: 650px) {
 // margin-left:6.3vw;
@@ -63,6 +70,10 @@ width:100vw;
   margin-bottom:-21px;
   width:155px;
   }
+
+
+
+
 }
 .mission__revenueModelImageRight {
   width:200px;
@@ -260,6 +271,9 @@ font-size:1.5em;
   @media screen and (max-width: 610px) {
   width:89vw;
   height:1230px;
+  }
+  @media screen and (max-width: 400px) {
+  width:86.5vw;
   }
 }
 .mission__ourSpendingModelSpacing {

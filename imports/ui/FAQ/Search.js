@@ -433,6 +433,22 @@ if (this.state.results.length > 0) {
 }
 
 }
+submitSuggestion() {
+  let suggestion = this.refs.suggestionInput.value;
+  let answer = this.state.answer._id;
+
+  let details = {
+    reason: 'SUGGESTION',
+    time: moment(moment().valueOf()).format('LLLL'),
+    user: Meteor.userId() ? Meteor.userId() : 'Not Signed In',
+    username: Meteor.userId() ? Meteor.users.findOne({ _id: Meteor.userId() }).username : 'Not Signed in',
+    suggestion,
+    answer,
+  }
+
+  Meteor.call('submissions.insert', details);
+
+}
 renderSuggestionsInput() {
   return (
     <div>
@@ -440,7 +456,7 @@ renderSuggestionsInput() {
       <textarea className="faq__suggestionMessageTextarea" ref='suggestionInput' maxLength='300' onChange={this.returnCharactersLeft.bind(this)} autoFocus placeholder="Maybe you could..."></textarea>
       <div className="faq__suggestionMessageMaxCharacters">{`${300 - this.state.suggestionsLength} Characters Left`}</div>
 
-      <div className="faq__suggestionMessageSubmit">Submit</div>
+      <div onClick={() => this.submitSuggestion()} className="faq__suggestionMessageSubmit">Submit</div>
     </div>
   )
 }
@@ -546,7 +562,7 @@ render() {
             </div>
             </div>
 
-            <div className="clearBoth search__popularResultsMiddleSpacing"></div>
+            <div className="faq__popularResultsMiddleSpacing"></div>
 
             <div className="floatLeft faq__popularResultsIndividual">
             <div className="search__popularResultsHeader">Donate</div>
@@ -591,7 +607,7 @@ render() {
 
           </div> }
       </div>
-      <div className="faq__veryMarginBottom"></div>
+      <div className='faq__veryMarginBottom'></div>
       </div>
 
       :
@@ -650,7 +666,7 @@ render() {
         </div>
       }
 
-      {this.state.answer ? <div className="faq__answerVeryBottomSpacing"></div> : <div className="faqPageBottomHeight"></div>}
+      {this.state.answer ? <div className="faq__answerVeryBottomSpacing"></div> : <div className={this.state.searchTerm ? "faqPageBottomHeightSearch" : "faqPageBottomHeight"}></div>}
           <Footer route='' />
           </div>
           : undefined }

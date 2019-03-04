@@ -5,6 +5,8 @@ import { Notifications } from '../../api/notifications';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
+import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 
@@ -31,6 +33,12 @@ findStoryUser(id) {
   return Meteor.users.findOne({ _id: id });
 }
 publishStory(id) {
+
+  let facebookLink = this.refs.admin__facebookShare.value;
+  let twitterLink = this.refs.admin__twitterShare.value;
+  let redditLink = this.refs.admin__redditShare.value;
+  let pinterestLink = this.refs.admin__pinterestShare.value;
+  let tumblrLink = this.refs.admin__tumblrShare.value;
 
   let story = Stories.findOne({ _id: id });
 
@@ -76,6 +84,7 @@ publishStory(id) {
   storyId: story._id,
   published:true,
   link: `story/${link}`,
+
   };
 
   if (Notifications.find({ storyId: story._id })) {
@@ -86,7 +95,7 @@ publishStory(id) {
 
   Meteor.call('notifications.insert', details);
 
-  Meteor.call('stories.update', id, { storyType: 'published', link: `story/${link}`, lastUpdated: moment().valueOf() });
+  Meteor.call('stories.update', id, { storyType: 'published', link: `story/${link}`, lastUpdated: moment().valueOf(), facebookLink, twitterLink, redditLink, pinterestLink, tumblrLink });
 
 }
 doNotPublishStory(id) {
@@ -133,6 +142,7 @@ renderAdminContent() {
         {this.returnWaitingStories().map((story) => {
           return (<div key={story._id}>
           <hr/>
+          <Image className="createStory__actualImageUploadedShadow" cloud_name='novaterra' publicId={story.mainImage}><Transformation crop="scale" /></Image>
           <div>{story.category}</div>
           <div dangerouslySetInnerHTML={{ __html:
           story.title }}></div>
@@ -144,6 +154,23 @@ renderAdminContent() {
           <Link className="link" to={this.findStoryUser(story.userId).profileUrl}>{this.findStoryUser(story.userId).username}</Link>
 
           <div className="adminTopSpacing clearBoth"></div>
+
+          <div className="">Facebook</div>
+          <input className="" ref="admin__facebookShare" />
+
+          <div className="">Twitter</div>
+          <input className="" ref="admin__twitterShare" />
+
+          <div className="">Reddit</div>
+          <input className="" ref="admin__redditShare" />
+
+          <div className="">Pinterest</div>
+          <input className="" ref="admin__pinterestShare" />
+
+          <div className="">Tumblr</div>
+          <input className="" ref="admin__tumblrShare" />
+
+          <div className="clearBoth"></div>
           <div onClick={() => this.publishStory(story._id)} className="admin__buttonPub">Publish</div>
           <br/>
           <div onClick={() => this.doNotPublishStory(story._id)} className="admin__buttonRej">Do Not Publish</div>

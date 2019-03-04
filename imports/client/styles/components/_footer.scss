@@ -267,6 +267,7 @@ transition:0.2s;
   border:2px solid #000000;
     margin-top:5px;
     float:left;
+    cursor:pointer;
 }
 .kpebFooter:hover {
   transition:0.2s;
@@ -304,15 +305,21 @@ margin-top:11px;
 }
 .tpebFooter:hover {
 transition:0.2s;
-background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0.2, #d1493c), color-stop(0.35, #E55D4B), color-stop(0.55, #EF6755), color-stop(0.65, #F9715F), color-stop(0.7, #FF7B69), color-stop(0.75, #FF856E), color-stop(0.85, #FF8F78), color-stop(1, #ffb4a0) );
+// background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0.2, #d1493c), color-stop(0.35, #E55D4B), color-stop(0.55, #EF6755), color-stop(0.65, #F9715F), color-stop(0.7, #FF7B69), color-stop(0.75, #FF856E), color-stop(0.85, #FF8F78), color-stop(1, #ffb4a0) );
+//
+// background-image: gradient( linear, left bottom, right top, color-stop(0.2, #d1493c), color-stop(0.35, #E55D4B), color-stop(0.55, #EF6755), color-stop(0.65, #F9715F), color-stop(0.7, #FF7B69), color-stop(0.75, #FF856E), color-stop(0.85, #FF8F78), color-stop(1, #ffb4a0) );
 
-background-image: gradient( linear, left bottom, right top, color-stop(0.2, #d1493c), color-stop(0.35, #E55D4B), color-stop(0.55, #EF6755), color-stop(0.65, #F9715F), color-stop(0.7, #FF7B69), color-stop(0.75, #FF856E), color-stop(0.85, #FF8F78), color-stop(1, #ffb4a0) );
+background: #f09433;
+background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
 
-transition: .15s ease;
+transition: 0.15s ease;
 }
 .tuers3 {
 margin-left:10px;
-margin-top:8.5px;
+margin-top:9.5px;
 }
 .tpebFooter:hover .tuers3 {
   /* margin-top:8.6px;
@@ -431,7 +438,7 @@ margin-top:8.5px;
   color:#fff;
 }
 .footer__mediumWidthHeight {
-  width:20px; height:20px;
+  font-size:1.205em;
   color:#fff;
 }
 

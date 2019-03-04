@@ -322,7 +322,7 @@ render() {
 
 
           <div ref={this.setAuthorImage1Ref}><Link to={this.findUser(this.props.collection[0].userId).profileUrl}>
-          {this.findUser(this.props.collection[0].userId).profilePhoto ? <div><div className="catAndTag__behindCircle"></div><Image className="categoryAndTag__popMainStoryImage1 floatLeft" cloud_name='novaterra' publicId={this.findUser(this.props.collection[0].userId).profilePhoto}><Transformation crop="thumb" /></Image></div> :
+          {this.findUser(this.props.collection[0].userId).profilePhoto ? <div><div className="catAndTag__behindCircle"></div><Image className="categoryAndTag__popMainStoryImage1Image floatLeft" cloud_name='novaterra' publicId={this.findUser(this.props.collection[0].userId).profilePhoto}><Transformation crop="thumb" /></Image></div> :
           <img src={`${this.props.route}images/noImage.png`} className="categoryAndTag__popMainStoryImage1 floatLeft"/>}</Link></div>
 
             <div className="floatLeft categoryAndTag__authorBelowStory">
@@ -795,7 +795,7 @@ render() {
         <div className="containerStory2">
         <Link to={story.link}><Image cloud_name='novaterra' className="categoryAndTags__bottomContainerImage1" publicId={story.mainImage}><Transformation crop="thumb" /></Image></Link>
         <hr className="categoriesAndTags__popularImageLineBelow1"/>
-        <div className="popularContainerHeightsAndShadowBelow">
+        <div className={story.title.length > 35 ? "popularContainerHeightsAndShadowBelow" : "popularContainerHeightsAndShadowBelow1"}>
         <div className="popularContainerInnerMargins">
 
           <div className="categoriesAndTags__bottomStoriesSpacing"></div>

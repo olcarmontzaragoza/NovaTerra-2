@@ -17,13 +17,14 @@ let trendingAll = [];
 
 Session.set('sideBarSide', false);
 
-export class MiddleSidebar extends React.Component {
+export class MiddleBottomSidebar extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
 trendingStories: [],
 sideBarSide: false,
 trackClassName: 'rightSideBarNotTop',
+trackClassNameBottom: 'middle__hidden',
 };
 this.trackScrolling = this.trackScrolling.bind(this);
 }
@@ -120,12 +121,12 @@ console.log('bottom', bottomElement);
 num = -1;
 
 if (page < topOffset) {
-  this.setState({ trackClassName: 'rightSideBarNotTop' });
+  this.setState({ trackClassNameBottom: 'middle__hidden' });
 } else if (page >= topOffset && page <= bottomOffset) {
   console.log('this is now true');
-  this.setState({ trackClassName: 'rightSideBar' });
+  this.setState({ trackClassNameBottom: 'middle__hidden' });
 } else if (page > bottomOffset) {
-  this.setState({ trackClassName: 'rightSideBarNotBottom' });
+  this.setState({ trackClassNameBottom: 'middle__visible' });
 }
 }
 setNum() {
@@ -137,85 +138,83 @@ setNum1() {
 render() {
     return (
       <div>
-<div id='trackRightSidebar' className={this.state.trackClassName}>
+  <div id='trackRightSidebar' className={this.state.trackClassNameBottom}>
 
-{ this.state.sideBarSide ?
-<div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="latestCategoryRight middleSideBar__selectedCategory">
-  <div className="posStoryCat marginLeft10">
-Latest </div>
-</div>
-:
-<div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="latestCategoryRight">
-  <div className="posStoryCat marginLeft10">
-Latest </div>
-</div>
-}
+  { this.state.sideBarSide ?
+  <div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="latestCategoryRight middleSideBar__selectedCategory">
+    <div className="posStoryCat marginLeft10">
+  Latest </div>
+  </div>
+  :
+  <div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="latestCategoryRight">
+    <div className="posStoryCat marginLeft10">
+  Latest </div>
+  </div>
+  }
 
-{ this.state.sideBarSide ?
-<div ref="trendingSide" onClick={() => { this.handleChange('trending') }} className="topCategoryBox1 trendingCategoryRight">
-  <div className="posStoryCatTrending">
-Trending </div>
-</div>
-:
-<div ref="trendingSide" onClick={() => { this.handleChange('trending') }} className="topCategoryBox1 trendingCategoryRight middleSideBar__selectedCategory">
-  <div className="posStoryCatTrending">
-Trending </div>
-</div>
-}
+  { this.state.sideBarSide ?
+  <div ref="trendingSide" onClick={() => { this.handleChange('trending') }} className="topCategoryBox1 trendingCategoryRight">
+    <div className="posStoryCatTrending">
+  Trending </div>
+  </div>
+  :
+  <div ref="trendingSide" onClick={() => { this.handleChange('trending') }} className="topCategoryBox1 trendingCategoryRight middleSideBar__selectedCategory">
+    <div className="posStoryCatTrending">
+  Trending </div>
+  </div>
+  }
 
 
-<div className="clearBoth"></div>
-<hr className="mainHrSideBar" />
+  <div className="clearBoth"></div>
+  <hr className="mainHrSideBar" />
 
-{ this.state.sideBarSide ?
+  { this.state.sideBarSide ?
 
-  <div className="bottomRightSideBar">
+    <div className="bottomRightSideBar">
 
-    {this.setNum1()}
+      {this.setNum1()}
+      {Stories.find({ storyType: 'published' }, {
+            sort: {
+              lastUpdated: -1
+            }
+        }).fetch().map((story) => {
+
+        if (num1 < 3) {
+        num1++;
+        return <SideBarStory story={story} users={this.props.users} key={num1} num={num1}/>;
+        }
+      })}
+
+    </div>
+
+    :
+
+    // {for (let num = 0; num < 4; num++) {
+    //   return <SideBarStory collection={this.state.latestStories} num={num}/>;
+    // }}
+
+    <div className="bottomRightSideBar">
+
+    {/* {this.returnStories()} */}
+
+    {this.setNum()}
+
     {Stories.find({ storyType: 'published' }, {
           sort: {
-            lastUpdated: -1
+            likes: -1
           }
       }).fetch().map((story) => {
 
-      if (num1 < 3) {
-      num1++;
-      return <SideBarStory story={story} users={this.props.users} key={num1} num={num1}/>;
+      if (num < 3) {
+      num++;
+      return <SideBarStory story={story} users={this.props.users} key={num} num={num}/>;
       }
     })}
 
   </div>
+}
 
-  :
-
-  // {for (let num = 0; num < 4; num++) {
-  //   return <SideBarStory collection={this.state.latestStories} num={num}/>;
-  // }}
-
-  <div className="bottomRightSideBar">
-
-  {/* {this.returnStories()} */}
-
-  {this.setNum()}
-
-  {Stories.find({ storyType: 'published' }, {
-        sort: {
-          likes: -1
-        }
-    }).fetch().map((story) => {
-
-    if (num < 3) {
-    num++;
-    return <SideBarStory story={story} users={this.props.users} key={num} num={num}/>;
-    }
-  })}
-
-
-
-  </div>}
-  </div>
-
-</div>
+</div></div>
     );
   }
 }
@@ -224,4 +223,4 @@ export default withTracker(() => {
 return {
 
 };
-})(MiddleSidebar);
+})(MiddleBottomSidebar);

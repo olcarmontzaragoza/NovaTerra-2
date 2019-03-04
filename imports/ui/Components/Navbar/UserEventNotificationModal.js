@@ -202,8 +202,8 @@ return userAction;
   render() {
     return (
       <div className={`nav__notificationsTopPadding ${!this.props.notification.seen ? 'nav__notificationNotSeenBackground' : ''}`}>
-          <div className="nav__belowHrMargin1"></div>
-          { this.props.notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorUserModal"/> : undefined }
+          <div className={this.props.notificationNum > 0 ? "nav__belowHrMargin1" : "nav__belowHrMargin1First"}></div>
+          { this.props.notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorUserModal"/> : <div className="navModal__negativeMarginBottom"></div> }
           <div className="nav__belowHrMargin"></div>
           <div className="notifications__topInnermarginsModal">
           <div className={`clearBoth ${this.props.notification.follow ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacing'}`}></div>

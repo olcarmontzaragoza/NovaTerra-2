@@ -101,12 +101,16 @@ width:210px;
 text-align:center;
 top:79.5px;
 font-size:1.05em;
-letter-spacing:0.022em;
+letter-spacing:0.01em;
 // font-weight:400;
 // word-spacing:;
 color:#fff;
 cursor:pointer;
 margin-bottom:13px;
+
+@media screen and (max-width: 430px) {
+font-weight:bold;
+}
 }
 .imageCoverCategories {
 height:175px;
@@ -174,6 +178,10 @@ position:absolute;
  transition:0.2s;
  cursor:pointer;
  position:absolute;
+
+ @media screen and (max-width: 430px) {
+   letter-spacing:-0.045em;
+ }
 }
 .authorDescriptionBelowContainer {
  width:261px;

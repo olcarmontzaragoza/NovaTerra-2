@@ -486,8 +486,8 @@ border: 1px solid #ffffff;
 
    position: absolute;
    opacity:1;
-   margin-top: 37px; /* 125 - 120 */
-   margin-left: 277px; /* 16 - 13 */
+   margin-top: 34px; /* 125 - 120 */
+   margin-left: 256px; /* 16 - 13 */
    border-width: 9px;
    border-style: solid;
    border-color: transparent transparent #fff transparent;
@@ -496,8 +496,8 @@ border: 1px solid #ffffff;
  .shareArrow2 {
 
    position: absolute;
-   margin-top: 34.2px;
-   margin-left:275px;
+   margin-top: 31.2px;
+   margin-left:254px;
    border-width: 11px;
    border-style: solid;
    border-color: transparent transparent #dcdcdc transparent;
@@ -508,8 +508,8 @@ border: 1px solid #ffffff;
  .titleShareButton {
 
    position:absolute;
-   margin-left:252px; /*16%*/
-   margin-top:54.1px;
+   margin-left:226px; /*16%*/
+   margin-top:51.1px;
    z-index:11000;
    width: 150px;
    height:225px;
@@ -526,7 +526,8 @@ border: 1px solid #ffffff;
  }
  .shareShare {
  float:left;
- font-size:0.92em;
+ font-size:0.9em;
+ letter-spacing:0.008em;
 font-family:arial;
  font-weight:600;
 
@@ -649,8 +650,8 @@ color:#2c9061;
 /*      */
 .shareMail {
     color:#bebebe;
- width:13.5px;
- height:13.5px;
+ width:11.5px;
+ height:11.5px;
  cursor:pointer;
  margin-top:-18px;
  }
@@ -733,6 +734,7 @@ border-radius:50%;
 margin-right:5px;
 float:left;
 margin-left:97px; /* -8px */
+display:block;
 }
  .aapeb {
 width:33px;
@@ -741,6 +743,7 @@ background-color:#ffffff;
 border-radius:50%;
 margin-right:5px;
 float:left;
+display:block;
  }
 .mmpeb {
 width:33px;
@@ -748,6 +751,7 @@ height:33px;
 background-color:#ffffff;
 border-radius:50%;
 float:left;
+display:block;
  }
 .socialHover {
      border:2px solid black;
@@ -790,6 +794,9 @@ float:left;
 
    background-image: -webkit-gradient( linear, left bottom, right top, color-stop(0, #7797d4), color-stop(0.4, #81a1de), color-stop(0.5, #8babe8), color-stop(0.75, #8bb5f2), color-stop(0.85, #8bb5f2), color-stop(1, #b9e2ff), color-stop(1, #c3ecf5), color-stop(1, #cdf6ff) );
  background-image: gradient( linear, left bottom, right top, color-stop(0, #7797d4), color-stop(0.4, #81a1de), color-stop(0.5, #8babe8), color-stop(0.75, #8bb5f2), color-stop(0.85, #8bb5f2), color-stop(1, #b9e2ff), color-stop(1, #c3ecf5), color-stop(1, #cdf6ff) );
+
+ opacity:0.8;
+
  color:transparent;
  -webkit-background-clip: text;
  background-clip: text;
@@ -855,7 +862,7 @@ float:left;
 .hovMailTitleLL {
  margin-left:-0.5px;
      color:#bebebe;
-   margin-right:47.5px;
+   margin-right:28.5px;
    margin-top:-19px;
  cursor:pointer;
 }
@@ -945,6 +952,9 @@ line-height:1.53; font-size:0.9em;
  }
  .homeTop__thirdShareIcon {
    font-size:1.23em; margin-left:8px; margin-top:6px; cursor:pointer;
+ }
+ .homeTop__thirdShareIconReddit {
+   font-size:1.1em; margin-left:7.5px; margin-top:7.5px; cursor:pointer;
  }
  .homeTop__mainShareButtonTopDiv {
  margin-top:3px; float:left; margin-left:20px;
@@ -1412,4 +1422,11 @@ margin-bottom:14px;
 margin-top:-37px;
 }
 
+}
+.top__clipboardHidden {
+  color:#fff;
+  box-shadow:none;
+  border: 1px solid #fff;
+  position:absolute;
+  left:2000px;
 }

@@ -237,7 +237,7 @@ returnTime(time) {
       storyType: 'drafted',
       _id: `${newId}`,
       link: `draft/${newId}`,
-      references: [],
+      references: "",
       type: 'story',
     }
 

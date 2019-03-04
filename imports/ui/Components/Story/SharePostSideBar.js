@@ -108,6 +108,7 @@ render() {
         </div>
 
         <hr className="storyBody__socialSidebarHrTop" />
+
         <svg width="0" height="0">
         <radialGradient id="rgyt" r="150%" cx="30%" cy="107%">
         <stop stopColor="#7797d4" offset="0" />
@@ -119,9 +120,10 @@ render() {
         <stop stopColor="#cdf6ff" offset="0.82" />
         </radialGradient>
         </svg>
+        <a target="_blank" href={this.props.story.facebookLink}>
         <div className="divSocialHovtt">
         <FontAwesomeIcon icon={['fab', 'facebook-f']} className="storyBody__facebookHover" aria-hidden="true" />
-        </div>
+        </div></a>
         <br/>
         <svg width="0" height="0">
         <radialGradient id="rgys" r="150%" cx="30%" cy="107%">
@@ -134,9 +136,11 @@ render() {
 
         </radialGradient>
         </svg>
+        <a target="_blank" href={this.props.story.twitterLink}>
         <div className="divSocialHovtts">
         <FontAwesomeIcon icon={['fab', 'twitter']} className="storyBody__twitterHover" aria-hidden="true" />
         </div>
+        </a>
         <br/>
         <svg width="0" height="0">
         <radialGradient id="rgyl" r="150%" cx="30%" cy="107%">
@@ -149,9 +153,11 @@ render() {
           <stop stopColor="#ffe7dc" offset="0.8" />
         </radialGradient>
         </svg>
+        <a target="_blank" href={this.props.story.redditLink}>
         <div className="divSocialHovttk">
         <FontAwesomeIcon icon={['fab', 'reddit-alien']} className="storyBody__redditIconSide" aria-hidden="true" />
         </div>
+        </a>
         <br/>
         <svg width="0" height="0">
         <radialGradient id="rgysy" r="150%" cx="30%" cy="107%">
@@ -162,9 +168,10 @@ render() {
          <stop stopColor="#ffeee8" offset="0.75" />
         </radialGradient>
         </svg>
+        <a target="_blank" href={this.props.story.pinterestLink}>
         <div className="divSocialHovttrw">
         <FontAwesomeIcon icon={['fab', 'pinterest-p']} className="storyBody__pinterestIcon" aria-hidden="true" />
-        </div>
+        </div></a>
         <br/>
 
         <hr className="storyBody__socialSidebarHr" />

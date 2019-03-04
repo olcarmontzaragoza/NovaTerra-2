@@ -629,6 +629,10 @@ height:4px;
 .nav__belowHrMargin1 {
 height:4px;
 }
+.nav__belowHrMargin1First {
+height:0px;
+margin-top:-12px;
+}
 .notification__storyImage {
   height:43px;
   width:43px;
@@ -1857,4 +1861,11 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
 .nav__publishTooltipText {
   font-size:0.98em;
 
+}
+.naModal__negativeMarginBottom {
+  margin-bottom:-85px;
+  margin-top:-85px;
+  position:relative;
+  top:-50px;
+  bottom:-50px;
 }

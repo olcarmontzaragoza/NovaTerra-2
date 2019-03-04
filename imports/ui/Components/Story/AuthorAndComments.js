@@ -186,7 +186,7 @@ render() {
 <div className="captionBelowBottomStory">You are helping us raise funding and awareness to combat environmental degradation</div>
 
 <div className="authorAndComments__shareIconsMarginLeft">
-<ShareIconsAndDropDown/>
+<ShareIconsAndDropDown story={this.props.story} />
 </div>
 <div className="ab__shareAndCommentsStory2">
   <FontAwesomeIcon icon={['fas', 'comments']} className="commentIconStory2" />

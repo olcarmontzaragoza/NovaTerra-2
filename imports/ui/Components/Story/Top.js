@@ -167,7 +167,7 @@ render() {
 <div className="clearBoth homeTop__elimateSpacing"></div>
 
 <div className="story__topPositionShareIcons">
-<ShareIconsAndDropDown/>
+<ShareIconsAndDropDown story={this.props.story} />
 </div>
 
 </div>

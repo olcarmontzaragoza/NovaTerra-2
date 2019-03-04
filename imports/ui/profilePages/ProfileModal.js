@@ -17,14 +17,14 @@ Modal.setAppElement('#app');
 
 Session.set({ imageEntered: false });
 
-var myWidget = cloudinary.createUploadWidget({
-  cloudName: 'novaterra',
-  uploadPreset: 'r4xf9yat', cropping: true }, (error, result) => {
-if (result.info.public_id) {
-Meteor.call('users.update', Meteor.userId(), { profilePhoto: result.info.public_id });
-Session.get({ imageEntered: true });
-}
-});
+// var myWidget = cloudinary.createUploadWidget({
+//   cloudName: 'novaterra',
+//   uploadPreset: 'r4xf9yat', cropping: true }, (error, result) => {
+// if (result.info.public_id) {
+// Meteor.call('users.update', Meteor.userId(), { profilePhoto: result.info.public_id });
+// Session.get({ imageEntered: true });
+// }
+// });
 
 export default class AddLink extends React.Component {
 constructor(props) {

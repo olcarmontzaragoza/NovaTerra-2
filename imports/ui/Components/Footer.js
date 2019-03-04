@@ -132,9 +132,9 @@ render() {
 <a href="https://twitter.com/NovaTerra_earth"><div className="ypebFooter socialHoverrs">
 <FontAwesomeIcon icon={['fab', 'twitter']} className="tuers2 footer__twitterWidthHeight" />
 </div></a>
-<div className="tpebFooter socialHoverrs">
-<FontAwesomeIcon icon={['fab', 'medium-m']} className="tuers3 footer__mediumWidthHeight" />
-</div>
+<a href="https://www.instagram.com/novaterra.earth/" className="tpebFooter socialHoverrs">
+<FontAwesomeIcon icon={['fab', 'instagram']} className="tuers3 footer__mediumWidthHeight" />
+</a>
 </div>
 
 </div>

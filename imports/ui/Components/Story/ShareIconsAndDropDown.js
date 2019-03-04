@@ -59,23 +59,33 @@ this.hideShareTooltipFunction = this.hideShareTooltipFunction.bind(this);
   this.setState({ shareTooltip: false });
   }
 }
+copyToClipboard() {
+  var copyText = this.refs.clipboardCopy;
+
+  copyText.select();
+
+  document.execCommand("copy");
+}
 render() {
     return (
       <div>
 
 <div display="flex">
 <div className="homeTop__shareIconsTopDiv">
+<a target="_blank" href={this.props.story.facebookLink}>
 <div className="oopeb socialHover">
  <div className="homeTop__heightOne"></div>
  <FontAwesomeIcon icon={['fab', 'facebook-f']} className="tue homeTop__firstShareIcon" />
-  </div>
-<div className="aapeb socialHover">
+  </div></a>
+<a target="_blank" href={this.props.story.twitterLink}><div className="aapeb socialHover">
  <FontAwesomeIcon icon={['fab', 'twitter']} className="tue homeTop__secondShareIcon" />
+  </div></a>
+<a target="_blank" href={this.props.story.redditLink}><div className="mmpeb socialHover">
+ <FontAwesomeIcon icon={['fab', 'reddit-alien']} className="tue homeTop__thirdShareIconReddit" />
+  </div></a>
   </div>
-<div className="mmpeb socialHover">
- <FontAwesomeIcon icon={['fab', 'medium-m']} className="tue homeTop__thirdShareIcon" />
-  </div>
-  </div>
+
+  <input ref="clipboardCopy" value={`www.novaterra.earth/${this.props.story.link}`} className="top__clipboardHidden"/>
 
   <div className="homeTop__mainShareButtonTopDiv">
   <div className="drop1">
@@ -98,7 +108,7 @@ render() {
   <div ref={this.setTitleShareButton} className="titleShareButton">
     <div className="dropShareLinks">
 
-<div className="slideDownFacebook">
+<a target="_blank" href={this.props.story.facebookLink}><div className="slideDownFacebook">
              <svg width="0" height="0">
  <radialGradient id="xjxj" r="150%" cx="30%" cy="107%">
    <stop stopColor="#7797d4" offset="0" />
@@ -116,11 +126,11 @@ render() {
 <FontAwesomeIcon icon={['fab', 'facebook-f']} className="shareIconTop shareFacebook" />
 </div>
 <div className="clearBoth"></div>
-</div>
+</div></div></a>
 
       <hr className="titleShareLine titleShareLine1"/>
 
-<div className="slideDownTwitter">
+<a target="_blank" href={this.props.story.twitterLink}><div className="slideDownTwitter">
        <svg width="0" height="0">
  <radialGradient id="jzx" r="150%" cx="30%" cy="107%">
    <stop stopColor="#2aa3f0" offset="0.10" />
@@ -136,11 +146,11 @@ render() {
 <FontAwesomeIcon icon={['fab', 'twitter']} className="shareIconTop shareTwitter" />
 <div className="clearBoth"></div>
 </div>
-    </div>
+    </div></a>
 
     <hr className="titleShareLine titleShareLine2"/>
 
-<div className="slideDownReddit">
+<a target="_blank" href={this.props.story.redditLink}><div className="slideDownReddit">
  <svg width="0" height="0">
  <radialGradient id="redditGradient" r="150%" cx="30%" cy="107%">
  <stop stopColor="#ff6f46" offset="0.15" />
@@ -159,10 +169,11 @@ render() {
 </div>
 <div className="clearBoth"></div>
 </div>
-    </div>
+    </div></a>
+
     <hr className="titleShareLine titleShareLine3"/>
 
-<div className="slideDownPinterest">
+<a target="_blank" href={this.props.story.pinterestLink}><div className="slideDownPinterest">
       <svg width="0" height="0">
  <radialGradient id="sxjs2" r="150%" cx="30%" cy="107%">
   <stop stopColor="#bd232b" offset="0.10" />
@@ -180,10 +191,11 @@ render() {
 </div>
 <div className="clearBoth"></div>
 </div>
-    </div>
+    </div></a>
+
     <hr className="titleShareLine titleShareLine4"/>
 
-<div className="slideDownTumblr">
+<a target="_blank" href={this.props.story.tumblrLink}><div className="slideDownTumblr">
       <svg width="0" height="0">
  <radialGradient id="tumblrGradient" r="150%" cx="30%" cy="107%">
    <stop stopColor="#324357" offset="0.10" />
@@ -200,11 +212,11 @@ render() {
 </div>
 <div className="clearBoth"></div>
 </div>
-      </div>
+      </div></a>
 
     <hr className="titleShareLine titleShareLine5"/>
 
-<div className="slideDownMail">
+<div onClick={() => this.copyToClipboard()} className="slideDownMail">
       <svg width="0" height="0">
  <radialGradient id="mailGradient" r="150%" cx="30%" cy="107%">
      <stop stopColor="#1174c3" offset="0.1" />
@@ -217,11 +229,10 @@ render() {
 </svg>
 <div className="divSocialHovMailTitle">
   <div className="flex">
-<a className="shareShare hovMailTitleLL">Email</a>
-<FontAwesomeIcon icon={['fas', 'envelope']} className="shareIconTop shareMail" />
+<a className="shareShare hovMailTitleLL">Copy Url</a>
+<FontAwesomeIcon icon={['fas', 'copy']} className="shareIconTop shareMail" />
 </div>
 <div className="clearBoth"></div>
-</div>
 </div>
 </div>
 </div>

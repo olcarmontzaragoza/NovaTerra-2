@@ -128,8 +128,8 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
     let story = Stories.findOne({ _id: notification.storyId });
 
     jsx.push((<div key={notification._id} className={`nav__notificationsTopPadding`}>
-      <div className="nav__belowHrMargin1"></div>
-      { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorModal"/> : undefined }
+      <div className={notificationNum > 0 ? "nav__belowHrMargin1" : "nav__belowHrMargin1First"}></div>
+      { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorModal"/> : <div className="navModal__negativeMarginBottom"></div> }
       <div className="nav__belowHrMargin"></div>
       {notification.published ? <Link to={story.link} className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__visitModal">Visit</button></Link> : <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>}
       <div className={`${notification.published ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacingFollow'}`}></div>
@@ -143,8 +143,8 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
   } else if (notification.type === 'featureEvent') {
 
     jsx.push((<div key={notification._id} className="nav__notificationsTopPadding">
-      <div className="nav__belowHrMargin1"></div>
-      { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorModal"/> : undefined }
+      <div className={notificationNum > 0 ? "nav__belowHrMargin1" : "nav__belowHrMargin1First"}></div>
+      { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorModal"/> : <div className="navModal__negativeMarginBottom"></div> }
       <div className="nav__belowHrMargin"></div>
       <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__learnMoreModal" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>
       <div className="nav__userEventElimateSpacing1"></div>

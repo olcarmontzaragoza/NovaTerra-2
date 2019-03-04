@@ -18,27 +18,33 @@ margin-left:7.1vw;
 margin-left:6.9vw;
 }
 @media screen and (max-width: 900px) {
-margin-left:-8px;
-width:100vw;
+margin-left:0px;
+width:101vw;
+border-radius:0px;
 }
 @media screen and (max-width: 625px) {
-margin-left:-8px;
-width:100vw;
+margin-left:0px;
+width:101vw;
 height:890px;
 }
 @media screen and (max-width: 485px) {
-margin-left:-8px;
+margin-left:0px;
 width:100vw;
 height:867px;
 }
 @media screen and (max-width: 445px) {
-margin-left:-8px;
+margin-left:0px;
 width:100vw;
 height:787px;
 }
+@media screen and (max-width: 441px) {
+width:101.5vw;
+}
+@media screen and (max-width: 419px) {
+width:103.5vw;
+}
 @media screen and (max-width: 410px) {
-margin-left:-8px;
-width:100vw;
+margin-left:0px;
 height:717px;
 }
 // @media screen and (max-width: 650px) {

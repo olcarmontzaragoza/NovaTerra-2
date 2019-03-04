@@ -73,6 +73,13 @@ cursor:pointer;
       height:240px;
   }
 }
+.faq__veryMarginBottomSearch {
+  height:0px;
+
+  @media screen and (max-width: 510px) {
+      height:0px;
+  }
+}
 .faq__positionNoQuestionsMessage {
 position:relative;
 margin-top:2vw;
@@ -194,7 +201,6 @@ margin-left:-3px;
 }
 .faq__usefulButton {
 border-radius:3px;
-float:left;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -211,6 +217,9 @@ transition:0.35s;
         -ms-user-select: none;
             user-select: none;
 
+@media screen and (min-width: 330px) {
+  float:left;
+}
 @media screen and (min-width: 629px) {
   height:35px;
   width:75px;
@@ -222,6 +231,24 @@ transition:0.35s;
   width:63px;
   font-size:0.82em;
   margin-top:7px;
+}
+@media screen and (max-width: 600px) {
+  margin-right:13px;
+}
+@media screen and (max-width: 400px) {
+  height:33px;
+  width:53px;
+  font-size:0.78em;
+  margin-right:10px;
+}
+@media screen and (max-width: 365px) {
+  margin-left:-6px;
+  font-size:0.76em;
+  height:35px;
+  width:50px;
+}
+@media screen and (max-width: 329px) {
+  margin-top:-10px;
 }
 }
 .faq__usefulButton:hover {
@@ -240,7 +267,6 @@ transition:0.35s;
   justify-content:center;
   background-color:#c6413b;
   color:#fff;
-  margin-right:20px;
   cursor:pointer;
   transition:0.35s;
 
@@ -262,6 +288,17 @@ transition:0.35s;
   width:63px;
   font-size:0.82em;
   margin-top:7px;
+}
+@media screen and (max-width: 400px) {
+  height:33px;
+  width:53px;
+  font-size:0.78em;
+  margin-right:0px;
+}
+@media screen and (max-width: 365px) {
+  font-size:0.76em;
+  height:35px;
+  width:50px;
 }
 }
 .faq__bottomUsefulMessage {
@@ -366,6 +403,9 @@ margin-left:23px;
 @media screen and (max-width: 445px) {
   font-size:0.935em;
 }
+@media screen and (max-width: 370px) {
+  font-size:0.925em;
+}
 }
 .faq__suggestionMessageTextarea {
   height:100px;
@@ -376,7 +416,7 @@ margin-left:23px;
   padding-top:11px;
 
   @media screen and (min-width: 445px) {
-    width:371px;
+    width:361px;
     margin-left:23px;
     font-size:0.9em;
   }
@@ -384,6 +424,21 @@ margin-left:23px;
     width:83vw;
     margin-left:17px;
     font-size:0.88em;
+  }
+  @media screen and (max-width: 420px) {
+    width:82vw;
+  }
+  @media screen and (max-width: 395px) {
+    width:81vw;
+  }
+  @media screen and (max-width: 380px) {
+    width:80vw;
+  }
+  @media screen and (max-width: 355px) {
+    width:79vw;
+  }
+  @media screen and (max-width: 330px) {
+    width:78vw;
   }
 }
 .faq__suggestionMessageMaxCharacters {
@@ -397,6 +452,21 @@ margin-left:23px;
   @media screen and (max-width: 445px) {
     position:relative;
     left:64vw;
+  }
+  @media screen and (max-width: 420px) {
+    left:61vw;
+  }
+  @media screen and (max-width: 395px) {
+    left:59vw;
+  }
+  @media screen and (max-width: 380px) {
+    left:57vw;
+  }
+  @media screen and (max-width: 355px) {
+    left:54vw;
+  }
+  @media screen and (max-width: 330px) {
+    left:51vw;
   }
 }
 .faq__suggestionMessageSubmit {
@@ -499,6 +569,9 @@ margin-left:23px;
     width:840px;
     margin-right:-300px;
   }
+  @media screen and (max-width: 815px) {
+    
+  }
   @media screen and (max-width: 810px) and (min-width: 539px) {
     position:relative;
     left:-20px;
@@ -514,7 +587,15 @@ margin-left:23px;
 
     align-items: center;
   }
-
+  @media screen and (max-width: 460px) {
+    left:0px;
+  }
+  @media screen and (max-width: 360px) {
+    left:5px;
+  }
+  @media screen and (max-width: 355px) {
+    left:13px;
+  }
 
 
 }
@@ -699,9 +780,74 @@ margin-left:24px;
       height:840px;
   }
   @media screen and (max-width: 811px) and (min-width: 540px) {
-      height:1140px;
+      height:1175px;
   }
-  @media screen and (max-width: 540px) {
-      height:1530px;
+  @media screen and (max-width: 539px) {
+      height:1560px;
   }
+  @media screen and (max-width: 385px) {
+      height:1620px;
+  }
+  @media screen and (max-width: 375px) {
+      height:1670px;
+  }
+  @media screen and (max-width: 350px) {
+      height:1710px;
+  }
+  @media screen and (max-width: 330px) {
+      height:1740px;
+  }
+}
+.faqPageBottomHeightSearch {
+
+  @media screen and (min-width: 811px) {
+      height:840px;
+  }
+  @media screen and (max-width: 811px) and (min-width: 540px) {
+      height:790px;
+  }
+  @media screen and (max-width: 539px) {
+      height:760px;
+  }
+  @media screen and (max-width: 510px) {
+      height:600px;
+  }
+  @media screen and (max-width: 430px) {
+      height:580px;
+  }
+  @media screen and (max-width: 385px) {
+      height:570px;
+  }
+  @media screen and (max-width: 375px) {
+      height:560px;
+  }
+  @media screen and (max-width: 350px) {
+      height:560px;
+  }
+  @media screen and (max-width: 330px) {
+      height:550px;
+  }
+}
+.faq__popularResultsMiddleSpacing {
+
+  @media screen and (min-width: 930px) {
+      height:80px;
+  }
+  @media screen and (max-width: 930px) {
+      height:50px;
+  }
+  @media screen and (max-width: 740px) {
+      height:30px;
+  }
+  @media screen and (max-width: 615px) {
+      height:20px;
+  }
+  @media screen and (min-width: 510px) {
+    clear:both;
+  }
+  @media screen and (max-width: 510px) {
+      height:0px;
+      margin-bottom:-15px;
+  }
+
 }

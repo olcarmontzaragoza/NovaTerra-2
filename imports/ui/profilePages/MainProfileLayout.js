@@ -613,7 +613,7 @@ setProfileBottomPosts() {
 
   {this.state.selectedOption ===  3 ? <div className="profile__thirdBottomSpacing"></div> : undefined }
 
-  {!this.props.route && this.state.selectedOption === 2 ?
+  {!this.props.route && this.state.selectedOption === 2 && this.state.stories.length > 0 ?
     <div>
     <a onClick={() => this.createNewStory()}>
     <div className="profile__largerDivShowMore profilePagePositioning">
@@ -906,7 +906,7 @@ render() {
         <div className="mpl__topMargins">
 
         <div className="mpl__topSectionMargins">
-        {!this.props.route ? <ProfileModal route={this.props.route} imageSrc={this.renderMainProfileImage()} /> : this.props.user.profilePhoto ? <div><div className="profileModal__profileModalBehindCircleTRY"></div><Image className="mpl__topImage" cloud_name='novaterra' className="mpl__topImage" publicId={this.props.user.profilePhoto}><Transformation crop="thumb" /></Image></div> : <img src={`${this.props.route}images/noImage.png`} className="mpl__topImage"/> }
+        {!this.props.route ? <ProfileModal route={this.props.route} imageSrc={this.renderMainProfileImage()} /> : this.props.user.profilePhoto ? <div><div className="profileModal__profileModalBehindCircleTRY"></div><Image className="mpl__topImage" cloud_name='novaterra' className="mpl__topImage" publicId={this.props.user.profilePhoto}><Transformation crop="thumb" /></Image></div> : <img src={`${this.props.route}images/noImage.png`} className="mpl__topImage"/>}
 
         <div className="floatLeft mpl__authorRightContainer">
         <div className="mpl__mainAuthor floatLeft">{this.props.user.username}</div> {this.props.route && this.props.user._id !== Meteor.userId() ? this.returnFollowingButtons() : undefined }
