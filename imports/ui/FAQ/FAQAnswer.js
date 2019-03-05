@@ -418,7 +418,7 @@ Oliver from NovaTerra
   <div>
   On NovaTerra, in order to edit a published story, you will need to first make it a draft. What this does is that if you are in the process of making changes to it, you can it off the main pages and re-publish it once you've made the changes you wish to make.
   <br/> <br/>
-  In order to do this you will need to navigate to the profile page by clicking on your profile image on the top-right corner of your screen and click 'profile'. Here you will want to go to your 'published' stories and finding the one you want to edit. You will want to click the 'draft'. This story will now appear under your drafts where you can edit it however much you want. When you are ready to publish this story, click on the 'publish' button on the editor page and we will begin our reviewing process again. All of the likes and comments your story recieied will still be there when you re-publish it.
+  In order to do this you will need to navigate to the profile page by clicking on your profile image on the top-right corner of your screen and click 'profile'. Here you will want to go to your 'published' stories and finding the one you want to edit. You will want to click the 'draft'. This story will now appear under your drafts where you can edit it however much you want. When you are ready to publish this story, click on the 'publish' button on the editor page and we will begin our reviewing process again. All of the reactions and comments your story recieied will still be there when you re-publish it.
   <br/> <br/>
   If you have any other questions about editing stories, please don't hesitate in <Link to='/contact' className="link">contacting us</Link>.
   <br/> <br/>

@@ -42,7 +42,7 @@ returnLatestStories() {
 returnTrendingStories() {
   let trending = Stories.find({ storyType: 'published' }, {
         sort: {
-          likes: -1
+          reactions: -1
         }
     }).fetch().map((story) => {
 
@@ -200,7 +200,7 @@ Trending </div>
 
   {Stories.find({ storyType: 'published' }, {
         sort: {
-          likes: -1
+          reactions: -1
         }
     }).fetch().map((story) => {
 

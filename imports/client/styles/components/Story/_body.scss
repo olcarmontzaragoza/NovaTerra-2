@@ -616,13 +616,81 @@ transition-delay: 1s;
 }
 .socialSidebar__earthLeft {
   position:relative;
-  left:80px;
+  left:3px;
+  display:flex;
+  justify-content:center;
+  z-index:11;
+}
+.story__socialSideBarReactions {
+  width:0px;
+}
+.story__actualMainReactionIcon:hover .story__socialSideBarReactions {
+  // width:400px;
+  margin-left:20px;
+  background-color:#000;
+}
+.story__insideReactionMargins {
+  margin-top:14px;
+  margin-left:22px;
+}
+.story__invidiualReactionsTooltip {
+  margin-right:25px;
+  float:left;
+}
+.story__actualMainReactionIcon {
+    font-size:2.25em; color:#e1e1e1; cursor:pointer; transition:0.25s; margin-top:-25px; margin-bottom:22px;
+}
+.story__actualMainReactionIconSelected {
+    font-size:2.25em; color:#2aaa63; cursor:pointer; transition:0.25s; margin-top:-25px; margin-bottom:22px;
+}
+.story__smallMainReactionIcon {
+    font-size:2.25em; color:#e1e1e1; cursor:pointer; transition:0.25s; margin-top:0px; margin-bottom:0px;
+}
+.story__smallMainReactionIconSelected {
+    font-size:2.25em; color:#2aaa63; cursor:pointer; transition:0.25s; margin-top:0px; margin-bottom:0px;
+}
+.story__smallMainReactionIcon:hover {
+    color:#2aaa63;
+}
+.story__reactionsSmallShownUnder {
+  color:#cfcfcf;
+  font-size:0.76em;
+  margin-top:7px;
+  font-weight:bold;
+  margin-left:14px;
+  position:absolute;
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+.story__reactionsShownUnder {
+  color:#cfcfcf;
+  font-size:0.76em;
+  margin-top:18px;
+  margin-left:0px;
+  position:absolute;
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
 }
 .story__veryBottomSpacing {
   margin-top:200px; height:100px;
 }
 .storyBody__socialIconsStatic {
 position:relative; left:-142px;
+}
+.story__fullWidth {
+  width:328px;
+}
+.story__noWidth {
+  width:0px;
+  display:none;
 }
 .marginLeftTags {
   position:relative;
@@ -673,4 +741,19 @@ position:relative; left:-142px;
   @media screen and (max-width: 720px) {
   left:17px;
   }
+}
+.story__reactionSidenav {
+  height: 82px;
+  position:absolute;
+  background-color: #fff;
+  transition: 0.5s;
+  // border: 1px solid #dcdcdc;
+  -webkit-box-shadow:   1px 1.5px 1.5px 2px #f0f0f0;
+    -moz-box-shadow:    1px 1.5px 1.5px 2px #f0f0f0;
+    box-shadow:         1px 1.5px 1.5px 2px #f0f0f0;
+
+  border-radius:5px 5px 5px 5px;
+  z-index:15;
+  margin-top:-72px;
+  margin-left:-5px;
 }

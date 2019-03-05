@@ -28,44 +28,467 @@ constructor(props) {
 super(props);
 this.state = {
 // liked: Session.get('currentUser') ? Session.get('currentUser').storiesLiked.includes(this.props.story._id) : false,
-fixedSideBar: true
+fixedSideBar: true,
+reactOpen: false,
 };
 this.trackScrolling = this.trackScrolling.bind(this);
+this.handleClickOutside = this.handleClickOutside.bind(this);
+this.setReactBar = this.setReactBar.bind(this);
+this.setReactIcon = this.setReactIcon.bind(this);
 }
-renderLikeButton() {
+renderReactButton() {
 
 let user = Meteor.users.findOne({ _id: Meteor.userId() });
-let liked = this.props.story.likes.includes(Meteor.userId());
+let reactions = this.props.story.reactions.includes(Meteor.userId());
 
-this.setState({ liked });
+let reacted = '';
+
+if (reactions) {
+  let currentHearts = this.props.story.heartReactions;
+  let currentSurprised = this.props.story.suprisedReactions;
+  let currentLaughs = this.props.story.laughReactions;
+  let currentAngry = this.props.story.angryReactions;
+  let currentSad = this.props.story.sadReactions;
+
+  if (currentHearts.includes(Meteor.userId())) {
+    reacted = 'heart';
+  } else if (currentSurprised.includes(Meteor.userId())) {
+    reacted = 'surprise';
+  } else if (currentLaughs.includes(Meteor.userId())) {
+    reacted = 'laugh';
+  } else if (currentAngry.includes(Meteor.userId())) {
+    reacted = 'angry';
+  } else if (currentSad.includes(Meteor.userId())) {
+    reacted = 'sad';
+  }
 }
-clickedLikeButton() {
+
+this.setState({ reacted });
+}
+returnMainIcon() {
+
+  if (this.state.reacted) {
+
+  if (this.state.reacted === 'heart') {
+
+    return 'grin-hearts';
+
+  } else if (this.state.reacted === 'surprise') {
+
+    return 'surprise';
+
+  } else if (this.state.reacted === 'laugh') {
+
+    return 'grin-squint-tears';
+
+  } else if (this.state.reacted === 'angry') {
+
+    return 'angry';
+
+  } else if (this.state.reacted === 'sad') {
+
+    return 'sad-cry';
+
+  }
+} else {
+  return 'grin-hearts';
+}
+
+}
+clickedReactionsButton(clicked) {
 // Meteor.call('stories.update', this.props.story._id, { likes: ['1', '2', '3'] });
 
 let user = Meteor.users.findOne({ _id: Meteor.userId() });
 
-let currentLikes = this.props.story.likes;
+let currentReactions = this.props.story.reactions;
 
-if (this.props.story.likes.includes(Meteor.userId())) {
-let newLikes = currentLikes;
-let index = newLikes.indexOf(Meteor.userId());
-newLikes.splice(index, 1);
-Meteor.call('stories.update', this.props.story._id, { likes: newLikes });
-// Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
-this.setState({ liked: false });
+let currentHearts = this.props.story.heartReactions;
+let currentSurprised = this.props.story.suprisedReactions;
+let currentLaughs = this.props.story.laughReactions;
+let currentAngry = this.props.story.angryReactions;
+let currentSad = this.props.story.sadReactions;
+
+if (this.props.story.reactions.includes(Meteor.userId())) {
+
+if (currentHearts.includes(Meteor.userId())) {
+
+  let reacted = '';
+
+  let newHeartReactions = currentHearts;
+  let otherIndex = newHeartReactions.indexOf(Meteor.userId());
+  newHeartReactions.splice(otherIndex, 1);
+
+  if (!(clicked === 'heart')) {
+
+  if (clicked === 'surprise') {
+
+    let newSurprised = currentSurprised;
+    newSurprised.push(Meteor.userId());
+
+    reacted = 'surprise';
+
+    Meteor.call('stories.update', this.props.story._id, { suprisedReactions: newSurprised, heartReactions: newHeartReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'laugh') {
+
+    let newLaughs = currentLaughs;
+    newLaughs.push(Meteor.userId());
+
+    reacted = 'laugh';
+
+    Meteor.call('stories.update', this.props.story._id, { laughReactions: newLaughs, heartReactions: newHeartReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'angry') {
+
+    let newAngry = currentAngry;
+    newAngry.push(Meteor.userId());
+
+    reacted = 'angry';
+
+    Meteor.call('stories.update', this.props.story._id, { angryReactions: newAngry, heartReactions: newHeartReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'sad') {
+
+    let newSad = currentSad;
+    newSad.push(Meteor.userId());
+
+    reacted = 'sad';
+
+    Meteor.call('stories.update', this.props.story._id, { sadReactions: newSad, heartReactions: newHeartReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  }
+
 } else {
-let newLikes = currentLikes;
-newLikes.push(Meteor.userId());
-Meteor.call('stories.update', this.props.story._id, { likes: newLikes });
-this.setState({ liked: true });
+  let newReactions = currentReactions;
+  let index = newReactions.indexOf(Meteor.userId());
+  newReactions.splice(index, 1);
+
+  Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, heartReactions: newHeartReactions });
+  // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+}
+    this.setState({ reacted });
+  }
+else if (currentSurprised.includes(Meteor.userId())) {
+
+  let reacted = '';
+
+  let newSurprisedReactions = currentSurprised;
+  let otherIndex = newSurprisedReactions.indexOf(Meteor.userId());
+  newSurprisedReactions.splice(otherIndex, 1);
+
+  if (!(clicked === 'surprise')) {
+
+  if (clicked === 'heart') {
+
+    let newHearts = currentHearts;
+    newHearts.push(Meteor.userId());
+
+    reacted = 'heart';
+
+    Meteor.call('stories.update', this.props.story._id, { heartReactions: newHearts, suprisedReactions: newSurprisedReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'laugh') {
+
+    let newLaughs = currentLaughs;
+    newLaughs.push(Meteor.userId());
+
+    reacted = 'laugh';
+
+    Meteor.call('stories.update', this.props.story._id, { laughReactions: newLaughs, suprisedReactions: newSurprisedReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'angry') {
+
+    let newAngry = currentAngry;
+    newAngry.push(Meteor.userId());
+
+    reacted = 'angry';
+
+    Meteor.call('stories.update', this.props.story._id, { angryReactions: newAngry, suprisedReactions: newSurprisedReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'sad') {
+
+    let newSad = currentSad;
+    newSad.push(Meteor.userId());
+
+    reacted = 'sad';
+
+    Meteor.call('stories.update', this.props.story._id, { sadReactions: newSad, suprisedReactions: newSurprisedReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  }
+
+} else {
+  let newReactions = currentReactions;
+  let index = newReactions.indexOf(Meteor.userId());
+  newReactions.splice(index, 1);
+
+  Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, suprisedReactions: newSurprisedReactions });
+  // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+}
+    this.setState({ reacted });
+}
+else if (currentLaughs.includes(Meteor.userId())) {
+
+    let reacted = '';
+
+    let newLaughReactions = currentLaughs;
+    let otherIndex = newLaughReactions.indexOf(Meteor.userId());
+    newLaughReactions.splice(otherIndex, 1);
+
+    if (!(clicked === 'laugh')) {
+
+    if (clicked === 'heart') {
+
+      let newHearts = currentHearts;
+      newHearts.push(Meteor.userId());
+
+      reacted = 'heart';
+
+      Meteor.call('stories.update', this.props.story._id, { heartReactions: newHearts, laughReactions: newLaughReactions });
+      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    } else if (clicked === 'surprise') {
+
+      let newSurprised = currentSurprised;
+      newSurprised.push(Meteor.userId());
+
+      reacted = 'surprise';
+
+      Meteor.call('stories.update', this.props.story._id, { suprisedReactions: newSurprised, laughReactions: newLaughReactions });
+      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    } else if (clicked === 'angry') {
+
+      let newAngry = currentAngry;
+      newAngry.push(Meteor.userId());
+
+      reacted = 'angry';
+
+      Meteor.call('stories.update', this.props.story._id, { angryReactions: newAngry, laughReactions: newLaughReactions });
+      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    } else if (clicked === 'sad') {
+
+      let newSad = currentSad;
+      newSad.push(Meteor.userId());
+
+      reacted = 'sad';
+
+      Meteor.call('stories.update', this.props.story._id, { sadReactions: newSad, laughReactions: newLaughReactions });
+      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    }
+
+  } else {
+    let newReactions = currentReactions;
+    let index = newReactions.indexOf(Meteor.userId());
+    newReactions.splice(index, 1);
+
+    Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, laughReactions: newLaughReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+  }
+      this.setState({ reacted });
+}
+else if (currentAngry.includes(Meteor.userId())) {
+
+      let reacted = '';
+
+      let newAngryReactions = currentAngry;
+      let otherIndex = newAngryReactions.indexOf(Meteor.userId());
+      newAngryReactions.splice(otherIndex, 1);
+
+      if (!(clicked === 'angry')) {
+
+      if (clicked === 'heart') {
+
+        let newHearts = currentHearts;
+        newHearts.push(Meteor.userId());
+
+        reacted = 'heart';
+
+        Meteor.call('stories.update', this.props.story._id, { heartReactions: newHearts, angryReactions: newAngryReactions });
+        // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+      } else if (clicked === 'surprise') {
+
+        let newSurprised = currentSurprised;
+        newSurprised.push(Meteor.userId());
+
+        reacted = 'surprise';
+
+        Meteor.call('stories.update', this.props.story._id, { suprisedReactions: newSurprised, angryReactions: newAngryReactions });
+        // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+      } else if (clicked === 'laugh') {
+
+        let newLaughs = currentLaughs;
+        newLaughs.push(Meteor.userId());
+
+        reacted = 'laugh';
+
+        Meteor.call('stories.update', this.props.story._id, { laughReactions: newLaughs, angryReactions: newAngryReactions });
+        // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+      } else if (clicked === 'sad') {
+
+        let newSad = currentSad;
+        newSad.push(Meteor.userId());
+
+        reacted = 'sad';
+
+        Meteor.call('stories.update', this.props.story._id, { sadReactions: newSad, angryReactions: newAngryReactions });
+        // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+      }
+
+    } else {
+      let newReactions = currentReactions;
+      let index = newReactions.indexOf(Meteor.userId());
+      newReactions.splice(index, 1);
+
+      Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, angryReactions: newAngryReactions });
+      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+    }
+        this.setState({ reacted });
+}
+else if (currentSad.includes(Meteor.userId())) {
+  let reacted = '';
+
+  let newSadReactions = currentSad;
+  let otherIndex = newSadReactions.indexOf(Meteor.userId());
+  newSadReactions.splice(otherIndex, 1);
+
+  if (!(clicked === 'sad')) {
+
+  if (clicked === 'heart') {
+
+    let newHearts = currentHearts;
+    newHearts.push(Meteor.userId());
+
+    reacted = 'heart';
+
+    Meteor.call('stories.update', this.props.story._id, { heartReactions: newHearts, sadReactions: newSadReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'surprise') {
+
+    let newSurprised = currentSurprised;
+    newSurprised.push(Meteor.userId());
+
+    reacted = 'surprise';
+
+    Meteor.call('stories.update', this.props.story._id, { suprisedReactions: newSurprised, sadReactions: newSadReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'laugh') {
+
+    let newLaughs = currentLaughs;
+    newLaughs.push(Meteor.userId());
+
+    reacted = 'laugh';
+
+    Meteor.call('stories.update', this.props.story._id, { laughReactions: newLaughs, sadReactions: newSadReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  } else if (clicked === 'angry') {
+
+    let newAngry = currentAngry;
+    newAngry.push(Meteor.userId());
+
+    reacted = 'angry';
+
+    Meteor.call('stories.update', this.props.story._id, { angryReactions: newAngry, sadReactions: newSadReactions });
+    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  }
+
+} else {
+  let newReactions = currentReactions;
+  let index = newReactions.indexOf(Meteor.userId());
+  newReactions.splice(index, 1);
+
+  Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, sadReactions: newSadReactions });
+  // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+}
+    this.setState({ reacted });
+}
+} else {
+
+let reacted = '';
+
+let newReactions = currentReactions;
+newReactions.push(Meteor.userId());
+
+if (clicked === 'heart') {
+
+  let newHearts = currentHearts;
+  newHearts.push(Meteor.userId());
+
+  reacted = 'heart';
+  Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, heartReactions: newHearts });
+
+} else if (clicked === 'surprise') {
+
+  let newSurprised = currentSurprised;
+  newSurprised.push(Meteor.userId());
+
+  reacted = 'surprise';
+  Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, suprisedReactions: newSurprised });
+
+} else if (clicked === 'laugh') {
+
+  let newLaughs = currentLaughs;
+  newLaughs.push(Meteor.userId());
+
+  reacted = 'laugh';
+  Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, laughReactions: newLaughs });
+
+} else if (clicked === 'angry') {
+
+  let newAngry = currentAngry;
+  newAngry.push(Meteor.userId());
+
+  reacted = 'angry';
+  Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, angryReactions: newAngry });
+
+} else if (clicked === 'sad') {
+
+  let newSad = currentSad;
+  newSad.push(Meteor.userId());
+
+  reacted = 'sad';
+  Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, sadReactions: newSad });
+}
+this.setState({ reacted });
 }
 }
 componentDidMount() {
-  this.renderLikeButton();
+  this.renderReactButton();
   document.addEventListener('scroll', this.trackScrolling);
+  document.addEventListener('mousedown', this.handleClickOutside);
 }
 componentWillUnmount() {
   document.removeEventListener('scroll', this.trackScrolling);
+  document.removeEventListener('mousedown', this.handleClickOutside);
+}
+setReactBar(node) {
+      this.reactBar = node;
+}
+setReactIcon(node) {
+      this.reactIcon = node;
+}
+  handleClickOutside(e) {
+  if (this.reactBar && this.reactIcon && !this.reactBar.contains(e.target) && !this.reactIcon.contains(e.target)) {
+    console.log("hasn't actually clicked it");
+    this.setState({ reactOpen: false });
+  }
 }
 trackScrolling(e) {
 
@@ -96,6 +519,9 @@ const fixedElement = document.getElementById('storyBody__sidebar');
   //
   // console.log(target.scrollHeight, target.scrollTop);
 }
+openReactionBar() {
+  this.setState({ reactOpen: !this.state.reactOpen });
+}
 render() {
     return (
       <div>
@@ -103,11 +529,14 @@ render() {
         <div id="storyBody__sidebar" className="storyBody__topDivFixed storySocialSidebarTop">
 
 
-        <div className="socialSidebar__earthLeft" onClick={() => { this.clickedLikeButton() }}>
-        <FontAwesomeIcon icon={['fas', 'globe-americas']} className={`${this.state.liked ? 'storyBody__topLikeButtonLiked' : 'storyBody__topLikeButton' }`} />
+        <div className="socialSidebar__earthLeft" onClick={() => this.openReactionBar()} ref={this.setReactIcon}>
+        <FontAwesomeIcon icon={['far', 'grin-hearts']} className="story__actualMainReactionIcon" />
+        <div className="story__reactionsShownUnder">{this.props.story.reactions}</div>
         </div>
 
-        <hr className="storyBody__socialSidebarHrTop" />
+        <div ref={this.setReactBar} className={`story__reactionSidenav story__socialSideBarReactions ${this.state.reactOpen ? 'story__fullWidth' : 'story__noWidth'}`} id="referencesSideBar">
+
+        </div>
 
         <svg width="0" height="0">
         <radialGradient id="rgyt" r="150%" cx="30%" cy="107%">
@@ -176,20 +605,55 @@ render() {
 
         <hr className="storyBody__socialSidebarHr" />
 
-        <a className="sideSharesHov">
-        <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareImageSide"/><div className="shareNumSide">{this.props.story.likes.length}</div>
+        {/* <a className="sideSharesHov">
+        <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareImageSide"/><div className="shareNumSide">{this.props.story.reactions.length}</div>
         </a>
 
         <a className="sideCommentsHov">
         <FontAwesomeIcon icon={['far', 'comments']} className="commentImageSide"/><div className="commentNumSide">72</div>
         </a>
+          */}
         </div>
+
+
         :
         <div className="storyBody__topDiv">
 
-          <div onClick={() => { this.clickedLikeButton() }}>
-          <FontAwesomeIcon icon={['fas', 'globe-americas']} className={`${this.state.liked ? 'storyBody__topLikeButtonStaticLiked' : 'storyBody__topLikeButtonStatic' }`} />
+        <div className="socialSidebar__earthLeft" onClick={() => this.openReactionBar()} ref={this.setReactIcon}>
+        <FontAwesomeIcon icon={['far', this.returnMainIcon()]} className={this.state.reacted ? 'story__actualMainReactionIconSelected' : 'story__actualMainReactionIcon'} />
+        <div className="story__reactionsShownUnder">{this.props.story.reactions.length}</div>
+        </div>
+
+        <div ref={this.setReactBar} className={`story__reactionSidenav story__socialSideBarReactions ${this.state.reactOpen ? 'story__fullWidth' : 'story__noWidth'}`} id="referencesSideBar">
+          <div className="story__insideReactionMargins">
+
+            <div className="story__invidiualReactionsTooltip">
+            <FontAwesomeIcon icon={['far', 'grin-hearts']} onClick={() => this.clickedReactionsButton('heart')} className={`${this.state.reacted === 'heart' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
+            <div className="story__reactionsSmallShownUnder">{this.props.story.heartReactions.length}</div>
+            </div>
+
+            <div className="story__invidiualReactionsTooltip">
+            <FontAwesomeIcon icon={['far', 'surprise']} onClick={() => this.clickedReactionsButton('surprise')} className={`${this.state.reacted === 'surprise' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
+            <div className="story__reactionsSmallShownUnder">{this.props.story.suprisedReactions.length}</div>
+            </div>
+
+            <div className="story__invidiualReactionsTooltip">
+            <FontAwesomeIcon icon={['far', 'grin-squint-tears']} onClick={() => this.clickedReactionsButton('laugh')} className={`${this.state.reacted === 'laugh' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
+            <div className="story__reactionsSmallShownUnder">{this.props.story.laughReactions.length}</div>
+            </div>
+
+            <div className="story__invidiualReactionsTooltip">
+            <FontAwesomeIcon icon={['far', 'angry']} onClick={() => this.clickedReactionsButton('angry')} className={`${this.state.reacted === 'angry' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
+            <div className="story__reactionsSmallShownUnder">{this.props.story.angryReactions.length}</div>
+            </div>
+
+            <div className="story__invidiualReactionsTooltip">
+            <FontAwesomeIcon icon={['far', 'sad-cry']} onClick={() => this.clickedReactionsButton('sad')} className={`${this.state.reacted === 'sad' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
+            <div className="story__reactionsSmallShownUnder">{this.props.story.sadReactions.length}</div>
+            </div>
+
           </div>
+        </div>
 
         <hr className="storyBody__socialSidebarHrTop" />
 
@@ -254,15 +718,16 @@ render() {
 
 
         <hr className="storyBody__socialSidebarHr" />
-        <div className="storyBody__sharseAndCommments">
+      {/*  <div className="storyBody__sharseAndCommments">
         <a className="sideSharesHov">
-        <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareImageSide"/><div className="shareNumSide">{this.props.story.likes.length}</div>
+        <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareImageSide"/><div className="shareNumSide">{this.props.story.reactions.length}</div>
         </a>
 
         <a className="sideCommentsHov">
         <FontAwesomeIcon icon={['far', 'comments']} className="commentImageSide"/><div className="commentNumSide">0</div>
         </a>
       </div>
+      */}
         </div>
       }
       </div>

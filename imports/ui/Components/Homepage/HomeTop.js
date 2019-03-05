@@ -36,7 +36,7 @@ getStories() {
 
   let findPopular =  Stories.find({ storyType: 'published' }, {
       sort: {
-        likes: -1
+        reactions: -1
       }
   }).fetch().map((story) => {
     if (moment(story.lastUpdated).isAfter(oneWeekAgo)) {
@@ -242,7 +242,7 @@ Meteor.subscribe('stories');
 return { // Note: these should all be customised in stories, they should not be the same for everyone
 findPopular: Stories.find({}, {
     sort: {
-      likes: -1
+      reactions: -1
     }
   }).fetch().map((story) => {
   return {

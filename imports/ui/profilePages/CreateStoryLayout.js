@@ -29,15 +29,15 @@ let id = browserHistory.location.pathname.slice(7, browserHistory.location.pathn
 
 Session.set({ storyImageEntered: false });
 
-// var myWidget = cloudinary.createUploadWidget({
-//     cloudName: 'novaterra',
-//     uploadPreset: 'r4xf9yat', cropping: true }, (error, result) => {
-//   if (result.info.public_id) {
-//   let story = Stories.findOne({ _id: id });
-//   Meteor.call('stories.update', story._id, { mainImage: result.info.public_id });
-//   Session.set({ storyImageEntered: true });
-//   }
-// });
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'novaterra',
+    uploadPreset: 'r4xf9yat', cropping: true }, (error, result) => {
+  if (result.info.public_id) {
+  let story = Stories.findOne({ _id: id });
+  Meteor.call('stories.update', story._id, { mainImage: result.info.public_id });
+  Session.set({ storyImageEntered: true });
+  }
+});
 
 // $('.title').froalaEditor({
 //   saveInterval: 2500

@@ -188,7 +188,7 @@ let array = [];
 
   if (this.state.storiesType) {
 
-    Stories.find({ storyType: 'published' }, { sort: { likes: -1 } }).fetch().map((story) => {
+    Stories.find({ storyType: 'published' }, { sort: { reactions: -1 } }).fetch().map((story) => {
 
       if (this.state.readTime === 'All') {
         array.push(<StoryElement key={story._id} users={this.state.users} story={story}/>);
@@ -581,7 +581,7 @@ let array = [];
 
   if (this.state.storiesType) {
 
-    Stories.find({}, { sort: { likes: -1 } }).fetch().map((story) => {
+    Stories.find({}, { sort: { reactions: -1 } }).fetch().map((story) => {
 
       if (this.state.readTime === 'All') {
         array.push(<StoryElement key={story._id} users={this.state.users} story={story}/>);

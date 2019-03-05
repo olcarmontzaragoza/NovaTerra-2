@@ -34,7 +34,7 @@ returnPopular() {
     category: 'Economy', storyType: 'published'
   }, {
     sort: {
-      likes: -1
+      reactions: -1
     }
   }).fetch();
 

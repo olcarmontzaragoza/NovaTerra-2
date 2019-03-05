@@ -109,7 +109,7 @@ render() {
          </div>
 
          <FontAwesomeIcon icon={['fas', 'globe-americas']} className="bottomShareIconStory" />
-         <div className="scFont bottomShareNumStory1">{this.props.story.likes.length}</div>
+         <div className="scFont bottomShareNumStory1">{this.props.story.reactions.length}</div>
         </div></div>
 
      </div>

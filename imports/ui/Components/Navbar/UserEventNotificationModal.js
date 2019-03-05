@@ -48,7 +48,7 @@ componentDidMount() {
 }
 returnUserStories() {
 let userStories = [];
-Stories.find({ storyType: 'published' }, { sort: { likes: -1 }}).fetch().map((story) => {
+Stories.find({ storyType: 'published' }, { sort: { reactions: -1 }}).fetch().map((story) => {
   if (story.userId === this.props.userId) {
     userStories.push(story);
   }

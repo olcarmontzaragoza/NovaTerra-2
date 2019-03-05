@@ -24,7 +24,7 @@ returnPopStories() {
   let popularStories = [];
   let findPopularStories = Stories.find({ storyType: 'published' }, {
       sort: {
-        likes: -1
+        reactions: -1
       }
   }).fetch().map((story) => {
     if (moment(story.lastUpdated).isAfter(oneMonthAgo)) {

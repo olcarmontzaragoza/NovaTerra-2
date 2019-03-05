@@ -160,7 +160,7 @@ render() {
           </div>
 
           <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareIconStory" />
-          <div className="scFont shareNumStory1">{this.props.stories[0].likes.length}</div>
+          <div className="scFont shareNumStory1">{this.props.stories[0].reactions.length}</div>
                 </div>
           </div>
         </div>
@@ -209,7 +209,7 @@ render() {
           </div>
 
             <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareIconStory" />
-          <div className="scFont shareNumStory1">{this.props.stories[1].likes.length}</div>
+          <div className="scFont shareNumStory1">{this.props.stories[1].reactions.length}</div>
                 </div>
           </div>
         </div>
@@ -260,7 +260,7 @@ render() {
           </div>
 
          <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareIconStory" />
-          <div className="scFont shareNumStory1">{this.props.stories[2].likes.length}</div>
+          <div className="scFont shareNumStory1">{this.props.stories[2].reactions.length}</div>
          </div>
           </div>
           </div>

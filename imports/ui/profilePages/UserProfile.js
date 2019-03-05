@@ -34,7 +34,7 @@ returnUserStories(type) {
   if (type === 'popular') {
     let popular = [];
 
-    let popularBefore = Stories.find({ storyType: 'published' }, { sort: { likes: -1 }}).fetch().map((story) => {
+    let popularBefore = Stories.find({ storyType: 'published' }, { sort: { reactions: -1 }}).fetch().map((story) => {
     if (story.userId === this.state.users.findOne({ profileUrl: `/` + this.state.currentPage })._id) {
       popular.push(story);
     }

@@ -41,7 +41,7 @@ let popular = [];
 
 const prePopular = Stories.find({ storyType: 'published' }, {
   sort: {
-    likes: -1
+    reactions: -1
   }
 }).fetch().map((story) => {
   if (story.tags.includes('Research')) {
