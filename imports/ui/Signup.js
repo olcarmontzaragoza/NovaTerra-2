@@ -142,12 +142,12 @@ Accounts.createUser({ email, password, username, joinDate: moment().valueOf() },
     if (err) {
       console.log('err', err);
       if (err.reason === 'Email must be a valid email address [400]') {
-        err.reason = 'Are you sure your email Address is correct?';
+        err.reason = 'Are you sure your email address is correct?';
       }  else if (err.reason === 'Email must be a valid email address') {
-        err.reason = 'Are you sure your email Address is correct?';
+        err.reason = 'Are you sure your email address is correct?';
       }
       else if (err.reason === 'Internal server error') {
-        err.reason = 'Are you sure your email Address is correct?';
+        err.reason = 'Are you sure your email address is correct?';
       } else if (err.reason === 'Error, too many requests. Please slow down. You must wait 5 seconds before trying again.') {
         err.reason === 'Too many requests. Please wait 5 seconds.'
       }
@@ -278,8 +278,8 @@ render() {
          <div className={`login__rightSubtitle ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>Last Name</div>
          <input type="name" ref="lastName" name="last-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
-         <div className={`login__rightSubtitle ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email</div>
-         <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
+         <div className={`login__rightSubtitle ${this.state.error === 'Are you sure your email address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email</div>
+         <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Are you sure your email address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
 
           <div className={`login__rightSubtitle ${this.state.error === 'Try making your password least 6 characters' ? 'signup__redLabel' : ''}`}>Password</div>
          <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Try making your password least 6 characters' ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />

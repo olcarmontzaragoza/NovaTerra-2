@@ -116,7 +116,9 @@
  }
  .story__topPositionShareIcons {
    position:relative;
-   margin-left:-98px;
+   margin-left:62px;
+   margin-top:-37px;
+   float:left;
 
    @media screen and (max-width: 695px) {
     display:none;
@@ -494,6 +496,29 @@ border: 1px solid #ffffff;
    z-index:13001;
  }
  .shareArrow2 {
+
+   position: absolute;
+   margin-top: 31.2px;
+   margin-left:254px;
+   border-width: 11px;
+   border-style: solid;
+   border-color: transparent transparent #dcdcdc transparent;
+   transition-delay: 0.55s;
+   z-index:10999;
+ }
+
+ .shareArrow1Bottom {
+
+   position: absolute;
+   opacity:1;
+   margin-top: 35px; /* 125 - 120 */
+   margin-left: 256px; /* 16 - 13 */
+   border-width: 9px;
+   border-style: solid;
+   border-color: transparent transparent #fff transparent;
+   z-index:13001;
+ }
+ .shareArrow2Bottom {
 
    position: absolute;
    margin-top: 31.2px;
@@ -1429,4 +1454,36 @@ margin-top:-37px;
   border: 1px solid #fff;
   position:absolute;
   left:2000px;
+}
+.top__earthLeft {
+  position:relative;
+  display:flex;
+  margin-top:25px;
+  margin-left:-3px;
+
+  @media screen and (max-width: 695px) {
+  display:none;
+  }
+}
+.top__insideReactionMargins {
+  top:0px;
+  left:22px;
+  z-index:20000;
+  position:relative;
+}
+.top__reactionSide {
+  height: 87px;
+  position:relative;
+  margin-bottom:-36px;
+  background-color: #fff;
+  transition: 0.5s;
+  // border: 1px solid #dcdcdc;
+  -webkit-box-shadow:   1px 1.5px 1.5px 2px #f0f0f0;
+    -moz-box-shadow:    1px 1.5px 1.5px 2px #f0f0f0;
+    box-shadow:         1px 1.5px 1.5px 2px #f0f0f0;
+
+  border-radius:5px 5px 5px 5px;
+  z-index:20005;
+  margin-left:-25px;
+  margin-top:-51px;
 }

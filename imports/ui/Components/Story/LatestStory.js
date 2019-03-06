@@ -108,7 +108,7 @@ render() {
          <div className="storyBottom__commentAndSharesLineStory1">
          </div>
 
-         <FontAwesomeIcon icon={['fas', 'globe-americas']} className="bottomShareIconStory" />
+         <FontAwesomeIcon icon={['far', 'grin-hearts']} className="bottomShareIconStory" />
          <div className="scFont bottomShareNumStory1">{this.props.story.reactions.length}</div>
         </div></div>
 

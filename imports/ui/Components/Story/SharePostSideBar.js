@@ -30,6 +30,7 @@ this.state = {
 // liked: Session.get('currentUser') ? Session.get('currentUser').storiesLiked.includes(this.props.story._id) : false,
 fixedSideBar: true,
 reactOpen: false,
+bottomSideBarTop: "0px"
 };
 this.trackScrolling = this.trackScrolling.bind(this);
 this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -97,6 +98,8 @@ returnMainIcon() {
 }
 clickedReactionsButton(clicked) {
 // Meteor.call('stories.update', this.props.story._id, { likes: ['1', '2', '3'] });
+
+if (Meteor.userId()) {
 
 let user = Meteor.users.findOne({ _id: Meteor.userId() });
 
@@ -468,6 +471,9 @@ if (clicked === 'heart') {
 }
 this.setState({ reacted });
 }
+} else {
+  window.location="/login";
+}
 }
 componentDidMount() {
   this.renderReactButton();
@@ -492,139 +498,53 @@ setReactIcon(node) {
 }
 trackScrolling(e) {
 
-const fixedElement = document.getElementById('storyBody__sidebar');
+let page = window.pageYOffset;
+let topElement = document.getElementById('sidebar__topElement').offsetTop;
+let bottomElement = document.getElementById('sidebar__bottomElement').offsetTop;
 
-  // function fixDivingt() {
-  // var fadeTop1 = $('#fadeOutInStart').offset().top;
-  // var fadeTop2 = fadeTop1 - 115;
-  // var fadeTopOut = fadeTop1 - 116;
-  // var fadeTopHide = fadeTop1 - 145;
-  //     if ($(window).scrollTop() > fadeTop2) {
-  //     $('#socialSideBar1').fadeIn();
-  //     console.log('firstFuncFade');
-  //     }
-  //     else if ($(window).scrollTop() < fadeTopOut) {
-  //    $("#socialSideBar1").hide();
-  //    console.log("$windowScroll1"); // $("#socialSideBar1").fadeIn();
-  //    }
-  //    else if ($(window).scrollTop() < fadeTopHide) {
-  //    $("#socialSideBar1").fadeOut();
-  //     console.log("$windowScroll2");
-  //    }
-  //   }
-  //     $(window).scroll(fixDivingt);
-  //     fixDivingt();
-  // });
+console.log("top element", topElement);
+console.log("bottom element", bottomElement);
 
-  //
-  // console.log(target.scrollHeight, target.scrollTop);
+let topOffset = topElement + 318;
+let bottomOffset = bottomElement - 569;
+
+console.log('page', page);
+console.log('top', topElement);
+console.log('bottom', bottomElement);
+
+if (page < topOffset) {
+  this.setState({ bottomSideBarTop: "0px" });
+  this.setState({ trackClassName: 'sidebar__top' });
+} else if (page >= topOffset && page <= bottomOffset) {
+  console.log('fixedddd');
+  this.setState({ bottomSideBarTop: "24.5%" });
+  this.setState({ trackClassName: 'sidebar__fixed' });
+} else if (page > bottomOffset) {
+  console.log('botttomed');
+  let bottomTopPositioning = bottomOffset - 785;
+  this.setState({ bottomSideBarTop: `${bottomTopPositioning + "px"}` });
+  this.setState({ trackClassName: 'sidebar__bottom' });
+}
 }
 openReactionBar() {
   this.setState({ reactOpen: !this.state.reactOpen });
 }
+returnTopStyle() {
+
+
+}
 render() {
     return (
       <div>
-        { !this.state.fixedSideBar ?
-        <div id="storyBody__sidebar" className="storyBody__topDivFixed storySocialSidebarTop">
 
-
-        <div className="socialSidebar__earthLeft" onClick={() => this.openReactionBar()} ref={this.setReactIcon}>
-        <FontAwesomeIcon icon={['far', 'grin-hearts']} className="story__actualMainReactionIcon" />
-        <div className="story__reactionsShownUnder">{this.props.story.reactions}</div>
-        </div>
-
-        <div ref={this.setReactBar} className={`story__reactionSidenav story__socialSideBarReactions ${this.state.reactOpen ? 'story__fullWidth' : 'story__noWidth'}`} id="referencesSideBar">
-
-        </div>
-
-        <svg width="0" height="0">
-        <radialGradient id="rgyt" r="150%" cx="30%" cy="107%">
-        <stop stopColor="#7797d4" offset="0" />
-         <stop stopColor="#81a1de" offset="0.2" />
-         <stop stopColor="#8babe8" offset="0.25" />
-        <stop stopColor="#8bb5f2" offset="0.35" />
-         <stop stopColor="#b9e2ff" offset="0.7" />
-         <stop stopColor="#c3ecf5" offset="0.77" />
-        <stop stopColor="#cdf6ff" offset="0.82" />
-        </radialGradient>
-        </svg>
-        <a target="_blank" href={this.props.story.facebookLink}>
-        <div className="divSocialHovtt">
-        <FontAwesomeIcon icon={['fab', 'facebook-f']} className="storyBody__facebookHover" aria-hidden="true" />
-        </div></a>
-        <br/>
-        <svg width="0" height="0">
-        <radialGradient id="rgys" r="150%" cx="30%" cy="107%">
-         <stop stopColor="#2aa3f0" offset="0.10" />
-         <stop stopColor="#c4d6f1" offset="0.5" />
-         <stop stopColor="#d1e4f1" offset="0.6" />
-         <stop stopColor="#e0edf1" offset="0.7" />
-         <stop stopColor="#e0edf1" offset="0.8" />
-         <stop stopColor="#d9f5ff" offset="0.9" />
-
-        </radialGradient>
-        </svg>
-        <a target="_blank" href={this.props.story.twitterLink}>
-        <div className="divSocialHovtts">
-        <FontAwesomeIcon icon={['fab', 'twitter']} className="storyBody__twitterHover" aria-hidden="true" />
-        </div>
-        </a>
-        <br/>
-        <svg width="0" height="0">
-        <radialGradient id="rgyl" r="150%" cx="30%" cy="107%">
-              <stop stopColor="#ff6f46" offset="0.15" />
-        <stop stopColor="#ff8364" offset="0.25" />
-          <stop stopColor="#ff9782" offset="0.35" />
-          <stop stopColor="#ffab96" offset="0.45" />
-          <stop stopColor="#ffbfaa" offset="0.55" />
-          <stop stopColor="#ffd3be" offset="0.7" />
-          <stop stopColor="#ffe7dc" offset="0.8" />
-        </radialGradient>
-        </svg>
-        <a target="_blank" href={this.props.story.redditLink}>
-        <div className="divSocialHovttk">
-        <FontAwesomeIcon icon={['fab', 'reddit-alien']} className="storyBody__redditIconSide" aria-hidden="true" />
-        </div>
-        </a>
-        <br/>
-        <svg width="0" height="0">
-        <radialGradient id="rgysy" r="150%" cx="30%" cy="107%">
-         <stop stopColor="#bd232b" offset="0.10" />
-         <stop stopColor="#f97251" offset="0.4" />
-        <stop stopColor="#ff9d85" offset="0.5" />
-         <stop stopColor="#ffccb9" offset="0.6" />
-         <stop stopColor="#ffeee8" offset="0.75" />
-        </radialGradient>
-        </svg>
-        <a target="_blank" href={this.props.story.pinterestLink}>
-        <div className="divSocialHovttrw">
-        <FontAwesomeIcon icon={['fab', 'pinterest-p']} className="storyBody__pinterestIcon" aria-hidden="true" />
-        </div></a>
-        <br/>
-
-        <hr className="storyBody__socialSidebarHr" />
-
-        {/* <a className="sideSharesHov">
-        <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareImageSide"/><div className="shareNumSide">{this.props.story.reactions.length}</div>
-        </a>
-
-        <a className="sideCommentsHov">
-        <FontAwesomeIcon icon={['far', 'comments']} className="commentImageSide"/><div className="commentNumSide">72</div>
-        </a>
-          */}
-        </div>
-
-
-        :
-        <div className="storyBody__topDiv">
+        <div className="storyBody__topDiv" style={{"top" : this.state.bottomSideBarTop}} className={this.state.trackClassName}>
 
         <div className="socialSidebar__earthLeft" onClick={() => this.openReactionBar()} ref={this.setReactIcon}>
         <FontAwesomeIcon icon={['far', this.returnMainIcon()]} className={this.state.reacted ? 'story__actualMainReactionIconSelected' : 'story__actualMainReactionIcon'} />
         <div className="story__reactionsShownUnder">{this.props.story.reactions.length}</div>
         </div>
 
-        <div ref={this.setReactBar} className={`story__reactionSidenav story__socialSideBarReactions ${this.state.reactOpen ? 'story__fullWidth' : 'story__noWidth'}`} id="referencesSideBar">
+        <div ref={this.setReactBar} className={`${this.state.trackClassName === "sidebar__fixed" ? "story__reactionSidenav" : "story__reactionSidenavAbs"} story__socialSideBarReactions ${this.state.reactOpen ? 'story__fullWidth' : 'story__noWidth'}`} id="referencesSideBar">
           <div className="story__insideReactionMargins">
 
             <div className="story__invidiualReactionsTooltip">
@@ -655,7 +575,7 @@ render() {
           </div>
         </div>
 
-        <hr className="storyBody__socialSidebarHrTop" />
+        <hr className={this.state.trackClassName === 'sidebar__fixed' ? "storyBody__socialSidebarHrTop" : "storyBody__socialSidebarHrTopAbs"} />
 
         <svg width="0" height="0">
         <radialGradient id="rgyt" r="150%" cx="30%" cy="107%">
@@ -716,9 +636,9 @@ render() {
         </div>
         <br/>
 
-
+{/*
         <hr className="storyBody__socialSidebarHr" />
-      {/*  <div className="storyBody__sharseAndCommments">
+        <div className="storyBody__sharseAndCommments">
         <a className="sideSharesHov">
         <FontAwesomeIcon icon={['fas', 'globe-americas']} className="shareImageSide"/><div className="shareNumSide">{this.props.story.reactions.length}</div>
         </a>
@@ -729,7 +649,7 @@ render() {
       </div>
       */}
         </div>
-      }
+
       </div>
     );
   }

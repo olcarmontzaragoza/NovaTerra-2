@@ -100,11 +100,11 @@ render() {
 { this.state.shareTooltip ?
 
   <div>
-  <div ref={this.setArrowOne} className="shareArrow1">
+  <div ref={this.setArrowOne} className="shareArrow1Bottom">
   </div>
-  <div ref={this.setArrowTwo} className="shareArrow2">
+  <div ref={this.setArrowTwo} className="shareArrow2Bottom">
   </div>
-
+  
   <div ref={this.setTitleShareButton} className="titleShareButton">
     <div className="dropShareLinks">
 

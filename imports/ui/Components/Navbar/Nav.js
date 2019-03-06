@@ -336,7 +336,7 @@ returnTime(time) {
       </div>
       <div className="clearBoth"></div>
       <div className="nav__profileBottomLinks">
-      <div className="nav__profileExplore"><FontAwesomeIcon icon={['fas', 'book-reader']} className={`${this.state.currentPage === 'explore' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'explore' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/explore">Explore</Link></div>
+      <div className="nav__profileExplore"><FontAwesomeIcon icon={['fas', 'compass']} className={`${this.state.currentPage === 'explore' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'explore' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/explore">Explore</Link></div>
       <div className="clearBoth"></div>
       <div className="nav__profileProfile"><FontAwesomeIcon icon={['fas', 'user-circle']} className={`${this.state.currentPage === 'profile'  ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'profile' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/profile">Profile</Link></div>
       <div className="clearBoth"></div>

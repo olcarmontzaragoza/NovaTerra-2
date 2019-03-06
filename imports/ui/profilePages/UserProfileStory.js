@@ -123,7 +123,7 @@ render() {
       <div className="profile__commentAndSharesLineStory1">
       </div>
 
-      <FontAwesomeIcon icon={['fas', 'globe-americas']} className="profile__bottomShareIconStory" />
+      <FontAwesomeIcon icon={['far', 'grin-hearts']} className="profile__bottomShareIconStory" />
       <div className="scFont profile__bottomShareNumStory1">{this.props.story.reactions.length}</div>
      </div>
 

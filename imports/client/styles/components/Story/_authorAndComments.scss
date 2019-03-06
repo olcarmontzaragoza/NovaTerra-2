@@ -246,6 +246,9 @@ margin-left:12px;
 margin-top:6px;
 margin-bottom:20px;
 
+@media screen and (max-width: 715px) {
+  width:93.1vw;
+}
 @media screen and (max-width: 682px) {
   margin-top:9px;
 }
@@ -723,8 +726,44 @@ position:relative;
 z-index:1;
 }
 .authorAndComments__shareIconsMarginLeft {
-  margin-left:-88px;
-  margin-top:50px;
+  margin-left:345px;
+  margin-top:-36px;
+  float:left;
+  margin-bottom:-35px;
+
+  @media screen and (max-width: 710px) {
+  margin-left:325px;
+  }
+  @media screen and (max-width: 675px) {
+  margin-left:305px;
+  }
+  @media screen and (max-width: 655px) {
+  margin-left:285px;
+  }
+  @media screen and (max-width: 649px) {
+  margin-left:245px;
+  }
+  @media screen and (max-width: 590px) {
+  margin-left:225px;
+  }
+  @media screen and (max-width: 575px) {
+  margin-left:205px;
+  }
+  @media screen and (max-width: 555px) {
+  margin-left:155px;
+  }
+  @media screen and (max-width: 502px) {
+  margin-left:125px;
+  }
+  @media screen and (max-width: 475px) {
+  margin-left:105px;
+  }
+  @media screen and (max-width: 450px) {
+  margin-left:85px;
+  }
+  @media screen and (max-width: 430px) {
+  display:none;
+  }
 }
 .authorsAndComments__referencesTPositioningDiv {
   position:relative; margin-top:10px; width:600px;
@@ -1042,4 +1081,69 @@ margin-top:11px;
 position:relative;
 top:4px;
 margin-left:0px;
+}
+.ac__actualMainReactionIcon {
+    font-size:2.4em; color:#d9d9d9; cursor:pointer; transition:0.25s; margin-top:-25px;
+}
+.ac__actualMainReactionIconSelected {
+    font-size:2.4em; color:#2aaa63; cursor:pointer; transition:0.25s; margin-top:-25px;
+}
+.reactionShowUnderDarkerTone {
+  color:#6d6d6d; display:inline-block; margin-right:2px;
+}
+.ac__reactionsShownUnder {
+  color:#a8a8a8;
+  float:left;
+  letter-spacing: 0.015em;
+  font-size:0.79em;
+  margin-top:-27px;
+  margin-left:51px;
+  position:absolute;
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+.ac__reactionSide {
+  height: 87px;
+  position:relative;
+  margin-bottom:-34px;
+  background-color: #fff;
+  transition: 0.5s;
+  // border: 1px solid #dcdcdc;
+  -webkit-box-shadow:   1px 1.5px 1.5px 2px #f0f0f0;
+    -moz-box-shadow:    1px 1.5px 1.5px 2px #f0f0f0;
+    box-shadow:         1px 1.5px 1.5px 2px #f0f0f0;
+
+  border-radius:5px 5px 5px 5px;
+  z-index:20005;
+  margin-left:-9px;
+  margin-top:-53px;
+}
+.ac__earthLeft {
+  position:relative;
+  display:flex;
+  margin-top:62px;
+  margin-left:13px;
+}
+.ac__smallMainReactionIcon {
+    font-size:2.43em; color:#e1e1e1; cursor:pointer; transition:0.25s; margin-top:0px; margin-bottom:0px;
+}
+.ac__smallMainReactionIconSelected {
+    font-size:2.43em; color:#2aaa63; cursor:pointer; transition:0.25s; margin-top:0px; margin-bottom:0px;
+}
+.ac__fullWidth {
+  width:344px;
+}
+.ac__noWidth {
+  width:0px;
+  display:none;
+}
+.ac__insideReactionMargins {
+  top:14px;
+  left:22px;
+  z-index:20000;
+  position:relative;
 }

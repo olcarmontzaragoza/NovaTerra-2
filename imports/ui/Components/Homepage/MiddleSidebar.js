@@ -23,7 +23,7 @@ super(props);
 this.state = {
 trendingStories: [],
 sideBarSide: false,
-trackClassName: 'rightSideBarNotTop',
+trackClassName: 'sidebar__top',
 };
 this.trackScrolling = this.trackScrolling.bind(this);
 }

@@ -124,7 +124,7 @@ constructor(props) {
 super(props);
 this.state = {
 bodyFeatures: 'normal',
-toggleDropDown: 'dropdown-content',
+toggleDropDown: 'dropdown-contentPro',
 toggleDropDownTags: 'dropdown-contentTags',
 tags: Stories.findOne({ _id: props.storyId }).tags,
 titleConfig: {
@@ -254,17 +254,17 @@ componentWillUnmount() {
 }
 handleClickOutside(e) {
     if (this.wrapperRef && this.wrapperRef2 && !this.wrapperRef.contains(e.target) && !this.wrapperRef2.contains(e.target)) {
-      this.setState({ toggleDropDown: 'dropdown-content' });
+      this.setState({ toggleDropDown: 'dropdown-contentPro' });
     }
    if (this.wrapperRef3 && this.wrapperRef4 && !this.wrapperRef3.contains(e.target) && !this.wrapperRef4.contains(e.target)) {
       this.setState({ toggleDropDownTags: 'dropdown-contentTags' });
     }
 }
 toggleDropDown() {
-if (this.state.toggleDropDown === 'dropdown-content') {
-this.setState({ 'toggleDropDown': 'dropdown-content1' });
+if (this.state.toggleDropDown === 'dropdown-contentPro') {
+this.setState({ 'toggleDropDown': 'dropdown-contentPro1' });
 } else {
-this.setState({ toggleDropDown: 'dropdown-content' });
+this.setState({ toggleDropDown: 'dropdown-contentPro' });
 }
 }
 toggleDropDownTags() {
