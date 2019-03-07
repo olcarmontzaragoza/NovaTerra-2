@@ -130,6 +130,7 @@ tags: Stories.findOne({ _id: props.storyId }).tags,
 titleConfig: {
   key: 'aF4H3A8C7bA4B3A2B2I3H2C4C6C3E4uddzlzjbcsD1qtdcp==',
   theme: "custom",
+  toolbarSticky: false,
   charCounterMax: 85,
   multiLine: false,
   placeholderText: "short and sweet!",
@@ -147,6 +148,7 @@ bodyConfig: {
   key: 'aF4H3A8C7bA4B3A2B2I3H2C4C6C3E4uddzlzjbcsD1qtdcp==',
   placeholderText: "I'm ready when you are!",
   theme: "custom",
+  toolbarSticky: false,
   linkList: [
     {
               text: 'NovaTerra',
@@ -162,7 +164,7 @@ bodyConfig: {
   toolbarButtons: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', '|', 'undo', 'redo', '|',  'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough',  '|', 'insertLink', 'video', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
   toolbarButtonsMD: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', '|',  'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
   toolbarButtonsSM: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript','insertHR', 'quote', 'insertFile', 'html', '|', 'getPDF', 'spellChecker', 'help', '-', 'undo', 'redo', '|', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', '|', 'formatOL', 'formatUL'],
-  toolbarButtonsXS: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'insertFile', 'html', '|', 'help', '-', 'undo', 'redo', '|', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'formatOL', 'formatUL'],
+  toolbarButtonsXS: ['fullscreen', '|', 'insertTable', 'fontFamily', 'color', 'bold', 'fontSize',  '|', 'undo', 'redo' ],
   imageUploadURL: 'https://api.cloudinary.com/v1_1/novaterra/image/upload',
   imageUploadParams: {
       'api_key': '464976181148953',
@@ -182,6 +184,7 @@ bodyFullConfig: {
   key: 'aF4H3A8C7bA4B3A2B2I3H2C4C6C3E4uddzlzjbcsD1qtdcp==',
   placeholderText: "I'm ready when you are!",
   theme: "custom",
+  toolbarSticky: false,
   linkList: [
     {
               text: 'NovaTerra',
@@ -197,7 +200,7 @@ bodyFullConfig: {
   toolbarButtons: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help',  'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough',  '|', 'insertLink', 'video', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
   toolbarButtonsMD: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript', 'insertHR', 'inlineClass', 'quote', 'insertFile', 'html', '|', 'getPDF', 'print', 'spellChecker', 'help', 'undo', 'redo', '|', 'paragraphFormat', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', 'indent', 'outdent', '|', 'formatOL', 'formatUL'],
   toolbarButtonsSM: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript','insertHR', 'quote', 'insertFile', 'html', '|', 'getPDF', 'spellChecker', 'help', '-', 'undo', 'redo', '|', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', '|', 'formatOL', 'formatUL'],
-  toolbarButtonsXS: ['fullscreen', '|', 'insertTable', 'fontAwesome', 'emoticons', 'specialCharacters', 'subscript', 'superscript','insertHR', 'quote', 'insertFile', 'html', '|', 'getPDF', 'spellChecker', 'help', '-', 'undo', 'redo', '|', 'fontFamily', 'fontSize', '|', 'color', 'bold', 'italic', 'underline', 'strikeThrough', '|', 'insertLink', 'insertVideo', 'insertImage', '|', 'align', 'lineHeight', '|', 'formatOL', 'formatUL'],
+  toolbarButtonsXS: ['fullscreen', '|', 'insertTable', 'fontFamily', 'color', 'bold', 'fontSize',  '-', 'undo', 'redo', '|'],
 },
 referencesConfig: {
   theme: "custom",

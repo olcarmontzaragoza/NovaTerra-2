@@ -9,7 +9,7 @@ import AuthorTooltip from '../Tooltips/AuthorTooltip';
 // import MiddleStoryCategory from './MiddleStoryCategory';
 import MiddleStory from './MiddleStory';
 import MiddleSidebar from './MiddleSidebar';
-import MiddleBottomSidebar from './MiddleBottomSidebar';
+// import MiddleBottomSidebar from './MiddleBottomSidebar';
 import MobileSidebar from './MobileSidebar';
 
 Session.set('sliceNumHomeMiddle', 16);
@@ -383,9 +383,9 @@ setNum() {
         </div>
         : undefined }
 
-        <div className="mainSideBarHomeMiddle">
+      {/*  <div className="mainSideBarHomeMiddle">
         <MiddleBottomSidebar users={this.props.users} />
-        </div>
+        </div>*/}
 
         </div></div>
 

@@ -24,6 +24,7 @@ this.state = {
 trendingStories: [],
 sideBarSide: false,
 trackClassName: 'sidebar__top',
+bottomSideBarTop: "0px"
 };
 this.trackScrolling = this.trackScrolling.bind(this);
 }
@@ -111,7 +112,7 @@ let topElement = document.getElementById('home__topElement').offsetTop;
 let bottomElement = document.getElementById('home__bottomElement').offsetTop;
 
 let topOffset = topElement - 191;
-let bottomOffset = bottomElement - 635;
+let bottomOffset = bottomElement - 615;
 
 console.log('page', page);
 console.log('top', topElement);
@@ -121,11 +122,16 @@ num = -1;
 
 if (page < topOffset) {
   this.setState({ trackClassName: 'rightSideBarNotTop' });
+  this.setState({ bottomSideBarTop: "0px" });
 } else if (page >= topOffset && page <= bottomOffset) {
   console.log('this is now true');
   this.setState({ trackClassName: 'rightSideBar' });
+  this.setState({ bottomSideBarTop: "16%" });
 } else if (page > bottomOffset) {
-  this.setState({ trackClassName: 'rightSideBarNotBottom' });
+  console.log('it has now bottomed');
+  this.setState({ trackClassName: 'rightSideBarNotTop' });
+  let bottomTopPositioning = bottomOffset - 620;
+  this.setState({ bottomSideBarTop: `${bottomTopPositioning + "px"}` });
 }
 }
 setNum() {
@@ -137,7 +143,7 @@ setNum1() {
 render() {
     return (
       <div>
-<div id='trackRightSidebar' className={this.state.trackClassName}>
+<div id='trackRightSidebar' className={this.state.trackClassName} style={{"top" : this.state.bottomSideBarTop}}>
 
 { this.state.sideBarSide ?
 <div ref="latestSide" onClick={() => { this.handleChange('latest') }} className="latestCategoryRight middleSideBar__selectedCategory">
