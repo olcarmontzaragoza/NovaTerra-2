@@ -45,10 +45,10 @@ color:#acacac;
   border:1px solid #15a05c;
   align-items:center;
   opacity:0.8;
-  width:85px;
-  height:35px;
+  width:90px;
+  height:37px;
   font-size:0.8em;
-  border-radius:4px;
+  border-radius:25px;
   cursor:pointer;
   margin-top:-4px;
   margin-bottom:3px;
@@ -109,9 +109,9 @@ color:#acacac;
   display:flex;
   justify-content:center;
   align-items:center;
-  border-radius:3px;
+  border-radius:6px;
   font-size:0.83em;
-  margin-top:2px;
+  margin-top:6px;
   margin-bottom:5px;
   text-align: center;
 
@@ -171,6 +171,15 @@ color:#acacac;
 
   @media screen and (max-width:605px) {
      width:91%;
+     margin-left:4px;
+  }
+  @media screen and (max-width:375px) {
+     width:89%;
+     margin-left:-4px;
+  }
+  @media screen and (max-width:345px) {
+     width:87%;
+     margin-left:-4px;
   }
 
 }
@@ -287,9 +296,11 @@ color:#acacac;
 }
 .signup__checkboxRed {
   border-color:#c9332c;
+  opacity:0.8;
 }
 .signup__redLabel {
   color:#c9332c;
+  opacity:0.8;
 }
 .signup__belowSubmitButtonMarginBottom {
  margin-bottom:-1px;
@@ -433,7 +444,7 @@ width:73.3vw;
 }
 .signup__recaptchaPositioning {
   width:300px;
-  margin-top:12px;
+  margin-top:16px;
 
   transform:scale(1.02);-webkit-transform:scale(1.02);transform-origin:0 0;-webkit-transform-origin:0 0;
 

@@ -208,10 +208,14 @@ turnOffNotifications() {
   this.setState({ notificationsMessage: false });
   this.setNotificationsSeen();
 }
+toggleModal() {
+  this.setState({ isOpen: !this.state.isOpen });
+  this.setState({ notificationsOn: false });
+}
 render () {
   return (
     <div>
-    {this.findUser(Meteor.userId()).profilePhoto ? <div><div className="nav__behindCircleNavModal"></div><Image onClick={() => this.setState({ isOpen: !this.state.isOpen })} className="mpl__topImage" cloud_name='novaterra' className="nav__authorImageModal" publicId={this.findUser(Meteor.userId()).profilePhoto}><Transformation crop="thumb" /></Image></div> :
+    {this.findUser(Meteor.userId()).profilePhoto ? <div><div className="nav__behindCircleNavModal"></div><Image onClick={() => this.toggleModal()} className="mpl__topImage" cloud_name='novaterra' className="nav__authorImageModal" publicId={this.findUser(Meteor.userId()).profilePhoto}><Transformation crop="thumb" /></Image></div> :
     <img onClick={() => this.setState({ isOpen: !this.state.isOpen })} src={`${this.props.route}images/noImage.png`} className="nav__authorImageModal"/>}
     <Modal isOpen={this.state.isOpen}
            contentLabel=''
@@ -249,20 +253,19 @@ render () {
            <div className="clearBoth"></div>
            <div className="nav__profileBottomLinksModal">
            <div className="floatLeft nav__modalFloatLeftSpacing">
+           <div className="nav__profileSettings"><FontAwesomeIcon icon={['fas', 'home']} className={`${this.state.currentPage === '' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`}/><Link className={`${this.state.currentPage === '' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/settings">Home</Link></div>
+           <div className="clearBoth"></div>
            <div className="nav__profileExplore"><FontAwesomeIcon icon={['fas', 'compass']} className={`${this.state.currentPage === 'explore' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'explore' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/explore">Explore</Link></div>
            <div className="clearBoth"></div>
            <div className="nav__profileProfile"><FontAwesomeIcon icon={['fas', 'user-circle']} className={`${this.state.currentPage === 'profile'  ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'profile' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/profile">Profile</Link></div>
            <div className="clearBoth"></div>
-           <div className="nav__profileProfile"><FontAwesomeIcon icon={['fas', 'search']} className={`${this.state.currentPage === 'search'  ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'search' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/search">Search</Link></div>
-           <div className="clearBoth"></div>
            </div>
            <div className="floatLeft">
-
            <div className="nav__profileExplore" onClick={() => this.setState({ notificationsOn: true })}><FontAwesomeIcon icon={['fas', 'heart']} className='nav__profileIcon' /><a className='nav__profileLink'>Notifications</a>{this.notificationsLeftToSee() > 0 ? <div><FontAwesomeIcon icon={['fas', 'circle']} className={`nav__profileNotificationSmallIcon`} /><div className={`${this.notificationsLeftToSee() > 9 ? 'nav__notificationModalNumLarge' : 'nav__notificationModalNum'}`}>{this.notificationsLeftToSee() > 99 ? '99' : `${this.notificationsLeftToSee()}` }</div></div> : undefined}</div>
            <div className="clearBoth"></div>
-           <div className="nav__profileSettings"><FontAwesomeIcon icon={['fas', 'cogs']} className={`${this.state.currentPage === 'settings' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`}/><Link className={`${this.state.currentPage === 'settings' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/settings">Settings</Link></div>
-           <div className="clearBoth"></div>
            <div className="nav__profileHelp"><FontAwesomeIcon icon={['fas', 'question-circle']} className={`${this.state.currentPage === 'faq' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'faq' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/faq">Help</Link></div>
+            <div className="clearBoth"></div>
+           <div className="nav__profileProfile"><FontAwesomeIcon icon={['fas', 'search']} className={`${this.state.currentPage === 'search'  ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'search' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/search">Search</Link></div>
            </div>
            {this.renderAdminIcon()}
            <div className="clearBoth"></div>

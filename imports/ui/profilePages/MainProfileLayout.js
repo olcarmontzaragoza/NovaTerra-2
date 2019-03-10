@@ -44,6 +44,7 @@ descriptionLength: this.props.user.description ? this.props.user.description.len
 usernameLength: this.props.user.username.length,
 error: '',
 followersAndFollowing: this.props.user.followers,
+selected: 1,
 // draftedStories: !this.props.route ? this.props.drafted : undefined,
 // waitingStories: !this.props.route ? this.props.waiting : undefined,
 // publishedStories: !this.props.route ? this.props.published : undefined,
@@ -452,6 +453,7 @@ createNewStory() {
     mainImage: '',
     userId: Meteor.userId(),
     lastUpdated: moment().valueOf(),
+    lastUpdatedTime: moment(moment().valueOf()).format('LLLL'),
     minRead: 0,
     reactions: [],
     heartReactions: [],
@@ -661,6 +663,7 @@ this.setState({ error: '' });
 }
 resetError() {
 this.setState({ error: '' });
+this.setState({ success: '' });
 }
 componentDidMount() {
   Meteor.subscribe('allUsers', () => {
@@ -741,7 +744,7 @@ saveEditProfile() {
 
   setTimeout(
     function() {
-        this.setState({profileEditable: false});
+        this.setState({ success: 'Your changes have been successfully saved.'});
     }
     .bind(this),
     100
@@ -749,7 +752,7 @@ saveEditProfile() {
   // setTimeout(this.setState({ profileEditable: false }), 5000);
 }
 cancelEditProfile() {
-  this.setState({ profileEditable: false });
+this.cancelProfileChanges()
 }
 linkToSettingsPage() {
 
@@ -902,6 +905,32 @@ return (
 redirectToProfile() {
   window.location = `/profile`;
 }
+backButton() {
+  this.setState({profileEditable: false});
+  this.changeSelected(1);
+}
+handleLogout() {
+Accounts.logout();
+funcReplace('/login');
+}
+sendPasswordEmail() {
+  this.setState({ success: 'Sent.' });
+}
+changeSelected(num) {
+  this.resetError();
+  if (this.state.selected === 1) {
+  this.cancelProfileChanges();
+  }
+  this.setState({ selected: num });
+}
+cancelProfileChanges() {
+
+this.refs.authorFirstName.value = this.props.user.firstName;
+this.refs.authorLastName.value = this.props.user.lastName;
+this.refs.userEmail.value = this.props.user.emails[0].address;
+this.refs.authorDescription.value = this.props.user.description;
+
+}
 render() {
     return (
       <div>
@@ -965,35 +994,182 @@ render() {
 
         <div className="mpl__topSectionMarginsEditProfile">
 
+        <div className="editProfile__backButton" onClick={() => this.backButton()}><FontAwesomeIcon icon={['far', 'arrow-alt-circle-left']} className="floatLeft editProfile__backIcon" aria-hidden="true" /><div className="floatLeft editProfile__backIconText">Profile</div></div>
+
+        <div className="editProfile__backButtonBottomHeight clearBoth"></div>
+
+        <div className="editProfile__sidebar">
+
+        <div onClick={() => { this.changeSelected(1) }} className="editProfile__sideBox">
+        <div className={this.state.selected === 1 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['fas', 'user-circle']} className="editProfile__sidebarIcon" aria-hidden="true" /><div className="floatLeft editProfile__sidebarText">Profile</div>
+        </div></div>
+        <div onClick={() => { this.changeSelected(2) }} className="editProfile__sideBox">
+        <div className={this.state.selected === 2 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['fas', 'lock']} className="editProfile__sidebarIcon1" aria-hidden="true" /><div className="floatLeft editProfile__sidebarText">Change Password</div>
+        </div></div>
+        <div onClick={() => { this.changeSelected(3) }} className="editProfile__sideBox">
+        <div className={this.state.selected === 3 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['fas', 'user-secret']} className="editProfile__sidebarIcon" aria-hidden="true" /><div className="floatLeft editProfile__sidebarText">Privacy</div>
+        </div></div>
+        <div onClick={() => { this.changeSelected(4) }} className="editProfile__sideBox">
+        <div className={this.state.selected === 4 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['far', 'question-circle']} className="editProfile__sidebarIcon" aria-hidden="true" /><div className="floatLeft editProfile__sidebarText">Help</div>
+        </div></div>
+        <div onClick={() => { this.handleLogout() }} className="editProfile__sideBox">
+        <div className={this.state.selected === 5 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['fas', 'sign-out-alt']} className="editProfile__sidebarIcon" aria-hidden="true" /><div className="floatLeft editProfile__sidebarText">Logout</div>
+        </div></div>
+
+        </div>
+
+        <div className="editProfile__mainSection">
+
+        <div className="editProfile__mobileSideBar">
+
+        <div onClick={() => { this.changeSelected(1) }} className="editProfile__sideBoxMobile">
+        <div className={this.state.selected === 1 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['fas', 'user-circle']} className="editProfile__sidebarIconMobile" aria-hidden="true" /><div className="floatLeft editProfile__sidebarTextMobile">Profile</div>
+        </div></div>
+        <div onClick={() => { this.changeSelected(2) }} className="editProfile__sideBoxMobile">
+        <div className={this.state.selected === 2 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['fas', 'lock']} className="editProfile__sidebarIcon1Mobile" aria-hidden="true" /><div className="floatLeft editProfile__sidebarTextMobile">Password</div>
+        </div></div>
+        <div onClick={() => { this.changeSelected(3) }} className="editProfile__sideBoxMobile">
+        <div className={this.state.selected === 3 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['fas', 'user-secret']} className="editProfile__sidebarIconMobile" aria-hidden="true" /><div className="floatLeft editProfile__sidebarTextMobile">Privacy</div>
+        </div></div>
+        <div onClick={() => { this.changeSelected(4) }} className="editProfile__sideBoxMobile">
+        <div className={this.state.selected === 4 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioning">
+        <FontAwesomeIcon icon={['far', 'question-circle']} className="editProfile__sidebarIconMobile" aria-hidden="true" /><div className="floatLeft editProfile__sidebarTextMobile">Help</div>
+        </div></div>
+        <div onClick={() => { this.handleLogout() }} className="editProfile__sideBoxMobileLogout">
+        <div className={this.state.selected === 5 ? 'editProfile__sideVerticalHrSelected' : 'editProfile__sideVerticalHr'}></div>
+        <div className="editProfile__sideTextPositioningLogout">
+        <FontAwesomeIcon icon={['fas', 'sign-out-alt']} className="editProfile__sidebarIconMobile" aria-hidden="true" /><div className="floatLeft editProfile__sidebarTextMobile">Logout</div>
+        </div></div>
+
+        </div>
+
+        <div className="clearBoth editProfile__sidebarBottomHeight"></div>
+
+        {this.state.selected === 1 ? <div>
+
+          <div className="editProfile__changePasswordTitle">Profile</div>
+
+          <hr className="editProfile__mainHr"/>
+
+          <div className="editProfile__profileTopHeight clearBoth"></div>
+
+        <div className="editProfile__mobilePositionImage">
+
         <ProfileModalEditProfile route={this.props.route} imageSrc={this.renderMainProfileImage()} />
 
-        <div className="floatLeft mpl__editProfileRightSection">
-        <div className="floatLeft">
-        <div className={`profile__rightSubtitle  ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__redLabel' : ''}`}>First Name</div>
-        <input ref='authorFirstName' defaultValue={this.props.user.firstName} onChange={() => { this.resetError() }} maxLength="15" className={`mpl__mainAuthorTextArea floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__passwordRed' : ''}`} />
         </div>
 
-        <div className="floatLeft">
-        <div className={`profile__rightSubtitle1_5 ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>Last Name</div>
-        <input ref='authorLastName' defaultValue={this.props.user.lastName} onChange={() => { this.resetError() }} maxLength="15" className={`mpl__mainAuthorTextArea2 floatLeft ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__passwordRed' : ''}`} />
-        </div>
+        <div className="editProfile__mainInputs">
 
-        <FontAwesomeIcon icon={['fas', 'cogs']} onClick={() => { this.linkToSettingsPage() }} className="profile__settingsIcon" aria-hidden="true" />
+        <div className={`settings__rightSubtitle ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__redLabel' : ''}`}>First Name</div>
+        <input ref='authorFirstName' onChange={() => { this.resetError() }} defaultValue={this.props.user.firstName} maxLength="15" className={`settings__mainAuthorTextArea floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__passwordRed' : ''}`} />
+
         <div className="clearBoth"></div>
 
-        <div className={`profile__rightSubtitle2 ${this.state.error === "Description shouldn't be more than 300 characters" ? 'signup__redLabel' : ''}`}>Description</div>
+        <div className={`settings__rightSubtitle ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>Last Name</div>
+        <input ref='authorLastName' onChange={() => { this.resetError() }} defaultValue={this.props.user.lastName} maxLength="15" className={`settings__mainAuthorTextArea floatLeft ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__passwordRed' : ''}`}/>
+
+        <div className="clearBoth"></div>
+
+        <div className="floatLeft">
+        <div className={`settings__rightSubtitle ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email Address</div>
+        <input ref='userEmail' onChange={() => { this.resetError() }} readOnly defaultValue={this.props.user.emails[0].address} maxLength="50" className={`settings__mainAuthorTextArea floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__passwordRed' : ''}`} />
+        </div>
+
+        <a onClick={() => { }} className="editProfile__verify">Verify</a>
+
+        <div className="clearBoth"></div>
+
+        <div className={`settings__rightSubtitle ${this.state.error === "Description shouldn't be more than 300 characters" ? 'signup__redLabel' : ''}`}>Description</div>
         <textarea ref='authorDescription' rows="7" onKeyDown={this.limitInputToFiveLines.bind(this)} onChange={this.returnDescriptionCharactersLeft.bind(this)} className={`mpl__mainAuthorDescriptionTextArea ${this.state.error === "Description shouldn't be more than 300 characters" ? 'signup__passwordRed' : ''}`} defaultValue={this.props.user.description} placeholder={this.props.user.description.length !== 0 ? '' : 'Enter your own description here!'} maxLength='300' />
         <div className="profile__descriptionMessageMaxCharacters">{`${300 - this.state.descriptionLength} Characters Left`}</div>
+
+        </div>
 
         <div className="profile__positioningErrorBox">
        {this.state.error ? <div className="profile__errorBox"><p>{this.state.error}</p></div> : undefined}
         </div>
 
-        <div className="clearBoth"></div>
-       <a onClick={() => { this.saveEditProfile() }} className="mpl__saveProfile saveCancelMargin">Save</a><a className="slashSaveCancel saveCancelMargin">/</a><a onClick={() => { this.cancelEditProfile() }} className="mpl__cancelProfile">Cancel</a>
+        <div className="profile__positioningErrorBox">
+       {this.state.success ? <div className="profile__successBox"><p>{this.state.success}</p></div> : undefined}
+        </div>
 
-      </div></div>
         <div className="clearBoth"></div>
+
+        <a onClick={() => { this.saveEditProfile() }} className="editProfile__saveProfile">Save</a> <a onClick={() => { this.cancelEditProfile() }} className="editProfile__cancelProfile">Cancel</a>
+
+        <hr className="editProfile__mainHr"/>
+
+        <div className="editProfile__bottomHelp">Need Help? <Link to="/faq" className="link">Check Out Our FAQ!</Link></div>
+
+      </div>  : undefined }
+
+      {this.state.selected === 2 ? <div>
+
+      <div className="editProfile__changePasswordTitle">Change Password</div>
+
+      <hr className="editProfile__mainHr"/>
+
+      <p className="editProfile__changePasswordText">In order to reset your password, you will need to click on the link that will be sent to you in the form of an email to the following address:</p>
+
+      <div className="floatLeft">
+      <div className={`settings__rightSubtitle ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email Address</div>
+      <input ref='userEmail' onChange={() => { this.resetError() }} readOnly defaultValue={this.props.user.emails[0].address} maxLength="50" className={`settings__mainAuthorTextArea floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__passwordRed' : ''}`} />
+      </div>
+
+      <div className="editProfile__changePasswordBottomHeight clearBoth"></div>
+
+      <div className="profile__positioningErrorBox">
+     {this.state.success ? <div className="profile__successBox"><p>{this.state.success}</p></div> : undefined}
+      </div>
+
+      <a onClick={() => { this.sendPasswordEmail() }} className="editProfile__saveProfile">Send</a>
+
+      <hr className="editProfile__mainHr"/>
+
+      <div className="editProfile__bottomHelp">Need Help? <Link to="/faq" className="link">Check Out Our FAQ!</Link></div>
+
+    </div>  : undefined }
+
+    {this.state.selected === 3 ? <div>
+    <div className="editProfile__changePasswordTitle">Privacy</div>
+
+    <hr className="editProfile__mainHr"/>
+    <div className="settings__privacyParagraph">Novaterra only uses the data you enter to enhance your experience. We are completely transparent in all our operations. <br/><br/>Still unsure? Check out our <Link to='/privacy-policy' className="link">privacy policy</Link> or <Link to='/contact' className="link">contact us</Link>.</div>
+    </div> : undefined }
+
+    {this.state.selected === 4 ? <div>
+    <div className="editProfile__changePasswordTitle">Help</div>
+
+    <hr className="editProfile__mainHr"/>
+    <div className="settings__privacyParagraph">If you have any questions please check out our <Link to='/privacy-policy' className="link">FAQ</Link> to help resolve any issues you may encounter. <br/><br/> However, if you cannot find your question/issue in our FAQ, please don’t hesitate in <Link to='/contact' className="link">contacting us</Link>.</div>
+    </div> : undefined }
+
+
+
+
+      </div>
+              </div>
+        <div className="clearBoth"></div>
+
+
 
         <div className="editProfile__bottomHeight">
 

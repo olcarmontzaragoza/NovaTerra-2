@@ -29,7 +29,7 @@ tags: ['work', 'advertisements', 'ad', 'advert', 'ads', 'function']
 let Faq2 = {
 title: "How Can I Advertise on NovaTerra?",
 unCapTitle: "how can i advertise on novaterra",
-shortAnswer: "Unfortunately, we don't have other advertising spaces for advertisers. You will need to contact Good Loop instead.",
+shortAnswer: "Unfortunately, we don't have other advertising spaces for advertisers. You will need to sign up with Google Adsense instead.",
 topic: 'Advertising',
 mainImage: 'images/faqImages/HowCanIAdvertiseonNovaTerra.jpg',
 faqMainImage: '../images/faqImages/HowCanIAdvertiseonNovaTerra.jpg',

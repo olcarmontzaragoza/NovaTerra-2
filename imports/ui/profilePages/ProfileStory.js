@@ -65,7 +65,9 @@ Meteor.call('stories.update', this.props.story._id, { storyType: 'drafted', link
 console.log('caled stories update');
 }
 deleteDraft() {
-console.log('should delete story');
+
+Meteor.call('notifications.removeStoryId', this.props.story._id);
+
 Meteor.call('stories.remove', this.props.story._id);
 }
 getSliceNum() {

@@ -230,6 +230,7 @@ returnTime(time) {
       mainImage: '',
       userId: Meteor.userId(),
       lastUpdated: moment().valueOf(),
+      lastUpdatedTime: moment(moment().valueOf()).format('LLLL'),
       minRead: 0,
       reactions: 0,
       heartReactions: [],
@@ -336,11 +337,11 @@ returnTime(time) {
       </div>
       <div className="clearBoth"></div>
       <div className="nav__profileBottomLinks">
+      <div className="nav__profileSettings"><FontAwesomeIcon icon={['fas', 'home']} className={`${this.state.currentPage === '' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`}/><Link className={`${this.state.currentPage === '' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/">Home</Link></div>
+      <div className="clearBoth"></div>
       <div className="nav__profileExplore"><FontAwesomeIcon icon={['fas', 'compass']} className={`${this.state.currentPage === 'explore' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'explore' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/explore">Explore</Link></div>
       <div className="clearBoth"></div>
       <div className="nav__profileProfile"><FontAwesomeIcon icon={['fas', 'user-circle']} className={`${this.state.currentPage === 'profile'  ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'profile' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/profile">Profile</Link></div>
-      <div className="clearBoth"></div>
-      <div className="nav__profileSettings"><FontAwesomeIcon icon={['fas', 'cogs']} className={`${this.state.currentPage === 'settings' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`}/><Link className={`${this.state.currentPage === 'settings' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/settings">Settings</Link></div>
       <div className="clearBoth"></div>
       <div className="nav__profileHelp"><FontAwesomeIcon icon={['fas', 'question-circle']} className={`${this.state.currentPage === 'faq' ? 'nav__currentProfileIcon' : 'nav__profileIcon'}`} /><Link className={`${this.state.currentPage === 'faq' ? 'nav__currentProfileLink' : 'nav__profileLink'}`} to="/faq">Help</Link></div>
       {this.renderAdminIcon()}

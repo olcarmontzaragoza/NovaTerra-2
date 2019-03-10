@@ -75,7 +75,11 @@ changeOpen() {
 render () {
   return (
     <div>
-    {this.findUserPhoto() ? <div><div className="profileModal__profileModalBehindCircleTRYEdit"></div><Image className="mpl__topImageEditProfilee" onClick={() => this.changeOpen()} cloud_name='novaterra' publicId={this.findUserPhoto()}><Transformation crop="thumb" /></Image></div> : <img src={`${this.props.route}images/noImage.png`} onClick={() => this.changeOpen()} className="mpl__topImageEditProfilee"/>}
+    {this.findUserPhoto() ? <div><div className="profileModal__profileModalBehindCircleTRYEdit1"></div><Image className="mpl__topImageEditProfilee" onClick={() => this.changeOpen()} cloud_name='novaterra' publicId={this.findUserPhoto()}><Transformation crop="thumb" /></Image></div> : <img src={`${this.props.route}images/noImage.png`} onClick={() => this.changeOpen()} className="mpl__topImageEditProfilee"/>}
+    <div className="clearBoth"></div>
+
+    <div onClick={() => this.changeOpen()}className="editProfile__changeProfilePicture">Change Profile Picture</div>
+
     <Modal isOpen={this.state.isOpen}
            contentLabel='Change Profile Image'
            onRequestClose={this.handleModalClose.bind(this)}

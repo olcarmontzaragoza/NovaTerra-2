@@ -109,11 +109,11 @@ render() {
 
         <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
 
-        <label className="login__rightSubtitle">Email</label>
-        <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className="login__mainAuthorTextArea floatLeft" />
+        <div className={`settings__rightSubtitleLogin`}>Email</div>
+        <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`settings__mainAuthorTextAreaLogin floatLeft`} />
 
-        <div className="login__rightSubtitle">Password</div>
-        <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className="login__mainAuthorTextArea floatLeft" />
+        <div className={`settings__rightSubtitleLogin`}>Password</div>
+        <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className={`settings__mainAuthorTextAreaLogin floatLeft`} />
 
         <div className="signup__recaptchaPositioning">
        <ReCAPTCHA sitekey="6LfMEpMUAAAAAAo_dmGQX26p_vFsLr_IdmTvzRC_" onChange={() => this.reChange.bind(this)} />

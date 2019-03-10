@@ -221,34 +221,39 @@ setPage() {
       <br className="clearBoth"/>
 
       <div className="floatLeft">
-      <div className={`login__rightSubtitle ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>First Name</div>
-      <input type="name" ref="firstName" name="first-name" maxLength="15" onChange={() => { this.resetError()}} className={`contact__firstLastNameInputs floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than 15 characters" ? 'signup__passwordRed' : ''}`} />
+      <div className={`settings__rightSubtitleLogin ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>First Name</div>
+      <input type="name" ref="firstName" name="first-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than 15 characters" ? 'contact__firstLastNameInputsError' : 'contact__firstLastNameInputs'}`} />
+
+
+    {/*   <div className={`login__rightSubtitle ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>First Name</div>
+      <input type="name" ref="firstName" name="first-name" maxLength="15" onChange={() => { this.resetError()}} className={` floatLeft `} />
+      */}
       </div>
 
       <div className="floatLeft">
-      <div className={`login__rightSubtitle ${this.state.error === 'Did you forget your add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>Last Name</div>
-      <input type="name" ref="lastName" name="last-name" maxLength="15" onChange={() => { this.resetError()}} className={`contact__firstLastNameInputs floatLeft ${this.state.error === 'Did you forget your add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__passwordRed' : ''}`} />
+      <div className={`settings__rightSubtitleLogin ${this.state.error === 'Did you forget your add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>Last Name</div>
+      <input type="name" ref="lastName" name="last-name" maxLength="15" onChange={() => { this.resetError()}} className={`contact__firstLastNameInputs floatLeft ${this.state.error === 'Did you forget your add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'contact__firstLastNameInputsError' : 'contact__firstLastNameInputs'}`} />
       </div>
 
       <br className="clearBoth"/>
 
-      <div className={`login__rightSubtitle ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email</div>
-      <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`contact__emailInput floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__passwordRed' : ''}`} />
+      <div className={`settings__rightSubtitleLogin ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email</div>
+      <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Are you sure your email Address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'contact__firstLastNameInputsEmail' : 'contact__firstLastNameInputsEmail'}`} />
 
       <br className="clearBoth"/>
 
-      <div className="contact__smallHeader">Message</div>
+      <div className="contact__smallHeader2">Message</div>
       <hr className="contact__smallHr"/>
 
       <br className="clearBoth"/>
 
-      <div className={`login__rightSubtitle`}>Header</div>
-      <input type="header" ref="header" name="header" onChange={() => { this.resetError()}} className={`contact__headerInput floatLeft`} />
+      <div className={`settings__rightSubtitleLogin`}>Header</div>
+      <input type="header" ref="header" name="header" onChange={() => { this.resetError()}} className={`contact__firstLastNameInputsMessage floatLeft`} />
 
       <br className="clearBoth"/>
 
-      <div className={`login__rightSubtitle`}>Body</div>
-      <textarea ref="body" name="body" onChange={this.returnDescriptionCharactersLeft.bind(this)} maxLength='1000' className={`contact__textArea floatLeft`}></textarea>
+      <div className={`settings__rightSubtitleLogin`}>Body</div>
+      <textarea ref="body" name="body" onChange={this.returnDescriptionCharactersLeft.bind(this)} maxLength='1000' className={`contact__firstLastNameInputsArea floatLeft`}></textarea>
       <div className="contact__descriptionMessageMaxCharacters">{`${1000 - this.state.descriptionLength} Characters Left`}</div>
 
       <br className="clearBoth"/>

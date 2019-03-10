@@ -271,21 +271,20 @@ render() {
 
       <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
 
+        <div className={`settings__rightSubtitleLogin ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__redLabel' : ''}`}>First Name</div>
+        <input type="name" ref="firstName" name="first-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'settings__mainAuthorTextAreaLoginError' : 'settings__mainAuthorTextAreaLogin'}`} />
 
-         <div className={`login__rightSubtitle ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__redLabel' : ''}`}>First Name</div>
-         <input type="name" ref="firstName" name="first-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
+        <div className={`settings__rightSubtitleLogin ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>Last Name</div>
+        <input type="name" ref="lastName" name="last-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'settings__mainAuthorTextAreaLoginError' : 'settings__mainAuthorTextAreaLogin'}`} />
 
-         <div className={`login__rightSubtitle ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'signup__redLabel' : ''}`}>Last Name</div>
-         <input type="name" ref="lastName" name="last-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget to add your last name?' || this.state.error === "Last Name shouldn't be more than 15 characters" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
+        <div className={`settings__rightSubtitleLogin ${this.state.error === 'Are you sure your email address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email</div>
+        <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Are you sure your email address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'settings__mainAuthorTextAreaLoginError' : 'settings__mainAuthorTextAreaLogin'}`} />
 
-         <div className={`login__rightSubtitle ${this.state.error === 'Are you sure your email address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'signup__redLabel' : ''}`}>Email</div>
-         <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Are you sure your email address is correct?' || this.state.error === "I'm afraid this email already exists" ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
+        <div className={`settings__rightSubtitleLogin ${this.state.error === 'Try making your password least 6 characters' ? 'signup__redLabel' : ''}`}>Password</div>
+        <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Try making your password least 6 characters' ? 'settings__mainAuthorTextAreaLoginError' : 'settings__mainAuthorTextAreaLogin'}`} />
 
-          <div className={`login__rightSubtitle ${this.state.error === 'Try making your password least 6 characters' ? 'signup__redLabel' : ''}`}>Password</div>
-         <input type="password" ref="password" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Try making your password least 6 characters' ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
-
-         <div className={`login__rightSubtitle ${this.state.error === 'Make sure your passwords match' ? 'signup__redLabel' : ''}`}>Password Confirmation</div>
-         <input type="password" ref="passwordConfirmation" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Make sure your passwords match' ? 'login__mainAuthorTextAreaError' : 'login__mainAuthorTextArea'}`} />
+        <div className={`settings__rightSubtitleLogin ${this.state.error === 'Make sure your passwords match' ? 'signup__redLabel' : ''}`}>Password Confirmation</div>
+        <input type="password" ref="passwordConfirmation" name="password" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Make sure your passwords match' ? 'settings__mainAuthorTextAreaLoginError' : 'settings__mainAuthorTextAreaLogin'}`} />
 
          <div className="signup__recaptchaPositioning">
         <ReCAPTCHA sitekey="6LfMEpMUAAAAAAo_dmGQX26p_vFsLr_IdmTvzRC_" onChange={() => this.reChange.bind(this)} />

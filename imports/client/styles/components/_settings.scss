@@ -578,27 +578,91 @@ textarea:focus {
 .settings__rightSubtitle {
   color:#7d7d7d;
   font-size:0.97em;
-  margin-top:15px;
-  margin-bottom:-8px;
+  margin-top:21px;
+  margin-bottom:-6px;
+  margin-left:20px;
+}
+.settings__rightSubtitleLogin {
+  color:#626262;
+  font-size:0.97em;
+  margin-top:13px;
+  margin-bottom:-6px;
+  margin-left:20px;
 }
 .settings__mainAuthorTextArea {
-  height:41px;
-  width:300px;
+  height:49px;
+  width:320px;
   font-size:1.05em;
-  padding-left:10px;
-  border-radius:2px;
-  border:0.5px solid #dedede;
+  padding-left:21px;
+  border-radius:25px;
+  border:none;
+  // border:0.5px solid #dedede;
   cursor:default;
   margin-bottom:8px;
   margin-top:14px;
+
+  -webkit-box-shadow:   0.5px -1.2px 4.2px 1.5px #f0f0f0;
+  -moz-box-shadow:    0.5px -1.2px 4.2px 1.5px #f0f0f0;
+  box-shadow:         0.5px -1.2px 4.2px 1.5px #f0f0f0;
+
 //   -webkit-user-select: none;
 // -moz-user-select: none;
 // -ms-user-select: none;
 // -o-user-select: none;
 // user-select: none;
 
-@media screen and (max-width: 395px) {
-  width:77.8vw;
+@media screen and (max-width: 720px) {
+  width:360px;
+}
+@media screen and (max-width: 420px) {
+  width:294px;
+}
+@media screen and (max-width: 374px) {
+  width:255px;
+}
+
+// @media screen and (max-width: 395px) {
+//   width:77.8vw;
+// }
+}
+.settings__mainAuthorTextAreaLogin {
+  height:49px;
+  width:284px;
+  font-size:1.05em;
+  padding-left:21px;
+  border-radius:25px;
+  border:none;
+  // border:0.5px solid #dedede;
+  cursor:default;
+  margin-bottom:18px;
+  margin-top:14px;
+
+  -webkit-box-shadow:   0.5px 1.2px 4.2px 1.5px #f0f0f0;
+  -moz-box-shadow:    0.5px 1.2px 4.2px 1.5px #f0f0f0;
+  box-shadow:         0.5px 1.2px 4.2px 1.5px #f0f0f0;
+
+@media screen and (max-width:405px) {
+width:73.3vw;
+}
+}
+.settings__mainAuthorTextAreaLoginError {
+  height:49px;
+  width:284px;
+  font-size:1.05em;
+  padding-left:21px;
+  border-radius:25px;
+  border:none;
+  // border:0.5px solid #dedede;
+  cursor:default;
+  margin-bottom:18px;
+  margin-top:14px;
+
+  -webkit-box-shadow:   0.5px 1.2px 4.2px 1.5px #ffa5a5;
+  -moz-box-shadow:    0.5px 1.2px 4.2px 1.5px #ffa5a5;
+  box-shadow:         0.5px 1.2px 4.2px 1.5px #ffa5a5;
+
+@media screen and (max-width:405px) {
+width:73.3vw;
 }
 }
 .settings__marginBottomAboveSave {
@@ -661,24 +725,6 @@ align-items:center;
 transition:0.2s;
 color:#000;
 border-color:#000;
-}
-.settings__privacyParagraph {
-  color:#7d7d7d;
-
-  @media screen and (min-width: 880px) {
-    width:520px;
-  }
-  @media screen and (max-width: 880px) {
-    width:398px;
-  }
-  @media screen and (max-width: 570px) {
-    width:72vw;
-    font-size:0.98em;
-  }
-  @media screen and (max-width: 395px) {
-    width:72vw;
-    font-size:0.95em;
-  }
 }
 .profileUpdatingError {
   color:#000;
@@ -749,4 +795,560 @@ font-size:1em;
   user-select: none;
 
   font-size:1em;
+}
+.editProfile__sidebar {
+  float:left;
+
+  @media screen and (max-width: 1000px) {
+    margin-left:-60px;
+  }
+  @media screen and (max-width: 920px) {
+    margin-left:-85px;
+  }
+  @media screen and (max-width: 830px) {
+    margin-left:-110px;
+  }
+  @media screen and (max-width: 830px) {
+    margin-left:-110px;
+  }
+  @media screen and (max-width: 720px) {
+    display:none;
+  }
+}
+.editProfile__mobileSideBar {
+  @media screen and (min-width: 720px) {
+    display:none;
+  }
+  margin-bottom:55px;
+  margin-top:45px;
+  width:400px;
+}
+.editProfile__mainSection {
+  float:left;
+  margin-left:100px;
+  margin-top:-50px;
+
+  @media screen and (max-width: 1090px) {
+    margin-left:65px;
+    margin-top:-53px;
+  }
+  @media screen and (max-width: 830px) {
+    margin-left:58px;
+  }
+  @media screen and (max-width: 750px) {
+    margin-left:48px;
+  }
+  @media screen and (max-width: 720px) {
+    margin-left:10px;
+  }
+  @media screen and (max-width: 670px) {
+    margin-left:-12px;
+  }
+  @media screen and (max-width: 635px) {
+    margin-left:-36px;
+  }
+  @media screen and (max-width: 580px) {
+    margin-left:-65px;
+  }
+  @media screen and (max-width: 535px) {
+    margin-left:-85px;
+  }
+  @media screen and (max-width: 500px) {
+    margin-left:-95px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-left:-107px;
+  }
+  @media screen and (max-width: 460px) {
+    margin-left:-117px;
+  }
+  @media screen and (max-width: 435px) {
+    margin-left:-127px;
+  }
+  @media screen and (max-width: 420px) {
+    margin-left:-107px;
+  }
+  @media screen and (max-width: 395px) {
+    margin-left:-117px;
+  }
+  @media screen and (max-width: 380px) {
+    margin-left:-123px;
+  }
+  @media screen and (max-width: 374px) {
+    margin-left:-102px;
+  }
+  @media screen and (max-width: 355px) {
+    margin-left:-115px;
+  }
+  @media screen and (max-width: 342px) {
+    margin-left:-118px;
+  }
+  @media screen and (max-width: 336px) {
+    margin-left:-122px;
+  }
+  @media screen and (max-width: 332px) {
+    margin-left:-126px;
+  }
+  @media screen and (max-width: 323px) {
+    margin-left:-128px;
+  }
+}
+.editProfile__mainHr {
+  clear:both;height:1px;border:none;color:#dddddd;background-color:#dddddd;
+
+  @media screen and (max-width: 720px) {
+    width:383px;
+    margin-left:0px;
+  }
+  @media screen and (max-width: 420px) {
+    width:321px;
+    margin-left:0px;
+  }
+  @media screen and (max-width: 374px) {
+    width:279px;
+  }
+}
+.editProfile__sideBox {
+  height:50px;
+  width:220px;
+  border:1px solid #e1e1e1;
+  clear:both;
+  margin-bottom:-1px;
+  cursor:pointer;
+
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+.editProfile__sideBoxMobile {
+  height:50px;
+  width:190px;
+  border:1px solid #e1e1e1;
+  float:left;
+  margin-bottom:-1px;
+  margin-right: -1px;
+  cursor:pointer;
+
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+
+  @media screen and (max-width: 420px) {
+    width:160px;
+  }
+  @media screen and (max-width: 374px) {
+    width:138px;
+  }
+}
+.editProfile__sideBoxMobileLogout {
+  height:50px;
+  width:381px;
+  border:1px solid #e1e1e1;
+  float:left;
+  margin-bottom:-1px;
+  cursor:pointer;
+
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+
+  // display:flex;
+  // justify-content: center;
+
+  @media screen and (max-width: 420px) {
+    width:321px;
+  }
+  @media screen and (max-width: 374px) {
+    width:277px;
+  }
+}
+.editProfile__sidebarBottomHeight {
+  height:38px;
+}
+.editProfile__sideVerticalHr {
+  height:100%;
+  width:3px;
+  background-color:#e1e1e1;
+  float:left;
+  position:relative;
+  left:0px;
+}
+.editProfile__sideVerticalHrSelected {
+  height:100%;
+  width:3px;
+  background: -webkit-linear-gradient(#4ca2cd, #67B26F);
+  background: linear-gradient(#4ca2cd, #67B26F);
+  float:left;
+  position:relative;
+  left:0px;
+}
+.editProfile__sideTextPositioning {
+  display:flex;
+  align-items: center;
+  margin-top:15px;
+  margin-left:23px;
+}
+.editProfile__sideTextPositioningLogout {
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  margin-top:15px;
+  margin-left:0px;
+}
+.editProfile__sidebarIcon {
+  color:#a1a1a1;
+  font-size:1.16em;
+  float:left;
+  margin-right:9px;
+
+
+}
+.editProfile__sidebarIcon1 {
+  color:#a1a1a1;
+  font-size:1.08em;
+  float:left;
+  margin-right:11px;
+}
+.editProfile__sidebarText {
+  color:#a1a1a1;
+  float:left;
+  font-size:0.95em;
+}
+.editProfile__backButton {
+  clear:both;
+  cursor:pointer;
+  margin-bottom:12px;
+  margin-left:3px;
+  position:relative;
+  z-index:5;
+
+  @media screen and (max-width: 1000px) {
+    margin-left:-55px;
+  }
+  @media screen and (max-width: 920px) {
+    margin-left:-80px;
+  }
+  @media screen and (max-width: 830px) {
+    margin-left:-105px;
+  }
+  @media screen and (max-width: 720px) {
+    margin-left:15px;
+  }
+  @media screen and (max-width: 670px) {
+    margin-left:-7px;
+  }
+  @media screen and (max-width: 635px) {
+    margin-left:-31px;
+  }
+  @media screen and (max-width: 580px) {
+    margin-left:-60px;
+  }
+  @media screen and (max-width: 535px) {
+    margin-left:-80px;
+  }
+  @media screen and (max-width: 500px) {
+    margin-left:-90px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-left:-102px;
+  }
+  @media screen and (max-width: 460px) {
+    margin-left:-112px;
+  }
+  @media screen and (max-width: 435px) {
+    margin-left:-122px;
+  }
+  @media screen and (max-width: 420px) {
+    margin-left:-102px;
+  }
+  @media screen and (max-width: 395px) {
+    margin-left:-112px;
+    margin-top:-18px;
+  }
+  @media screen and (max-width: 380px) {
+    margin-left:-118px;
+  }
+  @media screen and (max-width: 374px) {
+    margin-left:-97px;
+  }
+  @media screen and (max-width: 355px) {
+    margin-left:-110px;
+  }
+  @media screen and (max-width: 342px) {
+    margin-left:-113px;
+    margin-top:-22px;
+  }
+  @media screen and (max-width: 336px) {
+    margin-left:-117px;
+  }
+  @media screen and (max-width: 332px) {
+    margin-left:-121px;
+  }
+  @media screen and (max-width: 323px) {
+    margin-left:-123px;
+  }
+}
+.editProfile__backIcon {
+color:#9d9d9d;
+margin-top:1px;
+font-size: 1.35em;
+margin-right:9px;
+}
+.editProfile__backIconText {
+  color:#9d9d9d;
+  font-size:1.22em;
+}
+.editProfile__sidebarIconMobile {
+  color:#a1a1a1;
+  font-size:1.1em;
+  float:left;
+  margin-right:9px;
+}
+.editProfile__sidebarIcon1Mobile {
+  color:#a1a1a1;
+  font-size:1.05em;
+  float:left;
+  margin-right:11px;
+}
+.editProfile__sidebarTextMobile {
+  color:#a1a1a1;
+  float:left;
+  font-size:0.945em;
+}
+.editProfile__backButtonBottomHeight {
+  height:25px;
+}
+.editProfile__changeProfilePicture {
+  color:#15a05c;
+  font-weight:bold;
+  margin-top:13px;
+  margin-bottom:18px;
+  opacity:0.95;
+  cursor:pointer;
+  position:relative;
+  left:127px;
+
+  @media screen and (min-width: 560px) {
+
+  }
+  @media screen and (max-width: 475px) {
+    left:121px;
+  }
+  @media screen and (max-width: 420px) {
+
+  }
+}
+.editProfile__mobilePositionImage {
+
+  position:relative;
+  left:10px;
+
+  @media screen and (max-width: 805px) {
+    position:relative;
+    left:-31px;
+  }
+  @media screen and (max-width: 720px) {
+    position:relative;
+    left:-13px;
+  }
+  @media screen and (max-width: 420px) {
+    position:relative;
+    left:-44px;
+  }
+  @media screen and (max-width: 374px) {
+    position:relative;
+    left:-64px;
+  }
+}
+.editProfile__cancelProfile {
+  cursor:pointer;
+  margin-bottom:30px;
+  transition:0.17s;
+
+  float:left;
+
+  height:37px;
+  width:85px;
+  color:#fff;
+  background-color:#c6413b;
+  opacity:0.88;
+  border-radius:20px;
+  font-size:0.76em;
+  margin-left:-2px;
+  letter-spacing:0.023em;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.editProfile__saveProfile {
+  cursor:pointer;
+  margin-bottom:30px;
+  transition:0.17s;
+
+  float:left;
+  margin-right:15px;
+
+  height:37px;
+  width:85px;
+  color:#fff;
+  background-color:#15a05c;
+  opacity:0.8;
+  border-radius:20px;
+  font-size:0.76em;
+  margin-left:-2px;
+  letter-spacing:0.023em;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.editProfile__bottomHelp {
+  margin-top:16px;
+  font-size:0.99em;
+}
+.settings__privacyParagraph {
+  // color:#7d7d7d;
+  width:430px;
+
+  margin-top:24px;
+
+  line-height:1.41;
+  font-size:0.98em;
+
+  @media screen and (max-width: 720px) {
+    width:381px;
+    margin-top:22px;
+  }
+  @media screen and (max-width: 720px) {
+    width:381px;
+    margin-top:22px;
+  }
+  @media screen and (max-width: 420px) {
+    width:318px;
+    margin-top:20px;
+  }
+  @media screen and (max-width: 374px) {
+    width:277px;
+    margin-top:17px;
+  }
+
+  // @media screen and (min-width: 880px) {
+  //   width:520px;
+  // }
+}
+.editProfile__changePasswordText {
+  width:430px;
+  line-height:1.41;
+  font-size:0.98em;
+  margin-bottom:7px;
+  margin-top:25px;
+
+  @media screen and (max-width: 720px) {
+    width:381px;
+    margin-top:22px;
+  }
+  @media screen and (max-width: 420px) {
+    width:318px;
+    margin-top:20px;
+  }
+  @media screen and (max-width: 374px) {
+    width:277px;
+    margin-top:17px;
+  }
+}
+.editProfile__changePasswordBottomHeight {
+  height:3px;
+}
+.editProfile__changePasswordTitle {
+  font-size:1.25em;
+  color:#979797;
+}
+.editProfile__mainInputs {
+  margin-top:-14px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.editProfile__profileTopHeight {
+  height:27px;
+}
+.editProfile__verify {
+  float:left;
+  cursor:pointer;
+  transition:0.17s;
+
+  margin-right:-35px;
+
+  margin-top:-53px;
+  margin-left:360px;
+
+  // margin-left:20px;
+  margin-bottom:15px;
+
+  @media screen and (max-width: 805px) {
+    height:40px;
+    width:82px;
+    margin-top:7px;
+    margin-left:261px;
+    margin-bottom:-22px;
+  }
+  @media screen and (max-width: 720px) {
+    height:40px;
+    width:82px;
+    margin-top:7px;
+    margin-left:300px;
+    margin-bottom:-22px;
+  }
+  @media screen and (max-width: 420px) {
+    height:40px;
+    width:82px;
+    margin-top:7px;
+    margin-left:235px;
+    margin-bottom:-22px;
+  }
+  @media screen and (max-width: 374px) {
+    height:40px;
+    width:82px;
+    margin-top:7px;
+    margin-left: 195px;
+    margin-bottom:-22px;
+  }
+
+  height:42px;
+  width:85px;
+  color:#fff;
+  background-color:#15a05c;
+  opacity:0.8;
+  border-radius:20px;
+  font-size:0.76em;
+  letter-spacing:0.023em;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }

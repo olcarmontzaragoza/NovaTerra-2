@@ -35,6 +35,7 @@ let details = {
   mainImage: '',
   userId: Meteor.userId(),
   lastUpdated: moment().valueOf(),
+  lastUpdatedTime: moment(moment().valueOf()).format('LLLL'),
   minRead: 0,
   reactions: [],
   heartReactions: [],

@@ -119,6 +119,10 @@ Meteor.methods({
 
         Notifications.remove({ _id });
         },
+      'notifications.removeStoryId'(_id) {
+
+        Notifications.remove({ storyId: _id });
+      }
 });
 
 // if (Notifications.find().count() === 0) {

@@ -50,7 +50,7 @@ import FAQSearch from '../ui/FAQ/Search';
 import FAQAnswer from '../ui/FAQ/Answer';
 
 // Profile pages
-import Settings from '../ui/profilePages/Settings';
+// import Settings from '../ui/profilePages/Settings';
 import Profile from '../ui/profilePages/Profile';
 // import Bookmarks from '../ui/profilePages/Bookmarks';
 import UserProfile from '../ui/profilePages/UserProfile';
@@ -198,7 +198,7 @@ export const routes = (
           <Route path="/profile" render={() => allUsers(Profile)}  />
 
           {/* <Route path="/bookmarks" render={() => allUsers(Bookmarks)}  /> */}
-          <Route path="/settings" render={() => allUsers(Settings)}  />
+          {/* }<Route path="/settings" render={() => allUsers(Settings)}  /> */}
           // <Route path="/import-story" render={() => allUsers(ImportStory)}  />
           <Route path="/draft/:id" render={() => allUsers(CreateStory)}  />
 
