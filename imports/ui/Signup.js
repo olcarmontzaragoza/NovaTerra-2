@@ -57,11 +57,46 @@ onVerify() {
 gitHubLogin() {
 
   // Accounts.createUser({ email, password, username, joinDate: moment().valueOf() }, (err) => {
-  Meteor.loginWithGithub({
-      requestPermissions: ['user'],
-  }, function (err) {
-    console.log('is there an error?', err);
-  });
+  // Meteor.loginWithGithub({
+  //     requestPermissions: ['user'],
+  // }, function (err) {
+  //   console.log('is there an error?', err);
+  // });
+
+  // const errors = {
+//   'no-hd': 'This Google account is not a G Suite account, please try another account or contact support@clozer.ai',
+//   'duplicated-email': `Can't create an account because the email is already in use, please try another account or contact support@clozer.ai`,
+//   default: 'An error occurred while attempting to log in, please contact support@clozer.ai or try again later'
+// };
+//
+//   const onLoginWithGithub = ({token, isLogIn}) => {
+//     const {scope} = ServiceConfiguration.configurations.findOne({service: 'github'});
+//
+//     Meteor.loginWithGithub(
+//       {requestPermissions: scope, requestOfflineToken: true, loginUrlParameters: {hd: '*'}},
+//       error => {
+//         if (error) {
+//           if (error.errorType === 'Accounts.LoginCancelledError') return;
+//           const message = errors[error.error] || errors.default;
+//           alert('Login error', message);
+//         } else if (token && !isLogIn) {
+//           acceptInviteMethod.call({token});
+//         }
+//       }
+//     );
+//   };
+
+Meteor.loginWithGithub({
+    requestPermissions: ['user'],
+    loginStyle: "popup",
+}, function (err) {
+
+});
+
+
+
+
+
 }
 twitterLogin() {
   Meteor.loginWithTwitter({
@@ -259,17 +294,21 @@ render() {
       {/*
       <span><img src="images/loginButtons/facebook.svg" className="floatLeft" height="18" width="18"/><p>Signup With Facebook</p></span>
       <span><img src="images/loginButtons/google.svg" className="floatLeft" height="18" width="18"/><p>Signup With Google</p></span>
-
-      <Blaze template="loginButtons" />
   */}
+      { /* }<Blaze template="loginButtons" /> */}
 
-      {/* <div onClick={() => this.googleLogin()} className="signup__loginWithGoogle"><FontAwesomeIcon icon={['fab', 'google-plus-g']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Sign in With Google</div></div> */}
+
+      <div onClick={() => this.googleLogin()} className="signup__loginWithGoogle"><FontAwesomeIcon icon={['fab', 'google-plus-g']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Sign in With Google</div></div>
       <div onClick={() => this.twitterLogin()} className="signup__loginWithTwitter"><FontAwesomeIcon icon={['fab', 'twitter']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Sign in With Twitter</div></div>
       <div onClick={() => this.gitHubLogin()} className="signup__loginWithGithub"><FontAwesomeIcon icon={['fab', 'github']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Sign in With Github</div></div>
 
       {this.state.error ? <div className="login__errorBox signup__errorMarginTop"><p>{this.state.error}</p></div> : undefined}
 
       <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
+
+        <div className="belowSocialLoginHeight"></div>
+
+        <div className="login__signUpWithEmailBox"><hr className="login__signupWithEmailHr"/><div className="login__signupWithEmail">Signup With Email</div><hr className="login__signupWithEmailHr"/></div>
 
         <div className={`settings__rightSubtitleLogin ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'signup__redLabel' : ''}`}>First Name</div>
         <input type="name" ref="firstName" name="first-name" maxLength="15" onChange={() => { this.resetError()}} className={`floatLeft ${this.state.error === 'Did you forget your add your first name?' || this.state.error === "First Name shouldn't be more than characters" ? 'settings__mainAuthorTextAreaLoginError' : 'settings__mainAuthorTextAreaLogin'}`} />

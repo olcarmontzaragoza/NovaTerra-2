@@ -101,13 +101,17 @@ render() {
         <hr className="flex login__hrTop"/>
         <br className="clearBoth"/>
 
-        {/* <div onClick={() => this.googleLogin()} className="signup__loginWithGoogle"><FontAwesomeIcon icon={['fab', 'google-plus-g']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Login With Google</div></div> */}
+        <div onClick={() => this.googleLogin()} className="signup__loginWithGoogle"><FontAwesomeIcon icon={['fab', 'google-plus-g']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Login With Google</div></div>
         <div onClick={() => this.twitterLogin()} className="signup__loginWithTwitter"><FontAwesomeIcon icon={['fab', 'twitter']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Login With Twitter</div></div>
         <div onClick={() => this.gitHubLogin()} className="signup__loginWithGithub"><FontAwesomeIcon icon={['fab', 'github']} className={`signup__loginWithGoogleIcon`} /><div className="signup__loginWithGoogleText">Login With Github</div></div>
 
         {this.state.error ? <div className="login__errorBox"><p>{this.state.error}</p></div> : undefined}
 
         <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
+
+        <div className="belowSocialLoginHeight"></div>
+
+          <div className="login__signUpWithEmailBox"><hr className="login__signupWithEmailHr"/><div className="login__signupWithEmail">Login With Email</div><hr className="login__signupWithEmailHr"/></div>
 
         <div className={`settings__rightSubtitleLogin`}>Email</div>
         <input type="email" ref="email" name="email" onChange={() => { this.resetError()}} className={`settings__mainAuthorTextAreaLogin floatLeft`} />

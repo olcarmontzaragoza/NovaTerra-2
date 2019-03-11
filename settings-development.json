@@ -1,0 +1,11 @@
+{
+ "public": {},
+ "private": {
+     "oAuth": {
+         "google": {
+             "clientId": "<your-google-clientId>",
+             "secret": "<your-google-secretKey>"
+         }
+     }
+ }
+}

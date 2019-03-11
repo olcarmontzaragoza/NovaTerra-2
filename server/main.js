@@ -23,6 +23,12 @@ import '../imports/startup/simple-schema-configuration.js';
 
 // mongoose.connect('mongodb://localhost:3000', { useNewUrlParser: true })
 
+// import configureServices from './modules/configure-service';
+// Meteor.startup(() => {
+//  configureServices();
+// });
+
+
 ServiceConfiguration.configurations.remove({
   service: "github"
 });
@@ -40,8 +46,8 @@ ServiceConfiguration.configurations.remove({
 ServiceConfiguration.configurations.insert({
   service: "google",
   loginStyle: "popup",
-  clientId: "177612273728-bjmjnubs1o8iu4fv4279k6asn0egpi4j.apps.googleusercontent.com",
-  secret: "hKHJ1DDgZz-VhQV7WT4iCB_j"
+  clientId: "547349301952-mo74rerfoa00s7vquo8kghvjnr86nko4.apps.googleusercontent.com",
+  secret: "x0NTueQuR8-mMsJyNeXP41kM"
 });
 
 ServiceConfiguration.configurations.remove({

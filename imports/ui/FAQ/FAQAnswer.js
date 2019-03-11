@@ -13,38 +13,39 @@ this.state = {
 };
 }
 renderFAQBody() {
-if (this.props.id === 'faq1') {
+// if (this.props.id === 'faq1') {
+//
+// return (
+// <div>
+// NovaTerra uses Good Loop to place advertisements on our site in order to complete our goal of raising 50,000 pounds to combat environmental degradation and climate change by 2020. However, as you may have noticed, Good Loop ads aren't any ordinary ads. Instead, Good loop ads are very short videos that you must watch in full in order to donate to a charity of your choice as well as to NovaTerra. After those 15 seconds, you will be given the choice of donating to one of many charities.
+// <br/><br/>
+// 50% of all earnings made from the advertisement will be donated to that same charity, 40% to NovaTerra and 10% to Good Loop. Of the 40% of the earnings that goes to NovaTerra, we donate 90% of that to charities working to combat climate change and environmental degradation. With some quick calculations you will find that in all, 86% of all earnings made from the ad goes towards charities.
+// <br/> <br/>
+// If you wish to learn more about how Good Loop works, <a className="link" href="https://www.good-loop.com/how-it-works">click here</a>.
+// <br/> <br/>
+// How many times you wish to look at the ads is up to you, but we would encourage you to not over-watch in order to donate, as this could end our partnership with Good Loop. Although if you watch one 15 second-video per story you should be fine, but as I said before, how often you decide to watch these advertisements is completely up to you.
+// <br/><br/>
+// If you have any other questions about how Good Loop works, please don't hesitate in <Link to='/contact' className="link">contacting us</Link> or <a href="https://www.good-loop.com/contact-us" className="link">contacting Good Loop</a> is you wish to.
+// <br/><br/>
+// Hope this helps,
+// <br/><br/>
+// Oliver from NovaTerra
+// </div>
+// )
+// }
+if (this.props.id === 'faq2') {
 
 return (
 <div>
-NovaTerra uses Good Loop to place advertisements on our site in order to complete our goal of raising 50,000 pounds to combat environmental degradation and climate change by 2020. However, as you may have noticed, Good Loop ads aren't any ordinary ads. Instead, Good loop ads are very short videos that you must watch in full in order to donate to a charity of your choice as well as to NovaTerra. After those 15 seconds, you will be given the choice of donating to one of many charities.
-<br/><br/>
-50% of all earnings made from the advertisement will be donated to that same charity, 40% to NovaTerra and 10% to Good Loop. Of the 40% of the earnings that goes to NovaTerra, we donate 90% of that to charities working to combat climate change and environmental degradation. With some quick calculations you will find that in all, 86% of all earnings made from the ad goes towards charities.
-<br/> <br/>
-If you wish to learn more about how Good Loop works, <a className="link" href="https://www.good-loop.com/how-it-works">click here</a>.
-<br/> <br/>
-How many times you wish to look at the ads is up to you, but we would encourage you to not over-watch in order to donate, as this could end our partnership with Good Loop. Although if you watch one 15 second-video per story you should be fine, but as I said before, how often you decide to watch these advertisements is completely up to you.
-<br/><br/>
-If you have any other questions about how Good Loop works, please don't hesitate in <Link to='/contact' className="link">contacting us</Link> or <a href="https://www.good-loop.com/contact-us" className="link">contacting Good Loop</a> is you wish to.
-<br/><br/>
-Hope this helps,
-<br/><br/>
-Oliver from NovaTerra
-</div>
-)
-} else if (this.props.id === 'faq2') {
-
-return (
-<div>
-Unfortunately, NovaTerra has not yet established a way for advertisers to apply to advertise on our site. We have partnered with <a href="https://www.good-loop.com/" className="link">Good Loop</a>, a startup working to help websites and content creators make a difference by donating ad revenue. With Good Loop, we aren't able to choose our advertisers as we simply place the ads on a certain part of the page.
+Unfortunately, NovaTerra has not yet established a way for advertisers to apply to advertise on our site. We are temporarily partnered with Google Adsense, but are looking for an alternative form of advertising for our platform.
 <br/> <br/>
 If we do make changes to allow advertisers to place other advertisements on NovaTerra, it will be featured on this same FAQ page.
 <br/> <br/>
 If you have any other questions about advertising on NovaTerra, please don't hesitate in <Link to='/contact' className="link">contacting us</Link>.
-<br/><br/>
+<br/> <br/>
 Hope this helps,
-<br/><br/>
-Oliver from NovaTerra
+<br/> <br/>
+Oliver from NovaTerra.
 </div>
 )
 
@@ -252,9 +253,9 @@ Oliver from NovaTerra
 
   return (
   <div>
-  NovaTerra has decided that in order to complete our mission of raising awareness and funding to combat environmental degradation and climate change, we need to make our stories accessible to everyone. For this reason, we have not relied on paid subscriptions or donations from our users to keep our site running. We have opted for a relatively new advertising service called <a href="https://www.good-loop.com/" className="link">Good Loop</a>. Good Loop produces ads that don't distract from the content, produce higher earnings, but most importantly allow us to get closer to completing our goal of raising 50,000 pounds by 2020. 90% of all revenue generated from these ads on NovaTerra goes towards achieving this goal. You will find Good Loop ads below the title as well as another just below the comment section of each story. You will not find any other advertisement on any other page. If you would like to learn more about Good Loop and how it works click here.
+  NovaTerra has decided that in order to complete our mission of raising awareness and funding to combat environmental degradation and climate change, we need to make our stories accessible to everyone. For this reason, we have not relied on paid subscriptions or donations from our users to keep our site running. We have temporarily opted for Google Adsense as our advertiser in order to complete our goal of raising €50,000 by 2020.
   <br/> <br/>
-  If you have any other questions about Good Loop, please don't hesitate in <Link to='/contact' className="link">contacting us</Link> or <a href="https://www.good-loop.com/contact-us" className="link">contacting Good Loop</a>.
+  If you have any other questions about how we're fundraising, please don't hesitate in <Link to='/contact' className="link">contacting us</Link>.
   <br/> <br/>
   Hope this helps,
   <br/> <br/>
