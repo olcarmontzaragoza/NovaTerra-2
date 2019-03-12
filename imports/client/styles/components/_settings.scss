@@ -580,10 +580,10 @@ textarea:focus {
   font-size:0.97em;
   margin-top:21px;
   margin-bottom:-6px;
-  margin-left:20px;
+  margin-left:22px;
 }
 .settings__rightSubtitleLogin {
-  color:#626262;
+  color:#606060;
   font-size:0.97em;
   margin-top:13px;
   margin-bottom:-6px;
@@ -593,6 +593,7 @@ textarea:focus {
   height:49px;
   width:320px;
   font-size:1.05em;
+  margin-left:2px;
   padding-left:21px;
   border-radius:25px;
   border:none;
@@ -601,9 +602,9 @@ textarea:focus {
   margin-bottom:8px;
   margin-top:14px;
 
-  -webkit-box-shadow:   0.5px -1.2px 4.2px 1.5px #f0f0f0;
-  -moz-box-shadow:    0.5px -1.2px 4.2px 1.5px #f0f0f0;
-  box-shadow:         0.5px -1.2px 4.2px 1.5px #f0f0f0;
+  -webkit-box-shadow:   0.5px 1.2px 4.2px 1.5px #f0f0f0;
+  -moz-box-shadow:    0.5px 1.2px 4.2px 1.5px #f0f0f0;
+  box-shadow:         0.5px 1.2px 4.2px 1.5px #f0f0f0;
 
 //   -webkit-user-select: none;
 // -moz-user-select: none;
@@ -749,6 +750,20 @@ border-color:#000;
   margin-top:2px;
   margin-bottom:5px;
 }
+.profile__successBox {
+  opacity:0.8;
+  color:#fff;
+  background-color:#15a05c;
+  height:42px;
+  width:313px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:7px;
+  font-size:0.83em;
+  margin-top:2px;
+  margin-bottom:5px;
+}
 .settings__editProfile {
   color:#15a05c;
   cursor:pointer;
@@ -825,6 +840,7 @@ font-size:1em;
 }
 .editProfile__mainSection {
   float:left;
+  margin-right:60px;
   margin-left:100px;
   margin-top:-50px;
 
@@ -1299,7 +1315,7 @@ margin-right:9px;
 
   margin-right:-35px;
 
-  margin-top:-53px;
+  margin-top:-54px;
   margin-left:360px;
 
   // margin-left:20px;

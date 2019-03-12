@@ -33,6 +33,7 @@ var myWidget = cloudinary.createUploadWidget({
     cloudName: 'novaterra',
     uploadPreset: 'r4xf9yat', cropping: true }, (error, result) => {
   if (result.info.public_id) {
+  let newId = id || Session.get('currentPage').slice(6, Session.get('currentPage').length);
   let story = Stories.findOne({ _id: id });
   Meteor.call('stories.update', story._id, { mainImage: result.info.public_id });
   Session.set({ storyImageEntered: true });
@@ -244,6 +245,10 @@ componentDidMount() {
   Tracker.autorun(() => {
     let imageExists = Stories.findOne({ _id: this.props.storyId }).mainImage;
       Session.set('storyImageEntered', !!imageExists);
+
+    let otherEntered = Session.get('storyImageEntered');
+    this.setState({ otherEntered: Session.get('storyImageEntered') });
+
   });
   this.setTagsUp();
 
@@ -581,6 +586,20 @@ handleReferencesChange(model) {
   );
 
 }
+returnImageStuff() {
+
+let entered = Session.get('storyImageEntered');
+let entered2 = Stories.find({ _id: this.props.storyId }).mainImage;
+
+return (
+<div>
+<div onClick={() => this.removeImage()} className={`createStory__removeImageButton ${entered || entered2 ? '' : 'createStory__lowOpacity'}`}>Remove Image</div> <div onClick={() => this.doThis()} className="createStory__addImageButton">Upload Image</div>
+<div className="clearBoth"></div>
+{entered || entered2 ? <Image className="createStory__actualImageUploadedShadow" cloud_name='novaterra' publicId={this.findStoryPhoto() ? this.findStoryPhoto() : ''}><Transformation crop="scale" /></Image> : <img id="imagePreview" className="createStory__actualImageUploaded"/>}
+</div>
+)
+
+}
 render() {
     return (
       <div>
@@ -665,10 +684,7 @@ render() {
       <p className="createStory__imageInfo">P.S: Pick as many as you want!</p>
 
       <div className="profile__createStoryHeader">Image</div>
-      <div onClick={() => this.removeImage()} className={`createStory__removeImageButton ${Session.get('storyImageEntered') ? '' : 'createStory__lowOpacity'}`}>Remove Image</div> <div onClick={() => this.doThis()} className="createStory__addImageButton">Upload Image</div>
-      {/* <input type="file" label="Upload" id="uplodadStoryImage" ref="uploadStoryImage" onChange={this.setImageBelow.bind(this)} className="createStory__fileName" accept="image/*"/> */}
-      <div className="clearBoth"></div>
-      {Session.get('storyImageEntered') ? <Image className="createStory__actualImageUploadedShadow" cloud_name='novaterra' publicId={this.findStoryPhoto() ? this.findStoryPhoto() : ''}><Transformation crop="scale" /></Image> : <img id="imagePreview" className="createStory__actualImageUploaded"/>}
+      {this.returnImageStuff()}
 
 
 

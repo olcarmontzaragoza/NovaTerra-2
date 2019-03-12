@@ -416,42 +416,83 @@ left:20vw;
 width:800px;
 position:relative;
 }
-  @media screen and (max-width: 990px) and (min-width: 890px) {
+  @media screen and (max-width: 990px) and (min-width: 950px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:83vw;
+    width:85.7vw;
+    position:relative;
+    margin-left:66px;
+    height:176px;
+    border:1px solid #f00;
+  }
+  @media screen and (max-width: 950px) and (min-width: 890px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:85.2vw;
     position:relative;
     margin-left:66px;
     height:176px;
   }
-  @media screen and (max-width: 890px) and (min-width: 790px) {
+  @media screen and (max-width: 890px) and (min-width: 820px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:85vw;
+    width:87.5vw;
     position:relative;
     margin-left:51px;
     height:176px;
   }
-  @media screen and (max-width: 790px) and (min-width: 690px) {
+  @media screen and (max-width: 820px) and (min-width: 790px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:85vw;
+    width:87vw;
+    position:relative;
+    margin-left:51px;
+    height:176px;
+  }
+  @media screen and (max-width: 790px) and (min-width: 740px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:91.2vw;
     position:relative;
     margin-left:30px;
     height:176px;
   }
-  @media screen and (max-width: 690px) and (min-width: 590px) {
+  @media screen and (max-width: 740px) and (min-width: 690px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:85vw;
+    width:90.8vw;
+    position:relative;
+    margin-left:30px;
+    height:176px;
+  }
+  @media screen and (max-width: 690px) and (min-width: 630px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:90vw;
+    position:relative;
+    margin-left:30px;
+    height:176px;
+  }
+  @media screen and (max-width: 630px) and (min-width: 590px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:89.5vw;
     position:relative;
     margin-left:30px;
     height:176px;
@@ -463,9 +504,21 @@ position:relative;
     // justify-content:center;
     // align-items: center;
     position:relative;
-    width:85vw;
+    width:92.5vw;
     margin-left:18px;
     height:176px;
+  }
+  @media screen and (max-width: 475px) {
+    width:91vw;
+  }
+  @media screen and (max-width: 410px) {
+    width:90vw;
+  }
+  @media screen and (max-width: 370px) {
+    width:89vw;
+  }
+  @media screen and (max-width: 350px) {
+    width:88vw;
   }
 }
 .explore__mainCategoriesContainer {
@@ -562,46 +615,86 @@ left:16vw;
 width:800px;
 position:relative;
 }
-  @media screen and (max-width: 990px) and (min-width: 890px) {
+  @media screen and (max-width: 990px) and (min-width: 950px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:83vw;
+    width:85.7vw;
     position:relative;
     margin-left:66px;
     height:236px;
   }
-  @media screen and (max-width: 890px) and (min-width: 790px) {
+  @media screen and (max-width: 950px) and (min-width: 890px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:85vw;
+    width:85.2vw;
+    position:relative;
+    margin-left:66px;
+    height:236px;
+  }
+  @media screen and (max-width: 890px) and (min-width: 820px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:87.5vw;
     position:relative;
     margin-left:51px;
     height:236px;
   }
-  @media screen and (max-width: 790px) and (min-width: 690px) {
+  @media screen and (max-width: 890px) and (min-width: 820px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:85vw;
+    width:87vw;
     position:relative;
-    margin-left:30px;
+    margin-left:51px;
     height:236px;
   }
-  @media screen and (max-width: 690px) and (min-width: 590px) {
+  @media screen and (max-width: 790px) and (min-width: 740px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:85vw;
+    width:91.2vw;
     position:relative;
     margin-left:30px;
     height:236px;
   }
+  @media screen and (max-width: 740px) and (min-width: 690px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:90.8vw;
+    position:relative;
+    margin-left:30px;
+    height:236px;
+}
+@media screen and (max-width: 690px) and (min-width: 630px) {
+  overflow-x:scroll;
+  overflow-y:hidden;
+  // display:flex;
+  // justify-content:center;
+  width:90vw;
+  position:relative;
+  margin-left:30px;
+  height:236px;
+}
+@media screen and (max-width: 630px) and (min-width: 590px) {
+  overflow-x:scroll;
+  overflow-y:hidden;
+  // display:flex;
+  // justify-content:center;
+  width:89.5vw;
+  position:relative;
+  margin-left:30px;
+  height:236px;
+}
   @media screen and (max-width: 590px) {
     overflow-x:scroll;
     overflow-y:hidden;
@@ -609,10 +702,21 @@ position:relative;
     // justify-content:center;
     // align-items: center;
     position:relative;
-    width:85vw;
+    width:92.5vw;
     margin-left:18px;
     height:236px;
-
+  }
+  @media screen and (max-width: 475px) {
+    width:91vw;
+  }
+  @media screen and (max-width: 410px) {
+    width:90vw;
+  }
+  @media screen and (max-width: 370px) {
+    width:89vw;
+  }
+  @media screen and (max-width: 350px) {
+    width:88vw;
   }
 }
 .explore__mainTagsContainer {
@@ -637,42 +741,82 @@ left:20vw;
 width:800px;
 position:relative;
 }
-  @media screen and (max-width: 990px) and (min-width: 890px) {
+  @media screen and (max-width: 990px) and (min-width: 950px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:83vw;
-    position:relative;
-    margin-left:66px;
-    height:246px;
-  }
-  @media screen and (max-width: 890px) and (min-width: 790px) {
-    overflow-x:scroll;
-    overflow-y:hidden;
-    // display:flex;
-    // justify-content:center;
-    width:85vw;
+    width:85.7vw;
     position:relative;
     margin-left:51px;
     height:246px;
   }
-  @media screen and (max-width: 790px) and (min-width: 690px) {
+  @media screen and (max-width: 950px) and (min-width: 890px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:85vw;
+    width:85.2vw;
+    position:relative;
+    margin-left:51px;
+    height:246px;
+  }
+  @media screen and (max-width: 890px) and (min-width: 820px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:87.5vw;
+    position:relative;
+    margin-left:51px;
+    height:246px;
+  }
+  @media screen and (max-width: 820px) and (min-width: 790px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:87vw;
+    position:relative;
+    margin-left:51px;
+    height:246px;
+  }
+  @media screen and (max-width: 790px) and (min-width: 740px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:91.2vw;
+    position:relative;
+    margin-left:30px;
+    height:236px;
+  }
+  @media screen and (max-width: 740px) and (min-width: 690px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:90.8vw;
     position:relative;
     margin-left:30px;
     height:246px;
   }
-  @media screen and (max-width: 690px) and (min-width: 590px) {
+  @media screen and (max-width: 690px) and (min-width: 630px) {
     overflow-x:scroll;
     overflow-y:hidden;
     // display:flex;
     // justify-content:center;
-    width:85vw;
+    width:90vw;
+    position:relative;
+    margin-left:30px;
+    height:236px;
+  }
+  @media screen and (max-width: 630px) and (min-width: 590px) {
+    overflow-x:scroll;
+    overflow-y:hidden;
+    // display:flex;
+    // justify-content:center;
+    width:89.5vw;
     position:relative;
     margin-left:30px;
     height:246px;
@@ -683,9 +827,21 @@ position:relative;
     // display:flex;
     // justify-content:center;
     position:relative;
-    width:85vw;
+    width:92.5vw;
     margin-left:18px;
     height:246px;
+  }
+  @media screen and (max-width: 475px) {
+    width:91vw;
+  }
+  @media screen and (max-width: 410px) {
+    width:90vw;
+  }
+  @media screen and (max-width: 370px) {
+    width:89vw;
+  }
+  @media screen and (max-width: 350px) {
+    width:88.5vw;
   }
 }
 .explore__mainCreatorsContainer {
