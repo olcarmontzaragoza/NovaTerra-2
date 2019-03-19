@@ -46,6 +46,12 @@ border-radius: 50%;
   margin-right:-2px;
   width:55px;
   height:55px;
+
+  @media screen and (max-width: 350px) {
+    width:53.5px;
+    height:53.5px;
+    margin-left:-4px;
+  }
 }
 .nav__renderCompletionImagePercentage {
   display:inline-block;
@@ -60,6 +66,11 @@ border-radius: 50%;
   position:relative;
   top:-28px;
   margin-left:62px;
+  }
+  @media screen and (max-width: 350px) {
+  position:relative;
+  top:-28px;
+  margin-left:54px;
   }
 }
 .nav__marginTopProjectCompletion {
@@ -262,13 +273,28 @@ margin-top:-1px;
 .rightSideBarMarginTop {
   margin-top:16px;
   position:absolute;
-  right:-1.5vw;
+  right:2.9vw;
 
+  @media screen and (max-width: 941px) {
+    right:1.2vw;
+  }
+  @media screen and (max-width: 852px) {
+    right:0vw;
+  }
   @media screen and (max-width: 701px) {
-    right:-7vw;
+    right:-3.3vw;
+  }
+  @media screen and (max-width: 630px) {
+    right:-4.1vw;
   }
   @media screen and (max-width: 601px) {
-    right:-55px;
+    right:-45px;
+  }
+  @media screen and (max-width: 501px) {
+    right:-49px;
+  }
+  @media screen and (max-width: 350px) {
+    right:-57px;
   }
 }
 .notLoggedIn__rightSideBarMarginTop {
@@ -518,7 +544,7 @@ margin-top:8px;
 }
 .navNot__behindCircle {
   border-radius:50%;
-  position:absolute;
+  position:relative;
   display:flex;
   margin-top:11px;
   margin-left:-2px;
@@ -530,9 +556,25 @@ margin-top:8px;
   background-color: #378b29;
 background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
 }
+.navNot__behindCircleReact {
+  border-radius:50%;
+  position:relative;
+  display:flex;
+  top:-46px;
+  margin-bottom:-24px;
+  margin-top:-21px;
+  margin-left:-2px;
+  height:48px;
+  width:48px;
+  z-index:-1;
+
+
+  background-color: #378b29;
+background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
+}
 .navNot__behindCircleModal {
   border-radius:50%;
-  position:absolute;
+  position:relative;
   // display:flex;
   margin-top:11px;
   margin-left:-2px;
@@ -583,10 +625,79 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
           -ms-user-select: none;
               user-select: none;
 }
+.nav__notificationsStoryImageReact {
+  height:43px;
+  width:43px;
+  margin-left:36px;
+  clear:both;
+  border-radius:2px;
+  margin-top:16px;
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+.nav__notificationsStoryImageReactModal {
+  height:43px;
+  width:43px;
+  clear:both;
+  border-radius:2px;
+  margin-top:16px;
+  -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+
+              @media screen and (min-width:385px) {
+                margin-left:33px;
+              }
+                            @media screen and (max-width:385px) {
+                              position:relative;
+                              right:-25px;
+                            }
+                            @media screen and (max-width:373px) {
+                              position:relative;
+                              right:-22px;
+                            }
+                            @media screen and (max-width:365px) {
+                              position:relative;
+                              right:-17px;
+                            }
+                            @media screen and (max-width:357px) {
+                              position:relative;
+                              right:-13px;
+                            }
+                            @media screen and (max-width:350px) {
+                              position:relative;
+                              right:-7px;
+                            }
+                            @media screen and (max-width:341px) {
+                              position:relative;
+                              right:-1px;
+                            }
+                            @media screen and (max-width:336px) {
+                              position:relative;
+                              right:12px;
+                            }
+                            @media screen and (max-width:327px) {
+                              position:relative;
+                              right:19px;
+                            }
+}
 .nav__notificationsPostImagePositioning {
   margin-top:0px;
   position:relative;
   left:421px;
+  clear:both;
+}
+.nav__notificationsPostImagePositioningReact {
+  margin-top:0px;
+  position:relative;
+  left:11px;
   clear:both;
 }
 .nav__notificationsTopPadding {
@@ -596,6 +707,13 @@ width:500px;
 margin-left:-10px;
 margin-top:0px;
 }
+.nav__notificationsTopPaddingReact {
+margin-left:16px;
+height:60px;
+width:500px;
+margin-left:-10px;
+margin-top:2px;
+}
 .nav__notificationNotSeenBackground {
   background-color:#ecf7e7;
 }
@@ -603,10 +721,28 @@ margin-top:0px;
   margin-top:10.5px;
   margin-left:22px;
 }
+.notifications__topInnermarginsReact {
+  margin-top:10.5px;
+  margin-left:22px;
+  margin-bottom:-8px;
+}
 .nav__hrSeperator {
   height:1px;border:none;color:#dddddd;background-color:#dddddd; display:flex; width:407px; margin-left:52px; margin-bottom:2px; margin-top:-8px;
 }
+.nav__hrSeperatorReact {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; display:flex; width:407px; margin-left:52px; margin-bottom:2px; position:relative;
+  top:15px;
+}
 .nav__hrSeperatorModal {
+  height:1px;border:none;color:#dddddd;background-color:#dddddd; display:flex; width:286px; margin-left:42px; margin-bottom:2px; margin-top:-8px;
+
+  @media screen and (max-width:375px) {
+  margin-left:30px;
+  width:80.4vw;
+  }
+
+}
+.nav__hrSeperatorModalReact {
   height:1px;border:none;color:#dddddd;background-color:#dddddd; display:flex; width:286px; margin-left:42px; margin-bottom:2px; margin-top:-8px;
 
   @media screen and (max-width:375px) {
@@ -633,6 +769,9 @@ height:4px;
 height:0px;
 margin-top:-12px;
 }
+.nav__belowHrMarginReact {
+height:14px;
+}
 .notification__storyImage {
   height:43px;
   width:43px;
@@ -640,6 +779,7 @@ margin-top:-12px;
   border-radius:2px;
   margin-left:25px;
   float:left;
+  cursor:pointer;
   -webkit-touch-callout: none;
       -webkit-user-select: none;
        -khtml-user-select: none;
@@ -1618,6 +1758,24 @@ font-size:0.81em;
   font-size:0.98em;
   width:298px;
 }
+.nav__notificationsTextNormalUserReact {
+  margin-top:13px;
+  margin-bottom:29px;
+  float:left;
+  margin-left:-41px;
+  font-size:0.98em;
+  width:298px;
+  line-height:1.45;
+}
+.nav__notificationsTextNormalUserReactModal {
+  margin-top:13px;
+  margin-bottom:29px;
+  float:left;
+  margin-left:-41px;
+  font-size:0.93em;
+  width:175px;
+  line-height:1.45;
+}
 .nav__notificationsTextUser {
   width:300px;
 }
@@ -1868,4 +2026,8 @@ background-image: linear-gradient(315deg, #378b29 0%, #ffffff 74%);
   position:relative;
   top:-50px;
   bottom:-50px;
+}
+.nav__notificationReactType {
+  color:#b1b1b1;
+  font-size:1.2em;
 }

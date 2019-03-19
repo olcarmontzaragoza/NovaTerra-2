@@ -28,7 +28,7 @@ if (!user) {
 this.setState({ error: 'Email Not Found' });
 }
 
-process.env.MAIL_URL = 'smtp://postmaster@www.novaterra.earth:cb9f81ffffb7ee1610a7a5c49b69832b-c8c889c9-bbf6cbca@smtp.mailgun.org:587';
+process.env.MAIL_URL = '';
 
 Accounts.forgotPassword(email, () => {
   this.setState({ success: 'The Email Has Been Sent.' });

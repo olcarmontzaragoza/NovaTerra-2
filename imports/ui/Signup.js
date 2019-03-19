@@ -26,20 +26,6 @@ import Footer from './Components/Footer';
 import ReCAPTCHA from "react-google-recaptcha";
 
 Meteor.subscribe('allUsers');
-//
-// ServiceConfiguration.configurations.upsert(
-//   { service: "google" },
-//   { $set: { clientId: "177612273728-bjmjnubs1o8iu4fv4279k6asn0egpi4j.apps.googleusercontent.com", secret: "hKHJ1DDgZz-VhQV7WT4iCB_j" } }
-// );
-
-// Accounts.loginServiceConfiguration.remove({
-//   service: "google"
-// });
-// Accounts.loginServiceConfiguration.insert({
-//   service: "google",
-//   clientId: "177612273728-bjmjnubs1o8iu4fv4279k6asn0egpi4j.apps.googleusercontent.com",
-//   secret: "hKHJ1DDgZz-VhQV7WT4iCB_j"
-// });
 
 export class Signup extends React.Component {
 constructor(props) {
@@ -220,7 +206,8 @@ Accounts.createUser({ email, password, username, joinDate: moment().valueOf() },
           type: 'featureEvent',
           messageTitle: "Welcome to NovaTerra!",
           messageBody: "We are very glad that you decided to join the NovaTerra community! If you are not familiar with NovaTerra, NovaTerra is a social media platform where anyone can share stories, which can be ideas, experiences or anything they may want to share. All of this contributes to our goal of raising 50,000 euros for environmental charities by 2020.",
-          messageImage: 'novaterraSignup'
+          messageImage: 'novaterraSignup',
+          seen:false,
         };
 
         Meteor.call('notifications.insert', details);

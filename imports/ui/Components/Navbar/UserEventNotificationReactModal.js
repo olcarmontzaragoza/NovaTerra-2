@@ -5,6 +5,12 @@ import { Stories } from '../../../api/stories';
 import { Notifications } from '../../../api/notifications';
 import moment from 'moment';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 export class UserEventNotification extends React.Component {
@@ -199,22 +205,40 @@ findUserAction() {
 let userAction = this.props.users.findOne({ _id: this.props.notification.userIdEventCauser });
 return userAction;
 }
-changePage(link) {
-  window.location = `${link}`;
+getReactType(type) {
+  if (type === 'surprise') {
+
+    return 'surprise';
+
+  } else if (type === 'angry') {
+
+    return 'angry';
+
+  } else if (type === 'sad') {
+
+    return 'sad-cry';
+
+  } else if (type === 'heart') {
+
+    return 'grin-hearts';
+
+  } else if (type === 'laugh') {
+
+    return 'grin-squint-tears';
+
+  }
 }
   render() {
     return (
-      <div className={`nav__notificationsTopPadding ${!this.props.notification.seen ? 'nav__notificationNotSeenBackground' : ''}`}>
+      <div className={`nav__notificationsTopPaddingReact ${!this.props.notification.seen ? 'nav__notificationNotSeenBackground' : ''}`}>
           <div className="nav__belowHrMargin1"></div>
-          { this.props.notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperator"/> : undefined }
-          <div className="nav__belowHrMargin"></div>
-          <div className="notifications__topInnermargins">
-          <div className={`clearBoth ${this.props.notification.follow ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacing'}`}></div>
-          <a onClick={() => this.changePage(this.findUserAction().profileUrl)} className="floatLeft">{this.findUserAction().profilePhoto ? <div><Image className="notification__userImageImage floatLeft" cloud_name='novaterra' publicId={this.findUserAction().profilePhoto}><Transformation crop="thumb" /></Image><div className="navNot__behindCircle"></div></div> :
+          { this.props.notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorModalReact"/> : undefined }
+          <div className="nav__belowHrMarginReact"></div>
+          <div className="notifications__topInnermarginsReact">
+          <a onClick={() => this.changePage(this.findUserAction().profileUrl)} className="floatLeft">{this.findUserAction().profilePhoto ? <div><Image className="notification__userImageImage floatLeft" cloud_name='novaterra' publicId={this.findUserAction().profilePhoto}><Transformation crop="thumb" /></Image><div className="navNot__behindCircleReact"></div></div> :
             <img src={`${this.props.route}images/noImage.png`} className="notification__userImage"/>}</a>
-          {this.state.profileFollow ? <div className="nav__followingButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Following</div> : <div className="nav__followButtonLarge floatLeft" onClick={() => { this.toggleIsFollowing() }}>Follow</div>}
-          { this.props.notification.postImage ? <a onClick={() => this.changePage(this.props.notification.postUrl)} className="nav__notificationsPostImagePositioning"><img className="nav__notificationsStoryImage" src={this.props.notification.postImage}/></a> : undefined}
-          <div className="nav__notificationsTextNormalUser"><a onClick={() => this.changePage(this.findUserAction().profileUrl)} className="link">{this.findUserAction().username}</a><a className="">&nbsp;{this.props.notification.description}.</a>
+          <a onClick={() => this.changePage(this.props.notification.postUrl)} className="nav__notificationsPostImagePositioningReact"><Image className="nav__notificationsStoryImageReactModal" cloud_name='novaterra' publicId={this.props.notification.postImage}><Transformation crop="thumb" /></Image></a>
+          <div className="nav__notificationsTextNormalUserReactModal"><Link to={this.findUserAction().profileUrl} className="link">{this.findUserAction().username}</Link><a className="">&nbsp;{this.props.notification.description}<div className="clearBoth"></div><FontAwesomeIcon icon={['far', this.getReactType(this.props.notification.reactType)]} className='nav__notificationReactType' />.</a>
           <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(this.props.notification.created)}{/* moment(notification.created).fromNow() */}</a>
 
           </div>

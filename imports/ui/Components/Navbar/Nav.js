@@ -8,6 +8,7 @@ import { Stories } from '../../../api/stories';
 import { Notifications } from '../../../api/notifications';
 import moment from 'moment';
 import UserEventNotification from './UserEventNotification';
+import UserEventNotificationReact from './UserEventNotificationReact';
 import NavModal from './NavModal';
 
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
@@ -119,13 +120,13 @@ returnTime(time) {
   fromNow = fromNow.replace("a few seconds", "5s");
   fromNow = fromNow.replace("a minute", "1min");
   fromNow = fromNow.replace("an hour", "1h");
-  fromNow = fromNow.replace("an hour", "1d");
   fromNow = fromNow.replace("a day", "1d");
   fromNow = fromNow.replace("a year", "1y");
   fromNow = fromNow.replace("seconds", "s");
   fromNow = fromNow.replace("minutes", "min");
   fromNow = fromNow.replace("hours", "h");
   fromNow = fromNow.replace("days", "d");
+  fromNow = fromNow.replace("a month", "1m");
   fromNow = fromNow.replace("months", "m");
   fromNow = fromNow.replace("years", "y");
   fromNow = fromNow.replace(" ", "");
@@ -142,6 +143,9 @@ returnTime(time) {
   if (unSeenNotifications.length > 0) {
   return <FontAwesomeIcon icon="circle" className="floatLeft notificationsCircle" />;
   }
+  }
+  changePage(link) {
+      window.location=`${link}`;
   }
   renderNotificationsOrMessage() {
 
@@ -171,7 +175,11 @@ returnTime(time) {
 
     jsx.push((<UserEventNotification notificationNum={notificationNum} key={notification._id} notification={notification} users={this.props.users} route={this.props.route} />));
 
-    } else if (notification.type === 'storyEvent') {
+  } else if (notification.type === 'userEventReact') {
+
+  jsx.push((<UserEventNotificationReact notificationNum={notificationNum} key={notification._id} notification={notification} users={this.props.users} route={this.props.route} />));
+
+  } else if (notification.type === 'storyEvent') {
 
       let story = Stories.findOne({ _id: notification.storyId });
 
@@ -181,7 +189,7 @@ returnTime(time) {
         <div className="nav__belowHrMargin"></div>
         {notification.published ? <Link to={story.link} className="nav__notificationsPostImagePositioning"><div className="nav__notificationsFollow nav__visit">Visit</div></Link> : <div className="nav__notificationsPostImagePositioning"><div className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</div></div>}
         <div className={`${notification.published ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacingFollow'}`}></div>
-        <Link to={story.link} className="floatLeft"><Image className="notification__storyImage" cloud_name='novaterra' publicId={story.mainImage}><Transformation crop="thumb" /></Image></Link>
+        <a onClick={() => this.changePage(story.link)} className="floatLeft"><Image className="notification__storyImage" cloud_name='novaterra' publicId={story.mainImage}><Transformation crop="thumb" /></Image></a>
         <div className="nav__notificationsText nav__notificationsWidth">{notification.description}&nbsp;<br/><Link to={story.link} className="nav__notificationsStoryTitle">{story.title}.</Link>
         <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}</a>
         </div>
@@ -519,7 +527,8 @@ if (width > 1020) {
       messageTitle: "Your story is now waiting.",
       messageBody: "This is a quick check we make of each story to make sure it doesn't contain spam, advertising or misinformation. Don't worry, we aren't judging your story ;)",
       messageImage: story.mainImage,
-      storyId: story._id
+      storyId: story._id,
+      seen: false,
     };
 
     if (Notifications.find({ storyId: story._id })) {

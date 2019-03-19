@@ -84,7 +84,7 @@ publishStory(id) {
   storyId: story._id,
   published:true,
   link: `story/${link}`,
-
+  seen:false,
   };
 
   if (Notifications.find({ storyId: story._id })) {
@@ -122,6 +122,7 @@ doNotPublishStory(id) {
     messageTitle: notificationTitle,
     messageBody: notificationBody,
     isStoryEvent: true,
+    seen:false,
     };
 
     console.log('notification inserted...')

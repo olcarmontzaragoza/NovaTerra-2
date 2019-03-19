@@ -145,12 +145,15 @@ this.setState({ toggleDropDown: 'dropdown-content' });
 }
 toggleStoriesSort(num) {
 
+if (!this.props.route) {
+
 if (num === 1) {
 this.setState({ stories: this.props.published });
 } else if (num === 2) {
 this.setState({ stories: this.props.drafted });
 } else if (num === 3) {
 this.setState({ stories: this.props.waiting });
+}
 }
 
 setTimeout(

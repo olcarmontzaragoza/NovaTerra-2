@@ -543,17 +543,37 @@ border-radius:3.5px;
   /* position:absolute;
   z-index:500; */
 }
-.popularImageLineBelow {
-height:1.5px;
-border:none;
-// color:#b9b9b9;
-color:#fff;
-// background-color:#b9b9b9;
-background-color:#fff;
-width:345px;
-margin-top:-6.5px;
-margin-bottom:5px;
-}
+// .popularImageLineBelow {
+// height:1.5px;
+// border:none;
+// // color:#b9b9b9;
+// color:#fff;
+// // background-color:#b9b9b9;
+// background-color:#fff;
+// width:345px;
+// margin-top:-6.5px;
+// margin-bottom:5px;
+// }
+.ab__popularImageLineBelow {
+  height:1px;
+  border:none;
+  // color:#b9b9b9;
+  // background-color:#b9b9b9;
+  width:345px;
+  position:relative;
+  top:1px;
+  margin-top:-5px;
+
+  margin-bottom:5px;
+  margin-left:0px;
+
+  // @media screen and (min-width: 1225px) {
+  //     width:395px;
+  // }
+  // @media screen and (max-width: 1225px) and (min-width: 1070px) {
+  //   width:31.4vw;
+  // }
+  }
 .popMainImageStyle {
 margin-bottom:0px;
 margin-left:0%;
@@ -1079,7 +1099,14 @@ margin-left:95.5px;
   background-color:#fff; width:65px; height:301px; top:-81px; position:absolute; margin-left:1165px; z-index:4001; cursor:pointer;
 }
 .ab__veryBottomSpacing {
-  height:240px; margin-bottom:220px;
+  height:200px; margin-bottom:220px;
+
+  @media screen and (max-width: 755px) {
+  height:150px;
+  }
+  @media screen and (max-width: 400px) {
+  height:115px;
+  }
 }
 .ab__largerStoriesTopContainer {
   display:block; height:300px;
@@ -1118,6 +1145,12 @@ margin-left:95.5px;
   }
 }
 .ab__zero {
+  margin-left:0px;
+}
+.ab__zeroMiddle {
+  margin-left:0px;
+}
+.ab__zeroSmall {
   margin-left:0px;
 }
 .ab__1195 {

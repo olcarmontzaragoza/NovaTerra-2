@@ -2,6 +2,9 @@ import React from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 
+import { Notifications } from '../../../api/notifications';
+import MessageTooltipClickPublishReact from '../Tooltips/MessageTooltipClickPublishReact';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -36,6 +39,11 @@ this.trackScrolling = this.trackScrolling.bind(this);
 this.handleClickOutside = this.handleClickOutside.bind(this);
 this.setReactBar = this.setReactBar.bind(this);
 this.setReactIcon = this.setReactIcon.bind(this);
+this.setReactMessage = this.setReactMessage.bind(this);
+this.setReactMessage1 = this.setReactMessage1.bind(this);
+this.setReactMessage2 = this.setReactMessage2.bind(this);
+this.setReactMessage3 = this.setReactMessage3.bind(this);
+this.setReactMessage4 = this.setReactMessage4.bind(this);
 }
 renderReactButton() {
 
@@ -101,6 +109,8 @@ clickedReactionsButton(clicked) {
 
 if (Meteor.userId()) {
 
+if (!(this.props.story.userId === Meteor.userId())) {
+
 let user = Meteor.users.findOne({ _id: Meteor.userId() });
 
 let currentReactions = this.props.story.reactions;
@@ -114,6 +124,18 @@ let currentSad = this.props.story.sadReactions;
 if (this.props.story.reactions.includes(Meteor.userId())) {
 
 if (currentHearts.includes(Meteor.userId())) {
+
+  let details = {
+  description: "has reacted to your post",
+  userIdEventCauser: Meteor.userId(),
+  thisUserId: this.props.story.userId,
+  created: moment().valueOf(),
+  type: 'userEventReact',
+  reactType: clicked,
+  postImage: this.props.story.mainImage,
+  postUrl: this.props.story.link,
+  seen: false,
+  }
 
   let reacted = '';
 
@@ -131,7 +153,16 @@ if (currentHearts.includes(Meteor.userId())) {
     reacted = 'surprise';
 
     Meteor.call('stories.update', this.props.story._id, { suprisedReactions: newSurprised, heartReactions: newHeartReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'laugh') {
 
@@ -141,7 +172,16 @@ if (currentHearts.includes(Meteor.userId())) {
     reacted = 'laugh';
 
     Meteor.call('stories.update', this.props.story._id, { laughReactions: newLaughs, heartReactions: newHeartReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'angry') {
 
@@ -151,7 +191,16 @@ if (currentHearts.includes(Meteor.userId())) {
     reacted = 'angry';
 
     Meteor.call('stories.update', this.props.story._id, { angryReactions: newAngry, heartReactions: newHeartReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'sad') {
 
@@ -161,21 +210,50 @@ if (currentHearts.includes(Meteor.userId())) {
     reacted = 'sad';
 
     Meteor.call('stories.update', this.props.story._id, { sadReactions: newSad, heartReactions: newHeartReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   }
 
 } else {
+
   let newReactions = currentReactions;
   let index = newReactions.indexOf(Meteor.userId());
   newReactions.splice(index, 1);
 
   Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, heartReactions: newHeartReactions });
-  // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+  let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+  if (notification) {
+  Meteor.call('notifications.remove', notification._id);
+}
 }
     this.setState({ reacted });
   }
 else if (currentSurprised.includes(Meteor.userId())) {
+
+  let details = {
+  description: "has reacted to your post",
+  userIdEventCauser: Meteor.userId(),
+  thisUserId: this.props.story.userId,
+  created: moment().valueOf(),
+  type: 'userEventReact',
+  reactType: clicked,
+  postImage: this.props.story.mainImage,
+  postUrl: this.props.story.link,
+  seen: false,
+  }
 
   let reacted = '';
 
@@ -193,7 +271,16 @@ else if (currentSurprised.includes(Meteor.userId())) {
     reacted = 'heart';
 
     Meteor.call('stories.update', this.props.story._id, { heartReactions: newHearts, suprisedReactions: newSurprisedReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'laugh') {
 
@@ -203,7 +290,16 @@ else if (currentSurprised.includes(Meteor.userId())) {
     reacted = 'laugh';
 
     Meteor.call('stories.update', this.props.story._id, { laughReactions: newLaughs, suprisedReactions: newSurprisedReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'angry') {
 
@@ -213,7 +309,16 @@ else if (currentSurprised.includes(Meteor.userId())) {
     reacted = 'angry';
 
     Meteor.call('stories.update', this.props.story._id, { angryReactions: newAngry, suprisedReactions: newSurprisedReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'sad') {
 
@@ -223,7 +328,16 @@ else if (currentSurprised.includes(Meteor.userId())) {
     reacted = 'sad';
 
     Meteor.call('stories.update', this.props.story._id, { sadReactions: newSad, suprisedReactions: newSurprisedReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   }
 
@@ -233,11 +347,30 @@ else if (currentSurprised.includes(Meteor.userId())) {
   newReactions.splice(index, 1);
 
   Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, suprisedReactions: newSurprisedReactions });
-  // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+  let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+  if (notification) {
+  Meteor.call('notifications.remove', notification._id);
+}
 }
     this.setState({ reacted });
 }
 else if (currentLaughs.includes(Meteor.userId())) {
+
+  let details = {
+  description: "has reacted to your post",
+  userIdEventCauser: Meteor.userId(),
+  thisUserId: this.props.story.userId,
+  created: moment().valueOf(),
+  type: 'userEventReact',
+  reactType: clicked,
+  postImage: this.props.story.mainImage,
+  postUrl: this.props.story.link,
+  seen: false,
+  }
 
     let reacted = '';
 
@@ -255,7 +388,16 @@ else if (currentLaughs.includes(Meteor.userId())) {
       reacted = 'heart';
 
       Meteor.call('stories.update', this.props.story._id, { heartReactions: newHearts, laughReactions: newLaughReactions });
-      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+      let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+      let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+      if (notification) {
+      Meteor.call('notifications.remove', notification._id);
+    }
+
+      Meteor.call('notifications.insert', details);
 
     } else if (clicked === 'surprise') {
 
@@ -265,7 +407,16 @@ else if (currentLaughs.includes(Meteor.userId())) {
       reacted = 'surprise';
 
       Meteor.call('stories.update', this.props.story._id, { suprisedReactions: newSurprised, laughReactions: newLaughReactions });
-      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+      let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+      let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+      if (notification) {
+      Meteor.call('notifications.remove', notification._id);
+    }
+
+      Meteor.call('notifications.insert', details);
 
     } else if (clicked === 'angry') {
 
@@ -275,7 +426,15 @@ else if (currentLaughs.includes(Meteor.userId())) {
       reacted = 'angry';
 
       Meteor.call('stories.update', this.props.story._id, { angryReactions: newAngry, laughReactions: newLaughReactions });
-      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+      let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+      let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+      if (notification) {
+      Meteor.call('notifications.remove', notification._id);
+    }
+
+      Meteor.call('notifications.insert', details);
 
     } else if (clicked === 'sad') {
 
@@ -285,7 +444,16 @@ else if (currentLaughs.includes(Meteor.userId())) {
       reacted = 'sad';
 
       Meteor.call('stories.update', this.props.story._id, { sadReactions: newSad, laughReactions: newLaughReactions });
-      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+      let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+      let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+      if (notification) {
+      Meteor.call('notifications.remove', notification._id);
+    }
+
+      Meteor.call('notifications.insert', details);
 
     }
 
@@ -295,11 +463,30 @@ else if (currentLaughs.includes(Meteor.userId())) {
     newReactions.splice(index, 1);
 
     Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, laughReactions: newLaughReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
   }
       this.setState({ reacted });
 }
 else if (currentAngry.includes(Meteor.userId())) {
+
+  let details = {
+  description: "has reacted to your post",
+  userIdEventCauser: Meteor.userId(),
+  thisUserId: this.props.story.userId,
+  created: moment().valueOf(),
+  type: 'userEventReact',
+  reactType: clicked,
+  postImage: this.props.story.mainImage,
+  postUrl: this.props.story.link,
+  seen: false,
+  }
 
       let reacted = '';
 
@@ -317,7 +504,16 @@ else if (currentAngry.includes(Meteor.userId())) {
         reacted = 'heart';
 
         Meteor.call('stories.update', this.props.story._id, { heartReactions: newHearts, angryReactions: newAngryReactions });
-        // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+        let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+        let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+        if (notification) {
+        Meteor.call('notifications.remove', notification._id);
+      }
+
+        Meteor.call('notifications.insert', details);
 
       } else if (clicked === 'surprise') {
 
@@ -327,7 +523,16 @@ else if (currentAngry.includes(Meteor.userId())) {
         reacted = 'surprise';
 
         Meteor.call('stories.update', this.props.story._id, { suprisedReactions: newSurprised, angryReactions: newAngryReactions });
-        // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+        let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+        let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+        if (notification) {
+        Meteor.call('notifications.remove', notification._id);
+      }
+
+        Meteor.call('notifications.insert', details);
 
       } else if (clicked === 'laugh') {
 
@@ -337,7 +542,16 @@ else if (currentAngry.includes(Meteor.userId())) {
         reacted = 'laugh';
 
         Meteor.call('stories.update', this.props.story._id, { laughReactions: newLaughs, angryReactions: newAngryReactions });
-        // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+        let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+        let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+        if (notification) {
+        Meteor.call('notifications.remove', notification._id);
+      }
+
+        Meteor.call('notifications.insert', details);
 
       } else if (clicked === 'sad') {
 
@@ -347,7 +561,16 @@ else if (currentAngry.includes(Meteor.userId())) {
         reacted = 'sad';
 
         Meteor.call('stories.update', this.props.story._id, { sadReactions: newSad, angryReactions: newAngryReactions });
-        // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+        let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+        let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+        if (notification) {
+        Meteor.call('notifications.remove', notification._id);
+      }
+
+        Meteor.call('notifications.insert', details);
 
       }
 
@@ -357,11 +580,32 @@ else if (currentAngry.includes(Meteor.userId())) {
       newReactions.splice(index, 1);
 
       Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, angryReactions: newAngryReactions });
-      // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+      let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+      let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+      if (notification) {
+      Meteor.call('notifications.remove', notification._id);
+    }
+
     }
         this.setState({ reacted });
 }
 else if (currentSad.includes(Meteor.userId())) {
+
+  let details = {
+  description: "has reacted to your post",
+  userIdEventCauser: Meteor.userId(),
+  thisUserId: this.props.story.userId,
+  created: moment().valueOf(),
+  type: 'userEventReact',
+  reactType: clicked,
+  postImage: this.props.story.mainImage,
+  postUrl: this.props.story.link,
+  seen: false,
+  }
+
   let reacted = '';
 
   let newSadReactions = currentSad;
@@ -378,7 +622,17 @@ else if (currentSad.includes(Meteor.userId())) {
     reacted = 'heart';
 
     Meteor.call('stories.update', this.props.story._id, { heartReactions: newHearts, sadReactions: newSadReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'surprise') {
 
@@ -388,7 +642,16 @@ else if (currentSad.includes(Meteor.userId())) {
     reacted = 'surprise';
 
     Meteor.call('stories.update', this.props.story._id, { suprisedReactions: newSurprised, sadReactions: newSadReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'laugh') {
 
@@ -398,7 +661,16 @@ else if (currentSad.includes(Meteor.userId())) {
     reacted = 'laugh';
 
     Meteor.call('stories.update', this.props.story._id, { laughReactions: newLaughs, sadReactions: newSadReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   } else if (clicked === 'angry') {
 
@@ -408,7 +680,16 @@ else if (currentSad.includes(Meteor.userId())) {
     reacted = 'angry';
 
     Meteor.call('stories.update', this.props.story._id, { angryReactions: newAngry, sadReactions: newSadReactions });
-    // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+    let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+    let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+    if (notification) {
+    Meteor.call('notifications.remove', notification._id);
+  }
+
+    Meteor.call('notifications.insert', details);
 
   }
 
@@ -418,11 +699,30 @@ else if (currentSad.includes(Meteor.userId())) {
   newReactions.splice(index, 1);
 
   Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, sadReactions: newSadReactions });
-  // Meteor.call('notifications.insert', this.props.story._id, { likes: newLikes });
+
+  let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+  let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+  if (notification) {
+  Meteor.call('notifications.remove', notification._id);
+}
 }
     this.setState({ reacted });
 }
 } else {
+
+  let details = {
+  description: "has reacted to your post",
+  userIdEventCauser: Meteor.userId(),
+  thisUserId: this.props.story.userId,
+  created: moment().valueOf(),
+  type: 'userEventReact',
+  reactType: clicked,
+  postImage: this.props.story.mainImage,
+  postUrl: this.props.story.link,
+  seen: false,
+  }
 
 let reacted = '';
 
@@ -437,6 +737,16 @@ if (clicked === 'heart') {
   reacted = 'heart';
   Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, heartReactions: newHearts });
 
+  let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+  let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+  if (notification) {
+  Meteor.call('notifications.remove', notification._id);
+}
+
+  Meteor.call('notifications.insert', details);
+
 } else if (clicked === 'surprise') {
 
   let newSurprised = currentSurprised;
@@ -444,6 +754,16 @@ if (clicked === 'heart') {
 
   reacted = 'surprise';
   Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, suprisedReactions: newSurprised });
+
+  let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+  let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+  if (notification) {
+  Meteor.call('notifications.remove', notification._id);
+}
+
+  Meteor.call('notifications.insert', details);
 
 } else if (clicked === 'laugh') {
 
@@ -453,6 +773,16 @@ if (clicked === 'heart') {
   reacted = 'laugh';
   Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, laughReactions: newLaughs });
 
+  let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+  let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+  if (notification) {
+  Meteor.call('notifications.remove', notification._id);
+}
+
+  Meteor.call('notifications.insert', details);
+
 } else if (clicked === 'angry') {
 
   let newAngry = currentAngry;
@@ -461,6 +791,16 @@ if (clicked === 'heart') {
   reacted = 'angry';
   Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, angryReactions: newAngry });
 
+  let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+  let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+  if (notification) {
+  Meteor.call('notifications.remove', notification._id);
+}
+
+  Meteor.call('notifications.insert', details);
+
 } else if (clicked === 'sad') {
 
   let newSad = currentSad;
@@ -468,12 +808,43 @@ if (clicked === 'heart') {
 
   reacted = 'sad';
   Meteor.call('stories.update', this.props.story._id, { reactions: newReactions, sadReactions: newSad });
+
+  let user = Meteor.users.findOne({ _id: this.props.story.userId });
+
+  let notification = Notifications.findOne({ postUrl: this.props.story.link, description: 'has reacted to your post', userIdEventCauser: Meteor.userId(), thisUserId: user._id, });
+
+  if (notification) {
+  Meteor.call('notifications.remove', notification._id);
+}
+
+  Meteor.call('notifications.insert', details);
 }
 this.setState({ reacted });
 }
 } else {
+  this.checkOpen(clicked);
+}
+} else {
   window.location="/login";
 }
+}
+setReactMessage(node) {
+      this.reactMessage = node;
+}
+setReactMessage1(node) {
+      this.reactMessage1 = node;
+}
+setReactMessage2(node) {
+      this.reactMessage2 = node;
+}
+setReactMessage3(node) {
+      this.reactMessage3 = node;
+}
+setReactMessage4(node) {
+      this.reactMessage4 = node;
+}
+setReactIcon(node) {
+      this.reactIcon = node;
 }
 componentDidMount() {
   this.renderReactButton();
@@ -494,6 +865,22 @@ setReactIcon(node) {
   if (this.reactBar && this.reactIcon && !this.reactBar.contains(e.target) && !this.reactIcon.contains(e.target)) {
     console.log("hasn't actually clicked it");
     this.setState({ reactOpen: false });
+  }
+
+  if (this.reactMessage && !this.reactMessage.contains(e.target)) {
+    this.setState({ publishOpen: false });
+  }
+  if (this.reactMessage && !this.reactMessage1.contains(e.target)) {
+    this.setState({ publishOpen1: false });
+  }
+  if (this.reactMessage && !this.reactMessage2.contains(e.target)) {
+    this.setState({ publishOpen2: false });
+  }
+  if (this.reactMessage && !this.reactMessage3.contains(e.target)) {
+    this.setState({ publishOpen3: false });
+  }
+  if (this.reactMessage && !this.reactMessage4.contains(e.target)) {
+    this.setState({ publishOpen4: false });
   }
 }
 trackScrolling(e) {
@@ -533,6 +920,75 @@ returnTopStyle() {
 
 
 }
+renderReactTooltip() {
+
+  return (
+    <div className="nav__InnerContentPublishTooltip">
+    <FontAwesomeIcon icon={['fas', 'times-circle']} onClick={() => this.setState({ publishOpen: false })} className='nav__publishTooltipX' />
+    <div className="nav__publishTooltipText">You can't react to your own post.</div>
+    </div>
+  )
+}
+renderReactTooltip1() {
+
+  return (
+    <div className="nav__InnerContentPublishTooltip">
+    <FontAwesomeIcon icon={['fas', 'times-circle']} onClick={() => this.setState({ publishOpen1: false })} className='nav__publishTooltipX' />
+    <div className="nav__publishTooltipText">You can't react to your own post.</div>
+    </div>
+  )
+}
+renderReactTooltip2() {
+
+  return (
+    <div className="nav__InnerContentPublishTooltip">
+    <FontAwesomeIcon icon={['fas', 'times-circle']} onClick={() => this.setState({ publishOpen2: false })} className='nav__publishTooltipX' />
+    <div className="nav__publishTooltipText">You can't react to your own post.</div>
+    </div>
+  )
+}
+renderReactTooltip3() {
+
+  return (
+    <div className="nav__InnerContentPublishTooltip">
+    <FontAwesomeIcon icon={['fas', 'times-circle']} onClick={() => this.setState({ publishOpen3: false })} className='nav__publishTooltipX' />
+    <div className="nav__publishTooltipText">You can't react to your own post.</div>
+    </div>
+  )
+}
+renderReactTooltip4() {
+
+  return (
+    <div className="nav__InnerContentPublishTooltip">
+    <FontAwesomeIcon icon={['fas', 'times-circle']} onClick={() => this.setState({ publishOpen4: false })} className='nav__publishTooltipX' />
+    <div className="nav__publishTooltipText">You can't react to your own post.</div>
+    </div>
+  )
+}
+checkOpen(clicked) {
+    if (clicked === 'sad') {
+
+      this.setState({ publishOpen4: true });
+
+    } else if (clicked === 'angry') {
+
+      this.setState({ publishOpen3: true });
+
+    } else if (clicked === 'laugh') {
+
+      this.setState({ publishOpen2: true });
+
+    } else if (clicked === 'heart') {
+
+      this.setState({ publishOpen: true });
+
+    } else if (clicked === 'surprise') {
+
+      this.setState({ publishOpen1: true });
+
+    }
+
+}
 render() {
     return (
       <div>
@@ -545,32 +1001,32 @@ render() {
         </div>
 
         <div ref={this.setReactBar} className={`${this.state.trackClassName === "sidebar__fixed" ? "story__reactionSidenav" : "story__reactionSidenavAbs"} story__socialSideBarReactions ${this.state.reactOpen ? 'story__fullWidth' : 'story__noWidth'}`} id="referencesSideBar">
-          <div className="story__insideReactionMargins">
+          <div className="story__insideReactionMargins2">
 
-            <div className="story__invidiualReactionsTooltip">
-            <FontAwesomeIcon icon={['far', 'grin-hearts']} onClick={() => this.clickedReactionsButton('heart')} className={`${this.state.reacted === 'heart' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
-            <div className="story__reactionsSmallShownUnder">{this.props.story.heartReactions.length}</div>
-            </div>
+          <div ref={this.setReactMessage}><MessageTooltipClickPublishReact open={this.state.publishOpen} insideClassName="top__insideReactTooltipClassNameSide" inside={this.renderReactTooltip()} storyUserId={this.props.story.userId} outside={<div className="story__invidiualReactionsTooltip">
+          <FontAwesomeIcon icon={['far', 'grin-hearts']} onClick={() => this.clickedReactionsButton('heart')} className={`${this.state.reacted === 'heart' ? "ac__smallMainReactionIconSelected" : "ac__smallMainReactionIcon"}`} />
+          <div className="story__reactionsSmallShownUnder">{this.props.story.heartReactions.length}</div>
+          </div>}/></div>
 
-            <div className="story__invidiualReactionsTooltip">
-            <FontAwesomeIcon icon={['far', 'surprise']} onClick={() => this.clickedReactionsButton('surprise')} className={`${this.state.reacted === 'surprise' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
-            <div className="story__reactionsSmallShownUnder">{this.props.story.suprisedReactions.length}</div>
-            </div>
+          <div ref={this.setReactMessage1}><MessageTooltipClickPublishReact open={this.state.publishOpen1} insideClassName="top__insideReactTooltipClassNameSide" inside={this.renderReactTooltip1()} storyUserId={this.props.story.userId} outside={<div className="story__invidiualReactionsTooltip">
+          <FontAwesomeIcon icon={['far', 'surprise']} onClick={() => this.clickedReactionsButton('surprise')} className={`${this.state.reacted === 'surprise' ? "ac__smallMainReactionIconSelected" : "ac__smallMainReactionIcon"}`} />
+          <div className="story__reactionsSmallShownUnder">{this.props.story.suprisedReactions.length}</div>
+          </div>}/></div>
 
-            <div className="story__invidiualReactionsTooltip">
-            <FontAwesomeIcon icon={['far', 'grin-squint-tears']} onClick={() => this.clickedReactionsButton('laugh')} className={`${this.state.reacted === 'laugh' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
-            <div className="story__reactionsSmallShownUnder">{this.props.story.laughReactions.length}</div>
-            </div>
+          <div ref={this.setReactMessage2}><MessageTooltipClickPublishReact open={this.state.publishOpen2} insideClassName="top__insideReactTooltipClassNameSide" inside={this.renderReactTooltip2()} storyUserId={this.props.story.userId} outside={<div className="story__invidiualReactionsTooltip">
+          <FontAwesomeIcon icon={['far', 'grin-squint-tears']} onClick={() => this.clickedReactionsButton('laugh')} className={`${this.state.reacted === 'laugh' ? "ac__smallMainReactionIconSelected" : "ac__smallMainReactionIcon"}`} />
+          <div className="story__reactionsSmallShownUnder">{this.props.story.laughReactions.length}</div>
+          </div>}/></div>
 
-            <div className="story__invidiualReactionsTooltip">
-            <FontAwesomeIcon icon={['far', 'angry']} onClick={() => this.clickedReactionsButton('angry')} className={`${this.state.reacted === 'angry' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
-            <div className="story__reactionsSmallShownUnder">{this.props.story.angryReactions.length}</div>
-            </div>
+          <div ref={this.setReactMessage3}><MessageTooltipClickPublishReact open={this.state.publishOpen3} insideClassName="top__insideReactTooltipClassNameSide" inside={this.renderReactTooltip3()} storyUserId={this.props.story.userId} outside={<div className="story__invidiualReactionsTooltip">
+          <FontAwesomeIcon icon={['far', 'angry']} onClick={() => this.clickedReactionsButton('angry')} className={`${this.state.reacted === 'angry' ? "ac__smallMainReactionIconSelected" : "ac__smallMainReactionIcon"}`} />
+          <div className="story__reactionsSmallShownUnder">{this.props.story.angryReactions.length}</div>
+          </div>}/></div>
 
-            <div className="story__invidiualReactionsTooltip">
-            <FontAwesomeIcon icon={['far', 'sad-cry']} onClick={() => this.clickedReactionsButton('sad')} className={`${this.state.reacted === 'sad' ? "story__smallMainReactionIconSelected" : "story__smallMainReactionIcon"}`} />
-            <div className="story__reactionsSmallShownUnder">{this.props.story.sadReactions.length}</div>
-            </div>
+          <div ref={this.setReactMessage4}><MessageTooltipClickPublishReact open={this.state.publishOpen4} insideClassName="top__insideReactTooltipClassNameSide" inside={this.renderReactTooltip4()} storyUserId={this.props.story.userId} outside={<div className="story__invidiualReactionsTooltip">
+          <FontAwesomeIcon icon={['far', 'sad-cry']} onClick={() => this.clickedReactionsButton('sad')} className={`${this.state.reacted === 'sad' ? "ac__smallMainReactionIconSelected" : "ac__smallMainReactionIcon"}`} />
+          <div className="story__reactionsSmallShownUnder">{this.props.story.sadReactions.length}</div>
+          </div>}/></div>
 
           </div>
         </div>

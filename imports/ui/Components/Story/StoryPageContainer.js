@@ -124,7 +124,7 @@ render() {
         <div ref={this.setTopContainerBottom1Ref} className="bottomContainerStory1">
         <a onClick={() => this.switchStory(this.props.stories[0].link)}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[0].mainImage}><Transformation crop="thumb" /></Image></a>
 
-            <hr className="popularImageLineBelow" />
+            <hr className="ab__popularImageLineBelow" />
         <div className="popularContainerHeightsAndShadow">
         <div className="popularContainerInnerMargins">
           <div ref={this.setCategoryBottom1Ref}><Link to={`/${this.props.stories[0].category}`} className="popularStoryCategories">
@@ -172,7 +172,7 @@ render() {
             <div ref={this.setTopContainerBottom2Ref} className="bottomContainerStory2">
             <a onClick={() => this.switchStory(this.props.stories[1].link)}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[1].mainImage}><Transformation crop="thumb" /></Image></a>
 
-            <hr className="popularImageLineBelow" />
+            <hr className="ab__popularImageLineBelow" />
         <div className="popularContainerHeightsAndShadow">
         <div className="popularContainerInnerMargins">
         <div ref={this.setCategoryBottom2Ref}><Link to={`/${this.props.stories[1].category}`} className="popularStoryCategories">
@@ -223,7 +223,7 @@ render() {
         <div ref={this.setTopContainerBottom3Ref} className="bottomContainerStory3">
         <a onClick={() => this.switchStory(this.props.stories[2].link)}><Image cloud_name='novaterra' className="imageid popMainImageStyle" publicId={this.props.stories[2].mainImage}><Transformation crop="thumb" /></Image></a>
 
-            <hr className="popularImageLineBelow" />
+            <hr className="ab__popularImageLineBelow" />
         <div className="popularContainerHeightsAndShadow">
         <div className="popularContainerInnerMargins">
         <div ref={this.setCategoryBottom3Ref}><Link to={`/${this.props.stories[2].category}`} className="popularStoryCategories">

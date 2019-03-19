@@ -5,6 +5,7 @@ import { Notifications } from '../../../api/notifications';
 import { Stories } from '../../../api/stories';
 import moment from 'moment';
 import UserEventNotificationModal from './UserEventNotificationModal';
+import UserEventNotificationReactModal from './UserEventNotificationReactModal';
 import { Link } from 'react-router-dom';
 import { funcReplace } from '../../../routes/routes.js';
 
@@ -102,6 +103,9 @@ if (user.emails[0].address === 'olcarmontzaragoza@gmail.com') {
   )
 }
 }
+changePage(link) {
+  window.location = `${link}`;
+}
 renderNotificationsOrMessage() {
 
 if (!!Meteor.userId()) {
@@ -131,7 +135,7 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
       <div className={notificationNum > 0 ? "nav__belowHrMargin1" : "nav__belowHrMargin1First"}></div>
       { notificationNum > 0 ? <hr className="clearBoth flex nav__hrSeperatorModal"/> : <div className="navModal__negativeMarginBottom"></div> }
       <div className="nav__belowHrMargin"></div>
-      {notification.published ? <Link to={story.link} className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__visitModal">Visit</button></Link> : <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>}
+      {notification.published ? <a onClick={() => this.changePage(story.link)} className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__visitModal">Visit</button></a> : <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollow nav__learnWhy" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>}
       <div className={`${notification.published ? 'nav__userEventElimateSpacingFollow' : 'nav__userEventElimateSpacingFollow'}`}></div>
       <Link to={story.link} className="floatLeft"><Image className="notification__storyImageModal" cloud_name='novaterra' publicId={story.mainImage}><Transformation crop="thumb" /></Image></Link>
       <div className="nav__notificationsTextModal nav__notificationsWidth">{notification.description}&nbsp;<br/><Link to={story.link} className="nav__notificationsStoryTitle">{story.title}.</Link>
@@ -148,15 +152,18 @@ Notifications.find({ thisUserId: Meteor.userId() }, {
       <div className="nav__belowHrMargin"></div>
       <div className="nav__notificationsPostImagePositioning"><button className="nav__notificationsFollowModal nav__learnMoreModal" onClick={() => { this.setState({ notificationsMessage: notification}) }}>Learn</button></div>
       <div className="nav__userEventElimateSpacing1"></div>
-      <a className="floatLeft"><img src={notification.messageImage} className="notification__storyImageModal"/></a>
+      <a className="floatLeft"><Image className="notification__storyImageModal" cloud_name='novaterra' publicId={notification.messageImage}><Transformation crop="thumb" /></Image></a>
       <div className="nav__notificationsTextModal nav__notificationsWidth">{notification.description.length > 145 ? notification.description.slice(0, 145) + '...' : notification.description}.&nbsp;
       <a className="nav__notificationsFromNow">&nbsp;{this.returnTime(notification.created)}{/* moment(notification.created).fromNow() */}</a>
       </div>
       <div className="clearBoth"></div>
       </div>))
 
-  }
+  } else if (notification.type === 'userEventReact') {
 
+    jsx.push((<UserEventNotificationReactModal notificationNum={notificationNum} key={notification._id} notification={notification} users={this.props.users} route={this.props.route} />));
+
+  }
   });
 
   return jsx;
